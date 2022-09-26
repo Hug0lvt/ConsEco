@@ -22,7 +22,7 @@ La documentation est complète.
 langage C#
 Réutilisation du code mais attention serveur lourd ? ou client lourd ? 
 
-# C\# + WPFv + .Net
+# C\# + WPF + .Net
 Nous avons une experiance du C#
 de WPF aussi mais uniquement Windows
 
