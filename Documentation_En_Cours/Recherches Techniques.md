@@ -13,13 +13,20 @@ Notre équipe a déja une experience de programmation en C# à travers la SAE2.0
 C# est relativement rapide car le langage est fortement typé. Le système n’as donc pas à calculer la place de la mémoire, il la connais déjà.
 
 # Flutter
-
 Le framework de Google est aventageux parce qu'il est multi plateforme, il permet de réaliser des applications web, mobiles (IOS et Android) mais aussi des applications de bureau.
 Flutter est plus performant que React Native, Ionic d'après (`https://www.appstud.com/fr/blog-flutter-avantages-inconvenients/`)
 Mais le framework reste moins performant q'une application native.
 La documentation est complète.
 
 # Blazor
-
 langage C#
 Réutilisation du code mais attention serveur lourd ? ou client lourd ? 
+
+# C\# + WPFv + .Net
+Nous avons une experiance du C#
+de WPF aussi mais uniquement Windows
+
+# Xamarin 
+Multi-plateforme
+C#
+Réutilisation du code
