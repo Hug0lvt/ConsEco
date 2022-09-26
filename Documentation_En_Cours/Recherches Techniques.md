@@ -21,3 +21,5 @@ La documentation est complète.
 
 # Blazor
 
+langage C#
+Réutilisation du code mais attention serveur lourd ? ou client lourd ? 
