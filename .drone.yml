@@ -1,0 +1,23 @@
+kind: pipeline
+type: docker
+name: CI_CONSECO
+
+trigger :
+    event:
+        - push
+
+steps:
+    - name: build
+      image: mcr.microsoft.com/dotnet/sdk:6.0
+      commands:
+        - cd Code
+        - dotnet restore CI_CONSECO.sln
+        - dotnet build CI_CONSECO.sln -c Release --no-restore
+        - dotnet publish CI_CONSECO.sln -c Release --no-restore -o CI_PROJECT_DIR/build/release
+    - name: tests
+      image: mcr.microsoft.com/dotnet/sdk:6.0
+      commands:
+        - cd Code
+        - dotnet restore CI_CONSECO.sln
+        - dotnet test CI_CONSECO.sln --no-restore
+      depends_on: [build]
