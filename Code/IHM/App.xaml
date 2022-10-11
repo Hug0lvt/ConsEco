@@ -11,7 +11,7 @@
         <Style x:Key="BorderRessource" TargetType="Border">
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Margin" Value="15"/>
+            <Setter Property="Margin" Value="20"/>
         </Style>
 
         <Style x:Key="TextBlockRessource" TargetType="TextBlock">
@@ -21,7 +21,8 @@
 
         <Style x:Key="TransparentButtonRessource" TargetType="Button">
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
