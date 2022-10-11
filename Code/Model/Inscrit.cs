@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    internal class Inscrit
+    public class Inscrit
     {
         public Inscrit(string id, string nom, string mail, string prenom, string mdp, double soldeTotal)
         {

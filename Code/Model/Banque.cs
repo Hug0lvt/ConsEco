@@ -27,7 +27,7 @@ namespace Model
 
         private SupprimerCompte(Compte compte)
         {
-          ListeDesComptes.Remove(compte);
+            ListeDesComptes.Remove(compte);
         }
     }
 }
