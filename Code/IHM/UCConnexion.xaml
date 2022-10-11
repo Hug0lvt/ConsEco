@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel Background="#F2C98C">
-        <Border DockPanel.Dock="Top" Style="{StaticResource BorderRessource} ">
+        <Border DockPanel.Dock="Top" Style="{StaticResource BorderRessource}">
             <Border.Background>White</Border.Background>
             <TextBlock Text="Login"/>
         </Border>
