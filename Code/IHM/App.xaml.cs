@@ -13,5 +13,6 @@ namespace IHM
     /// </summary>
     public partial class App : Application
     {
+        public Navigator Navigator { get; private set; } = new Navigator();
     }
 }

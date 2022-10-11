@@ -18,6 +18,8 @@ namespace IHM
         public const string PART_PLANNIFICATION = "Plannification";
         public const string PART_STATISTIQUE = "Statistique";
 
+        public const string PART_CONNEXION = "Connexion";
+
         public ReadOnlyDictionary<string, Func<UserControl>> WindowPart { get; private set; }
 
         Dictionary<string, Func<UserControl>> windowPart { get; set; } = new Dictionary<string, Func<UserControl>>
@@ -29,11 +31,19 @@ namespace IHM
             // [PART_STATISTIQUE] = () => new UCStatistique(),
         };
 
+        public ReadOnlyDictionary<string, Func<UserControl>> WindowMain { get; private set; }
+
+        Dictionary<string, Func<UserControl>> windowMain { get; set; } = new Dictionary<string, Func<UserControl>>
+        {
+            [PART_CONNEXION] = () => new UCConnexion(),
+        };
+
         public Navigator()
         {
             WindowPart = new ReadOnlyDictionary<string, Func<UserControl>>(windowPart);
+            WindowMain = new ReadOnlyDictionary<string, Func<UserControl>>(windowMain);
 
-            SelectedUserControlCreator = windowPart.First();
+            SelectedUserControlCreator = windowMain.First();
         }
 
         public KeyValuePair<string, Func<UserControl>> SelectedUserControlCreator

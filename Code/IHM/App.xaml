@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:IHM"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style x:Key="BorderRessource" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+
+        <Style x:Key="TextBlockRessource" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property=""
+        </Style>
          
     </Application.Resources>
 </Application>

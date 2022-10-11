@@ -20,9 +20,11 @@ namespace IHM
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Navigator Nav => (App.Current as App).Navigator;
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
         }
     }
 }
