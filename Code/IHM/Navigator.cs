@@ -59,7 +59,7 @@ namespace IHM
 
         private KeyValuePair<string, Func<UserControl>> selectedUserControlCreator;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
         void OnPropertyChanged([CallerMemberName] string propertyName = "")
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
