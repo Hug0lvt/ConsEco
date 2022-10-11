@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    internal enum Devises
+    public enum Devises
     {
         Livre_sterling,
         Rouble,

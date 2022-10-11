@@ -10,10 +10,10 @@ namespace Model
 {
     public class Manager : INotifyPropertyChanged
     {
-        public IReadOnlyCollection<Inscrit> ListedesInscrits { get; private set };
-        private List<Inscrit> TouslesInscrits { get; set } = new List<Inscrit>;
+        public IReadOnlyCollection<Inscrit> ListedesInscrits { get; private set; }
+        private List<Inscrit> TouslesInscrits { get; set; } = new List<Inscrit>();
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
 

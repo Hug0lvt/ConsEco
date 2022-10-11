@@ -20,12 +20,12 @@ namespace Model
             UrlLogo = urlLogo;
         }
 
-        private AjouterCompte(Compte compte)
+        private void AjouterCompte(Compte compte)
         {
             ListeDesComptes.Add(compte);
         }
 
-        private SupprimerCompte(Compte compte)
+        private void SupprimerCompte(Compte compte)
         {
             ListeDesComptes.Remove(compte);
         }
