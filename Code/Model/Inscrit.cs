@@ -36,9 +36,9 @@ namespace Model
         {
             TouteLesBanques.Remove(b);
         }*/
-        public void ChoisirDevise(Devises d)
+        public void ChoisirDevise(Devises devise)
         {
-            Dev = d;
+            Dev = devise;
         }
 
     }
