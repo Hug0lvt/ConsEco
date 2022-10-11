@@ -27,12 +27,7 @@ namespace Model
 
         private SupprimerCompte(Compte compte)
         {
-            foreach Compte in ListeDesComptes
-            {
-                if (compte.nom == ListeDesComptes.Compte.nom)
-                    ListeDesComptes.Compte.Remove(ListeDesComptes);
-            }
-
+          ListeDesComptes.Remove(compte);
         }
     }
 }
