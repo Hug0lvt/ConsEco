@@ -764,16 +764,16 @@
 										"$ref": "AAAAAAGDnLICnAi+zCE="
 									},
 									"font": "Arial;13;0",
-									"left": 1046,
+									"left": 1044,
 									"top": 403,
-									"width": 88.50537109375,
+									"width": 93.919921875,
 									"height": 13,
 									"alpha": -0.28083777583322966,
 									"distance": 54.120236510939236,
 									"hostEdge": {
 										"$ref": "AAAAAAGDnLICnQjA19I="
 									},
-									"text": "-lesUtilisateurs"
+									"text": "-TousLesInscrits"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -8245,7 +8245,6 @@
 							"propertyLabel": {
 								"$ref": "AAAAAAGDrfOMKWsqZ4o="
 							},
-							"showEndOrder": "hide",
 							"tailRoleNameLabel": {
 								"$ref": "AAAAAAGDrfOMKWsr5PY="
 							},
@@ -8515,7 +8514,6 @@
 							"propertyLabel": {
 								"$ref": "AAAAAAGDrfQ+sW/wAWw="
 							},
-							"showEndOrder": "hide",
 							"tailRoleNameLabel": {
 								"$ref": "AAAAAAGDrfQ+sW/x4Vo="
 							},
@@ -8573,7 +8571,7 @@
 								"_parent": {
 									"$ref": "AAAAAAGDnLICnAi8gKM="
 								},
-								"name": "lesUtilisateurs",
+								"name": "TousLesInscrits",
 								"reference": {
 									"$ref": "AAAAAAGDnLHWEwiR3RE="
 								},
