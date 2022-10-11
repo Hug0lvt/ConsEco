@@ -48,7 +48,7 @@ namespace IHM
 
         public KeyValuePair<string, Func<UserControl>> SelectedUserControlCreator
         {
-            get => SelectedUserControlCreator;
+            get => selectedUserControlCreator;
             set
             {
                 if (selectedUserControlCreator.Equals(value)) return;
