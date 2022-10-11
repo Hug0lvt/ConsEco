@@ -30,5 +30,7 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
 
+        <SolidColorBrush x:Key="CouleurPrincipale" Color="Black"/>
+
     </Application.Resources>
 </Application>

@@ -6,7 +6,23 @@
         xmlns:local="clr-namespace:IHM"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="{StaticResource CouleurPrincipale}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="images/logo.png" Margin="10" Grid.Column="0" Grid.Row="0"/>
+
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <Button Content="Tableau de bord"/>
+
+        </StackPanel>
 
     </Grid>
 </Window>
