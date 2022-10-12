@@ -20,9 +20,9 @@
                 <Setter.Value>
                     <VisualBrush>
                         <VisualBrush.Visual>
-                            <Image Source="./images/fond2.png">
+                            <Image Source="./images/fond.jpg">
                                 <Image.Effect>
-                                    <BlurEffect Radius="0"/>
+                                    <BlurEffect Radius="10"/>
                                 </Image.Effect>
                             </Image>
                         </VisualBrush.Visual>
