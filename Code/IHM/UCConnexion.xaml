@@ -5,129 +5,113 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IHM"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    
-    
-    <DockPanel Background="#F2C98C">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Style="{StaticResource ImageFondRessource}">
+
+    <DockPanel>
+
         <Border DockPanel.Dock="Top" Style="{StaticResource BorderRessource}">
             <Border.Background>White</Border.Background>
             <TextBlock Text="Login" Style="{StaticResource TextBlockRessource}"/>
         </Border>
-        
-        
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Border Style="{StaticResource BorderRessource}">
-                <StackPanel>
+
+        <Button Click="Button_Click_Acceuil" Margin="20" DockPanel.Dock="Bottom" Style="{StaticResource GreenButtonRessource}">
+            <TextBlock Text="Retour à la page d'acceuil"/>
+        </Button>
+
+        <Border Style="{StaticResource BorderRessource}" Grid.Column="1">
+            <StackPanel>
+                <Border Style="{StaticResource BorderRessource}">
+                    <TextBlock Text="Inscription" Style="{StaticResource TextBlockRessource}"/>
+                </Border>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
                     <Border Style="{StaticResource BorderRessource}">
-                        <TextBlock Text="Connexion" Style="{StaticResource TextBlockRessource}"/>
+                        <TextBlock Text="Nom d'utilisateur" Style="{StaticResource TextBlockRessource}"/>
                     </Border>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Border Style="{StaticResource BorderRessource}">
-                            <TextBlock Text="Nom d'utilisateur" Style="{StaticResource TextBlockRessource}"/>
-                        </Border>
-                        <Border Grid.Column="1" Style="{StaticResource BorderRessource}">
-                            <TextBox></TextBox>
-                        </Border>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Border Style="{StaticResource BorderRessource}">
-                            <TextBlock Text="Mot de passe" Style="{StaticResource TextBlockRessource}"/>
-                        </Border>
-                        <Border Grid.Column="1" Style="{StaticResource BorderRessource}">
-                            <TextBox></TextBox>
-                        </Border>
-                    </Grid>
-
-                    <Button Style="{StaticResource TransparentButtonRessource}" Margin="20" Width="200">
-                        <TextBlock Text="Mot de passe oubliée ?" Style="{StaticResource TextBlockRessource}"/>
-                    </Button>
-
-                    <Button Style="{StaticResource GreenButtonRessource}" Height="25" Width="150">
-                        <TextBlock Text="Valider" Style="{StaticResource TextBlockRessource}"/>
-                    </Button>
-                </StackPanel>
-            </Border>
-            
-            
-            <Border DockPanel.Dock="Right" Style="{StaticResource BorderRessource}">
-            </Border>
-
-            <Border Style="{StaticResource BorderRessource}" Grid.Column="1">
-                <Border.Background>#DF775C</Border.Background>
-
-                <StackPanel>
-                    <Border Style="{StaticResource BorderRessource}">
-                        <TextBlock Text="Inscription" Style="{StaticResource TextBlockRessource}"/>
+                    <Border Grid.Column="1" Style="{StaticResource BorderRessource}">
+                        <TextBox>
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
                     </Border>
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Border Style="{StaticResource BorderRessource}">
-                            <TextBlock Text="Nom d'utilisateur" Style="{StaticResource TextBlockRessource}"/>
-                        </Border>
-                        <Border Grid.Column="1" Style="{StaticResource BorderRessource}">
-                            <TextBox></TextBox>
-                        </Border>
+                    <Border Style="{StaticResource BorderRessource}" Grid.Row="1">
+                        <TextBlock Text="Nom" Style="{StaticResource TextBlockRessource}"/>
+                    </Border>
+                    <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource BorderRessource}">
+                        <TextBox>
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </Border>
 
-                        <Border Style="{StaticResource BorderRessource}" Grid.Row="1">
-                            <TextBlock Text="Nom" Style="{StaticResource TextBlockRessource}"/>
-                        </Border>
-                        <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource BorderRessource}">
-                            <TextBox></TextBox>
-                        </Border>
+                    <Border Grid.Row="2" Style="{StaticResource BorderRessource}" >
+                        <TextBlock Text="Prenom" Style="{StaticResource TextBlockRessource}"/>
+                    </Border>
+                    <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource BorderRessource}">
+                        <TextBox>
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </Border>
 
-                        <Border Grid.Row="2" Style="{StaticResource BorderRessource}" >
-                            <TextBlock Text="Prenom" Style="{StaticResource TextBlockRessource}"/>
-                        </Border>
-                        <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource BorderRessource}">
-                            <TextBox></TextBox>
-                        </Border>
+                    <Border Grid.Row="3" Style="{StaticResource BorderRessource}" >
+                        <TextBlock Text="Mail" Style="{StaticResource TextBlockRessource}"/>
+                    </Border>
+                    <Border Grid.Column="1" Grid.Row="3" Style="{StaticResource BorderRessource}">
+                        <TextBox>
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </Border>
 
-                        <Border Grid.Row="3" Style="{StaticResource BorderRessource}" >
-                            <TextBlock Text="Mail" Style="{StaticResource TextBlockRessource}"/>
-                        </Border>
-                        <Border Grid.Column="1" Grid.Row="3" Style="{StaticResource BorderRessource}">
-                            <TextBox></TextBox>
-                        </Border>
+                    <Border Grid.Row="4" Style="{StaticResource BorderRessource}" >
+                        <TextBlock Text="Mot de passe" Style="{StaticResource TextBlockRessource}"/>
+                    </Border>
+                    <Border Grid.Column="1" Grid.Row="4" Style="{StaticResource BorderRessource}">
+                        <TextBox>
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </Border>
+                </Grid>
 
-                        <Border Grid.Row="4" Style="{StaticResource BorderRessource}" >
-                            <TextBlock Text="Mot de passe" Style="{StaticResource TextBlockRessource}"/>
-                        </Border>
-                        <Border Grid.Column="1" Grid.Row="4" Style="{StaticResource BorderRessource}">
-                            <TextBox></TextBox>
-                        </Border>
-                    </Grid>
+                <Button Style="{StaticResource GreenButtonRessource}" Height="25" Width="150">
+                    <TextBlock Text="Valider" Style="{StaticResource TextBlockRessource}"/>
+                </Button>
 
-                    <Button Style="{StaticResource GreenButtonRessource}" Height="25" Width="150">
-                        <TextBlock Text="Valider" Style="{StaticResource TextBlockRessource}"/>
-                    </Button>
+            </StackPanel>
+        </Border>
 
-                </StackPanel>
-            </Border>
-        </Grid>
         
-        
+
+
     </DockPanel>
 </UserControl>

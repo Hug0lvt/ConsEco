@@ -16,20 +16,25 @@ using System.Windows.Shapes;
 namespace IHM
 {
     /// <summary>
-    /// Logique d'interaction pour UCConnexion.xaml
+    /// Logique d'interaction pour UCBienvenue.xaml
     /// </summary>
-    public partial class UCConnexion : UserControl
+    public partial class UCBienvenue : UserControl
     {
         public Navigator Nav => (App.Current as App).Navigator;
-        public UCConnexion()
+        public UCBienvenue()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
-        private void Button_Click_Acceuil(object sender, RoutedEventArgs e)
+        private void Button_Click_Inscription(object sender, RoutedEventArgs e)
         {
-            Nav.NavigateTo(Navigator.PART_CONNEXION, Navigator.PART_MAIN);
+            Nav.NavigateTo(Navigator.PART_MAIN, Navigator.PART_INSCRIPTION);
         }
 
+        private void Button_Click_Connexion(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_MAIN, Navigator.PART_CONNEXION);
+        }
     }
 }
