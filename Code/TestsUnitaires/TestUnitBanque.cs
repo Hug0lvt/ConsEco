@@ -9,9 +9,8 @@ namespace TestsUnitaires
 {
     public class TestUnitBanque
     {
+        Compte tc = new("Livret A", 16956);
         Banque test = new("BNP Paribas", "https://mabanque.bnpparibas/", "https://logos-marques.com/wp-content/uploads/2020/12/BNP-Paribas-logo.png");
-        Banque test2 = new("BNP Paribas", "https://mabanque.bnpparibas/", "https://logos-marques.com/wp-content/uploads/2020/12/BNP-Paribas-logo.png", listeCompte);
-
         [Fact]
         public void testConstructeur1()
         {
@@ -25,20 +24,19 @@ namespace TestsUnitaires
         public void testConstructeur2()
         {
             List<Compte> listeCompte = new();
-            Compte tc = new("Livret A", 16956);
             listeCompte.Add(tc);
-            Assert.NotNull(test2);
-            Assert.NotNull(test2.ListeDesComptes);
+            Banque test2 = new("BNP Paribas", "https://mabanque.bnpparibas/", "https://logos-marques.com/wp-content/uploads/2020/12/BNP-Paribas-logo.png", listeCompte);
+            Assert.NotNull(test);
+            Assert.NotNull(test.ListeDesComptes);
             Assert.Equal("BNP Paribas", test.Nom);
-            Assert.NotEqual("https://mabanque.bnpparibas/", test2.Nom);
-            Assert.Equal("https://mabanque.bnpparibas/", test2.UrlSite);
-            Assert.Equal("https://logos-marques.com/wp-content/uploads/2020/12/BNP-Paribas-logo.png", test2.UrlLogo);
-            Assert.Contains(tc, test2.ListeDesComptes);
+            Assert.NotEqual("https://mabanque.bnpparibas/", test.Nom);
+            Assert.Equal("https://mabanque.bnpparibas/", test.UrlSite);
+            Assert.Equal("https://logos-marques.com/wp-content/uploads/2020/12/BNP-Paribas-logo.png", test.UrlLogo);
+            Assert.Contains(tc,test2.ListeDesComptes);
         }
         [Fact]
         public void testAjouterCompte()
         {
-            Compte tc = new("Livret A", 16956);
             Assert.NotNull(test.ListeDesComptes);
             test.AjouterCompte(tc);
             Assert.Contains(tc, test.ListeDesComptes);
@@ -46,12 +44,28 @@ namespace TestsUnitaires
         [Fact]
         public void testSupprimerCompte()
         {
-            Compte tc = new("Livret A", 16956);
             Assert.NotNull(test.ListeDesComptes);
             test.AjouterCompte(tc);
             Assert.Contains(tc, test.ListeDesComptes);
             test.SupprimerCompte(tc);
             Assert.DoesNotContain(tc, test.ListeDesComptes);
+        }
+        [Fact]
+        public void testExisteCompte()
+        {
+            List<Compte> listeCompte = new();
+            listeCompte.Add(tc);
+            Banque test2 = new("BNP Paribas", "https://mabanque.bnpparibas/", "https://logos-marques.com/wp-content/uploads/2020/12/BNP-Paribas-logo.png", listeCompte);
+            Assert.True(test2.ExisteCompte("Livret A"));
+        }
+        [Fact]
+        public void testReturnCompte()
+        {
+            List<Compte> listeCompte = new();
+            listeCompte.Add(tc);
+            Banque test2 = new("BNP Paribas", "https://mabanque.bnpparibas/", "https://logos-marques.com/wp-content/uploads/2020/12/BNP-Paribas-logo.png", listeCompte);
+            Assert.True(test2.ExisteCompte("Livret A"));
+            Assert.Equal(tc, test2.ReturnCompte("Livret A"));
         }
 
     }
