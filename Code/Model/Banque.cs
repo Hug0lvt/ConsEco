@@ -18,6 +18,7 @@ namespace Model
             Nom = nom;
             UrlSite = urlSite;
             UrlLogo = urlLogo;
+            ListeDesComptes = new List<Compte>();
         }
 
         private void AjouterCompte(Compte compte)

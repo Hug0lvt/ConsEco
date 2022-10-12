@@ -11,11 +11,17 @@ namespace Model
     public class Manager : INotifyPropertyChanged
     {
         public IReadOnlyCollection<Inscrit> ListedesInscrits { get; private set; }
-        private List<Inscrit> TouslesInscrits { get; set; } = new List<Inscrit>();
+        private List<Inscrit> TousLesInscrits { get; set; } = new List<Inscrit>();
 
         public event PropertyChangedEventHandler? PropertyChanged;
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
+        
+        public Manager(IPersistanceManager persistance)
+        {
+            ListedesInscrits = new ReadOnlyCollection<Inscrit>(TousLesInscrits);
+            persistance = persistance;
+        }
 
         public Inscrit SelectedInscrits
         {
