@@ -11,7 +11,7 @@ namespace Model
         public string Nom { get; private set; }
         public string UrlSite { get; private set; }
         public string UrlLogo { get; private set; }
-        public List<Compte> ListeDesComptes { get; private set; }
+        public List<Compte> ListeDesComptes { get; private set; } = new List<Compte>();
 
         public Banque(string nom, string urlSite, string urlLogo)
         {
@@ -28,14 +28,33 @@ namespace Model
             ListeDesComptes = lescomptes;
         }
 
-        private void AjouterCompte(Compte compte)
+        public void AjouterCompte(Compte compte)
         {
             ListeDesComptes.Add(compte);
         }
 
-        private void SupprimerCompte(Compte compte)
+        public void SupprimerCompte(Compte compte)
         {
             ListeDesComptes.Remove(compte);
+        }
+
+        public bool ExisteCompte(string s)
+        {
+            foreach (Compte compte in ListeDesComptes)
+            {
+                if (compte.Nom.Equals(s))
+                    return true;
+            }
+            return false;
+        }
+        public Compte ReturnCompte(string s)
+        {
+            foreach (Compte compte in ListeDesComptes)
+            {
+                if (compte.Nom.Equals(s))
+                    return compte; 
+            }
+            throw new KeyNotFoundException();
         }
     }
 }
