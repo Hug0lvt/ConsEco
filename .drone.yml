@@ -25,6 +25,6 @@ steps:
       image: aosapps/drone-sonar-plugin
       settings:
           sonar_host:
-            from_secret: SonarConsEco
+            from_secret: https://codefirst.iut.uca.fr/sonar
           sonar_token:
             from_secret: sqp_ffc02968e133d03daeb917e8c2e6f243a80d087a
