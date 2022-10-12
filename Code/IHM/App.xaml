@@ -6,11 +6,20 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-        <conv:Func2WindowPartConverter x:Key="Func2WpConv"/>
+        <!--<conv:Func2WindowPartConverter x:Key="Func2WpConv"/>-->
 
         <Style x:Key="BorderRessource" TargetType="Border">
             <Setter Property="BorderBrush" Value="#63A4FF"/>
             <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="175"/>
+        </Style>
+
+        <Style x:Key="TitleBorder" TargetType="Border">
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="Black" />
             <Setter Property="Margin" Value="20"/>
             <Setter Property="CornerRadius" Value="5"/>
             <Setter Property="Height" Value="30"/>
@@ -36,6 +45,15 @@
         <Style x:Key="TextBlockRessource" TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="TitreDePage" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Background" Value="MediumPurple" />
+            <Setter Property="FontFamily" Value="Slab serif"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
         </Style>
 
         <Style TargetType="Button" x:Key="TransparentButtonRessource">
@@ -71,6 +89,9 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
+
+
+
 
         <Style x:Key="OrangeButtonRessource" TargetType="Button">
             <Setter Property="Template">

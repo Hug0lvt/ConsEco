@@ -30,5 +30,10 @@ namespace IHM
         {
             Nav.NavigateTo(Navigator.PART_CONNEXION, Navigator.PART_MAIN);
         }
+
+        private void Button_Click_Validation(object sender, RoutedEventArgs e)
+        {
+            // TO DO
+        }
     }
 }

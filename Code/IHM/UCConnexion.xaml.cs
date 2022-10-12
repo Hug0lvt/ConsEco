@@ -31,5 +31,28 @@ namespace IHM
             Nav.NavigateTo(Navigator.PART_CONNEXION, Navigator.PART_MAIN);
         }
 
+        private void Button_Click_Connection(object sender, RoutedEventArgs e)
+        {
+            ErrorPassword.Visibility = Visibility.Hidden;
+            Password.Background = new SolidColorBrush(Colors.White);
+            ErrorUserName.Visibility = Visibility.Hidden;
+            UserName.Background = new SolidColorBrush(Colors.White);
+            if (UserName.Text.ToString() == "")
+            {
+                ErrorUserName.Visibility = Visibility.Visible;
+                UserName.Background = new BrushConverter().ConvertFromString("#FF6347") as SolidColorBrush;
+            }
+            if (Password.Password.ToString() == "")
+            {
+                ErrorPassword.Visibility = Visibility.Visible;
+                Password.Background = new BrushConverter().ConvertFromString("#FF6347") as SolidColorBrush;
+            }
+        }
+
+        private void Button_Click_Forget_Password(object sender, RoutedEventArgs e)
+        {
+            // TO DO
+        }
+
     }
 }
