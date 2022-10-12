@@ -16,12 +16,6 @@ namespace Model
         public event PropertyChangedEventHandler? PropertyChanged;
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        
-        public Manager(IPersistanceManager persistance)
-        {
-            ListedesInscrits = new ReadOnlyCollection<Inscrit>(TousLesInscrits);
-            persistance = persistance;
-        }
 
         public Inscrit SelectedInscrits
         {
@@ -37,6 +31,21 @@ namespace Model
         }
         private Inscrit selectedInscrits;
 
+        public Manager(IReadOnlyCollection<Inscrit> listedesInscrits, List<Inscrit> tousLesInscrits, Inscrit selectedInscrits)
+        {
+            ListedesInscrits = listedesInscrits;
+            TousLesInscrits = tousLesInscrits;
+            this.selectedInscrits = selectedInscrits;
+          
+        }
+
+        /*En attente de la persistance*/
+
+        /*   public Manager(IPersistanceManager persistance)
+           {
+               ListedesInscrits = new ReadOnlyCollection<Inscrit>(TousLesInscrits);
+               persistance = persistance;
+           }*/
 
     }
 

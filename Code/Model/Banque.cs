@@ -21,12 +21,12 @@ namespace Model
             ListeDesComptes = new List<Compte>();
         }
 
-        private void AjouterCompte(Compte compte)
+        public void AjouterCompte(Compte compte)
         {
             ListeDesComptes.Add(compte);
         }
 
-        private void SupprimerCompte(Compte compte)
+        public void SupprimerCompte(Compte compte)
         {
             ListeDesComptes.Remove(compte);
         }
