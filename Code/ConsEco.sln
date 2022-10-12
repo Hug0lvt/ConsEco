@@ -5,11 +5,14 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IHM", "IHM\IHM.csproj", "{355FC972-9C0D-4CBD-8003-EFBDACA7CFFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{ACFA83F8-98C8-43AE-9328-B3F751098FFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{ACFA83F8-98C8-43AE-9328-B3F751098FFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFonctionnel", "TestFonctionnel\TestFonctionnel.csproj", "{7AC4F84F-1124-4EC1-BF38-17F3F4FBEB3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestFonctionnel", "TestFonctionnel\TestFonctionnel.csproj", "{7AC4F84F-1124-4EC1-BF38-17F3F4FBEB3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsUnitaires", "TestsUnitaires\TestsUnitaires.csproj", "{B1AE713C-B5DE-4E81-A33F-818AAD0548A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestsUnitaires", "TestsUnitaires\TestsUnitaires.csproj", "{B1AE713C-B5DE-4E81-A33F-818AAD0548A7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ACFA83F8-98C8-43AE-9328-B3F751098FFA} = {ACFA83F8-98C8-43AE-9328-B3F751098FFA}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

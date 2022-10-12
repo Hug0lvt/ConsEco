@@ -18,15 +18,22 @@ namespace Model
             Nom = nom;
             UrlSite = urlSite;
             UrlLogo = urlLogo;
-            ListeDesComptes = new List<Compte>();
         }
 
-        public void AjouterCompte(Compte compte)
+        public Banque(string nom, string urlSite, string urlLogo, List<Compte>lescomptes)
+        {
+            Nom = nom;
+            UrlSite = urlSite;
+            UrlLogo = urlLogo;
+            ListeDesComptes = lescomptes;
+        }
+
+        private void AjouterCompte(Compte compte)
         {
             ListeDesComptes.Add(compte);
         }
 
-        public void SupprimerCompte(Compte compte)
+        private void SupprimerCompte(Compte compte)
         {
             ListeDesComptes.Remove(compte);
         }
