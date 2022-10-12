@@ -36,26 +36,36 @@
 
             
             <TextBlock Style="{StaticResource TextBlockRessource}" FontSize="15">Nom d'utilisateur</TextBlock>
-            <Border  Grid.Column="1" Style="{StaticResource BorderRessource}">
-                <TextBox>
-                    <TextBox.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="5"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
-            </Border>
+            <StackPanel Grid.Column="1" Margin="30">
+                <TextBlock x:Name="ErrorUserName" HorizontalAlignment="Center" FontSize="15" Foreground="#FF6347" Visibility="Hidden">Veuillez renseigner votre nom d'utilisateurs</TextBlock>
+                <Border  Grid.Column="1" Style="{StaticResource BorderRessource}">
+                    <TextBox x:Name="UserName">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </Border>           
+            </StackPanel>
+            
 
             <TextBlock Grid.Row="1" Style="{StaticResource TextBlockRessource}" FontSize="15">Mot de passe</TextBlock>
-            <Border  Grid.Column="1" Grid.Row="1" Style="{StaticResource BorderRessource}">
-                <TextBox>
-                    <TextBox.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="5"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
-            </Border>
+
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <TextBlock x:Name="ErrorPassword" HorizontalAlignment="Center" FontSize="15" Foreground="#FF6347" Visibility="Hidden">Veuillez renseigner votre mot de passe</TextBlock>
+                <Border Style="{StaticResource BorderRessource}">
+                    <PasswordBox x:Name="Password">
+                        <PasswordBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </PasswordBox.Resources>
+                    </PasswordBox>
+                </Border>
+            </StackPanel>
+           
+
         </Grid>
     </DockPanel>
 </UserControl>
