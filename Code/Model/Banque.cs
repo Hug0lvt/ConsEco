@@ -20,6 +20,14 @@ namespace Model
             UrlLogo = urlLogo;
         }
 
+        public Banque(string nom, string urlSite, string urlLogo, List<Compte>lescomptes)
+        {
+            Nom = nom;
+            UrlSite = urlSite;
+            UrlLogo = urlLogo;
+            ListeDesComptes = lescomptes;
+        }
+
         private void AjouterCompte(Compte compte)
         {
             ListeDesComptes.Add(compte);

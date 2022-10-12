@@ -17,7 +17,16 @@ namespace Model
             Prenom = prenom;
             Mdp = mdp;
             SoldeTotal = soldeTotal;
-            //TouteLesBanques = new List<Banque>();
+        }
+        public Inscrit(string id, string nom, string mail, string prenom, string mdp, double soldeTotal,List<Banque>lesbanques)
+        {
+            Id = id;
+            Nom = nom;
+            Mail = mail;
+            Prenom = prenom;
+            Mdp = mdp;
+            SoldeTotal = soldeTotal;
+            LesBanques = lesbanques;
         }
         public string Id { get; private set; }
         public string Nom { get; private set; }
@@ -26,7 +35,7 @@ namespace Model
         public string Mdp { get; private set; }
         public double SoldeTotal { get; private set; }
         public Devises Dev { get; private set; }
-        //private List<Banque> TouteLesBanques { get; private set; }
+        private List<Banque> LesBanques { get; set; }
 
         /*public void ajouterBanque(Banque b)
         {
