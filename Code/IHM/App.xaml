@@ -13,6 +13,8 @@
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Margin" Value="20"/>
             <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="175"/>
         </Style>
 
         <Style TargetType="UserControl" x:Key="ImageFondRessource">
@@ -59,6 +61,26 @@
                                 <LinearGradientBrush>
                                     <GradientStop Color="#80FF72" Offset="0"/>
                                     <GradientStop Color="#7EE8FA" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="OrangeButtonRessource" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="5" BorderBrush="#63A4FF" BorderThickness="1" >
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FBD72B" Offset="0"/>
+                                    <GradientStop Color="#F9484A" Offset="1"/>
                                 </LinearGradientBrush>
                             </Border.Background>
                             <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>

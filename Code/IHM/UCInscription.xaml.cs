@@ -20,9 +20,15 @@ namespace IHM
     /// </summary>
     public partial class UCInscription : UserControl
     {
+        public Navigator Nav => (App.Current as App).Navigator;
+
         public UCInscription()
         {
             InitializeComponent();
+        }
+        private void Button_Click_Acceuil(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_CONNEXION, Navigator.PART_MAIN);
         }
     }
 }
