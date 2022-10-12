@@ -21,3 +21,10 @@ steps:
         - dotnet restore CI_CONSECO.sln
         - dotnet test CI_CONSECO.sln --no-restore
       depends_on: [build]
+    - name: code-analysis
+      image: aosapps/drone-sonar-plugin
+      settings:
+          sonar_host:
+            from_secret: SonarConsEco
+          sonar_token:
+            from_secret: sqp_ffc02968e133d03daeb917e8c2e6f243a80d087a
