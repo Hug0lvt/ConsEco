@@ -92,7 +92,37 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
 
-        <SolidColorBrush x:Key="CouleurPrincipale" Color="Black"/>
+        <SolidColorBrush x:Key="CouleurPrincipale" Color="Blue"/>
+
+        <Style x:Key="BoutonMain" TargetType="Button">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Background" Value="{StaticResource CouleurPrincipale}"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20,0,0,20"/>
+                </Style>
+            </Style.Resources>
+            
+            <Style.Triggers>
+                
+                <Trigger Property="IsPressed" Value="False"><!--True pour que ca marche-->
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" To="White"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+
+
+                
+            </Style.Triggers>
+            
+        </Style>
 
     </Application.Resources>
 </Application>

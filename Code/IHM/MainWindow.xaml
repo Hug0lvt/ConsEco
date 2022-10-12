@@ -20,8 +20,13 @@
         <Image Source="images/logo.png" Margin="10" Grid.Column="0" Grid.Row="0"/>
 
         <StackPanel Grid.Column="0" Grid.Row="1">
-            <Button Content="Tableau de bord"/>
+            <Button Content="Tableau de bord" Style="{StaticResource BoutonMain}"/>
+            <Button Content="Tableau de bord" Style="{StaticResource BoutonMain}"/>
+            <Button Content="Tableau de bord" Style="{StaticResource BoutonMain}"/>
+            <Button Content="Tableau de bord" Style="{StaticResource BoutonMain}"/>
+            <Button Content="Tableau de bord" Style="{StaticResource BoutonMain}"/>
 
+        
         </StackPanel>
 
         <ContentControl x:Name="contentControl" 
