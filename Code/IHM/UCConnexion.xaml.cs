@@ -31,5 +31,15 @@ namespace IHM
             Nav.NavigateTo(Navigator.PART_CONNEXION, Navigator.PART_MAIN);
         }
 
+        private void Button_Click_Connection(object sender, RoutedEventArgs e)
+        {
+            // TO DO
+        }
+
+        private void Button_Click_Forget_Password(object sender, RoutedEventArgs e)
+        {
+            // TO DO
+        }
+
     }
 }

@@ -16,11 +16,11 @@
             <TextBlock Text="Retour à la page d'acceuil"/>
         </Button>
         
-        <Button DockPanel.Dock="Bottom" Style="{StaticResource GreenButtonRessource}" Height="25" Width="150">
+        <Button DockPanel.Dock="Bottom" Click="Button_Click_Connection" Style="{StaticResource GreenButtonRessource}" Height="25" Width="150">
             <TextBlock Text="Se connecter" Style="{StaticResource TextBlockRessource}"/>
         </Button>
 
-        <Button DockPanel.Dock="Bottom" Style="{StaticResource OrangeButtonRessource}" Height="25" Width="170" Margin="20">
+        <Button DockPanel.Dock="Bottom" Click="Button_Click_Forget_Password" Style="{StaticResource OrangeButtonRessource}" Height="25" Width="170" Margin="20">
             <TextBlock Text="Mot de passe oublié ?" Style="{StaticResource TextBlockRessource}"/>
         </Button>
 
