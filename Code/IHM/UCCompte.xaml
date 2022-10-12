@@ -9,13 +9,16 @@
              Style="{StaticResource ImageFondRessource}">
 
     <DockPanel>
-        <Border Style="{StaticResource BorderRessource}" Height="33" DockPanel.Dock="Top">
+        <Border Style="{StaticResource TitleBorder}" DockPanel.Dock="Top">
             <TextBlock Text="Nom d'utilisateur" Style="{StaticResource TitreDePage}"/>
-            <!--<TextBlock Text="Compte courant" Style="{StaticResource AffichageAuMilieu}"/>-->
         </Border>
-        <Button Margin="20" DockPanel.Dock="Bottom" Style="{StaticResource GreenButtonRessource}">
-            <TextBlock Text="Modifier votre solde"/>
+        <Button DockPanel.Dock="Bottom" Style="{StaticResource GreenButtonRessource}" Height="25" Width="170" Margin="20">
+            <TextBlock Text="Modifier votre solde" Style="{StaticResource TextBlockRessource}"/>
         </Button>
+        <Border DockPanel.Dock="Bottom" Height="25" Width="250">
+            <TextBlock Text="Compte courant : ???" Style="{StaticResource TextBlockRessource}" FontSize="16" FontWeight="DemiBold"/>
+        </Border>
+
     </DockPanel>
 
 
