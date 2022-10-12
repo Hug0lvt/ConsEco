@@ -23,8 +23,6 @@ steps:
       depends_on: [build]
     - name: docker-build
       image: plugins/docker
-      commands:
-        - cd Code
       settings:
         dockerfile: Dockerfile
         context: .
