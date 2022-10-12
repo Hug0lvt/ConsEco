@@ -35,16 +35,18 @@ namespace Model
         public string Mdp { get; private set; }
         public double SoldeTotal { get; private set; }
         public Devises Dev { get; private set; }
-        private List<Banque> LesBanques { get; set; }
+        private List<Banque> LesBanques { get; set; } = new List<Banque>();
 
-        /*public void ajouterBanque(Banque b)
+        public void ajouterBanque(Banque banque)
         {
-            TouteLesBanques.Add(b);   
+            LesBanques.Add(banque);
         }
-        public void ajouterBanque(Banque b)
+
+        public void SupprimerBanque(Banque banque)
         {
-            TouteLesBanques.Remove(b);
-        }*/
+            LesBanques.Remove(banque);
+        }
+
         public void ChoisirDevise(Devises devise)
         {
             Dev = devise;
