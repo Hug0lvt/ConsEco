@@ -5,8 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IHM"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="350" d:DesignWidth="600"
+             Style="{StaticResource ImageFondRessource}">
+
+    <DockPanel>
+        <Border Style="{StaticResource BorderRessource}" Height="33" DockPanel.Dock="Top">
+            <TextBlock Text="Nom d'utilisateur" Style="{StaticResource TitreDePage}"/>
+            <!--<TextBlock Text="Compte courant" Style="{StaticResource AffichageAuMilieu}"/>-->
+        </Border>
+        <Button Margin="20" DockPanel.Dock="Bottom" Style="{StaticResource GreenButtonRessource}">
+            <TextBlock Text="Modifier votre solde"/>
+        </Button>
+    </DockPanel>
+
+
 </UserControl>
