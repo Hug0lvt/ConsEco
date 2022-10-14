@@ -8,8 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800"
              Style="{StaticResource ImageFondRessource}">
     <DockPanel>
-        
-        <TextBlock DockPanel.Dock="Top" Foreground="White" HorizontalAlignment="Center" FontSize="30" Margin="20">Inscription</TextBlock>
+
+        <TextBlock Style="{StaticResource TitreDePage}" >Inscription</TextBlock>
         <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="15" Margin="20">Veuillez créer votre compte en retrant vos informations</TextBlock>
 
         <Button Click="Button_Click_Acceuil" Margin="20" DockPanel.Dock="Bottom" Style="{StaticResource GreenButtonRessource}">
