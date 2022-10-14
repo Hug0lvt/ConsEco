@@ -11,10 +11,8 @@
     <DockPanel>
         <StackPanel DockPanel.Dock="Top">
 
-
-
             <TextBlock Style="{StaticResource TitreDePage}" >Compte</TextBlock>
-            <!--<Border BorderBrush="Black" BorderThickness="2" CornerRadius="60">-->
+            
             <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Style="{StaticResource GreenButtonRessource}" Height="25" Width="150" Margin="20">
                     <TextBlock Text="Ajouter une banque" Style="{StaticResource TextBlockRessource}"/>
@@ -29,7 +27,7 @@
                     <TextBlock Text="Supprimer un compte" Style="{StaticResource TextBlockRessource}"/>
                 </Button>
             </StackPanel>
-            <!--</Border>-->
+
         </StackPanel>
 
         <Button DockPanel.Dock="Bottom" Style="{StaticResource GreenButtonRessource}" Height="25" Width="170" Margin="20">
