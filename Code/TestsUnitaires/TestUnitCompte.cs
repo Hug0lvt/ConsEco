@@ -9,11 +9,11 @@ namespace TestsUnitaires
 {
     public class TestUnitCompte
     {
-        readonly Compte c1 = new("Livret A", 234);
-        readonly Compte c2 = new("&e23R_te7", 1245.34);
         [Fact]
         public void TestConstructeurCompte()
         {
+            Compte c1 = new("Livret A", 234);
+            Compte c2 = new("&e23R_te7", 1245.34);
             Assert.Equal("Livret A", c1.Nom);
             Assert.Equal("&e23R_te7", c2.Nom);
             Assert.Equal(234, c1.Solde);
