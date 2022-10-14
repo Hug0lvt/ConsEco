@@ -29,12 +29,12 @@ namespace IHM
 
         private void Button_Click_Inscription(object sender, RoutedEventArgs e)
         {
-            Nav.NavigateTo(Navigator.PART_MAIN, Navigator.PART_INSCRIPTION);
+            Nav.NavigateTo(Navigator.PART_INSCRIPTION);
         }
 
         private void Button_Click_Connexion(object sender, RoutedEventArgs e)
         {
-            Nav.NavigateTo(Navigator.PART_MAIN, Navigator.PART_CONNEXION);
+            Nav.NavigateTo(Navigator.PART_CONNEXION);
         }
     }
 }

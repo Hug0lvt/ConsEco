@@ -26,5 +26,25 @@ namespace IHM
             InitializeComponent();
             DataContext = this;
         }
+
+        private void Button_Click_Compte(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_COMPTE);
+        }
+
+        private void Button_Click_Operation(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_OPERATION);
+        }
+
+        private void Button_Click_Echeancier(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_ECHEANCIER);
+        }
+
+        private void Button_Click_Plannification(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_PLANNIFICATION);
+        }
     }
 }

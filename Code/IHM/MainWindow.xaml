@@ -21,10 +21,10 @@
             <Image Source="images/logo.png" Margin="10" Grid.Column="0" Grid.Row="0" Width="75"/>
             
             <Button Content="Tableau de bord" Style="{StaticResource BoutonMain}" IsDefault="True"/>
-            <Button Content="Tableau de bord" Style="{StaticResource BoutonMain}"/>
-            <Button Content="Tableau de bord" Style="{StaticResource BoutonMain}"/>
-            <Button Content="Tableau de bord" Style="{StaticResource BoutonMain}"/>
-            <Button Content="Tableau de bord" Style="{StaticResource BoutonMain}"/>
+            <Button Click="Button_Click_Compte" Content="Compte" Style="{StaticResource BoutonMain}"/>
+            <Button Click="Button_Click_Operation" Content="Opérations" Style="{StaticResource BoutonMain}"/>
+            <Button Click="Button_Click_Echeancier" Content="Echéancier" Style="{StaticResource BoutonMain}"/>
+            <Button Click="Button_Click_Plannification" Content="Plannification" Style="{StaticResource BoutonMain}"/>
 
         
         </StackPanel>

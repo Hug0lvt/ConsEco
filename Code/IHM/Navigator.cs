@@ -16,7 +16,6 @@ namespace IHM
         public const string PART_OPERATION = "Opération";
         public const string PART_ECHEANCIER = "Echéancier";
         public const string PART_PLANNIFICATION = "Plannification";
-        public const string PART_STATISTIQUE = "Statistique";
 
         public const string PART_MAIN = "Main";
         public const string PART_CONNEXION = "Connexion";
@@ -27,10 +26,9 @@ namespace IHM
         Dictionary<string, Func<UserControl>> windowPart { get; set; } = new Dictionary<string, Func<UserControl>>
         {
             [PART_COMPTE] = () => new UCCompte(),
-            // [PART_OPERATION] = () => new UCOperation(),
-            // [PART_ECHEANCIER] = () => new UCEcheancier(),
-            // [PART_PLANNIFICATION] = () => new UCPlannification(),
-            // [PART_STATISTIQUE] = () => new UCStatistique(),
+            [PART_OPERATION] = () => new UCOperation(),
+            [PART_ECHEANCIER] = () => new UCEcheancier(),
+            [PART_PLANNIFICATION] = () => new UCPlannification(),
         };
 
         public ReadOnlyDictionary<string, Func<UserControl>> WindowPartMain { get; private set; }
@@ -74,17 +72,13 @@ namespace IHM
         void OnPropertyChanged([CallerMemberName] string propertyName = "")
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        public void NavigateTo(string windowPartName, string? windowPartNameScd=default)
+        public void NavigateTo(string windowPartName)
         {
             if (WindowPart.ContainsKey(windowPartName))
             {
-                selectedUserControlCreator = WindowPart.Single(kvp => kvp.Key == windowPartName);
+                SelectedUserControlCreator = WindowPart.Single(kvp => kvp.Key == windowPartName);
             }
-            if (windowPartNameScd == default) return;
-            else NavigateToEx(windowPartNameScd);
-        }
-        public void NavigateToEx(string windowPartName)
-        {
+
             if (WindowPartMain.ContainsKey(windowPartName))
             {
                 SelectedUserControlCreator = WindowPartMain.Single(kvp => kvp.Key == windowPartName);

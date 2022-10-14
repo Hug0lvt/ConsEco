@@ -16,24 +16,13 @@ using System.Windows.Shapes;
 namespace IHM
 {
     /// <summary>
-    /// Logique d'interaction pour UCInscription.xaml
+    /// Logique d'interaction pour UCPlannification.xaml
     /// </summary>
-    public partial class UCInscription : UserControl
+    public partial class UCPlannification : UserControl
     {
-        public Navigator Nav => (App.Current as App).Navigator;
-
-        public UCInscription()
+        public UCPlannification()
         {
             InitializeComponent();
-        }
-        private void Button_Click_Acceuil(object sender, RoutedEventArgs e)
-        {
-            Nav.NavigateTo(Navigator.PART_MAIN);
-        }
-
-        private void Button_Click_Validation(object sender, RoutedEventArgs e)
-        {
-            // TO DO
         }
     }
 }

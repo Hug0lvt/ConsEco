@@ -8,6 +8,15 @@
              d:DesignHeight="450" d:DesignWidth="800"
              Style="{StaticResource ImageFondRessource}">
     <DockPanel>
+        <TextBlock DockPanel.Dock="Top" Text="Opérations" Style="{StaticResource TitreDePage}"/>
         
+        <WrapPanel DockPanel.Dock="Top">
+            <Button Style="{StaticResource GreenButtonRessource}" Content="Effectuer un crédit" Margin="45,0,0,0"/>
+            <Button Style="{StaticResource GreenButtonRessource}" Content="Effectuer un débit"  Margin="70,0,10,0"/>
+            <Button Style="{StaticResource GreenButtonRessource}" Content="Retirer une opération"  Margin="70,0,0,0"/>
+            <Button Style="{StaticResource GreenButtonRessource}" Content="Supprimer une opération"  Margin="70,0,0,0"/>
+        </WrapPanel>
     </DockPanel>
+
+    
 </UserControl>

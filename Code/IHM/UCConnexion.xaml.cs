@@ -28,7 +28,7 @@ namespace IHM
 
         private void Button_Click_Acceuil(object sender, RoutedEventArgs e)
         {
-            Nav.NavigateTo(Navigator.PART_CONNEXION, Navigator.PART_MAIN);
+            Nav.NavigateTo(Navigator.PART_MAIN);
         }
 
         private void Button_Click_Connection(object sender, RoutedEventArgs e)
