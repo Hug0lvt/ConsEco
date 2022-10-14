@@ -15,4 +15,4 @@
 
 ---
 
-...
+[Nous vous conseillons d'aller voir le wiki de ce projet](https://codefirst.iut.uca.fr/git/hugo.livet/ConsEco/wiki)
