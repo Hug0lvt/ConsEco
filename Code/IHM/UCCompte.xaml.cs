@@ -15,14 +15,18 @@ using System.Windows.Shapes;
 
 namespace IHM
 {
-    /// <summary>
-    /// Logique d'interaction pour UCCompte.xaml
-    /// </summary>
+
     public partial class UCCompte : UserControl
     {
+        public Navigator Nav => (App.Current as App).Navigator;
         public UCCompte()
         {
             InitializeComponent();
         }
+        private void Button_Click_ModifSolde(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_MODIFSOLDE);
+        }
     }
+
 }

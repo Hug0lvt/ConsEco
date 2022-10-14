@@ -11,7 +11,7 @@
     <DockPanel>
         <TextBlock DockPanel.Dock="Top" Style="{StaticResource TitreDePage}" >Modification de votre solde</TextBlock>
 
-        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="10">
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="20">
             <Button Style="{StaticResource GreenButtonRessource}" Height="25" Width="170">
                 <TextBlock Text="Retour" Style="{StaticResource TextBlockRessource}"/>
             </Button>

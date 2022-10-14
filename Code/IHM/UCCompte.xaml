@@ -30,7 +30,7 @@
 
         </StackPanel>
 
-        <Button DockPanel.Dock="Bottom" Style="{StaticResource GreenButtonRessource}" Height="25" Width="170" Margin="20">
+        <Button Click="Button_Click_ModifSolde" DockPanel.Dock="Bottom" Style="{StaticResource GreenButtonRessource}" Height="25" Width="170" Margin="20">
             <TextBlock Text="Modifier votre solde" Style="{StaticResource TextBlockRessource}"/>
         </Button>
         <TextBlock VerticalAlignment="Center" Text=" Le solde de votre compte courant est de : ???" Style="{StaticResource TextBlockRessource}" FontSize="16" FontWeight="DemiBold"/>
