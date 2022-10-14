@@ -13,10 +13,15 @@ namespace Model
         public List<Compte> Comptes = new();
 
         // ajouter load all pour tout les inscrits
+
         public List<Inscrit> LoadInscrit()
         {
             Inscrits.Add(new("00001", "Evard", "lucasevard@gmail.com","Lucas","test",10,LoadBanques()));
-            Inscrits.Add(new("00002", "Livet", "hugolivet@gmail.com", "Hugo", "test", 110,LoadBanques()));
+            Inscrits.Add(new("00002", "Livet", "hugolivet@gmail.com", "Hugo", "test", 280,LoadBanques()));
+            Inscrits.Add(new("00003", "Smith", "smith@gmail.com", "Luke", "test", 150,LoadBanques()));
+            Inscrits.Add(new("00004", "Jean", "jean@gmail.com", "sylvain", "test", 410,LoadBanques()));
+            Inscrits.Add(new("00005", "Franc", "franc@gmail.com", "Julie", "test", 820,LoadBanques()));
+            Inscrits.Add(new("00006", "March", "march@gmail.com", "bastien", "test", 1120,LoadBanques()));
             return Inscrits;
         }
         public List<Banque> LoadBanques()
@@ -27,8 +32,9 @@ namespace Model
         }
         public List<Compte> LoadCompte()
         {
-            Comptes.Add(new("Livret A", 2));
-            Comptes.Add(new("Compte Cheque", 2000));
+            Comptes.Add(new("Livret A", 1500));
+            Comptes.Add(new("Compte Courant", 2000));
+            Comptes.Add(new("PEL", 22000));
             return Comptes;
         }
     }
