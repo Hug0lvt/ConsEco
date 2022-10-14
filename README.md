@@ -8,10 +8,11 @@
 <a href=https://codefirst.iut.uca.fr/git/hugo.livet/ConsEco>
     <img src="Documentation_En_Cours/logoaf.png" alt="Logo" width="150" height="160">
   </a>
+</div>
 
 <br />
 
-## <center> Bienvenue sur Cons'Eco </center>
+## Bienvenue sur Cons'Eco 
 
 ---
 
