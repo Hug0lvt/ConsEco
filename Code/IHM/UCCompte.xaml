@@ -5,19 +5,40 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IHM"
              mc:Ignorable="d" 
-             d:DesignHeight="350" d:DesignWidth="600"
+             d:DesignHeight="450" d:DesignWidth="800"
              Style="{StaticResource ImageFondRessource}">
 
     <DockPanel>
-        <TextBlock Style="{StaticResource TitreDePage}" >Connexion</TextBlock>
+        <StackPanel DockPanel.Dock="Top">
+
+
+
+            <TextBlock Style="{StaticResource TitreDePage}" >Compte</TextBlock>
+            <!--<Border BorderBrush="Black" BorderThickness="2" CornerRadius="60">-->
+            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Style="{StaticResource GreenButtonRessource}" Height="25" Width="150" Margin="20">
+                    <TextBlock Text="Ajouter une banque" Style="{StaticResource TextBlockRessource}"/>
+                </Button>
+                <Button Style="{StaticResource GreenButtonRessource}" Height="25" Width="150" Margin="20">
+                    <TextBlock Text="Supprimer une banque" Style="{StaticResource TextBlockRessource}"/>
+                </Button>
+                <Button Style="{StaticResource GreenButtonRessource}" Height="25" Width="150" Margin="20">
+                    <TextBlock Text="Ajouter un compte" Style="{StaticResource TextBlockRessource}"/>
+                </Button>
+                <Button Style="{StaticResource GreenButtonRessource}" Height="25" Width="150" Margin="20">
+                    <TextBlock Text="Supprimer un compte" Style="{StaticResource TextBlockRessource}"/>
+                </Button>
+            </StackPanel>
+            <!--</Border>-->
+        </StackPanel>
+
         <Button DockPanel.Dock="Bottom" Style="{StaticResource GreenButtonRessource}" Height="25" Width="170" Margin="20">
             <TextBlock Text="Modifier votre solde" Style="{StaticResource TextBlockRessource}"/>
         </Button>
-        <Border DockPanel.Dock="Bottom" Height="25" Width="250">
-            <TextBlock Text="Compte courant : ???" Style="{StaticResource TextBlockRessource}" FontSize="16" FontWeight="DemiBold"/>
-        </Border>
+        <TextBlock VerticalAlignment="Center" Text=" Le solde de votre compte courant est de : ???" Style="{StaticResource TextBlockRessource}" FontSize="16" FontWeight="DemiBold"/>
 
     </DockPanel>
 
 
 </UserControl>
+
