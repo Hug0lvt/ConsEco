@@ -9,9 +9,7 @@
              Style="{StaticResource ImageFondRessource}">
 
     <DockPanel>
-        <Border Style="{StaticResource TitleBorder}" DockPanel.Dock="Top">
-            <TextBlock Text="Nom d'utilisateur" Style="{StaticResource TitreDePage}"/>
-        </Border>
+        <TextBlock Style="{StaticResource TitreDePage}" >Connexion</TextBlock>
         <Button DockPanel.Dock="Bottom" Style="{StaticResource GreenButtonRessource}" Height="25" Width="170" Margin="20">
             <TextBlock Text="Modifier votre solde" Style="{StaticResource TextBlockRessource}"/>
         </Button>
