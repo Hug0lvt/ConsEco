@@ -5,7 +5,7 @@
 
 <br />
 <div align="center">
-    <img src="Documentation_En_Cours/logo avec fond.png" alt="Logo" width="110" height="120">
+    <img src="Documentation_En_Cours/logoaf.png" alt="Logo" width="150" height="160">
   </a>
 
 <br />
