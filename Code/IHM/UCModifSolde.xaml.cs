@@ -20,6 +20,8 @@ namespace IHM
     /// </summary>
     public partial class ModifSolde : UserControl
     {
+        public Navigator Nav => (App.Current as App).Navigator;
+
         public ModifSolde()
         {
             InitializeComponent();

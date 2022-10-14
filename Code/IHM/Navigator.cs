@@ -20,6 +20,7 @@ namespace IHM
         public const string PART_MAIN = "Main";
         public const string PART_CONNEXION = "Connexion";
         public const string PART_INSCRIPTION = "Inscription";
+        public const string PART_MODIFSOLDE = "ModifSolde";
 
         public ReadOnlyDictionary<string, Func<UserControl>> WindowPart { get; private set; }
 
@@ -37,6 +38,7 @@ namespace IHM
         {
             [PART_CONNEXION] = () => new UCConnexion(),
             [PART_INSCRIPTION] = () => new UCInscription(),
+            [PART_MODIFSOLDE] = () => new UCModifSolde(),
         };
 
         public ReadOnlyDictionary<string, Func<UserControl>> WindowMain { get; private set; }
