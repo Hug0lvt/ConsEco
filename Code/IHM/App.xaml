@@ -18,8 +18,8 @@
         </Style>
 
         <Style TargetType="UserControl" x:Key="ImageFondRessource">
-            <Setter Property="Background" Value="White">
-                <!--<Setter.Value>
+            <Setter Property="Background">
+                <Setter.Value>
                     <VisualBrush>
                         <VisualBrush.Visual>
                             <Image Source="./images/fond.jpg">
@@ -29,7 +29,7 @@
                             </Image>
                         </VisualBrush.Visual>
                     </VisualBrush>
-                </Setter.Value>-->
+                </Setter.Value>
             </Setter>
         </Style>
 
