@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Model;
+using LinqToPgSQL;
 
 namespace IHM
 {
@@ -13,5 +15,6 @@ namespace IHM
     /// </summary>
     public partial class App : Application
     {
+        public Manager AllInscrits { get; private set; } = new Manager(new LinqToPgSQL.PersLinqToPgSQL());
     }
 }

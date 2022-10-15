@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LinqToPgSQL;
+using Model;
 
 namespace IHM
 {
@@ -20,9 +22,37 @@ namespace IHM
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Manager ListedesInscrits => ((App)Application.Current).AllInscrits;
         public MainWindow()
         {
             InitializeComponent();
+
+            ListedesInscrits.LoadInscrit();
+            DataContext = ListedesInscrits;
+            
+        }
+
+        public void test()
+        {
+            foreach (Inscrit i in ListedesInscrits.ListedesInscrits)
+            {
+                if(i.Nom == "YOUVOI")
+                {
+                   MessageBox.Show($"{i.Id} + {i.Nom} + {i.Mdp} + {i.Mail} + {i.Dev}");
+                }
+                
+            }
+            
+        }
+
+        private void test_Click(object sender, RoutedEventArgs e)
+        {
+
+            test(); 
+          
+
+
+
         }
     }
 }

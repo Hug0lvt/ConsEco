@@ -10,11 +10,14 @@ namespace Model
 {
     public class Manager : INotifyPropertyChanged
     {
+        public Manager() { }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         public IReadOnlyCollection<Inscrit> ListedesInscrits { get; private set; }
         private List<Inscrit> TousLesInscrits { get; set; } = new List<Inscrit>();
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-        void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        public IPersistanceManager Pers { get; private set; }
 
 
         public Inscrit SelectedInscrits
@@ -22,7 +25,7 @@ namespace Model
             get => selectedInscrits;
             set
             {
-                if(selectedInscrits != value)
+                if (selectedInscrits != value)
                 {
                     selectedInscrits = value;
                     OnPropertyChanged(nameof(SelectedInscrits));
@@ -31,22 +34,23 @@ namespace Model
         }
         private Inscrit selectedInscrits;
 
-        public Manager(IReadOnlyCollection<Inscrit> listedesInscrits, List<Inscrit> tousLesInscrits, Inscrit selectedInscrits)
+        void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+
+        public void LoadInscrit()
         {
-            ListedesInscrits = listedesInscrits;
-            TousLesInscrits = tousLesInscrits;
-            this.selectedInscrits = selectedInscrits;
-          
+            TousLesInscrits.Clear();
+            TousLesInscrits.AddRange(Pers.LoadInscrit());
+            if (TousLesInscrits.Count > 0)
+                SelectedInscrits = TousLesInscrits.First();
+
         }
 
-        /*En attente de la persistance*/
-
-        /*   public Manager(IPersistanceManager persistance)
-           {
-               ListedesInscrits = new ReadOnlyCollection<Inscrit>(TousLesInscrits);
-               persistance = persistance;
-           }*/
-
+        public Manager(IPersistanceManager persistance)
+        {
+            ListedesInscrits = new ReadOnlyCollection<Inscrit>(TousLesInscrits);
+            Pers = persistance;
+        }
 
 
     }
