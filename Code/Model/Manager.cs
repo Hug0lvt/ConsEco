@@ -52,6 +52,17 @@ namespace Model
             Pers = persistance;
         }
 
+        public void supprimerInscritBdd(Inscrit i)
+        {
+            Pers.SupprimerInscritBdd(i);
+        }
+
+        /*     public void supprimerInscritBdd(Inscrit i)
+             {
+
+
+             }*/
+
 
     }
 

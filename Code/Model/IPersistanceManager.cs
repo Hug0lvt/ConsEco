@@ -9,5 +9,6 @@ namespace Model
     public interface IPersistanceManager
     {
         IEnumerable<Inscrit> LoadInscrit();
+        void SupprimerInscritBdd(Inscrit inscrit);
     }
 }

@@ -23,6 +23,7 @@ namespace IHM
     public partial class MainWindow : Window
     {
         public Manager ListedesInscrits => ((App)Application.Current).AllInscrits;
+   
         public MainWindow()
         {
             InitializeComponent();
@@ -32,27 +33,35 @@ namespace IHM
             
         }
 
-        public void test()
+        public void testSelect()
         {
             foreach (Inscrit i in ListedesInscrits.ListedesInscrits)
             {
-                if(i.Nom == "YOUVOI")
-                {
-                   MessageBox.Show($"{i.Id} + {i.Nom} + {i.Mdp} + {i.Mail} + {i.Dev}");
-                }
+                
+                
+                 MessageBox.Show($"{i.Id} + {i.Nom} + {i.Mdp} + {i.Mail} + {i.Dev}");
+                
                 
             }
             
         }
 
+        public void testSuppression()
+        {
+            foreach (Inscrit i in ListedesInscrits.ListedesInscrits)
+            {
+                if (i.Nom == "YOUVOI")
+                {
+                    ListedesInscrits.supprimerInscritBdd(i);
+                }
+
+            }
+
+        }
+
         private void test_Click(object sender, RoutedEventArgs e)
         {
-
-            test(); 
-          
-
-
-
+            testSelect(); 
         }
     }
 }

@@ -17,9 +17,9 @@ namespace Model
             Mail = mail;
             Prenom = prenom;
             Mdp = mdp;
-            
+     
         }
-
+        
 
 
         public Inscrit(string id, string nom, string mail, string prenom, string mdp, double soldeTotal)
@@ -49,6 +49,8 @@ namespace Model
         public double SoldeTotal { get; private set; }
         public Devises Dev { get; private set; }
         public List<Banque> LesBanques { get; private set; } = new List<Banque>();
+
+     
 
         public void ajouterBanque(Banque banque)
         {
