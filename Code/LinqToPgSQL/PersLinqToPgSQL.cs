@@ -32,8 +32,17 @@ namespace LinqToPgSQL
             List<Inscrit> ListeInscrits = new List<Inscrit>();
 
             var conn = new NpgsqlConnection(connString);
-            Console.Out.WriteLine("Ouverture de la connection");
-            conn.Open();
+            Console.Out.WriteLine("Ouverture de la connection"); try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                conn.Close();
+                Environment.Exit(0);
+               
+            }
+            
 
             var AllInscrit = new NpgsqlCommand("SELECT * FROM Inscrit", conn);
 
