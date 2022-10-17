@@ -8,7 +8,43 @@
              d:DesignHeight="450" d:DesignWidth="800"
              Style="{StaticResource ImageFondRessource}">
     <DockPanel>
-        <Button Click="Button_Click_Ajouter_Planification" Style="{StaticResource GreenButtonRessource}" Content="Enregistrer une plannification"/>
-        <Button Click="Button_Click_Supprimer_Planification" Style="{StaticResource GreenButtonRessource}" Content="supprimer une plannification"/>
+
+        <TextBlock DockPanel.Dock="Top" Text="Planification" Style="{StaticResource TitreDePage}"/>
+
+        <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+            <Border Style="{StaticResource BorderRessource}" Background="BlueViolet">
+                <TextBlock DockPanel.Dock="Bottom" Text="Total" TextAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <Border Style="{StaticResource BorderRessource}" Background="BlueViolet">
+                <TextBlock DockPanel.Dock="Bottom" Text="???" TextAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+        </WrapPanel>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+
+
+
+            <WrapPanel HorizontalAlignment="Center">
+                <Button Style="{StaticResource GreenButtonRessource}" Content="Enregistrer une plannification"/>
+                <Button Style="{StaticResource GreenButtonRessource}" Content="supprimer une plannification"/>
+            </WrapPanel>
+            <TextBlock Text="Basculement vers échéancier tous les premiers du mois" HorizontalAlignment="Center" FontStyle="Italic"/>
+            <WrapPanel HorizontalAlignment="Center">
+                <WrapPanel.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="60,10,30,0"/>
+                    </Style>
+                </WrapPanel.Resources>
+                <TextBlock Text="Nom"/>
+                <TextBlock Text="Date"/>
+                <TextBlock Text="Paiement"/>
+                <TextBlock Text="Type"/>
+                <TextBlock Text="Crédit"/>
+                <TextBlock Text="Débit"/>
+            </WrapPanel>
+        </StackPanel>
+
+
     </DockPanel>
 </UserControl>
+
