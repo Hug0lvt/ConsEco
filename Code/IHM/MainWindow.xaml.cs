@@ -44,7 +44,7 @@ namespace IHM
 
         private void Button_Click_Plannification(object sender, RoutedEventArgs e)
         {
-            Nav.NavigateTo(Navigator.PART_PLANNIFICATION);
+            Nav.NavigateTo(Navigator.PART_PLANIFICATION);
         }
     }
 }

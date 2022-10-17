@@ -9,7 +9,7 @@
              Style="{StaticResource ImageFondRessource}">
     <DockPanel>
         <TextBlock Text="A FAIRE" FontSize="40"/>
-        <Button Style="{StaticResource GreenButtonRessource}">
+        <Button Click="Button_Click_Retour" Style="{StaticResource GreenButtonRessource}">
             <TextBlock Text="Retour"/>
         </Button>
     </DockPanel>

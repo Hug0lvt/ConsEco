@@ -20,9 +20,16 @@ namespace IHM
     /// </summary>
     public partial class UCAjouterPlanification : UserControl
     {
+        public Navigator Nav => (App.Current as App).Navigator;
+
         public UCAjouterPlanification()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click_Retour(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_PLANIFICATION);
         }
     }
 }

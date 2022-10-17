@@ -84,7 +84,7 @@
             <Setter Property="Padding" Value="10"/>
             <Setter Property="Margin" Value="60,0,0,0"/>
             <Setter Property="Height" Value="25"/>
-            <Setter Property="Width" Value="150"/>
+            <Setter Property="Width" Value="200"/>
         </Style>
 
 
