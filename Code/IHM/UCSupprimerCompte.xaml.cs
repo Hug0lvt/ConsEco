@@ -16,25 +16,20 @@ using System.Windows.Shapes;
 namespace IHM
 {
     /// <summary>
-    /// Logique d'interaction pour UCEcheancier.xaml
+    /// Logique d'interaction pour UCSupprimerCompte.xaml
     /// </summary>
-    public partial class UCEcheancier : UserControl
+    public partial class UCSupprimerCompte : UserControl
     {
         public Navigator Nav => (App.Current as App).Navigator;
 
-        public UCEcheancier()
+        public UCSupprimerCompte()
         {
             InitializeComponent();
         }
 
-        private void Button_Click_Ajouter_Echeance(object sender, RoutedEventArgs e)
+        private void Button_Click_Retour(object sender, RoutedEventArgs e)
         {
-            Nav.NavigateTo(Navigator.PART_AJOUTER_ECHEANCE);
-        }
-
-        private void Button_Click_Supprimer_Echeance(object sender, RoutedEventArgs e)
-        {
-            Nav.NavigateTo(Navigator.PART_SUPPRIMER_ECHEANCE);
+            Nav.NavigateTo(Navigator.PART_COMPTE);
         }
     }
 }

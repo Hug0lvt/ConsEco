@@ -27,6 +27,26 @@ namespace IHM
         {
             Nav.NavigateTo(Navigator.PART_MODIFSOLDE);
         }
+
+        private void Button_Click_Ajouter_Banque(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_AJOUTER_BANQUE);
+        }
+
+        private void Button_Click_Supprimer_Banque(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_SUPPRIMER_BANQUE);
+        }
+
+        private void Button_Click_Ajouter_Compte(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_AJOUTER_COMPTE);
+        }
+
+        private void Button_Click_Supprimer_Compte(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_SUPPRIMER_COMPTE);
+        }
     }
 
 }
