@@ -8,15 +8,39 @@
              d:DesignHeight="450" d:DesignWidth="800"
              Style="{StaticResource ImageFondRessource}">
     <DockPanel>
+
         <TextBlock DockPanel.Dock="Top" Text="Opérations" Style="{StaticResource TitreDePage}"/>
-        
-        <WrapPanel DockPanel.Dock="Top">
-            <Button Style="{StaticResource GreenButtonRessource}" Content="Effectuer un crédit" Margin="45,0,0,0"/>
-            <Button Style="{StaticResource GreenButtonRessource}" Content="Effectuer un débit"  Margin="70,0,10,0"/>
-            <Button Style="{StaticResource GreenButtonRessource}" Content="Retirer une opération"  Margin="70,0,0,0"/>
-            <Button Style="{StaticResource GreenButtonRessource}" Content="Supprimer une opération"  Margin="70,0,0,0"/>
+
+        <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+            <Border Style="{StaticResource BorderRessource}" Background="BlueViolet">
+                <TextBlock DockPanel.Dock="Bottom" Text="Solde" TextAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <Border Style="{StaticResource BorderRessource}" Background="BlueViolet">
+                <TextBlock DockPanel.Dock="Bottom" Text="???" TextAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
         </WrapPanel>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <WrapPanel HorizontalAlignment="Center">
+                <Button Style="{StaticResource GreenButtonRessource}" Content="Effectuer un crédit"/>
+                <Button Style="{StaticResource GreenButtonRessource}" Content="Effectuer un débit"/>
+                <Button Style="{StaticResource GreenButtonRessource}" Content="Retirer une opération"/>
+                <Button Style="{StaticResource GreenButtonRessource}" Content="Supprimer une opération"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center">
+                <WrapPanel.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="60,10,30,0"/>
+                    </Style>
+                </WrapPanel.Resources>
+                <TextBlock Text="Nom"/>
+                <TextBlock Text="Date"/>
+                <TextBlock Text="Paiement"/>
+                <TextBlock Text="Type"/>
+                <TextBlock Text="Crédit"/>
+                <TextBlock Text="Débit"/>
+            </WrapPanel>
+        </StackPanel>
     </DockPanel>
 
-    
 </UserControl>

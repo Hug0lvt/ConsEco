@@ -26,5 +26,9 @@ namespace IHM
         {
             InitializeComponent();
         }
+        private void Button_Click_Compte(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_COMPTE);
+        }
     }
 }
