@@ -18,11 +18,11 @@ namespace IHM
     /// <summary>
     /// Logique d'interaction pour Page1.xaml
     /// </summary>
-    public partial class ModifSolde : UserControl
+    public partial class UCModifSolde : UserControl
     {
         public Navigator Nav => (App.Current as App).Navigator;
 
-        public ModifSolde()
+        public UCModifSolde()
         {
             InitializeComponent();
         }

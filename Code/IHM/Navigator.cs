@@ -26,35 +26,22 @@ namespace IHM
 
         Dictionary<string, Func<UserControl>> windowPart { get; set; } = new Dictionary<string, Func<UserControl>>
         {
+            [PART_MAIN] = () => new UCBienvenue(),
+            [PART_CONNEXION] = () => new UCConnexion(),
             [PART_COMPTE] = () => new UCCompte(),
             [PART_OPERATION] = () => new UCOperation(),
             [PART_ECHEANCIER] = () => new UCEcheancier(),
             [PART_PLANNIFICATION] = () => new UCPlannification(),
-        };
-
-        public ReadOnlyDictionary<string, Func<UserControl>> WindowPartMain { get; private set; }
-
-        Dictionary<string, Func<UserControl>> windowPartMain { get; set; } = new Dictionary<string, Func<UserControl>>
-        {
-            [PART_CONNEXION] = () => new UCConnexion(),
             [PART_INSCRIPTION] = () => new UCInscription(),
             [PART_MODIFSOLDE] = () => new UCModifSolde(),
         };
 
-        public ReadOnlyDictionary<string, Func<UserControl>> WindowMain { get; private set; }
-
-        Dictionary<string, Func<UserControl>> windowMain { get; set; } = new Dictionary<string, Func<UserControl>>
-        {
-            [PART_MAIN] = () => new UCBienvenue(),
-        };
 
         public Navigator()
         {
             WindowPart = new ReadOnlyDictionary<string, Func<UserControl>>(windowPart);
-            WindowMain = new ReadOnlyDictionary<string, Func<UserControl>>(windowMain);
-            WindowPartMain = new ReadOnlyDictionary<string, Func<UserControl>>(windowPartMain);
 
-            SelectedUserControlCreator = windowMain.First();
+            SelectedUserControlCreator = windowPart.First();
         }
 
         public KeyValuePair<string, Func<UserControl>> SelectedUserControlCreator
@@ -79,16 +66,6 @@ namespace IHM
             if (WindowPart.ContainsKey(windowPartName))
             {
                 SelectedUserControlCreator = WindowPart.Single(kvp => kvp.Key == windowPartName);
-            }
-
-            if (WindowPartMain.ContainsKey(windowPartName))
-            {
-                SelectedUserControlCreator = WindowPartMain.Single(kvp => kvp.Key == windowPartName);
-            }
-
-            if (WindowMain.ContainsKey(windowPartName))
-            {
-                SelectedUserControlCreator = WindowMain.Single(kvp => kvp.Key == windowPartName);
             }
         }
     }
