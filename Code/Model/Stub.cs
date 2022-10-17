@@ -12,6 +12,8 @@ namespace Model
         public List<Inscrit> Inscrits = new();
         public List<Compte> Comptes = new();
 
+
+
         // ajouter load all pour tout les inscrits
 
         public List<Inscrit> LoadInscrit()

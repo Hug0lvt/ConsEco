@@ -64,5 +64,6 @@ namespace IHM
             testSelect(); 
    /*         testSuppression();*/
         }
+
     }
 }
