@@ -56,12 +56,13 @@ namespace IHM
                 }
 
             }
-
+            MessageBox.Show("Suppression ok");
         }
 
         private void test_Click(object sender, RoutedEventArgs e)
         {
-            //testSelect(); 
+            testSelect(); 
+   /*         testSuppression();*/
         }
 
     }
