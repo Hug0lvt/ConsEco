@@ -33,7 +33,8 @@ namespace LinqToPgSQL
 
             var conn = new NpgsqlConnection(connString);
             Console.Out.WriteLine("Ouverture de la connection");
-            conn.Open();
+            conn.Open();//gérer l'exception !
+            //pb de pare-feu a l'iut
 
             var AllInscrit = new NpgsqlCommand("SELECT * FROM Inscrit", conn);
 

@@ -16,5 +16,7 @@ namespace IHM
     public partial class App : Application
     {
         public Manager AllInscrits { get; private set; } = new Manager(new LinqToPgSQL.PersLinqToPgSQL());
+        //public Manager AllInscrits { get; private set; } = new Manager(new Stub());
+
     }
 }

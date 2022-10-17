@@ -61,7 +61,8 @@ namespace IHM
 
         private void test_Click(object sender, RoutedEventArgs e)
         {
-            testSelect(); 
+            //testSelect(); 
         }
+
     }
 }
