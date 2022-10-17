@@ -1637,7 +1637,7 @@
 											"top": 947,
 											"width": 228.693359375,
 											"height": 13,
-											"text": "+opeCredit(o: Opérations)",
+											"text": "+ajouterOpe(o: Opérations)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1659,23 +1659,6 @@
 										},
 										{
 											"_type": "UMLOperationView",
-											"_id": "AAAAAAGDq+z2UNsiEcY=",
-											"_parent": {
-												"$ref": "AAAAAAGDnMbyVhA/fnM="
-											},
-											"model": {
-												"$ref": "AAAAAAGDq+z2SdsZ2jw="
-											},
-											"font": "Arial;13;0",
-											"left": 1325,
-											"top": 977,
-											"width": 228.693359375,
-											"height": 13,
-											"text": "+opeDebit(o: Opérations)",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
 											"_id": "AAAAAAGDq+z5ydvcHm4=",
 											"_parent": {
 												"$ref": "AAAAAAGDnMbyVhA/fnM="
@@ -1685,7 +1668,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1325,
-											"top": 992,
+											"top": 977,
 											"width": 228.693359375,
 											"height": 13,
 											"text": "+delOpe(o: Opérations)",
@@ -1702,7 +1685,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1325,
-											"top": 1007,
+											"top": 992,
 											"width": 228.693359375,
 											"height": 13,
 											"text": "+ajoutEcheance(e: Echeancier)",
@@ -1719,7 +1702,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1325,
-											"top": 1022,
+											"top": 1007,
 											"width": 228.693359375,
 											"height": 13,
 											"text": "+supprimerEcheance(e: Echeancier)",
@@ -1736,7 +1719,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1325,
-											"top": 1037,
+											"top": 1022,
 											"width": 228.693359375,
 											"height": 13,
 											"text": "+ajoutPlanification(p: Planification)",
@@ -1753,7 +1736,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1325,
-											"top": 1052,
+											"top": 1037,
 											"width": 228.693359375,
 											"height": 13,
 											"text": "+supprimerPlanification(p: Planification)",
@@ -1764,7 +1747,7 @@
 									"left": 1320,
 									"top": 927,
 									"width": 238.693359375,
-									"height": 143
+									"height": 128
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -9132,7 +9115,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGDnMbyVhA2ArI="
 							},
-							"name": "opeCredit",
+							"name": "ajouterOpe",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -9160,27 +9143,6 @@
 									"_id": "AAAAAAGDq+4TNN3VlYY=",
 									"_parent": {
 										"$ref": "AAAAAAGDq+zz2dpfNVQ="
-									},
-									"name": "o",
-									"type": {
-										"$ref": "AAAAAAGDobAQFE79l/8="
-									}
-								}
-							]
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAGDq+z2SdsZ2jw=",
-							"_parent": {
-								"$ref": "AAAAAAGDnMbyVhA2ArI="
-							},
-							"name": "opeDebit",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGDq+8z1eKDTrE=",
-									"_parent": {
-										"$ref": "AAAAAAGDq+z2SdsZ2jw="
 									},
 									"name": "o",
 									"type": {
