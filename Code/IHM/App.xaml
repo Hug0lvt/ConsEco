@@ -109,6 +109,9 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
+        
+        
+        
 
         <SolidColorBrush x:Key="CouleurPrincipale" Color="#23395d"/>
 
@@ -121,20 +124,23 @@
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Foreground" Value="White"/>
 
-
-
             <Style.Resources>
-                
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20,0,0,20"/>
                 </Style>
             </Style.Resources>
-
-
             <Style.Triggers>
-
+                <Trigger Property="IsDefault" Value="False">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Duration="0:0:0.5" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" To="#23395d"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
                 
-
                 <Trigger Property="IsDefault" Value="True">
                     <Setter Property="Foreground" Value="Black"/>
                     <Trigger.EnterActions>
@@ -145,9 +151,6 @@
                         </BeginStoryboard>
                     </Trigger.EnterActions>
                 </Trigger>
-
-                
-                
                 
 
             </Style.Triggers>

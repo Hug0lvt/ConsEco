@@ -16,6 +16,8 @@ namespace IHM
         public const string PART_CONNEXION = "Connexion";
         public const string PART_INSCRIPTION = "Inscription";
 
+        public const string PART_TABLEAU_DE_BORD = "Tableau de Bord";
+
         public const string PART_COMPTE = "Compte";
         public const string PART_AJOUTER_BANQUE = "Ajouter une banque";
         public const string PART_SUPPRIMER_BANQUE = "Supprimer une banque";
@@ -53,6 +55,7 @@ namespace IHM
             [PART_SUPPRIMER_ECHEANCE] = () => new UCSupprimerEcheance(),
             [PART_AJOUTER_PLANIFICATION] = () => new UCAjouterPlanification(),
             [PART_SUPPRIMER_PLANIFICATION] = () => new UCSupprimerPlanification(),
+            [PART_TABLEAU_DE_BORD] = () => new UCTableauDeBord(),
         };
 
 

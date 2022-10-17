@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,9 +28,40 @@ namespace IHM
             DataContext = this;
         }
 
+        private void Button_Click_TableauDeBord(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine(e);
+            Button btn = (Button)sender;
+            if (btn == null) return;
+            if (btn.IsDefault == false)
+            {
+                btn.IsDefault = true;
+                Nav.NavigateTo(Navigator.PART_TABLEAU_DE_BORD);
+                //scan les autres btns
+                
+                
+            }
+            else return;
+
+        }
+
         private void Button_Click_Compte(object sender, RoutedEventArgs e)
         {
-            Nav.NavigateTo(Navigator.PART_COMPTE);
+            
+            Button btn = (Button)sender;
+            if (btn == null) return;
+            if (btn.IsDefault == false)
+            {
+                btn.IsDefault = true;
+                Nav.NavigateTo(Navigator.PART_COMPTE);
+/*                
+                StackPanel parent = btn.Parent as StackPanel;
+                foreach(Button bt in parent)
+ */               
+
+            }
+            else return;
+            //Nav.NavigateTo(Navigator.PART_COMPTE);
         }
 
         private void Button_Click_Operation(object sender, RoutedEventArgs e)
@@ -46,5 +78,7 @@ namespace IHM
         {
             Nav.NavigateTo(Navigator.PART_PLANIFICATION);
         }
+
+        
     }
 }
