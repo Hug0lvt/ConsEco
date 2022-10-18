@@ -28,18 +28,36 @@ namespace IHM
             DataContext = this;
         }
 
+        public void ChangerStyleBtn(Button btn)
+        {
+
+            StackPanel sp = (StackPanel)btn.Parent;
+            if (sp == null) return;
+            UIElementCollection UIEC = sp.Children;
+            if (UIEC == null) return;
+            foreach (UIElement obj in UIEC)
+            {
+
+                if (obj as Button != null)
+                {
+                    (obj as Button).IsDefault = false;
+                }
+
+            }
+            btn.IsDefault = true;
+        }
+
         private void Button_Click_TableauDeBord(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine(e);
+
             Button btn = (Button)sender;
             if (btn == null) return;
             if (btn.IsDefault == false)
             {
-                btn.IsDefault = true;
                 Nav.NavigateTo(Navigator.PART_TABLEAU_DE_BORD);
-                //scan les autres btns
-                
-                
+                ChangerStyleBtn(btn);
+
+
             }
             else return;
 
@@ -52,31 +70,57 @@ namespace IHM
             if (btn == null) return;
             if (btn.IsDefault == false)
             {
-                btn.IsDefault = true;
+                
                 Nav.NavigateTo(Navigator.PART_COMPTE);
-/*                
-                StackPanel parent = btn.Parent as StackPanel;
-                foreach(Button bt in parent)
- */               
+                ChangerStyleBtn(btn);
 
             }
             else return;
-            //Nav.NavigateTo(Navigator.PART_COMPTE);
+
         }
 
         private void Button_Click_Operation(object sender, RoutedEventArgs e)
         {
-            Nav.NavigateTo(Navigator.PART_OPERATION);
+            Button btn = (Button)sender;
+            if (btn == null) return;
+            if (btn.IsDefault == false)
+            {
+
+                Nav.NavigateTo(Navigator.PART_OPERATION);
+                ChangerStyleBtn(btn);
+
+            }
+            else return;
+
         }
 
         private void Button_Click_Echeancier(object sender, RoutedEventArgs e)
         {
-            Nav.NavigateTo(Navigator.PART_ECHEANCIER);
+            Button btn = (Button)sender;
+            if (btn == null) return;
+            if (btn.IsDefault == false)
+            {
+
+                Nav.NavigateTo(Navigator.PART_ECHEANCIER);
+                ChangerStyleBtn(btn);
+
+            }
+            else return;
+
         }
 
         private void Button_Click_Plannification(object sender, RoutedEventArgs e)
         {
-            Nav.NavigateTo(Navigator.PART_PLANIFICATION);
+            Button btn = (Button)sender;
+            if (btn == null) return;
+            if (btn.IsDefault == false)
+            {
+
+                Nav.NavigateTo(Navigator.PART_PLANIFICATION);
+                ChangerStyleBtn(btn);
+
+            }
+            else return;
         }
 
         
