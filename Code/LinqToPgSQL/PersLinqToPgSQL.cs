@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Npgsql;
 using Model;
 using System.IO;
+using System.Diagnostics;
 
 namespace LinqToPgSQL
 {
@@ -44,30 +45,19 @@ namespace LinqToPgSQL
             }
             
 
-            var AllInscrit = new NpgsqlCommand("SELECT * FROM Inscrit", conn);
 
-            var reader = AllInscrit.ExecuteReader();
-            while (reader.Read())
+
+
+            
+            NpgsqlDataReader dbReader = new NpgsqlCommand("SELECT * FROM Inscrit", conn).ExecuteReader();
+
+            while (dbReader.Read())
             {
-                Console.WriteLine(
-                    string.Format(
-                        "({0}, {1}, {2}, {3}, {4}",
-                        reader.GetString(0),
-                        reader.GetString(1),
-                        reader.GetString(2),
-                        reader.GetString(3),
-                        reader.GetString(4)
-                        /*reader.GetInt32(2).ToString()*/
-                        )
-                    );
-                foreach (var EltInscrit in reader)
-                {
-                    ListeInscrits.Add(new(reader.GetString(0), reader.GetString(1), reader.GetString(3), reader.GetString(2), reader.GetString(4)));
-                }
-                   
 
+                ListeInscrits.Add(new Inscrit(dbReader.GetString(0), dbReader.GetString(1), dbReader.GetString(2), dbReader.GetString(3), dbReader.GetString(4)));
             }
-            reader.Close();
+
+            dbReader.Close();
 
             return ListeInscrits;
         }
