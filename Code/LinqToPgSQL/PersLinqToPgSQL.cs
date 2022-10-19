@@ -72,21 +72,18 @@ namespace LinqToPgSQL
 
 
             string requete = $"DELETE FROM INSCRIT WHERE id=(@p)";
-            string requeteFKey = $"DELETE FROM DEVISEINSCRIT WHERE idInscrit=(@p2)";
 
-            using (var command1 = new NpgsqlCommand(requeteFKey, conn))
+            using (var command1 = new NpgsqlCommand(requete, conn))
             {
                 command1.Parameters.AddWithValue("p2", i.Id);
                 await command1.ExecuteNonQueryAsync();
             }
 
-            using (var command = new NpgsqlCommand(requete, conn))
-            {
-                command.Parameters.AddWithValue("p", i.Id);
-                await command.ExecuteNonQueryAsync();
-            }
-
-            
+         /*   SupprimerBanqueBdd(i);
+            SupprimerCompteBdd(i);
+            SupprimerEcheancierBdd(i);
+            SupprimerPlanificationBdd(i);
+*/
 
         }
     }
