@@ -44,10 +44,6 @@ namespace LinqToPgSQL
                
             }
             
-
-
-
-
             
             NpgsqlDataReader dbReader = new NpgsqlCommand("SELECT * FROM Inscrit", conn).ExecuteReader();
 
@@ -55,7 +51,9 @@ namespace LinqToPgSQL
             {
 
                 ListeInscrits.Add(new Inscrit(dbReader.GetString(0), dbReader.GetString(1), dbReader.GetString(2), dbReader.GetString(3), dbReader.GetString(4)));
+                
             }
+            
 
             dbReader.Close();
 
