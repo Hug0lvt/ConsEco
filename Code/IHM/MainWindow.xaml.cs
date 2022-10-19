@@ -59,6 +59,11 @@ namespace IHM
             MessageBox.Show("Suppression ok");
         }
 
+        public void testSupressionBdd(Banque b)
+        {
+           
+        }
+
         private void test_Click(object sender, RoutedEventArgs e)
         {
             testSelect(); 

@@ -92,5 +92,27 @@ namespace LinqToPgSQL
             
 
         }
+
+        public async void SupprimerBanqueBdd(Banque b)
+        {
+            var conn = new NpgsqlConnection(connString);
+            Console.Out.WriteLine("Ouverture de la connection");
+            conn.Open();
+
+            string requete = $"DELETE FROM Banque WHERE nom=(@n)";
+            string requeteFKey = $"DELETE From Compte WHERE nomBanque=(@n2)";
+
+            using (var commandFKey = new NpgsqlCommand(requeteFKey, conn))
+            {
+                commandFKey.Parameters.AddWithValue("n2", b.Nom);
+                await commandFKey.ExecuteNonQueryAsync();
+            }
+
+            using (var command = new NpgsqlCommand(requete, conn))
+            {
+                command.Parameters.AddWithValue("n", b.Nom);
+                await command.ExecuteNonQueryAsync();
+            }
+        }
     }
 }
