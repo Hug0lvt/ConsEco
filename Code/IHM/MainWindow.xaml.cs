@@ -109,7 +109,7 @@ namespace IHM
 
         }
 
-        private void Button_Click_Plannification(object sender, RoutedEventArgs e)
+        private void Button_Click_Planification(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
             if (btn == null) return;

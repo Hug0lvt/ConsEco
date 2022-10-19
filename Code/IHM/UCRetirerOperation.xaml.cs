@@ -16,25 +16,19 @@ using System.Windows.Shapes;
 namespace IHM
 {
     /// <summary>
-    /// Logique d'interaction pour UCPlannification.xaml
+    /// Logique d'interaction pour UserControl2.xaml
     /// </summary>
-    public partial class UCPlannification : UserControl
+    public partial class UCRetirerOperation : UserControl
     {
         public Navigator Nav => (App.Current as App).Navigator;
 
-        public UCPlannification()
+        public UCRetirerOperation()
         {
             InitializeComponent();
         }
-
-        private void Button_Click_Ajouter_Planification(object sender, RoutedEventArgs e)
+        private void Button_Click_Retour(object sender, RoutedEventArgs e)
         {
-            Nav.NavigateTo(Navigator.PART_AJOUTER_PLANIFICATION);
-        }
-
-        private void Button_Click_Supprimer_Planification(object sender, RoutedEventArgs e)
-        {
-            Nav.NavigateTo(Navigator.PART_SUPPRIMER_PLANIFICATION);
+            Nav.NavigateTo(Navigator.PART_OPERATION);
         }
     }
 }

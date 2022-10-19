@@ -24,7 +24,7 @@
             <Button Click="Button_Click_Compte" Content="Compte" Style="{StaticResource BoutonMain}"/>
             <Button Click="Button_Click_Operation" Content="Opérations" Style="{StaticResource BoutonMain}"/>
             <Button Click="Button_Click_Echeancier" Content="Echéancier" Style="{StaticResource BoutonMain}"/>
-            <Button Click="Button_Click_Plannification" Content="Plannification" Style="{StaticResource BoutonMain}"/>
+            <Button Click="Button_Click_Planification" Content="Planification" Style="{StaticResource BoutonMain}"/>
 
         
         </StackPanel>

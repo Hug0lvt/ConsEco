@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="IHM.UCPlannification"
+﻿<UserControl x:Class="IHM.UCPlanification"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -25,8 +25,8 @@
 
 
             <WrapPanel HorizontalAlignment="Center">
-                <Button Style="{StaticResource GreenButtonRessource}" Content="Enregistrer une plannification"/>
-                <Button Style="{StaticResource GreenButtonRessource}" Content="supprimer une plannification"/>
+                <Button Style="{StaticResource GreenButtonRessource}" Click="Button_Click_Ajouter_Planification" Content="Enregistrer une planification"/>
+                <Button Style="{StaticResource GreenButtonRessource}" Click="Button_Click_Supprimer_Planification" Content="supprimer une planification"/>
             </WrapPanel>
             <TextBlock Text="Basculement vers échéancier tous les premiers du mois" HorizontalAlignment="Center" FontStyle="Italic"/>
             <WrapPanel HorizontalAlignment="Center">

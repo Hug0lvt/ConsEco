@@ -20,9 +20,27 @@ namespace IHM
     /// </summary>
     public partial class UCOperation : UserControl
     {
+        public Navigator Nav => (App.Current as App).Navigator;
+
         public UCOperation()
         {
             InitializeComponent();
+        }
+        private void Button_Click_EffectuerCredit(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_EFFECTUER_CREDIT);
+        }
+        private void Button_Click_EffectuerDebit(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_EFFECTUER_DEBIT);
+        }
+        private void Button_Click_RetirerOperation(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_RETIRER_OPERATION);
+        }
+        private void Button_Click_SupprimerOperation(object sender, RoutedEventArgs e)
+        {
+            Nav.NavigateTo(Navigator.PART_SUPPRIMER_OPERATION);
         }
     }
 }

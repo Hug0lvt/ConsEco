@@ -22,10 +22,10 @@
 
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
             <WrapPanel HorizontalAlignment="Center">
-                <Button Style="{StaticResource GreenButtonRessource}" Content="Effectuer un crédit"/>
-                <Button Style="{StaticResource GreenButtonRessource}" Content="Effectuer un débit"/>
-                <Button Style="{StaticResource GreenButtonRessource}" Content="Retirer une opération"/>
-                <Button Style="{StaticResource GreenButtonRessource}" Content="Supprimer une opération"/>
+                <Button Style="{StaticResource GreenButtonRessource}" Click="Button_Click_EffectuerCredit" Content="Effectuer un crédit"/>
+                <Button Style="{StaticResource GreenButtonRessource}" Click="Button_Click_EffectuerDebit" Content="Effectuer un débit"/>
+                <Button Style="{StaticResource GreenButtonRessource}" Click="Button_Click_RetirerOperation" Content="Retirer une opération"/>
+                <Button Style="{StaticResource GreenButtonRessource}" Click="Button_Click_SupprimerOperation" Content="Supprimer une opération"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center">
                 <WrapPanel.Resources>

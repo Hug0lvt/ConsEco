@@ -35,6 +35,11 @@ namespace IHM
         public const string PART_AJOUTER_PLANIFICATION = "Ajouter une planification";
         public const string PART_SUPPRIMER_PLANIFICATION = "Supprimer une planification";
 
+        public const string PART_EFFECTUER_CREDIT = "Effectuer un crédit";
+        public const string PART_EFFECTUER_DEBIT = "Effectuer un débit";
+        public const string PART_RETIRER_OPERATION = "Retirer une opération";
+        public const string PART_SUPPRIMER_OPERATION = "Supprimer une opération";
+
         public ReadOnlyDictionary<string, Func<UserControl>> WindowPart { get; private set; }
 
         Dictionary<string, Func<UserControl>> windowPart { get; set; } = new Dictionary<string, Func<UserControl>>
@@ -44,7 +49,7 @@ namespace IHM
             [PART_COMPTE] = () => new UCCompte(),
             [PART_OPERATION] = () => new UCOperation(),
             [PART_ECHEANCIER] = () => new UCEcheancier(),
-            [PART_PLANIFICATION] = () => new UCPlannification(),
+            [PART_PLANIFICATION] = () => new UCPlanification(),
             [PART_INSCRIPTION] = () => new UCInscription(),
             [PART_MODIFSOLDE] = () => new UCModifSolde(),
             [PART_AJOUTER_BANQUE] = () => new UCAjouterBanque(),
@@ -56,6 +61,10 @@ namespace IHM
             [PART_AJOUTER_PLANIFICATION] = () => new UCAjouterPlanification(),
             [PART_SUPPRIMER_PLANIFICATION] = () => new UCSupprimerPlanification(),
             [PART_TABLEAU_DE_BORD] = () => new UCTableauDeBord(),
+            [PART_EFFECTUER_CREDIT] = () => new UCEffectuerCredit(),
+            [PART_EFFECTUER_DEBIT] = () => new UCEffectuerCredit(),
+            [PART_RETIRER_OPERATION] = () => new UCEffectuerCredit(),
+            [PART_SUPPRIMER_OPERATION] = () => new UCEffectuerCredit()
         };
 
 
