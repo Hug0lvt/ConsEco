@@ -7,6 +7,8 @@ using Npgsql;
 using Model;
 using System.IO;
 using System.Diagnostics;
+using System.Windows;
+using System.Threading;
 
 namespace LinqToPgSQL
 {
@@ -40,6 +42,8 @@ namespace LinqToPgSQL
             catch
             {
                 conn.Close();
+                
+                MessageBox.Show("Problème de connection à la base de données. L'application se fermera après fermeture de la fenêtre");
                 Environment.Exit(0);
                
             }
@@ -104,14 +108,18 @@ namespace LinqToPgSQL
 
 
             string requete = $"DELETE FROM INSCRIT WHERE id=(@p)";
-            string requeteFKey = $"DELETE FROM DEVISEINSCRIT WHERE idInscrit=(@p2)";
 
-            using (var command1 = new NpgsqlCommand(requeteFKey, conn))
+            using (var command1 = new NpgsqlCommand(requete, conn))
             {
                 command1.Parameters.AddWithValue("p2", i.Id);
                 await command1.ExecuteNonQueryAsync();
             }
 
+         /*   SupprimerBanqueBdd(i);
+            SupprimerCompteBdd(i);
+            SupprimerEcheancierBdd(i);
+            SupprimerPlanificationBdd(i);
+*/
             using (var command = new NpgsqlCommand(requete, conn))
             {
                 command.Parameters.AddWithValue("p", i.Id);
