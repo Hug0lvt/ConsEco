@@ -111,7 +111,7 @@ namespace LinqToPgSQL
 
             using (var command1 = new NpgsqlCommand(requete, conn))
             {
-                command1.Parameters.AddWithValue("p2", i.Id);
+                command1.Parameters.AddWithValue("p", i.Id);
                 await command1.ExecuteNonQueryAsync();
             }
 
