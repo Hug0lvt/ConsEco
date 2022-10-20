@@ -39,7 +39,7 @@ namespace IHM
             {
                 
                 
-                 MessageBox.Show($"{i.Id} + {i.Nom} + {i.Mdp} + {i.Mail} + {i.Dev}");
+                 MessageBox.Show($"{i.Id} + {i.Nom} + {i.Prenom} + {i.Mail} + {i.Mdp}");
                 
                 
             }
@@ -69,5 +69,6 @@ namespace IHM
             testSelect(); 
    /*         testSuppression();*/
         }
+
     }
 }

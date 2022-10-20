@@ -10,7 +10,7 @@ namespace Model
     public class Inscrit
     {
 
-        public Inscrit(string id, string nom, string mail, string prenom, string mdp)
+        public Inscrit(string id, string nom, string prenom, string mail, string mdp)
         {
             Id = id;
             Nom = nom;
