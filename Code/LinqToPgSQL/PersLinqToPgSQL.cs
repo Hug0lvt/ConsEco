@@ -17,7 +17,7 @@ namespace LinqToPgSQL
         private static string Host = "90.114.135.116";
         private static string User = "postgres";
         private static string DBname = "conseco";
-        private static string Password = "lul";
+        private static string Password = "lulu";
         private static string Port = "5432";
 
         string connString =
