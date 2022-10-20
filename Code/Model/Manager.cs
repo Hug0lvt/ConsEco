@@ -10,16 +10,8 @@ namespace Model
 {
     public class Manager : INotifyPropertyChanged
     {
-        public Manager() { }
-
         public event PropertyChangedEventHandler? PropertyChanged;
-
-        public IReadOnlyCollection<Inscrit> ListedesInscrits { get; private set; }
-        private List<Inscrit> TousLesInscrits { get; set; } = new List<Inscrit>();
-
         public IPersistanceManager Pers { get; private set; }
-
-
         public Inscrit SelectedInscrits
         {
             get => selectedInscrits;
@@ -33,22 +25,11 @@ namespace Model
             }
         }
         private Inscrit selectedInscrits;
-
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-
-        public void LoadInscrit()
-        {
-            TousLesInscrits.Clear();
-            TousLesInscrits.AddRange(Pers.LoadInscrit());
-            if (TousLesInscrits.Count > 0)
-                SelectedInscrits = TousLesInscrits.First();
-
-        }
 
         public Manager(IPersistanceManager persistance)
         {
-            ListedesInscrits = new ReadOnlyCollection<Inscrit>(TousLesInscrits);
+            SelectedInscrits = persistance.LoadInscrit();
             Pers = persistance;
         }
 

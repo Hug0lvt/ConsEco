@@ -22,40 +22,21 @@ namespace IHM
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Manager ListedesInscrits => ((App)Application.Current).AllInscrits;
+        public Manager Manager => ((App)Application.Current).Manager;
    
         public MainWindow()
         {
             InitializeComponent();
-
-            ListedesInscrits.LoadInscrit();
-            DataContext = ListedesInscrits;
-            
+            DataContext = Manager.SelectedInscrits;
         }
 
         public void testSelect()
         {
-            foreach (Inscrit i in ListedesInscrits.ListedesInscrits)
-            {
-                
-                
-                 MessageBox.Show($"{i.Id} + {i.Nom} + {i.Prenom} + {i.Mail} + {i.Mdp}");
-                
-                
-            }
-            
+                 MessageBox.Show($"{Manager.SelectedInscrits.Id} + {Manager.SelectedInscrits.Nom} + {Manager.SelectedInscrits.Prenom} + {Manager.SelectedInscrits.Mail} + {Manager.SelectedInscrits.Mdp}");
         }
 
         public void testSuppression()
         {
-            foreach (Inscrit i in ListedesInscrits.ListedesInscrits)
-            {
-                if (i.Nom == "YOUVOI")
-                {
-                    ListedesInscrits.supprimerInscritBdd(i);
-                }
-
-            }
             MessageBox.Show("Suppression ok");
         }
 

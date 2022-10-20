@@ -18,21 +18,12 @@ namespace LinqToPgSQL
         private static string Password = "lulu";
         private static string Port = "5432";
 
-        string connString =
-                String.Format(
-                    "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Prefer",
-                    Host,
-                    User,
-                    DBname,
-                    Port,
-                    Password);
-
-        public PersLinqToPgSQL() { }
-        public IEnumerable<Inscrit> LoadInscrit()
+        string connexionBDD = String.Format("Server={0};Username{1};Database{2};Port{3};Password{4};SSLMode=Prefer",Host,User,DBname,Port,Password);
+        public Inscrit LoadInscrit()
         {
-            List<Inscrit> ListeInscrits = new List<Inscrit>();
-
-            var conn = new NpgsqlConnection(connString);
+            int t = 0;
+            Inscrit i=null;
+            var conn = new NpgsqlConnection(connexionBDD);
             Console.Out.WriteLine("Ouverture de la connection"); try
             {
                 conn.Open();
@@ -41,23 +32,15 @@ namespace LinqToPgSQL
             {
                 conn.Close();
                 Environment.Exit(0);
-               
             }
-            
-            
             NpgsqlDataReader dbReader = new NpgsqlCommand("SELECT * FROM Inscrit", conn).ExecuteReader();
-
             while (dbReader.Read())
             {
-
-                ListeInscrits.Add(new Inscrit(dbReader.GetString(0), dbReader.GetString(1), dbReader.GetString(2), dbReader.GetString(3), dbReader.GetString(4)));
-                
+                t++;
+                i=new Inscrit(dbReader.GetString(0), dbReader.GetString(1), dbReader.GetString(2), dbReader.GetString(3), dbReader.GetString(4));  
             }
-            
-
             dbReader.Close();
-
-            return ListeInscrits;
+            return i;
         }
 
 
@@ -66,28 +49,21 @@ namespace LinqToPgSQL
         {
             /*List<Inscrit> ListeInscrits = new List<Inscrit>(LoadInscrit());*/
            
-            var conn = new NpgsqlConnection(connString);
+            var conn = new NpgsqlConnection(connexionBDD);
             Console.Out.WriteLine("Ouverture de la connection");
             conn.Open();
-
-
             string requete = $"DELETE FROM INSCRIT WHERE id=(@p)";
             string requeteFKey = $"DELETE FROM DEVISEINSCRIT WHERE idInscrit=(@p2)";
-
             using (var command1 = new NpgsqlCommand(requeteFKey, conn))
             {
                 command1.Parameters.AddWithValue("p2", i.Id);
                 await command1.ExecuteNonQueryAsync();
             }
-
             using (var command = new NpgsqlCommand(requete, conn))
             {
                 command.Parameters.AddWithValue("p", i.Id);
                 await command.ExecuteNonQueryAsync();
             }
-
-            
-
         }
     }
 }
