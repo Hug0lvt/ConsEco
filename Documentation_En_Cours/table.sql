@@ -2,6 +2,7 @@ DROP TABLE Planification;
 DROP TABLE Opération;
 DROP TABLE Echeancier;
 DROP TABLE Compte;
+DROP TABLE InscrBanque;
 DROP TABLE Banque;
 DROP TABLE DeviseInscrit;
 DROP TABLE Inscrit;
@@ -39,15 +40,23 @@ CREATE TABLE Banque
     urllogo varchar(60)
 );
 
+CREATE TABLE InscrBanque
+(
+    id char(5) PRIMARY KEY,
+    nomBanque varchar(40),
+    idInscrit char(5) UNIQUE,
+    UNIQUE(nomBanque,idInscrit),
+    FOREIGN KEY (nomBanque) REFERENCES Banque(nom),
+    FOREIGN KEY (idInscrit) REFERENCES Inscrit(id)
+);
+
 CREATE TABLE Compte
 (
     id char (5) PRIMARY KEY,
-    nomBanque varchar(40),
     nom varchar(40),
-    idInscrit char(5),
-    FOREIGN KEY (nomBanque) REFERENCES Banque(nom),
-    FOREIGN KEY (idInscrit) REFERENCES Inscrit(id),
-    UNIQUE(nomBanque,nom,idInscrit)
+    idInscritBanque char(5),
+    FOREIGN KEY (idInscritBanque) REFERENCES InscrBanque(id),
+    UNIQUE(idInscritBanque,nom)
 );
 
 CREATE TABLE Echeancier
