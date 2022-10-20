@@ -16,6 +16,8 @@ namespace Model
 
         public IReadOnlyCollection<Inscrit> ListedesInscrits { get; private set; }
         private List<Inscrit> TousLesInscrits { get; set; } = new List<Inscrit>();
+        public IReadOnlyCollection<Banque> ListeDesBanques { get; private set; }
+        private List<Banque> TouteLesBanques { get; set; } = new List<Banque>();
 
         public IPersistanceManager Pers { get; private set; }
 
@@ -34,6 +36,20 @@ namespace Model
         }
         private Inscrit selectedInscrits;
 
+        public Banque SelectedBanque
+        {
+            get => SelectedBanque;
+            set
+            {
+                if(SelectedBanque != value)
+                {
+                    SelectedBanque = value;
+                    OnPropertyChanged(nameof(SelectedBanque));
+                }
+            }
+        }
+        private Banque selectedBanque;
+
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
 
@@ -46,15 +62,29 @@ namespace Model
 
         }
 
+        public void LoadBanque()
+        {
+            TouteLesBanques.Clear();
+            TouteLesBanques.AddRange(Pers.LoadBanque());
+            if (TouteLesBanques.Count > 0)
+                SelectedBanque = TouteLesBanques.First();
+        }
+
         public Manager(IPersistanceManager persistance)
         {
             ListedesInscrits = new ReadOnlyCollection<Inscrit>(TousLesInscrits);
+            ListeDesBanques = new ReadOnlyCollection<Banque>(TouteLesBanques);
             Pers = persistance;
         }
 
         public void supprimerInscritBdd(Inscrit i)
         {
             Pers.SupprimerInscritBdd(i);
+        }
+
+        public void supprimerBanqueBdd(Inscrit i, Banque b)
+        {
+            Pers.SupprimerBanqueBdd(i, b);
         }
 
         /*     public void supprimerInscritBdd(Inscrit i)
