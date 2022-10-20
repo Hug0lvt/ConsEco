@@ -38,13 +38,13 @@ namespace Model
 
         public Banque SelectedBanque
         {
-            get => SelectedBanque;
+            get => selectedBanque;
             set
             {
-                if(SelectedBanque != value)
+                if(selectedBanque != value)
                 {
-                    SelectedBanque = value;
-                    OnPropertyChanged(nameof(SelectedBanque));
+                    selectedBanque = value;
+                    OnPropertyChanged(nameof(selectedBanque));
                 }
             }
         }
