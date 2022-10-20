@@ -61,7 +61,7 @@ namespace LinqToPgSQL
         }
 
 
-        /*Revoir la BDD, probleme de clé étrangère de devise*/
+        
         public async void SupprimerInscritBdd(Inscrit i)
         {
             /*List<Inscrit> ListeInscrits = new List<Inscrit>(LoadInscrit());*/
