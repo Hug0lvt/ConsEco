@@ -35,7 +35,8 @@ namespace LinqToPgSQL
             List<Inscrit> ListeInscrits = new List<Inscrit>();
 
             var conn = new NpgsqlConnection(connString);
-            Console.Out.WriteLine("Ouverture de la connection"); try
+            Console.Out.WriteLine("Ouverture de la connection"); 
+            try
             {
                 conn.Open();
             }
@@ -61,6 +62,7 @@ namespace LinqToPgSQL
 
             dbReader.Close();
 
+
             return ListeInscrits;
         }
 
@@ -69,14 +71,16 @@ namespace LinqToPgSQL
             List<Banque> ListeBanques = new List<Banque>();
 
             var conn = new NpgsqlConnection(connString);
-            Console.Out.WriteLine("Ouverture de la connection"); try
+            Console.Out.WriteLine("Ouverture de la connection"); 
+            try
             {
                 conn.Open();
             }
             catch
             {
                 conn.Close();
-                Environment.Exit(0);
+                MessageBox.Show("Problème de connection à la base de donnée. Aprés fermeture, l'application se fermera automatiquement");
+                Environment.Exit(-1);
 
             }
 
@@ -92,19 +96,63 @@ namespace LinqToPgSQL
 
 
             dbReader.Close();
+           
 
             return ListeBanques;
         }
 
+        /*Charge le compte d'un inscrit*/
+        public IEnumerable<Compte> LoadCompte(Inscrit i)
+        {
+            List<Compte> ListeCompte = new List<Compte>();
 
-        /*Revoir la BDD, probleme de clé étrangère de devise*/
+            var conn = new NpgsqlConnection(connString);
+            Console.Out.WriteLine("Ouverture de la connection");
+            try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                conn.Close();
+                MessageBox.Show("Problème de connection à la base de données. Aprés fermeture, l'application se fermera automatiquement.");
+                Environment.Exit(-1);
+            }
+
+            string requete = "Select * FROM Compte c, InscrBanque ib, Inscrit i WHERE c.idInscrit = ib.idInscrit AND c.idInscritBanque = ib.id AND i.id = (@p1)";
+            NpgsqlDataReader dbReader = new NpgsqlCommand("Select * FROM Compte c, InscrBanque ib, Inscrit i WHERE c.idInscrit = ib.idInscrit AND c.idInscritBanque = ib.id AND i.id = (@p1) ", conn).ExecuteReader();
+
+            using (var command1 = new NpgsqlCommand(requete, conn))
+            {
+                command1.Parameters.AddWithValue("p", i.Id);
+                /*await command1.ExecuteNonQueryAsync();*/
+            }
+
+
+            while (dbReader.Read())
+            {
+                ListeCompte.Add(new Compte(dbReader.GetString(0), dbReader.GetInt64(1)));
+            }
+            dbReader.Close();
+            return ListeCompte;
+        }
+
+        /*Suppression d'un inscrit dans la base de données*/
         public async void SupprimerInscritBdd(Inscrit i)
         {
-            /*List<Inscrit> ListeInscrits = new List<Inscrit>(LoadInscrit());*/
            
             var conn = new NpgsqlConnection(connString);
             Console.Out.WriteLine("Ouverture de la connection");
-            conn.Open();
+            try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                conn.Close();
+                MessageBox.Show("Problème de connection à la base de données. Aprés fermeture, l'application se fermera automatiquement.");
+                Environment.Exit(-1);         
+            }
 
 
             string requete = $"DELETE FROM INSCRIT WHERE id=(@p)";
@@ -115,23 +163,35 @@ namespace LinqToPgSQL
                 await command1.ExecuteNonQueryAsync();
             }
 
-         /*   SupprimerBanqueBdd(i);
-            SupprimerCompteBdd(i);
-            SupprimerEcheancierBdd(i);
-            SupprimerPlanificationBdd(i);
-*/
             using (var command = new NpgsqlCommand(requete, conn))
             {
                 command.Parameters.AddWithValue("p", i.Id);
                 await command.ExecuteNonQueryAsync();
             }
+
+            /*   SupprimerBanqueBdd(i);
+                 SupprimerCompteBdd(i);
+                 SupprimerEcheancierBdd(i);
+                 SupprimerPlanificationBdd(i);
+            */
         }
 
+        /*Suppression d'une banque d'un inscrit*/
         public async void SupprimerBanqueBdd(Inscrit i, Banque b)
         {
             var conn = new NpgsqlConnection(connString);
             Console.Out.WriteLine("Ouverture de la connection");
             conn.Open();
+            try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                conn.Close();
+                MessageBox.Show("Problème de connection avec la base de données. Aprés fermeture, l'application se fermera automatiquement");
+                Environment.Exit(-1);
+            }
 
             await using var cmd = new NpgsqlCommand("DELETE FROM InscrBanque WHERE nombanque=(@b) AND idinscrit=(@i)", conn)
             {
