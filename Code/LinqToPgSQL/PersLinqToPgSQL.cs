@@ -60,6 +60,38 @@ namespace LinqToPgSQL
             return ListeInscrits;
         }
 
+        public IEnumerable<Banque> LoadBanque()
+        {
+            List<Banque> ListeBanques = new List<Banque>();
+
+            var conn = new NpgsqlConnection(connString);
+            Console.Out.WriteLine("Ouverture de la connection"); try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                conn.Close();
+                Environment.Exit(0);
+
+            }
+
+
+            NpgsqlDataReader dbReader = new NpgsqlCommand("SELECT * FROM Banque", conn).ExecuteReader();
+
+            while (dbReader.Read())
+            {
+
+                ListeBanques.Add(new Banque(dbReader.GetString(0), dbReader.GetString(1), dbReader.GetString(2)));
+
+            }
+
+
+            dbReader.Close();
+
+            return ListeBanques;
+        }
+
 
         /*Revoir la BDD, probleme de clé étrangère de devise*/
         public async void SupprimerInscritBdd(Inscrit i)
@@ -85,31 +117,25 @@ namespace LinqToPgSQL
                 command.Parameters.AddWithValue("p", i.Id);
                 await command.ExecuteNonQueryAsync();
             }
-
-            
-
         }
 
-        public async void SupprimerBanqueBdd(Banque b)
+        public async void SupprimerBanqueBdd(Inscrit i, Banque b)
         {
             var conn = new NpgsqlConnection(connString);
             Console.Out.WriteLine("Ouverture de la connection");
             conn.Open();
 
-            string requete = $"DELETE FROM Banque WHERE nom=(@n)";
-            string requeteFKey = $"DELETE From Compte WHERE nomBanque=(@n2)";
-
-            using (var commandFKey = new NpgsqlCommand(requeteFKey, conn))
+            await using var cmd = new NpgsqlCommand("DELETE FROM InscrBanque WHERE nombanque=(@b) AND idinscrit=(@i)", conn)
             {
-                commandFKey.Parameters.AddWithValue("n2", b.Nom);
-                await commandFKey.ExecuteNonQueryAsync();
-            }
+                Parameters =
+                {
+                    new("b", b.Nom),
+                    new("i", i.Id)
+                }
+            };
+            await cmd.ExecuteNonQueryAsync();
 
-            using (var command = new NpgsqlCommand(requete, conn))
-            {
-                command.Parameters.AddWithValue("n", b.Nom);
-                await command.ExecuteNonQueryAsync();
-            }
+            // attente des autres supression
         }
     }
 }

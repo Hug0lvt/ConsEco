@@ -60,6 +60,7 @@ namespace Model
         public void SupprimerBanque(Banque banque)
         {
             LesBanques.Remove(banque);
+
         }
 
         public void ChoisirDevise(Devises devise)

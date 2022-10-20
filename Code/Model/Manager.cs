@@ -82,9 +82,9 @@ namespace Model
             Pers.SupprimerInscritBdd(i);
         }
 
-        public void supprimerBanqueBdd(Banque b)
+        public void supprimerBanqueBdd(Inscrit i, Banque b)
         {
-            Pers.SupprimerBanqueBdd(b);
+            Pers.SupprimerBanqueBdd(i, b);
         }
 
         /*     public void supprimerInscritBdd(Inscrit i)
