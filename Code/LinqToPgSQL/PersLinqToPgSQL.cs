@@ -7,6 +7,8 @@ using Npgsql;
 using Model;
 using System.IO;
 using System.Diagnostics;
+using System.Windows;
+using System.Threading;
 
 namespace LinqToPgSQL
 {
@@ -15,7 +17,7 @@ namespace LinqToPgSQL
         private static string Host = "90.114.135.116";
         private static string User = "postgres";
         private static string DBname = "conseco";
-        private static string Password = "lulu";
+        private static string Password = "lul";
         private static string Port = "5432";
 
         string connString =
@@ -40,6 +42,8 @@ namespace LinqToPgSQL
             catch
             {
                 conn.Close();
+                
+                MessageBox.Show("Problème de connection à la base de données. L'application se fermera après fermeture de la fenêtre");
                 Environment.Exit(0);
                
             }
