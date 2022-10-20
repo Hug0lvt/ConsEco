@@ -40,3 +40,4 @@ steps:
         sonar_token:
           from_secret: SECRET_SONAR_LOGIN
       depends_on: [tests]
+      
