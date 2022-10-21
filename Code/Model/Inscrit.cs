@@ -48,7 +48,7 @@ namespace Model
         public string Mdp { get; private set; }
         public double SoldeTotal { get; private set; }
         public Devises Dev { get; private set; }
-        public List<Banque> LesBanques { get; private set; } = new List<Banque>();
+        private List<Banque> LesBanques { get; set; } = new List<Banque>();
 
      
 

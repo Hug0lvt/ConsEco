@@ -9,6 +9,7 @@ using Npgsql;
 using Model;
 using System.IO;
 using System.Diagnostics;
+using System.Windows;
 
 namespace LinqToPgSQL
 {
@@ -35,13 +36,12 @@ namespace LinqToPgSQL
                 return resultat;
             }
             catch (Exception ex)
-            { Console.Out.WriteLine("A GERER"); 
-            return null;
+            {
+                MessageBox.Show("Utilisateur inconnu");
+                dr.Close();
+                return null;
             }
-            dr.Close();
-
         }
-        
 
 
         /*Revoir la BDD, probleme de clé étrangère de devise*/

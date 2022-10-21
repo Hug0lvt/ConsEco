@@ -42,9 +42,13 @@ namespace IHM
 
         private void test_Click(object sender, RoutedEventArgs e)
         {
-            Manager.LoadInscrit("stef@.com", "teststef");
-            testSelect(); 
-   /*         testSuppression();*/
+            Manager.LoadInscrit(id.Text,mdp.Text);
+            if (Manager.SelectedInscrits != null)
+            {
+                idpers.Text = Manager.SelectedInscrits;
+                testSelect();
+            }
+            else idpers.Text = "";
         }
 
     }
