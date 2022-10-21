@@ -12,5 +12,6 @@ namespace Model
         IEnumerable<Banque> LoadBanque();
         void SupprimerInscritBdd(Inscrit inscrit);
         void SupprimerBanqueBdd(Inscrit inscrit, Banque banque);
+        void SupprimerToutesBanquesBdd(Inscrit inscrit);
     }
 }

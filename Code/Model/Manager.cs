@@ -77,21 +77,20 @@ namespace Model
             Pers = persistance;
         }
 
-        public void supprimerInscritBdd(Inscrit i)
+        public void supprimerInscritBdd(Inscrit inscrit)
         {
-            Pers.SupprimerInscritBdd(i);
+            Pers.SupprimerInscritBdd(inscrit);
         }
 
-        public void supprimerBanqueBdd(Inscrit i, Banque b)
+        public void supprimerBanqueBdd(Inscrit inscrit, Banque banque)
         {
-            Pers.SupprimerBanqueBdd(i, b);
+            Pers.SupprimerBanqueBdd(inscrit, banque);
         }
 
-        /*     public void supprimerInscritBdd(Inscrit i)
-             {
-
-
-             }*/
+        public void supprimerToutesBanquesBdd(Inscrit inscrit)
+        {
+            Pers.SupprimerToutesBanquesBdd(inscrit);
+        }
 
 
     }

@@ -163,17 +163,35 @@ namespace LinqToPgSQL
                 await command1.ExecuteNonQueryAsync();
             }
 
-            using (var command = new NpgsqlCommand(requete, conn))
-            {
-                command.Parameters.AddWithValue("p", i.Id);
-                await command.ExecuteNonQueryAsync();
-            }
 
-            /*   SupprimerBanqueBdd(i);
-                 SupprimerCompteBdd(i);
+               SupprimerToutesBanquesBdd(i);
+                /* SupprimerCompteBdd(i);
                  SupprimerEcheancierBdd(i);
                  SupprimerPlanificationBdd(i);
             */
+        }
+
+      /*  Suppression de toutes les banques d'un inscrit*/
+        public async void SupprimerToutesBanquesBdd(Inscrit i)
+        {
+            var conn = new NpgsqlConnection(connString);
+            Console.Out.WriteLine("Ouverture de la connection");
+            try
+            {
+                conn.Open();
+            }
+            catch 
+            {
+                conn.Close();
+                MessageBox.Show("Problème de connection ave la base de données. Aprés fermeture de la fenêtre, l'application se fermera automatiquement");
+                Environment.Exit(-1);
+            }
+            string requete = $"DELETE * FROM BANQUE b, INSCRBANQUE ib WHERE b.nom=ib.nomBanque AND ib.idInscrit=(@id)";
+            using (var command1 = new NpgsqlCommand(requete, conn))
+            {
+                command1.Parameters.AddWithValue("id", i.Id.ToString());
+                await command1.ExecuteNonQueryAsync();
+            }
         }
 
         /*Suppression d'une banque d'un inscrit*/
@@ -181,7 +199,6 @@ namespace LinqToPgSQL
         {
             var conn = new NpgsqlConnection(connString);
             Console.Out.WriteLine("Ouverture de la connection");
-            conn.Open();
             try
             {
                 conn.Open();
@@ -189,7 +206,7 @@ namespace LinqToPgSQL
             catch
             {
                 conn.Close();
-                MessageBox.Show("Problème de connection avec la base de données. Aprés fermeture, l'application se fermera automatiquement");
+                MessageBox.Show("Problème de connection avec la base de données. Aprés fermeture de la fenêtre, l'application se fermera automatiquement");
                 Environment.Exit(-1);
             }
 
