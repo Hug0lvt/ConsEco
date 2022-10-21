@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-//using Banque;
+
 
 namespace Model
 {
@@ -69,14 +69,9 @@ namespace Model
             Mdp = mdp;
             SoldeTotal = soldeTotal;
         }
-        public Inscrit(string id, string nom, string mail, string prenom, string mdp, double soldeTotal,List<Banque>lesbanques)
+        public Inscrit(string id, string nom, string mail, string prenom, string mdp, double soldeTotal, List<Banque> lesbanques)
+            : this(id, nom, mail, prenom, mdp, soldeTotal)
         {
-            Id = id;
-            Nom = nom;
-            Mail = mail;
-            Prenom = prenom;
-            Mdp = mdp;
-            SoldeTotal = soldeTotal;
             LesBanques = lesbanques;
         }
 
