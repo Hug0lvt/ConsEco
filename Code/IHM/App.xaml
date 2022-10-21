@@ -116,15 +116,6 @@
         <SolidColorBrush x:Key="CouleurPrincipale" Color="#23395d"/>
         <SolidColorBrush x:Key="CouleurBouton" Color="#99425d"/>
 
-        <Style x:Key="FormeBtnClick" TargetType="Button">
-            <Style.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="20,0,0,20"/>
-                </Style>
-            </Style.Resources>
-        </Style>
-        
-        
         <Style x:Key="BoutonMain" TargetType="Button">
             <Setter Property="Height" Value="40"/>
             <Setter Property="BorderThickness" Value="0"/>
@@ -134,46 +125,35 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="{StaticResource CouleurBouton}"/>
 
+
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20,20,20,20"/>
                 </Style>
             </Style.Resources>
-            
             <Style.Triggers>
-
-                
-
-
                 <Trigger Property="IsDefault" Value="True">
-                    <Setter Property="Background" Value="White"/>
-                    <Setter Property="Foreground" Value="Black"/>
-                    <Setter Property="Margin" Value="10,10,10,10" />
-
-
-                    <Setter Property="Border.CornerRadius" Value="20,0,0,20"/>
-                    <Setter Property="Margin" Value="10,10,0,10"/>
-                    
-
-
-
-
+                    <Setter Property="Background" Value="Black"/>
                     <Trigger.EnterActions>
                         <BeginStoryboard>
                             <Storyboard>
-                                <ColorAnimation Duration="0:0:0.5" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" To="White"/>
+                                <ColorAnimation Duration="0:0:0.5" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" To="#23395d"/>
                             </Storyboard>
                         </BeginStoryboard>
                     </Trigger.EnterActions>
-                    
+                </Trigger>
+                <Trigger Property ="IsMouseOver" Value="True">
+                    <Setter Property= "Opacity" Value="0.3"/>
+
                 </Trigger>
             </Style.Triggers>
 
         </Style>
-        
-        
-        
-        
+
+
+
+
+
 
 
 
