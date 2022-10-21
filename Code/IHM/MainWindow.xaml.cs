@@ -42,7 +42,7 @@ namespace IHM
 
         private void test_Click(object sender, RoutedEventArgs e)
         {
-            Manager.LoadInscrit("","");
+            Manager.LoadInscrit("stef@.com", "teststef");
             testSelect(); 
    /*         testSuppression();*/
         }

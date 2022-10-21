@@ -30,11 +30,16 @@ namespace LinqToPgSQL
             try
             {
                 dr.Read();
+                resultat = dr.GetString(0);
+                dr.Close();
+                return resultat;
             }
             catch (Exception ex)
-            { Console.Out.WriteLine("A GERER"); }
-            dr.Close();
+            { Console.Out.WriteLine("A GERER"); 
             return null;
+            }
+            dr.Close();
+
         }
         
 
