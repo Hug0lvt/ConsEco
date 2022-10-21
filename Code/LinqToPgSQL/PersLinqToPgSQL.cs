@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Configuration;
 using Npgsql;
 using Model;
 using System.IO;
@@ -15,20 +17,26 @@ namespace LinqToPgSQL
         string connexionBDD = String.Format("Server=90.114.135.116; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
         public string LoadInscrit(string id, string mdp)
         {
+            string resultat="";
             var conn = new NpgsqlConnection(connexionBDD);
             Console.Out.WriteLine("Ouverture de la connection");
             conn.Open();
-            using var cmd = new NpgsqlCommand("SELECT id FROM INSCRIT WHERE (nom=(@p) OR mail=(@p)) AND mdp=@p2",conn)
+            NpgsqlParameter p1 = new NpgsqlParameter { ParameterName = "p", Value = id };
+            NpgsqlParameter p2 = new NpgsqlParameter { ParameterName = "p2", Value = mdp };
+            NpgsqlCommand cmd = new NpgsqlCommand($"SELECT id FROM INSCRIT WHERE (nom=(@p) OR mail=(@p)) AND mdp=@p2", conn);
+            cmd.Parameters.Add(p1);
+            cmd.Parameters.Add(p2);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+            try
             {
-                Parameters =
-                {
-                    new("p", id),
-                    new("p2", mdp)
-                 }
-            };
-            return cmd.ExecuteNonQuery().ToString(); 
+                dr.Read();
+            }
+            catch (Exception ex)
+            { Console.Out.WriteLine("A GERER"); }
+            dr.Close();
+            return null;
         }
-
+        
 
 
         /*Revoir la BDD, probleme de clé étrangère de devise*/
