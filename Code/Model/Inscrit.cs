@@ -21,7 +21,7 @@ namespace Model
             {
                 if (value.Length == 0)
                 {
-                    throw new InvalidMailException(value, "Longueur d'un mail doit être superieur a 0", new ArgumentNullException());
+                    throw new InvalidMailException(value, "Longueur d'un mail doit être superieur a 0");
                 }
                 if (!Regex.IsMatch(value, "(@)(.+)"))
                 {
