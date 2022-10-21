@@ -8,5 +8,31 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.30*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        
+
+        <StackPanel Grid.Column="0"  Background="{StaticResource CouleurPrincipale}">
+
+            <Image Source="images/logo.png" Margin="10" Grid.Column="0" Grid.Row="0" Width="75"/>
+            
+            <Button Click="Button_Click_TableauDeBord" Content="Tableau de bord" Style="{StaticResource BoutonMain}" IsDefault="True"/>
+            <Button Click="Button_Click_Compte" Content="Compte" Style="{StaticResource BoutonMain}"/>
+            <Button Click="Button_Click_Operation" Content="Opérations" Style="{StaticResource BoutonMain}"/>
+            <Button Click="Button_Click_Echeancier" Content="Echéancier" Style="{StaticResource BoutonMain}"/>
+            <Button Click="Button_Click_Planification" Content="Planification" Style="{StaticResource BoutonMain}"/>
+
+        
+        </StackPanel>
+
+        <ContentControl x:Name="contentControl" 
+                        DataContext="{Binding Nav}" 
+                        Content="{Binding SelectedUserControlCreator.Value,Converter={StaticResource Func2WpConv}}"
+                        Grid.Column="1" Grid.Row="1"/>
+
     </Grid>
 </Window>

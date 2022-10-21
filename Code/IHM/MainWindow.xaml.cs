@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,108 @@ namespace IHM
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Navigator Nav => (App.Current as App).Navigator;
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
         }
+
+        public void ChangerStyleBtn(Button btn)
+        {
+
+            StackPanel sp = (StackPanel)btn.Parent;
+            if (sp == null) return;
+            UIElementCollection UIEC = sp.Children;
+            if (UIEC == null) return;
+            foreach (UIElement obj in UIEC)
+            {
+
+                if (obj as Button != null)
+                {
+                    (obj as Button).IsDefault = false;
+                }
+
+            }
+            btn.IsDefault = true;
+        }
+
+        private void Button_Click_TableauDeBord(object sender, RoutedEventArgs e)
+        {
+
+            Button btn = (Button)sender;
+            if (btn == null) return;
+            if (btn.IsDefault == false)
+            {
+                Nav.NavigateTo(Navigator.PART_TABLEAU_DE_BORD);
+                ChangerStyleBtn(btn);
+
+
+            }
+            else return;
+
+        }
+
+        private void Button_Click_Compte(object sender, RoutedEventArgs e)
+        {
+            
+            Button btn = (Button)sender;
+            if (btn == null) return;
+            if (btn.IsDefault == false)
+            {
+                
+                Nav.NavigateTo(Navigator.PART_COMPTE);
+                ChangerStyleBtn(btn);
+
+            }
+            else return;
+
+        }
+
+        private void Button_Click_Operation(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (btn == null) return;
+            if (btn.IsDefault == false)
+            {
+
+                Nav.NavigateTo(Navigator.PART_OPERATION);
+                ChangerStyleBtn(btn);
+
+            }
+            else return;
+
+        }
+
+        private void Button_Click_Echeancier(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (btn == null) return;
+            if (btn.IsDefault == false)
+            {
+
+                Nav.NavigateTo(Navigator.PART_ECHEANCIER);
+                ChangerStyleBtn(btn);
+
+            }
+            else return;
+
+        }
+
+        private void Button_Click_Planification(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (btn == null) return;
+            if (btn.IsDefault == false)
+            {
+
+                Nav.NavigateTo(Navigator.PART_PLANIFICATION);
+                ChangerStyleBtn(btn);
+
+            }
+            else return;
+        }
+
+        
     }
 }

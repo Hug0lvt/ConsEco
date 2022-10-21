@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="IHM.UCBienvenue"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IHM"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Style="{StaticResource ImageFondRessource}">
+    <DockPanel>
+        <TextBlock Style="{StaticResource TitreDePage}" >Bienvenue sur Cons'Eco</TextBlock>
+        <Image Source="./images/logo.png" DockPanel.Dock="Top" Height="100" />
+
+        <TextBlock Foreground="Black" FontSize="15" HorizontalAlignment="Center" DockPanel.Dock="Top">
+            La première application d'aide à la gestion de budget personnel ou en entreprise
+        </TextBlock>
+
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock HorizontalAlignment="Center" Margin="50" FontSize="15">
+                Vous pouvez créer un compte
+                </TextBlock>
+                <Button Click="Button_Click_Inscription" Style="{StaticResource GreenButtonRessource}" Height="30" Width="100">
+                    <TextBlock Text="Inscription"/>
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock HorizontalAlignment="Center" Margin="50" FontSize="15">
+                Ou vous connecter si vous en possédée déjà un
+                </TextBlock>
+                <Button Click="Button_Click_Connexion" Style="{StaticResource GreenButtonRessource}" Height="30" Width="100">
+                    <TextBlock Text="Connexion"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</UserControl>

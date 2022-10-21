@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace IHM
 {
@@ -13,5 +15,8 @@ namespace IHM
     /// </summary>
     public partial class App : Application
     {
+        public Navigator Navigator { get; private set; } = new Navigator();
+
+
     }
 }
