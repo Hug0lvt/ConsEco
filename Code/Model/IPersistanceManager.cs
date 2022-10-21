@@ -8,7 +8,7 @@ namespace Model
 {
     public interface IPersistanceManager
     {
-        Inscrit LoadInscrit();
+        string LoadInscrit(string id,string mdp);
         void SupprimerInscritBdd(Inscrit inscrit);
     }
 }

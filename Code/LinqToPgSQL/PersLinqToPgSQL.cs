@@ -12,43 +12,30 @@ namespace LinqToPgSQL
 {
     public class PersLinqToPgSQL : IPersistanceManager
     {
-        private static string Host = "90.114.135.116";
-        private static string User = "postgres";
-        private static string DBname = "conseco";
-        private static string Password = "lulu";
-        private static string Port = "5432";
-
-        string connexionBDD = String.Format("Server={0};Username{1};Database{2};Port{3};Password{4};SSLMode=Prefer",Host,User,DBname,Port,Password);
-        public Inscrit LoadInscrit()
+        string connexionBDD = String.Format("Server=90.114.135.116; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
+        public string LoadInscrit(string id, string mdp)
         {
-            int t = 0;
-            Inscrit i=null;
             var conn = new NpgsqlConnection(connexionBDD);
-            Console.Out.WriteLine("Ouverture de la connection"); try
+            Console.Out.WriteLine("Ouverture de la connection");
+            conn.Open();
+            using var cmd = new NpgsqlCommand("SELECT id FROM INSCRIT WHERE (nom=(@p) OR mail=(@p)) AND mdp=@p2",conn)
             {
-                conn.Open();
-            }
-            catch
-            {
-                conn.Close();
-                Environment.Exit(0);
-            }
-            NpgsqlDataReader dbReader = new NpgsqlCommand("SELECT * FROM Inscrit", conn).ExecuteReader();
-            while (dbReader.Read())
-            {
-                t++;
-                i=new Inscrit(dbReader.GetString(0), dbReader.GetString(1), dbReader.GetString(2), dbReader.GetString(3), dbReader.GetString(4));  
-            }
-            dbReader.Close();
-            return i;
+                Parameters =
+                {
+                    new("p", id),
+                    new("p2", mdp)
+                 }
+            };
+            return cmd.ExecuteNonQuery().ToString(); 
         }
+
 
 
         /*Revoir la BDD, probleme de clé étrangère de devise*/
         public async void SupprimerInscritBdd(Inscrit i)
         {
             /*List<Inscrit> ListeInscrits = new List<Inscrit>(LoadInscrit());*/
-           
+
             var conn = new NpgsqlConnection(connexionBDD);
             Console.Out.WriteLine("Ouverture de la connection");
             conn.Open();
@@ -65,5 +52,6 @@ namespace LinqToPgSQL
                 await command.ExecuteNonQueryAsync();
             }
         }
+
     }
 }

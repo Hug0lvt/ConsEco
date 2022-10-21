@@ -32,7 +32,7 @@ namespace IHM
 
         public void testSelect()
         {
-                 MessageBox.Show($"{Manager.SelectedInscrits.Id} + {Manager.SelectedInscrits.Nom} + {Manager.SelectedInscrits.Prenom} + {Manager.SelectedInscrits.Mail} + {Manager.SelectedInscrits.Mdp}");
+                 MessageBox.Show($"{Manager.SelectedInscrits}");
         }
 
         public void testSuppression()
