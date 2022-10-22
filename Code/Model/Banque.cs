@@ -11,7 +11,7 @@ namespace Model
         public string Nom { get; private set; }
         public string UrlSite { get; private set; }
         public string UrlLogo { get; private set; }
-        private List<Compte> ListeDesComptes { get; set; } = new List<Compte>();
+        public List<Compte> ListeDesComptes { get; private set; } = new List<Compte>();
 
         public Banque(string nom, string urlSite, string urlLogo)
         {
