@@ -41,6 +41,59 @@
             Solde = s;
         }
 
+        public void ajouterOperation(Operation o)
+        {
+            if (o == null) throw new NullReferenceException();
+            LesOpe.Add(o);
+        }
+
+        public void cacherOperation(Operation o)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void supprimerOperation(Operation o)
+        {
+            LesOpe.Remove(o);
+        }
+
+        public void ajoutEcheance(Echeance e)
+        {
+            if(e == null) throw new NullReferenceException();
+            LesEch.Add(e);
+        }
+
+        public void supprimerEcheance(Echeance e)
+        {
+            LesEch.Remove(e);
+        }
+
+        public void ajoutPlannification(Planification p)
+        {
+            if(p == null) throw new NullReferenceException();
+            LesPla.Add(p);
+        }
+
+        public void supprimerPlannification(Planification p)
+        {
+            LesPla.Remove(p);
+        }
+
+        public override bool Equals(object? obj)
+        {
+
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
     }
 }
