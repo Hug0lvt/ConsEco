@@ -38,7 +38,7 @@ namespace Model
 
         public void SupprimerInscritBdd(Inscrit i)
         {
-            Pers.SupprimerInscritBdd(inscrit);
+            Pers.SupprimerInscritBdd(i);
         }
 
         public void LoadInscrit(string id, string mdp)

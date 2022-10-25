@@ -17,6 +17,7 @@ namespace LinqToPgSQL
     public class PersLinqToPgSQL : IPersistanceManager
     {
         string connexionBDD = String.Format("Server=90.114.135.116; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
+       
         public string LoadInscrit(string id, string mdp)
         {
             string resultat="";
@@ -43,18 +44,13 @@ namespace LinqToPgSQL
                 return "null";//a changer doit retester
             }
             
-
-            dbReader.Close();
-
-
-            return ListeInscrits;
         }
 
         public IEnumerable<Banque> LoadBanque()
         {
             List<Banque> ListeBanques = new List<Banque>();
 
-            var conn = new NpgsqlConnection(connString);
+            var conn = new NpgsqlConnection(connexionBDD);
             Console.Out.WriteLine("Ouverture de la connection"); 
             try
             {
@@ -90,7 +86,7 @@ namespace LinqToPgSQL
         {
             List<Compte> ListeCompte = new List<Compte>();
 
-            var conn = new NpgsqlConnection(connString);
+            var conn = new NpgsqlConnection(connexionBDD);
             Console.Out.WriteLine("Ouverture de la connection");
             try
             {
@@ -159,7 +155,7 @@ namespace LinqToPgSQL
       /*  Suppression de toutes les banques d'un inscrit*/
         public async void SupprimerToutesBanquesBdd(Inscrit i)
         {
-            var conn = new NpgsqlConnection(connString);
+            var conn = new NpgsqlConnection(connexionBDD);
             Console.Out.WriteLine("Ouverture de la connection");
             try
             {
@@ -174,15 +170,15 @@ namespace LinqToPgSQL
             string requete = $"DELETE * FROM BANQUE b, INSCRBANQUE ib WHERE b.nom=ib.nomBanque AND ib.idInscrit=(@id)";
             using (var command1 = new NpgsqlCommand(requete, conn))
             {
-                command.Parameters.AddWithValue("p", i.Id);
-                await command.ExecuteNonQueryAsync();
+                command1.Parameters.AddWithValue("p", i.Id);
+                await command1.ExecuteNonQueryAsync();
             }
         }
 
         /*Suppression d'une banque d'un inscrit*/
         public async void SupprimerBanqueBdd(Inscrit i, Banque b)
         {
-            var conn = new NpgsqlConnection(connString);
+            var conn = new NpgsqlConnection(connexionBDD);
             Console.Out.WriteLine("Ouverture de la connection");
             try
             {

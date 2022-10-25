@@ -40,20 +40,6 @@ namespace IHM
             MessageBox.Show("Suppression ok");
         }
 
-        public void testSupressionBanqueBdd()
-        {
-            foreach (Inscrit i in ListedesInscrits.ListedesInscrits)
-            {
-                if(i.Id == "00001")
-                {
-                    MessageBox.Show("Suppression ok");
-                    Banque b = new Banque("BNP PARIBAS", "mabanque", "bite");
-                    ListedesInscrits.supprimerBanqueBdd(i, b);
-                    MessageBox.Show("Suppression ok");
-                }
-            }
-        }
-
         private void test_Click(object sender, RoutedEventArgs e)
         {
             Manager.LoadInscrit(id.Text,mdp.Text);
