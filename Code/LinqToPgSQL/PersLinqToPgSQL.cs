@@ -37,9 +37,9 @@ namespace LinqToPgSQL
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Utilisateur inconnu");
+                MessageBox.Show(ex+"Utilisateur inconnu");
                 dr.Close();
-                return null;
+                return "null";//a changer doit retester
             }
         }
 
