@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TextBlock Name="idpers" Text="null"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox Name="id" Height="100" Width="200" Text="OUIOUIOUI"/>
+            <TextBox Name="mdp" Height="100" Width="200" Text="OUIOUIOUI"/>
+        </StackPanel>
+        <Button x:Name="test2" Content="Button" HorizontalAlignment="Center" Margin="0,320,0,0" VerticalAlignment="Top" Click="test_Click"/>
+
 
     </Grid>
 </Window>

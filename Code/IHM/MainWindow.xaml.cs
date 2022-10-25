@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LinqToPgSQL;
+using Model;
 
 namespace IHM
 {
@@ -20,9 +22,34 @@ namespace IHM
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Manager Manager => ((App)Application.Current).Manager;
+   
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = Manager.SelectedInscrits;
         }
+
+        public void testSelect()
+        {
+                 MessageBox.Show($"{Manager.SelectedInscrits}");
+        }
+
+        public void testSuppression()
+        {
+            MessageBox.Show("Suppression ok");
+        }
+
+        private void test_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.LoadInscrit(id.Text,mdp.Text);
+            if (Manager.SelectedInscrits != null)
+            {
+                idpers.Text = Manager.SelectedInscrits;
+                testSelect();
+            }
+            else idpers.Text = "";
+        }
+
     }
 }

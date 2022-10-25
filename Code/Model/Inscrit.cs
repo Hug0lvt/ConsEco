@@ -75,6 +75,8 @@ namespace Model
             LesBanques = lesbanques;
         }
 
+     
+
         public void ajouterBanque(Banque banque)
         {
             LesBanques.Add(banque);
@@ -83,6 +85,7 @@ namespace Model
         public void SupprimerBanque(Banque banque)
         {
             LesBanques.Remove(banque);
+
         }
 
         public void ChoisirDevise(Devises devise)

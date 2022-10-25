@@ -14,6 +14,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestsUnitaires", "TestsUnit
 		{ACFA83F8-98C8-43AE-9328-B3F751098FFA} = {ACFA83F8-98C8-43AE-9328-B3F751098FFA}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToPgSQL", "LinqToPgSQL\LinqToPgSQL.csproj", "{4A9DB718-B874-4565-87B0-57C73B9BE240}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{B1AE713C-B5DE-4E81-A33F-818AAD0548A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1AE713C-B5DE-4E81-A33F-818AAD0548A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1AE713C-B5DE-4E81-A33F-818AAD0548A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A9DB718-B874-4565-87B0-57C73B9BE240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A9DB718-B874-4565-87B0-57C73B9BE240}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A9DB718-B874-4565-87B0-57C73B9BE240}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A9DB718-B874-4565-87B0-57C73B9BE240}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using Npgsql;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,43 +11,45 @@ namespace Model
 {
     public class Manager : INotifyPropertyChanged
     {
-        public IReadOnlyCollection<Inscrit> ListedesInscrits { get; private set; }
-        private List<Inscrit> TousLesInscrits { get; set; } = new List<Inscrit>();
-
         public event PropertyChangedEventHandler? PropertyChanged;
-        void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        public IPersistanceManager Pers { get; private set; }
+        public string SelectedInscrits;
 
-
-        public Inscrit SelectedInscrits
+        public Banque SelectedBanque
         {
-            get => selectedInscrits;
+            get => selectedBanque;
             set
             {
-                if(selectedInscrits != value)
+                if(selectedBanque != value)
                 {
-                    selectedInscrits = value;
-                    OnPropertyChanged(nameof(SelectedInscrits));
+                    selectedBanque = value;
+                    OnPropertyChanged(nameof(selectedBanque));
                 }
             }
         }
-        private Inscrit selectedInscrits;
+        private Banque selectedBanque;
 
-        public Manager(IReadOnlyCollection<Inscrit> listedesInscrits, List<Inscrit> tousLesInscrits, Inscrit selectedInscrits)
+        void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        public Manager(IPersistanceManager persistance)
         {
-            ListedesInscrits = listedesInscrits;
-            TousLesInscrits = tousLesInscrits;
-            this.selectedInscrits = selectedInscrits;
-          
+            Pers = persistance;
         }
 
-        /*En attente de la persistance*/
+        public void SupprimerInscritBdd(Inscrit i)
+        {
+            Pers.SupprimerInscritBdd(i);
+        }
 
-        /*   public Manager(IPersistanceManager persistance)
-           {
-               ListedesInscrits = new ReadOnlyCollection<Inscrit>(TousLesInscrits);
-               persistance = persistance;
-           }*/
+        public void LoadInscrit(string id, string mdp)
+        {
+            SelectedInscrits = Pers.LoadInscrit(id, mdp);
+        }
 
+        public void supprimerToutesBanquesBdd(Inscrit inscrit)
+        {
+            Pers.SupprimerToutesBanquesBdd(inscrit);
+        }
 
 
     }
