@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Configuration;
 using Npgsql;
 using Model;
 using System.IO;
@@ -14,49 +16,31 @@ namespace LinqToPgSQL
 {
     public class PersLinqToPgSQL : IPersistanceManager
     {
-        private static string Host = "90.114.135.116";
-        private static string User = "postgres";
-        private static string DBname = "conseco";
-        private static string Password = "lulu";
-        private static string Port = "5432";
-
-        string connString =
-                String.Format(
-                    "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Prefer",
-                    Host,
-                    User,
-                    DBname,
-                    Port,
-                    Password);
-
-        public PersLinqToPgSQL() { }
-        public IEnumerable<Inscrit> LoadInscrit()
+        string connexionBDD = String.Format("Server=90.114.135.116; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
+        public string LoadInscrit(string id, string mdp)
         {
-            List<Inscrit> ListeInscrits = new List<Inscrit>();
-
-            var conn = new NpgsqlConnection(connString);
-            Console.Out.WriteLine("Ouverture de la connection"); 
+            string resultat="";
+            var conn = new NpgsqlConnection(connexionBDD);
+            Console.Out.WriteLine("Ouverture de la connection");
+            conn.Open();
+            NpgsqlParameter p1 = new NpgsqlParameter { ParameterName = "p", Value = id };
+            NpgsqlParameter p2 = new NpgsqlParameter { ParameterName = "p2", Value = mdp };
+            NpgsqlCommand cmd = new NpgsqlCommand($"SELECT id FROM INSCRIT WHERE (nom=(@p) OR mail=(@p)) AND mdp=@p2", conn);
+            cmd.Parameters.Add(p1);
+            cmd.Parameters.Add(p2);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
             try
             {
-                conn.Open();
+                dr.Read();
+                resultat = dr.GetString(0);
+                dr.Close();
+                return resultat;
             }
-            catch
+            catch (Exception ex)
             {
-                conn.Close();
-                
-                MessageBox.Show("Problème de connection à la base de données. L'application se fermera après fermeture de la fenêtre");
-                Environment.Exit(0);
-               
-            }
-            
-            
-            NpgsqlDataReader dbReader = new NpgsqlCommand("SELECT * FROM Inscrit", conn).ExecuteReader();
-
-            while (dbReader.Read())
-            {
-
-                ListeInscrits.Add(new Inscrit(dbReader.GetString(0), dbReader.GetString(1), dbReader.GetString(2), dbReader.GetString(3), dbReader.GetString(4)));
-                
+                MessageBox.Show(ex+"Utilisateur inconnu");
+                dr.Close();
+                return "null";//a changer doit retester
             }
             
 
@@ -140,8 +124,9 @@ namespace LinqToPgSQL
         /*Suppression d'un inscrit dans la base de données*/
         public async void SupprimerInscritBdd(Inscrit i)
         {
-           
-            var conn = new NpgsqlConnection(connString);
+            /*List<Inscrit> ListeInscrits = new List<Inscrit>(LoadInscrit());*/
+
+            var conn = new NpgsqlConnection(connexionBDD);
             Console.Out.WriteLine("Ouverture de la connection");
             try
             {
@@ -156,8 +141,8 @@ namespace LinqToPgSQL
 
 
             string requete = $"DELETE FROM INSCRIT WHERE id=(@p)";
-
-            using (var command1 = new NpgsqlCommand(requete, conn))
+            string requeteFKey = $"DELETE FROM DEVISEINSCRIT WHERE idInscrit=(@p2)";
+            using (var command1 = new NpgsqlCommand(requeteFKey, conn))
             {
                 command1.Parameters.AddWithValue("p", i.Id);
                 await command1.ExecuteNonQueryAsync();
@@ -189,8 +174,8 @@ namespace LinqToPgSQL
             string requete = $"DELETE * FROM BANQUE b, INSCRBANQUE ib WHERE b.nom=ib.nomBanque AND ib.idInscrit=(@id)";
             using (var command1 = new NpgsqlCommand(requete, conn))
             {
-                command1.Parameters.AddWithValue("id", i.Id.ToString());
-                await command1.ExecuteNonQueryAsync();
+                command.Parameters.AddWithValue("p", i.Id);
+                await command.ExecuteNonQueryAsync();
             }
         }
 

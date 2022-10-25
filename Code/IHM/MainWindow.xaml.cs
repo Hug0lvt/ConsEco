@@ -22,40 +22,21 @@ namespace IHM
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Manager ListedesInscrits => ((App)Application.Current).AllInscrits;
+        public Manager Manager => ((App)Application.Current).Manager;
    
         public MainWindow()
         {
             InitializeComponent();
-
-            ListedesInscrits.LoadInscrit();
-            DataContext = ListedesInscrits;
-            
+            DataContext = Manager.SelectedInscrits;
         }
 
         public void testSelect()
         {
-            foreach (Inscrit i in ListedesInscrits.ListedesInscrits)
-            {
-                
-                
-                 MessageBox.Show($"{i.Id} + {i.Nom} + {i.Prenom} + {i.Mail} + {i.Mdp}");
-                
-                
-            }
-            
+                 MessageBox.Show($"{Manager.SelectedInscrits}");
         }
 
         public void testSuppression()
         {
-            foreach (Inscrit i in ListedesInscrits.ListedesInscrits)
-            {
-                if (i.Nom == "YOUVOI")
-                {
-                    ListedesInscrits.supprimerInscritBdd(i);
-                }
-
-            }
             MessageBox.Show("Suppression ok");
         }
 
@@ -75,9 +56,13 @@ namespace IHM
 
         private void test_Click(object sender, RoutedEventArgs e)
         {
-            // testSelect();
-            // testSuppression();
-            testSupressionBanqueBdd();
+            Manager.LoadInscrit(id.Text,mdp.Text);
+            if (Manager.SelectedInscrits != null)
+            {
+                idpers.Text = Manager.SelectedInscrits;
+                testSelect();
+            }
+            else idpers.Text = "";
         }
 
     }

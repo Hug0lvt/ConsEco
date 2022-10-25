@@ -8,8 +8,7 @@ namespace Model
 {
     public interface IPersistanceManager
     {
-        IEnumerable<Inscrit> LoadInscrit();
-        IEnumerable<Banque> LoadBanque();
+        string LoadInscrit(string id,string mdp);
         void SupprimerInscritBdd(Inscrit inscrit);
         void SupprimerBanqueBdd(Inscrit inscrit, Banque banque);
         void SupprimerToutesBanquesBdd(Inscrit inscrit);
