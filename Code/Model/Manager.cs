@@ -14,7 +14,7 @@ namespace Model
         public event PropertyChangedEventHandler? PropertyChanged;
         public IPersistanceManager Pers { get; private set; }
 
-        public string SelectedInscrits { get; private set; }
+        public string SelectedInscrits { get; set; }
 
         public Banque SelectedBanque
         {

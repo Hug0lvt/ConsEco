@@ -10,7 +10,14 @@ namespace TestsUnitaires
 {
     public class TestUnitPgSQL
     {
-        Manager m = new Manager(new PersLinqToPgSQL());
+        [Fact]
+        public void testLoadInscrit()
+        {
+            Manager m = new Manager(new PersLinqToPgSQL());
+            //Assert.Null(m.SelectedBanque);
+            //m.LoadInscrit("lucasevard@gmail.com", "test");
+            //Assert.Equal(m.SelectedInscrits, "00001");
+        }
 
     }
 }
