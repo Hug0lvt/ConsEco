@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using LinqToPgSQL;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace TestsUnitaires
 {
     public class TestUnitPgSQL
     {
-       // Manager m = new Manager(new LinqToPgSQL.PersLinqToPgSQL());
+        Manager m = new Manager(new PersLinqToPgSQL());
 
     }
 }

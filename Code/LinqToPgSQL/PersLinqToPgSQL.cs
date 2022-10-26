@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Configuration;
 using Npgsql;
-using Model;
 using System.IO;
 using System.Diagnostics;
 using System.Windows;
 using System.Threading;
+using Model;
 
 namespace LinqToPgSQL
 {
@@ -39,7 +39,7 @@ namespace LinqToPgSQL
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex+"Utilisateur inconnu");
+                Debug.WriteLine(ex+"Utilisateur inconnu");
                 dr.Close();
                 return "null";//a changer doit retester
             }
@@ -59,7 +59,7 @@ namespace LinqToPgSQL
             catch
             {
                 conn.Close();
-                MessageBox.Show("Problème de connection à la base de donnée. Aprés fermeture, l'application se fermera automatiquement");
+                Debug.WriteLine("Problème de connection à la base de donnée. Aprés fermeture, l'application se fermera automatiquement");
                 Environment.Exit(-1);
 
             }
@@ -95,7 +95,7 @@ namespace LinqToPgSQL
             catch
             {
                 conn.Close();
-                MessageBox.Show("Problème de connection à la base de données. Aprés fermeture, l'application se fermera automatiquement.");
+                Debug.WriteLine("Problème de connection à la base de données. Aprés fermeture, l'application se fermera automatiquement.");
                 Environment.Exit(-1);
             }
 
@@ -131,7 +131,7 @@ namespace LinqToPgSQL
             catch
             {
                 conn.Close();
-                MessageBox.Show("Problème de connection à la base de données. Aprés fermeture, l'application se fermera automatiquement.");
+                Debug.WriteLine("Problème de connection à la base de données. Aprés fermeture, l'application se fermera automatiquement.");
                 Environment.Exit(-1);         
             }
 
@@ -164,7 +164,7 @@ namespace LinqToPgSQL
             catch 
             {
                 conn.Close();
-                MessageBox.Show("Problème de connection ave la base de données. Aprés fermeture de la fenêtre, l'application se fermera automatiquement");
+                Debug.WriteLine("Problème de connection ave la base de données. Aprés fermeture de la fenêtre, l'application se fermera automatiquement");
                 Environment.Exit(-1);
             }
             string requete = $"DELETE * FROM BANQUE b, INSCRBANQUE ib WHERE b.nom=ib.nomBanque AND ib.idInscrit=(@id)";
@@ -187,7 +187,7 @@ namespace LinqToPgSQL
             catch
             {
                 conn.Close();
-                MessageBox.Show("Problème de connection avec la base de données. Aprés fermeture de la fenêtre, l'application se fermera automatiquement");
+                Debug.WriteLine("Problème de connection avec la base de données. Aprés fermeture de la fenêtre, l'application se fermera automatiquement");
                 Environment.Exit(-1);
             }
 
