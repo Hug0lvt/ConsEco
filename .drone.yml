@@ -1,6 +1,6 @@
 kind: pipeline
 type: docker
-name: CI_CONSECO
+name: CI_CONSECO_MAUI
 
 trigger :
     event:
@@ -10,27 +10,29 @@ steps:
     - name: build
       image: mcr.microsoft.com/dotnet/sdk:6.0
       commands:
-        - cd Code
-        - dotnet restore CI_CONSECO.sln
-        - dotnet build CI_CONSECO.sln -c Release --no-restore
-        - dotnet publish CI_CONSECO.sln -c Release --no-restore -o CI_PROJECT_DIR/build/release
+        - cd Sources
+        - dotnet workload restore
+        - dotnet restore CI_MAUI.sln
+        - dotnet build CI_MAUI.sln -c Release --no-restore
+        - dotnet publish CI_MAUI.sln -c Release --no-restore -o CI_PROJECT_DIR/build/release
     - name: tests
       image: mcr.microsoft.com/dotnet/sdk:6.0
       commands:
-        - cd Code
-        - dotnet restore CI_CONSECO.sln
-        - dotnet test CI_CONSECO.sln --no-restore
+        - cd Sources
+        - dotnet restore CI_MAUI.sln
+        - dotnet test CI_MAUI.sln --no-restore
       depends_on: [build]
     - name: code-analysis
       image: hub.codefirst.iut.uca.fr/thomas.bellembois/codefirst-dronesonarplugin-dotnet6
       commands:
-        - cd Code/
-        - dotnet restore CI_CONSECO.sln
-        - dotnet sonarscanner begin /k:ConsEco /d:sonar.host.url=$${PLUGIN_SONAR_HOST} /d:sonar.coverageReportPaths="coveragereport/SonarQube.xml" /d:sonar.coverage.exclusions="Tests/**" /d:sonar.login=$${PLUGIN_SONAR_TOKEN} 
-        - dotnet build CI_CONSECO.sln -c Release --no-restore
-        - dotnet test CI_CONSECO.sln --logger trx --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura --collect "XPlat Code Coverage"
+        - cd Sources/
+        - dotnet workload restore
+        - dotnet restore CI_MAUI.sln
+        - dotnet sonarscanner begin /k:ConsEcoMAUI /d:sonar.host.url=$${PLUGIN_SONAR_HOST} /d:sonar.coverageReportPaths="coveragereport/SonarQube.xml" /d:sonar.coverage.exclusions="Tests/**" /d:sonar.login=$${PLUGIN_SONAR_TOKEN} 
+        - dotnet build CI_MAUI.sln -c Release --no-restore
+        - dotnet test CI_MAUI.sln --logger trx --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura --collect "XPlat Code Coverage"
         - reportgenerator -reports:"**/coverage.cobertura.xml" -reporttypes:SonarQube -targetdir:"coveragereport"
-        - dotnet publish CI_CONSECO.sln -c Release --no-restore -o CI_PROJECT_DIR/build/release
+        - dotnet publish CI_MAUI.sln -c Release --no-restore -o CI_PROJECT_DIR/build/release
         - dotnet sonarscanner end /d:sonar.login=$${PLUGIN_SONAR_TOKEN}
       secrets: [ SECRET_SONAR_LOGIN ]
       settings:
@@ -40,3 +42,13 @@ steps:
         sonar_token:
           from_secret: SECRET_SONAR_LOGIN
       depends_on: [tests]
+  # database container deployment
+    - name: deploy-container-mysql
+      image: hub.codefirst.iut.uca.fr/thomas.bellembois/codefirst-dockerproxy-clientdrone:latest
+      environment:
+          IMAGENAME: postgres
+          CONTAINERNAME: mysql
+          COMMAND: create
+          PRIVATE: true
+          POSTGRES_PASSWORD: oui
+          

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="IHM.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:IHM"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False">
+
+    <!--<ShellContent
+        
+        ContentTemplate="{DataTemplate local:Dashboard}"
+        Route="MainPage" />-->
+
+    <TabBar>
+        <ShellContent Title="Tableau de Bord"
+                     Icon="home_black.png"
+                     ContentTemplate="{DataTemplate local:DashBoard}" />
+        <ShellContent Title="Opérations"
+                     Icon="dollar_black.png"
+                     ContentTemplate="{DataTemplate local:Operations}" />
+        <ShellContent Title="Planification"
+                     Icon="planification_black.png"
+                     ContentTemplate="{DataTemplate local:Planification}" />
+        <ShellContent Title="Paramètres"
+                     Icon="settings_black.png"
+                     ContentTemplate="{DataTemplate local:Settings}" />
+    </TabBar>
+
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:Inscription}"
+        Route="Inscription" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:ForgetPassword}"
+        Route="ForgetPassword"/>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:ChangePassword}"
+        Route="ChangePassword"/>
+
+</Shell>

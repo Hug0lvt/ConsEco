@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IHM.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Start">
+
+            <Label
+                Margin="0,20,-80,0"
+                Text="Welcome To Cons'Eco"
+                FontSize="30"/>
+
+            <Image Source="Resources/Images/logo_sans_fond.png"
+                   HorizontalOptions="Center"
+                   Scale="0.5"/>
+            
+            <Border StrokeShape="RoundRectangle 40" BackgroundColor="White" Padding="7">
+                <Entry BackgroundColor="White" 
+                       TextColor="Black" 
+                       VerticalTextAlignment="Center" 
+                       FontSize="15" 
+                       Placeholder="Addresse mail"
+                       x:Name="EntryMail"/>
+            </Border>
+
+            <Border StrokeShape="RoundRectangle 40" BackgroundColor="White" Padding="7">
+                <Entry BackgroundColor="White" 
+                       TextColor="Black" 
+                       VerticalTextAlignment="Center" 
+                       FontSize="15" 
+                       Placeholder="Mot de passe" 
+                       IsPassword="True"
+                       x:Name="EntryPassworld"/>
+                
+            </Border>
+            
+            <Button
+                x:Name="ConnexionButton"
+                Text="Se connecter"
+                Clicked="ConnectionOnClicked"
+                HorizontalOptions="Center" />
+            
+            <Label
+                    Text="Mot de passe oublier "
+                    TextColor="Blue"
+                    Margin="5,0,0,0"
+                    TextDecorations="Underline"
+                    HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapCommand}"
+                                              CommandParameter="ForgetPassword"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label
+                Text="Pas de compte ?"
+                />
+
+                <Label
+                    Text="S'inscrire"
+                    TextColor="Blue"
+                    Margin="5,0,0,0"
+                    TextDecorations="Underline">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapCommand}"
+                                              CommandParameter="Inscription"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+            
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
