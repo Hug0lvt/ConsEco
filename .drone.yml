@@ -50,5 +50,4 @@ steps:
           CONTAINERNAME: mysql
           COMMAND: create
           PRIVATE: true
-          POSTGRES_PASSWORD: oui
-          
+          POSTGRES_PASSWORD: oui 
