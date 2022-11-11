@@ -4,8 +4,13 @@
              x:Class="IHM.Settings">
     <VerticalStackLayout>
         <Label 
-            Text="Para"
+            Text="Paramètre"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button
+            Text="Déconnexion"
+            VerticalOptions="End"
+            Clicked="deconnexionOnClicked"
+            HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>

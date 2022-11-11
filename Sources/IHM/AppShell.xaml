@@ -23,6 +23,7 @@
                      Icon="planification_black.png"
                      ContentTemplate="{DataTemplate local:Planification}" />
         <ShellContent Title="Paramètres"
+                     x:Name="para"
                      Icon="settings_black.png"
                      ContentTemplate="{DataTemplate local:Settings}" />
     </TabBar>

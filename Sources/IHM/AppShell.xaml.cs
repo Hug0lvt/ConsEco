@@ -14,8 +14,7 @@ namespace IHM
             Routing.RegisterRoute("ForgetPassword", typeof(ForgetPassword));
             Routing.RegisterRoute("ChangePassword", typeof(ChangePassword));
         }
-
-
+           
         
     }
 }

@@ -1,4 +1,7 @@
-﻿using Model;
+﻿    using Android.Bluetooth;
+using AndroidX.Emoji2.Text.FlatBuffer;
+using Microsoft.Maui.Controls;
+using Model;
 using System.Windows.Input;
 
 namespace IHM
