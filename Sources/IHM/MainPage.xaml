@@ -17,27 +17,20 @@
             <Image Source="Resources/Images/logo_sans_fond.png"
                    HorizontalOptions="Center"
                    Scale="0.5"/>
-            
-            <Border StrokeShape="RoundRectangle 40" BackgroundColor="White" Padding="7">
-                <Entry BackgroundColor="White" 
-                       TextColor="Black" 
-                       VerticalTextAlignment="Center" 
-                       FontSize="15" 
+
+            <Border Style="{StaticResource Rectangle}">
+                <Entry Style="{StaticResource ZoneTaper}"
                        Placeholder="Addresse mail"
                        x:Name="EntryMail"/>
             </Border>
 
-            <Border StrokeShape="RoundRectangle 40" BackgroundColor="White" Padding="7">
-                <Entry BackgroundColor="White" 
-                       TextColor="Black" 
-                       VerticalTextAlignment="Center" 
-                       FontSize="15" 
+            <Border Style="{StaticResource Rectangle}">
+                <Entry Style="{StaticResource ZoneTaper}"
                        Placeholder="Mot de passe" 
                        IsPassword="True"
                        x:Name="EntryPassworld"/>
-                
             </Border>
-            
+
             <Button
                 x:Name="ConnexionButton"
                 Text="Se connecter"
