@@ -17,8 +17,6 @@ public partial class Settings : ContentPage
     }
     private async void NavigateTo()
     {
-        OnBackButtonPressed();
-        Debug.WriteLine(base.OnBackButtonPressed());
         await Navigation.PushModalAsync(new MainPage());
     }
 

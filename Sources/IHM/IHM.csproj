@@ -79,6 +79,12 @@
 	  <MauiXaml Update="ForgetPassword.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="GestionBanque.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="NewPage1.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Operations.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
