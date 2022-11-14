@@ -241,10 +241,10 @@ namespace LinqToPgSQL
             }
 
 
-            while (dbReader.Read())
+           /* while (dbReader.Read())
             {
                 ListeCompte.Add(new Compte(dbReader.GetString(0), dbReader.GetInt64(1)));
-            }
+            }*/
             dbReader.Close();
             return ListeCompte;
         }

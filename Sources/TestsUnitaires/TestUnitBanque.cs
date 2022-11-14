@@ -9,7 +9,7 @@ namespace TestsUnitaires
 {
     public class TestUnitBanque
     {
-        Compte tc = new("Livret A", 16956);
+        /*Compte tc = new("Livret A", 16956);
         Banque test = new("BNP Paribas", "https://mabanque.bnpparibas/", "https://logos-marques.com/wp-content/uploads/2020/12/BNP-Paribas-logo.png");
         [Fact]
         public void testConstructeur1()
@@ -68,6 +68,6 @@ namespace TestsUnitaires
             Assert.Equal(tc, test2.ReturnCompte("Livret A"));
         }
 
-    
+    */
     }
 }
