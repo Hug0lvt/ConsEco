@@ -16,7 +16,7 @@ namespace Model
 
         // ajouter load all pour tout les inscrits
 
-        public List<Inscrit> LoadInscrit()
+    /*    public List<Inscrit> LoadInscrit()
         {
             Inscrits.Add(new("00001", "Evard", "lucasevard@gmail.com","Lucas","test",10,LoadBanques()));
             Inscrits.Add(new("00002", "Livet", "hugolivet@gmail.com", "Hugo", "test", 280,LoadBanques()));
@@ -38,7 +38,7 @@ namespace Model
             Comptes.Add(new("Compte Courant", 2000));
             Comptes.Add(new("PEL", 22000));
             return Comptes;
-        }
+        }*/
 
        
     }

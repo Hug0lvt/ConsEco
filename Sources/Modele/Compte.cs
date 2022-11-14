@@ -2,34 +2,39 @@
 {
     public class Compte
     {
+        public string Identifiant { get; private set; }
         public string Nom { get; private set; }
         public double Solde { get; private set; }
         public List<Operation> LesOpe { get; private set; } = new List<Operation>();
         public List<Planification> LesPla { get; private set; } = new List<Planification>();
         public List<Echeance> LesEch { get; private set; } = new List<Echeance>();
-        public Compte(string nom, double solde)
+        public Compte(string id, string nom, double solde)
         {
+            Identifiant = id;
             Nom = nom;
             Solde = solde;
             LesOpe = new List<Operation>();
             LesPla = new List<Planification>();
             LesEch = new List<Echeance>();
         }
-        public Compte(string nom, double solde, List<Operation> lesOpe)
+        public Compte(string id, string nom, double solde, List<Operation> lesOpe)
         {
+            Identifiant = id;
             Nom = nom;
             Solde = solde;
             LesOpe = lesOpe;
         }
-        public Compte(string nom, double solde, List<Operation> lesOpe, List<Planification> lesPla)
+        public Compte(string id, string nom, double solde, List<Operation> lesOpe, List<Planification> lesPla)
         {
+            Identifiant = id;
             Nom = nom;
             Solde = solde;
             LesOpe = lesOpe;
             LesPla = lesPla;
         }
-        public Compte(string nom, double solde, List<Operation> lesOpe, List<Planification> lesPla, List<Echeance> lesEch)
+        public Compte(string id, string nom, double solde, List<Operation> lesOpe, List<Planification> lesPla, List<Echeance> lesEch)
         {
+            Identifiant = id;
             Nom = nom;
             Solde = solde;
             LesOpe = lesOpe;
@@ -59,7 +64,7 @@
 
         public void ajoutEcheance(Echeance e)
         {
-            if(e == null) throw new NullReferenceException();
+            if (e == null) throw new NullReferenceException();
             LesEch.Add(e);
         }
 
@@ -70,7 +75,7 @@
 
         public void ajoutPlannification(Planification p)
         {
-            if(p == null) throw new NullReferenceException();
+            if (p == null) throw new NullReferenceException();
             LesPla.Add(p);
         }
 

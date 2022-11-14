@@ -36,8 +36,8 @@ public partial class DashBoard : ContentPage
     {
         await Bouton.ScaleXTo(1, 50);
         await Bouton.ScaleYTo(1, 50);
-        await Bouton.TranslateTo(0,0,50);
         ImgBanqueActuelle.IsVisible = false;
+        await Bouton.TranslateTo(0,0,50);
         BoutonRetour.IsVisible = false;
         Bouton.IsEnabled = true;
     }

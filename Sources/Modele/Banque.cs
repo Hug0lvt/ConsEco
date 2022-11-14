@@ -20,7 +20,7 @@ namespace Model
             UrlLogo = urlLogo;
         }
 
-        public Banque(string nom, string urlSite, string urlLogo, List<Compte>lescomptes)
+        public Banque(string nom, string urlSite, string urlLogo, List<Compte> lescomptes)
         {
             Nom = nom;
             UrlSite = urlSite;
@@ -52,7 +52,7 @@ namespace Model
             foreach (Compte compte in ListeDesComptes)
             {
                 if (compte.Nom.Equals(s))
-                    return compte; 
+                    return compte;
             }
             throw new KeyNotFoundException();
         }
