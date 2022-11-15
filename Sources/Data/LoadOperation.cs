@@ -26,7 +26,6 @@ namespace Data
             MethodePayement modePayement;
             bool isDebit;
 
-
             //info compte
             string identifiantCompte="";
             double solde=0;
