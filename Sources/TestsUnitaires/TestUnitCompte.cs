@@ -13,8 +13,8 @@ namespace TestsUnitaires
         [Fact]
         public void TestConstructeurCompte()
         {
-            Compte c1 = new("Livret A", 234);
-            Compte c2 = new("&e23R_te7", 1245.34);
+            Compte c1 = new("012345678901", "Livret A", 234);
+            Compte c2 = new("012345678902", "&e23R_te7", 1245.34);
             Assert.Equal("Livret A", c1.Nom);
             Assert.Equal("&e23R_te7", c2.Nom);
             Assert.Equal(234, c1.Solde);

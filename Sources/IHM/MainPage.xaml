@@ -10,26 +10,27 @@
             VerticalOptions="Start">
 
             <Label
-                Margin="0,20,-80,0"
+                Margin="0,20,0,30"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
                 Text="Welcome To Cons'Eco"
                 FontSize="30"/>
 
-            <Image Source="Resources/Images/logo_sans_fond.png"
-                   HorizontalOptions="Center"
-                   Scale="0.5"/>
+            <Image Source="{AppThemeBinding Light=Resources/Images/logo_sans_fond_black.png, Dark=Resources/Images/logo_sans_fond.png}"
+                   HorizontalOptions="Center" HeightRequest="200"/>
             
-            <Border StrokeShape="RoundRectangle 40" BackgroundColor="White" Padding="7">
-                <Entry BackgroundColor="White" 
-                       TextColor="Black" 
+            <Border StrokeShape="RoundRectangle 20" BackgroundColor="White" Padding="7">
+                <Entry BackgroundColor="{StaticResource White}" 
+                       TextColor="{StaticResource Black}" 
                        VerticalTextAlignment="Center" 
                        FontSize="15" 
                        Placeholder="Addresse mail"
                        x:Name="EntryMail"/>
             </Border>
 
-            <Border StrokeShape="RoundRectangle 40" BackgroundColor="White" Padding="7">
-                <Entry BackgroundColor="White" 
-                       TextColor="Black" 
+            <Border StrokeShape="RoundRectangle 20" BackgroundColor="White" Padding="7">
+                <Entry BackgroundColor="{StaticResource White}" 
+                       TextColor="{StaticResource Black}" 
                        VerticalTextAlignment="Center" 
                        FontSize="15" 
                        Placeholder="Mot de passe" 
@@ -45,8 +46,8 @@
                 HorizontalOptions="Center" />
             
             <Label
-                    Text="Mot de passe oublier "
-                    TextColor="Blue"
+                    Text="Mot de passe oublié ?"
+                    TextColor="{StaticResource Primary}"
                     Margin="5,0,0,0"
                     TextDecorations="Underline"
                     HorizontalOptions="Center">
@@ -64,7 +65,7 @@
 
                 <Label
                     Text="S'inscrire"
-                    TextColor="Blue"
+                    TextColor="{StaticResource Primary}"
                     Margin="5,0,0,0"
                     TextDecorations="Underline">
                     <Label.GestureRecognizers>

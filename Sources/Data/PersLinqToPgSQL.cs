@@ -243,7 +243,7 @@ namespace LinqToPgSQL
 
             while (dbReader.Read())
             {
-                ListeCompte.Add(new Compte(dbReader.GetString(0), dbReader.GetInt64(1)));
+                ListeCompte.Add(new Compte("NULL",dbReader.GetString(0), dbReader.GetInt64(1)));//a patch NULL
             }
             dbReader.Close();
             return ListeCompte;

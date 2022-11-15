@@ -34,9 +34,9 @@ namespace Model
         }
         public List<Compte> LoadCompte()
         {
-            Comptes.Add(new("Livret A", 1500));
-            Comptes.Add(new("Compte Courant", 2000));
-            Comptes.Add(new("PEL", 22000));
+            Comptes.Add(new("012345678901", "Livret A", 1500));
+            Comptes.Add(new("012345678902", "Compte Courant", 2000));
+            Comptes.Add(new("012345678903", "PEL", 22000));
             return Comptes;
         }
 

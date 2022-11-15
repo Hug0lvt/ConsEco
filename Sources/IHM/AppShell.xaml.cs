@@ -13,6 +13,8 @@ namespace IHM
             Routing.RegisterRoute("Inscription", typeof(Inscription));
             Routing.RegisterRoute("ForgetPassword", typeof(ForgetPassword));
             Routing.RegisterRoute("ChangePassword", typeof(ChangePassword));
+
+            
         }
            
         
