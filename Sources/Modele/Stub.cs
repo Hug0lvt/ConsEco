@@ -8,7 +8,7 @@ namespace Model
 {
     public class Stub
     {
-        public List<Banque> Banques = new();
+        /*public List<Banque> Banques = new();
         public List<Inscrit> Inscrits = new();
         public List<Compte> Comptes = new();
 
@@ -38,7 +38,7 @@ namespace Model
             Comptes.Add(new("Compte Courant", 2000));
             Comptes.Add(new("PEL", 22000));
             return Comptes;
-        }
+        }*/
 
        
     }

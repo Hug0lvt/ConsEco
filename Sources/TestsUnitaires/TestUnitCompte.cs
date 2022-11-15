@@ -10,7 +10,7 @@ namespace TestsUnitaires
     public class TestUnitCompte
     {
 
-        [Fact]
+ /*       [Fact]
         public void TestConstructeurCompte()
         {
             Compte c1 = new("Livret A", 234);
@@ -31,6 +31,6 @@ namespace TestsUnitaires
             Assert.Contains(bq, i1.LesBanques);
             i1.SupprimerBanque(bq);
             Assert.DoesNotContain(bq, i1.LesBanques);
-        }
+        }*/
     }
 }

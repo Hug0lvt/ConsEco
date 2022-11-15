@@ -16,7 +16,7 @@
                 Text="Welcome To Cons'Eco"
                 FontSize="30"/>
 
-            <Image Source="{AppThemeBinding Light=Resources/Images/dotnet_bot.svg, Dark=Resources/Images/logo_sans_fond.png}"
+            <Image Source="{AppThemeBinding Light=Resources/Images/logo_sans_fond_black.png, Dark=Resources/Images/logo_sans_fond.png}"
                    HorizontalOptions="Center" HeightRequest="200"/>
             
             <Border StrokeShape="RoundRectangle 20" BackgroundColor="White" Padding="7">

@@ -7,7 +7,7 @@ using Model;
 
 namespace TestsUnitaires
 {
-    public class TestUnitBanque
+  /*  public class TestUnitBanque
     {
         Compte tc = new("Livret A", 16956);
         Banque test = new("BNP Paribas", "https://mabanque.bnpparibas/", "https://logos-marques.com/wp-content/uploads/2020/12/BNP-Paribas-logo.png");
@@ -69,5 +69,5 @@ namespace TestsUnitaires
         }
 
     
-    }
+    }*/
 }
