@@ -1,4 +1,3 @@
-using Android.Renderscripts;
 using Model;
 using Email = Model.Email;
 
@@ -8,8 +7,8 @@ public partial class ForgetPassword : ContentPage
 {
     public Manager Mgr => (App.Current as App).Manager;
 	private string code;
-	private DateTime _startTime;
-	private CancellationTokenSource _cancellationTokenSource;
+	//private DateTime _startTime;
+	//private CancellationTokenSource _cancellationTokenSource;
 
 	public ForgetPassword()
 	{

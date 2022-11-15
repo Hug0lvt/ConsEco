@@ -47,7 +47,12 @@ namespace IHM
         {
             await DisplayAlert(s, s1, s2);
         }
-        
+
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
         public ICommand TapCommand => new Command<string>(async (page) => await Shell.Current.GoToAsync(page));
     }
 }
