@@ -16,7 +16,7 @@ namespace Model
 
         // ajouter load all pour tout les inscrits
 
-    /*    public List<Inscrit> LoadInscrit()
+        public List<Inscrit> LoadInscrit()
         {
             Inscrits.Add(new("00001", "Evard", "lucasevard@gmail.com","Lucas","test",10,LoadBanques()));
             Inscrits.Add(new("00002", "Livet", "hugolivet@gmail.com", "Hugo", "test", 280,LoadBanques()));
@@ -26,19 +26,21 @@ namespace Model
             Inscrits.Add(new("00006", "March", "march@gmail.com", "bastien", "test", 1120,LoadBanques()));
             return Inscrits;
         }
+        
         public List<Banque> LoadBanques()
         {
             Banques.Add(new("BNP Paribas", "https://mabanque.bnpparibas/", "https://logos-marques.com/wp-content/uploads/2020/12/BNP-Paribas-logo.png",LoadCompte()));
             Banques.Add(new("Crédit Agricole", "https://www.credit-agricole.fr", "https://yt3.ggpht.com/a/AGF-l7_mEfX2eQaGm8GefLOg5ZMRciNw-pESE3gUWg=s900-c-k-c0xffffffff-no-rj-mo",LoadCompte()));
             return Banques;
         }
+        
         public List<Compte> LoadCompte()
         {
-            Comptes.Add(new("Livret A", 1500));
-            Comptes.Add(new("Compte Courant", 2000));
-            Comptes.Add(new("PEL", 22000));
+            Comptes.Add(new("1","Livret A", 1500));
+            Comptes.Add(new("2","Compte Courant", 2000));
+            Comptes.Add(new("3","PEL", 22000));
             return Comptes;
-        }*/
+        }
 
        
     }

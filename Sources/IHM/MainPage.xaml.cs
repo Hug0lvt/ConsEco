@@ -27,6 +27,7 @@ namespace IHM
                     if (Mgr.isEqualHash(Mgr.recupMdpBdd(EntryMail.Text), EntryPassworld.Text))
                     {
                         Mgr.LoadInscrit(EntryMail.Text, EntryPassworld.Text);
+                        Mgr.createUser(EntryMail.Text);
                         ConnexionValide();
                     }
                     else

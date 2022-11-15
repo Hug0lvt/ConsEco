@@ -77,6 +77,11 @@ namespace Model
             LesBanques = lesbanques;
         }
 
+        public Inscrit(string mail)
+        {
+            Mail = mail;
+        }
+
      
 
         public void ajouterBanque(Banque banque)

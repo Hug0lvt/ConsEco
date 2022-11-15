@@ -149,6 +149,35 @@ namespace LinqToPgSQL
             await cmd.ExecuteNonQueryAsync();
         }
 
+        public int CalculTotalSoldeComtpe(Inscrit user)
+        {
+            var conn = new NpgsqlConnection(connexionBDD);
+            Console.Out.WriteLine("Ouverture de la connection");
+            try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                conn.Close();
+                Debug.WriteLine("Problème de connection à la base de données. Aprés fermeture, l'application se fermera automatiquement.");
+                Environment.Exit(-1);
+            }
+            NpgsqlCommand cmd = new NpgsqlCommand($"SELECT sum(c.solde) FROM Compte c, Inscrit i, InscrBanque ib WHERE i.mail = (@mailUser) AND i.id = ib.idinscrit AND c.idinscritbanque = ib.id", conn)
+            {
+                Parameters =
+                {
+                    new NpgsqlParameter("mailuser", user.Mail),
+                }
+            };
+            NpgsqlDataReader dataReader = cmd.ExecuteReader();
+            if (dataReader.Read())
+            {
+                return dataReader.GetInt32(0);
+            }
+            return -1;
+        }
+
         public string RecupMdpBdd(string mail)
         {
             var conn = new NpgsqlConnection(connexionBDD);
