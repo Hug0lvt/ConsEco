@@ -46,7 +46,6 @@ namespace LinqToPgSQL
                 dr.Close();
                 return "null";//a changer doit retester
             }
-            
         }
 
         public bool ExistEmail(string mail)
@@ -237,7 +236,6 @@ namespace LinqToPgSQL
             using (var command1 = new NpgsqlCommand(requete, conn))
             {
                 command1.Parameters.AddWithValue("p", i.Id);
-                /*await command1.ExecuteNonQueryAsync();*/
             }
 
 
@@ -247,6 +245,42 @@ namespace LinqToPgSQL
             }*/
             dbReader.Close();
             return ListeCompte;
+        }
+
+        public IEnumerable<Banque> LoadBanqueId(string id)
+        {
+            //int idnombre = Int16.Parse(id);
+           // Debug.WriteLine(idnombre+"------------------------------------");
+            List<Banque> ListeBanque = new List<Banque>();
+            Debug.WriteLine(id);
+            var conn = new NpgsqlConnection(connexionBDD);
+            Console.Out.WriteLine("Ouverture de la connection");
+            try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                conn.Close();
+                Debug.WriteLine("Problème de connection à la base de données. Aprés fermeture, l'application se fermera automatiquement.");
+                Environment.Exit(-1);
+            }
+            
+        /*    NpgsqlCommand cmd = new NpgsqlCommand("select * from banque b, inscrbanque ib, Inscrit i where ib.idinscrit =(@p) AND ib.nombanque = b.nom AND ib.idinscrit = i.id;", conn)
+            {
+                Parameters =
+                {
+                    new NpgsqlParameter("p",id),
+                }
+            };
+            NpgsqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Debug.WriteLine(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2));
+                ListeBanque.Add(new Banque(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2)));
+            }
+            dataReader.Close();*/
+            return ListeBanque;
         }
 
         /*Suppression d'un inscrit dans la base de données*/

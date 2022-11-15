@@ -12,7 +12,7 @@ public partial class Settings : ContentPage
 	}
 	public void deconnexionOnClicked(object sender, EventArgs e)
 	{
-		Mgr.SelectedInscrit = null;
+        Mgr.deconnexion();
         NavigateTo();
     }
     private async void NavigateTo()

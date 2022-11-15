@@ -16,13 +16,15 @@
             Margin="0,0,40,0"
             Clicked="OnClickedGestionBanque"
             />
-        <Label
-            IsVisible="false"
-            WidthRequest="50"
+        <Button
+            IsVisible="true"
+            IsEnabled="False"
+            WidthRequest="175"
             HeightRequest="50"
             Margin="0,-50,0,0"
             x:Name="ImgBanqueActuelle"
-            BackgroundColor="Aqua"
+            BackgroundColor="AliceBlue"
+            Text="wow"
             />
         <Button
             IsVisible="false"
@@ -34,8 +36,16 @@
             Margin="0,-50,40,0"
             Clicked="OnClickedRetour"
             />
-        <HorizontalStackLayout>
-            
-        </HorizontalStackLayout>
+        <StackLayout IsVisible="false" x:Name="stackpannel">
+            <CollectionView x:Name="listeBanque" ItemsSource="{Binding listeBanqueConnecte}" ItemsUpdatingScrollMode="KeepScrollOffset" Margin="22,0,22,0" ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="0,35,0,0">
+                            <Button Clicked="OnClickedBanque" Text="{Binding Nom}" Margin="0,0,20,0"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

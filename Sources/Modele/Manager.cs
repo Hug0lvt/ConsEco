@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
 
 namespace Model
 {
@@ -19,11 +20,12 @@ namespace Model
                 if(selectedBanque != value)
                 {
                     selectedBanque = value;
-                    OnPropertyChanged(nameof(selectedBanque));
+                    OnPropertyChanged(nameof(SelectedBanque));
                 }
             }
         }
         private Banque selectedBanque;
+        public IEnumerable<Banque> listeBanqueConnecte { get; private set; }
 
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
@@ -40,8 +42,14 @@ namespace Model
         public void LoadInscrit(string id, string mdp)
         {
             SelectedInscrit = Pers.LoadInscrit(id, mdp);
+            Debug.WriteLine(SelectedInscrit);
         }
 
+        public void LoadBanques()
+        {
+            listeBanqueConnecte = Pers.LoadBanqueId(SelectedInscrit);
+        }
+       
         public void supprimerToutesBanquesBdd(Inscrit inscrit)
         {
             Pers.SupprimerToutesBanquesBdd(inscrit);
@@ -76,6 +84,13 @@ namespace Model
         {
             return hash.IsEqualHash(mdpBdd, mdpSent);
         }
-    }
 
+        public void deconnexion()
+        {
+            SelectedBanque= null;
+            SelectedInscrit = null;
+            listeBanqueConnecte = new List<Banque>();
+            Debug.WriteLine(listeBanqueConnecte.Count());
+        }
+    }
 }

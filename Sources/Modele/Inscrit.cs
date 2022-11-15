@@ -77,6 +77,10 @@ namespace Model
             LesBanques = lesbanques;
         }
 
+        public Inscrit(List<Banque> lesbanques)
+        {
+            LesBanques = lesbanques;
+        }
      
 
         public void ajouterBanque(Banque banque)

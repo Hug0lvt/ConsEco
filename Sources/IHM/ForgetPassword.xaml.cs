@@ -1,4 +1,3 @@
-using Android.Renderscripts;
 using Model;
 using Email = Model.Email;
 
