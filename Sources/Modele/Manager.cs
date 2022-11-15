@@ -12,6 +12,23 @@ namespace Model
 
         public Hash hash = new Hash();
 
+        public int Solde 
+        {
+            get => solde;
+            set
+            {
+                if(solde != value)
+                {
+                    solde = value;
+                    OnPropertyChanged(nameof(Solde));
+                }
+            } 
+        }
+
+        private int solde;
+
+        public Inscrit User { get; set; }
+
         public Banque SelectedBanque
         {
             get => selectedBanque;
@@ -83,6 +100,17 @@ namespace Model
         public bool isEqualHash(string mdpBdd, string mdpSent)
         {
             return hash.IsEqualHash(mdpBdd, mdpSent);
+        }
+
+        public void createUser(string mail)
+        {
+            User = new Inscrit(mail);
+        }
+        
+        public int recupTotalSolde()
+        {
+            Solde = Pers.CalculTotalSoldeComtpe(User);
+            return Solde;
         }
 
         public void deconnexion()
