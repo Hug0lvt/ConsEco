@@ -12,7 +12,10 @@ namespace IHM
 
             MainPage = new AppShell();
 
-            
+            if(OperatingSystem.IsWindows())
+            {
+                MainPage = new UI_Windows.MainPage_Windows();
+            }
 
         }
 
