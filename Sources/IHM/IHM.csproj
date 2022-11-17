@@ -32,10 +32,9 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\logo.svg" ForegroundFile="Resources\AppIcon\logo.svg" Color="#512BD4" BaseSize="100,100" />
-		<MauiImage Include="Desktop\logo_sans_fond.png">
+		<MauiIcon Include="Resources\AppIcon\logo.svg" ForegroundFile="Resources\AppIcon\logo.svg" Color="#512BD4" BaseSize="100,100">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</MauiImage>
+		</MauiIcon>
 		<MauiImage Include="Resources\Images\NavBar\dollar_black.png" />
 		<MauiImage Include="Resources\Images\NavBar\settings_black.png" />
 		<Resource Include="Resources\Images\NavBar\home_black.png" />
@@ -55,10 +54,6 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="Desktop\logo_sans_fond.png" />
 	</ItemGroup>
 
 	<ItemGroup>
