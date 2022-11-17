@@ -16,7 +16,10 @@ namespace IHM
             {
                 MainPage = new UI_Windows.MainPage_Windows();
             }
-
+            else if(OperatingSystem.IsAndroid() || OperatingSystem.IsIOS())
+            {
+                MainPage = new MainPage();
+            }
         }
 
     }

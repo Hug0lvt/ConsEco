@@ -7,6 +7,9 @@ public partial class ForgetPassword : ContentPage
 {
     public Manager Mgr => (App.Current as App).Manager;
 	private string code;
+	//private DateTime _startTime;
+	//private CancellationTokenSource _cancellationTokenSource;
+
 	public ForgetPassword()
 	{
 		InitializeComponent();
@@ -22,14 +25,30 @@ public partial class ForgetPassword : ContentPage
             code = generator.Next(0, 1000000).ToString("D6");
             Email.CreateMail(EntryMail.Text, code);
 			ValidateReceptCode.IsVisible = true;
+			ConnexionButton.IsEnabled = false;
+			UpdateArc();
 		}
 	}
     private async void AffichError(string s, string s1, string s2)
     {
         await DisplayAlert(s, s1, s2);
     }
+    private async void UpdateArc()
+    {
+		int timeRemaining = 60;
+        while (timeRemaining != 0)
+        {
+            ConnexionButton.Text = $"{timeRemaining}";
 
-	private void ValideCode(object sender, EventArgs e)
+            timeRemaining--;
+
+            await Task.Delay(1000);
+        }
+
+		ConnexionButton.Text = "valider Email";
+		ConnexionButton.IsEnabled = true;
+    }
+    private void ValideCode(object sender, EventArgs e)
 	{
 		if(EntryCodeRecept.Text == code)
 		{

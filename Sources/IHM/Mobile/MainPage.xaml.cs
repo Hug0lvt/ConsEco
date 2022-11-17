@@ -1,7 +1,4 @@
-﻿    using Android.Bluetooth;
-using AndroidX.Emoji2.Text.FlatBuffer;
-using Microsoft.Maui.Controls;
-using Model;
+﻿using Model;
 using System.Windows.Input;
 
 namespace IHM
@@ -50,7 +47,12 @@ namespace IHM
         {
             await DisplayAlert(s, s1, s2);
         }
-        
+
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
         public ICommand TapCommand => new Command<string>(async (page) => await Shell.Current.GoToAsync(page));
     }
 }
