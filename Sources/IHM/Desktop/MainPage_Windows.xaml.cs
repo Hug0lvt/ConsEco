@@ -1,7 +1,7 @@
 using Model;
 using System.Windows.Input;
 
-namespace IHM.UI_Windows;
+namespace IHM.Desktop;
 
 public partial class MainPage_Windows : ContentPage
 {

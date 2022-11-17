@@ -77,6 +77,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="AppShellDesktop.xaml.cs">
+	    <DependentUpon>AppShellDesktop.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="AppShellDesktop.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ChangePassword.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

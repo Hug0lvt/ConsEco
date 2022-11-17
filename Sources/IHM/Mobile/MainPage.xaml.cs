@@ -1,7 +1,7 @@
 ﻿using Model;
 using System.Windows.Input;
 
-namespace IHM
+namespace IHM.Mobile
 {
     public partial class MainPage : ContentPage
     {

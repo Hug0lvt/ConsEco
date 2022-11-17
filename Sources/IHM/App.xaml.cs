@@ -10,15 +10,13 @@ namespace IHM
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
-
-            if(OperatingSystem.IsWindows())
+            if(OperatingSystem.IsWindows() || OperatingSystem.IsMacOS())
             {
-                MainPage = new UI_Windows.MainPage_Windows();
+                MainPage = new AppShellDesktop();
             }
-            else if(OperatingSystem.IsAndroid() || OperatingSystem.IsIOS())
+            else
             {
-                MainPage = new MainPage();
+                MainPage = new AppShell();
             }
         }
 

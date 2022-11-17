@@ -1,6 +1,6 @@
 using Model;
 
-namespace IHM;
+namespace IHM.Mobile;
 
 public partial class DashBoard : ContentPage
 {
