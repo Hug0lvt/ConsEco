@@ -80,6 +80,9 @@
 	  <Compile Update="AppShellDesktop.xaml.cs">
 	    <DependentUpon>AppShellDesktop.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Desktop\MainPage.xaml.cs">
+	    <DependentUpon>MainPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -104,7 +107,7 @@
 	  <MauiXaml Update="Inscription.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Desktop\MainPage_Windows.xaml">
+	  <MauiXaml Update="Desktop\MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

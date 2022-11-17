@@ -3,10 +3,10 @@ using System.Windows.Input;
 
 namespace IHM.Desktop;
 
-public partial class MainPage_Windows : ContentPage
+public partial class MainPage : ContentPage
 {
     public Manager Mgr => (App.Current as App).Manager;
-    public MainPage_Windows()
+    public MainPage()
 	{
 		InitializeComponent();
         BindingContext = this;
