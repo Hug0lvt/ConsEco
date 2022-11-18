@@ -32,10 +32,9 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\logo.svg" Color="#512BD4" BaseSize="2000,2000">
+		<MauiIcon Include="Resources\AppIcon\logo.svg" ForegroundFile="Resources\AppIcon\logo.svg" Color="#512BD4" BaseSize="100,100">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiIcon>
-		<MauiImage Include="Resources\Images\DashBoard\account_banks.png" />
 		<MauiImage Include="Resources\Images\NavBar\dollar_black.png" />
 		<MauiImage Include="Resources\Images\NavBar\settings_black.png" />
 		<Resource Include="Resources\Images\NavBar\home_black.png" />
@@ -80,10 +79,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="ChangePassword.xaml">
+	  <Compile Update="AppShellDesktop.xaml.cs">
+	    <DependentUpon>AppShellDesktop.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Desktop\MainPage.xaml.cs">
+	    <DependentUpon>MainPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="AppShellDesktop.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="DashBoard.xaml">
+	  <MauiXaml Update="ChangePassword.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ForgetPassword.xaml">
@@ -99,6 +107,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Inscription.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

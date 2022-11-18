@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using IHM.Mobile;
+using Model;
 
 namespace IHM
 {
@@ -16,6 +17,8 @@ namespace IHM
 
             
         }
+
+ 
            
         
     }

@@ -1,7 +1,7 @@
 using Model;
 using Email = Model.Email;
 
-namespace IHM;
+namespace IHM.Mobile;
 
 public partial class Inscription : ContentPage
 {

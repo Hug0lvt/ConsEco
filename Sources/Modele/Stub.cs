@@ -11,7 +11,7 @@ namespace Model
         public List<Banque> Banques = new();
         public List<Inscrit> Inscrits = new();
         public List<Compte> Comptes = new();
-
+        //
 
 
         // ajouter load all pour tout les inscrits

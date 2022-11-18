@@ -1,4 +1,4 @@
-namespace IHM;
+namespace IHM.Mobile;
 using Model;
 public partial class Settings : ContentPage
 {

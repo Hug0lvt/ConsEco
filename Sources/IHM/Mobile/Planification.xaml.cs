@@ -1,4 +1,4 @@
-namespace IHM;
+namespace IHM.Mobile;
 
 public partial class Planification : ContentPage
 {

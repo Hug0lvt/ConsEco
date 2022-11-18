@@ -10,10 +10,14 @@ namespace IHM
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
-
-            
-
+            if(OperatingSystem.IsWindows() || OperatingSystem.IsMacOS())
+            {
+                MainPage = new AppShellDesktop();
+            }
+            else
+            {
+                MainPage = new AppShell();
+            }
         }
 
     }
