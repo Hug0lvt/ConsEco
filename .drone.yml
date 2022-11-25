@@ -60,8 +60,6 @@ steps:
           from_secret: db_user
         CODEFIRST_CLIENTDRONE_ENV_MARIADB_PASSWORD:
           from_secret: db_password
-      commands:
-        - mysql -u db_user -p db_database > Sources/Data/tablewithgeneratedid.sql
 
   
     - name: web-API
@@ -75,6 +73,7 @@ steps:
           from_secret: secret-registry-username
         password:
           from_secret: secret-registry-password
+      
       
     - name: deploy-web-container
       image: hub.codefirst.iut.uca.fr/thomas.bellembois/codefirst-dockerproxy-clientdrone:latest
@@ -91,4 +90,6 @@ steps:
           from_secret: db_user
         CODEFIRST_CLIENTDRONE_ENV_MARIADB_PASSWORD:
           from_secret: db_password
+      commands:
+        - mysql -u db_user -p db_database > Sources/Data/tablewithgeneratedid.sql
       depends_on: [ web-API, deploy-container-mysql ]
