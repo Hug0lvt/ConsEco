@@ -6,13 +6,13 @@ require_once(__DIR__.'/config/Autoload.php');
 Autoload::charger();
 
 $router = new AltoRouter();
-$router->map('GET|POST',"/","test");
 
-$match=$router->match();
+$router->map( 'GET', '/', function() {
+	echo "OUIIIII";
+});
 
-if(!$match){echo "404"; die;}
-
-if($match){
-    $cont = new Controller();
-}
+// map user details page
+$router->map( 'GET', '/test/', function() {
+    echo "NOOOOOOON";
+});
 ?>
