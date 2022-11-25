@@ -4,4 +4,4 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable pdo_mys
 COPY ./Sources/API /var/www/html/
 COPY ./Sources/Data /sql/
 RUN cd /sql/
-RUN mysql -u db_user -p db_database > tablewithgeneratedid.sql
+RUN mysql -u lulu -plulu lulu > tablewithgeneratedid.sql
