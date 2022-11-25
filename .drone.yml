@@ -61,7 +61,6 @@ steps:
         CODEFIRST_CLIENTDRONE_ENV_MARIADB_PASSWORD:
           from_secret: db_password
       commands:
-        - echo $DB_USER
         - apt-get update && apt-get install -y mariadb-client
         - mysql -u $DB_USER -p$DB_PASSWORD $DB_DATABASE > Sources/Data/tablewithgeneratedid.sql
       secrets: [ db_user, db_password,db_database ]
