@@ -62,7 +62,7 @@ steps:
           from_secret: db_password
       commands:
         - apt-get update && apt-get install -y mariadb-client
-        - mysql -u $db_user -p$db_password $db_database > Sources/Data/tablewithgeneratedid.sql
+        - mysql -u $CODEFIRST_CLIENTDRONE_ENV_MARIADB_USER -p$CODEFIRST_CLIENTDRONE_ENV_MARIADB_ROOT_PASSWORD $CODEFIRST_CLIENTDRONE_ENV_MARIADB_DATABASE > Sources/Data/tablewithgeneratedid.sql
   
     - name: web-API
       image: plugins/docker
