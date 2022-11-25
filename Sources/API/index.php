@@ -7,12 +7,12 @@ Autoload::charger();
 
 $router = new AltoRouter();
 
-$router->map( 'GET', '/', function() {
+$router->map( 'GET|POST', '/', function() {
 	echo "OUIIIII";
 });
 
 // map user details page
-$router->map( 'GET', '/test/', function() {
+$router->map( 'GET|POST', '/test', function() {
     echo "NOOOOOOON";
 });
 ?>
