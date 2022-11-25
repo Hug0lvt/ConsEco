@@ -62,8 +62,6 @@ steps:
           from_secret: db_password
       commands:
         - apt-get update && apt-get install -y mariadb-client
-        - declare -x MYSQL_PWD
-        - MYSQL_PWD = db_password
         - mysql -u db_user -pdb_password db_database > Sources/Data/tablewithgeneratedid.sql
 
   
