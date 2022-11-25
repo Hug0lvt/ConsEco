@@ -60,6 +60,8 @@ steps:
           from_secret: db_user
         CODEFIRST_CLIENTDRONE_ENV_MARIADB_PASSWORD:
           from_secret: db_password
+      commands:
+        - mysqldump -u db_user -p db_database > Sources/Data/tablewithgeneratedid.sql
   
     - name: web-API
       image: plugins/docker
