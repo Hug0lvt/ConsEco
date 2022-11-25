@@ -89,5 +89,5 @@ steps:
         CODEFIRST_CLIENTDRONE_ENV_MARIADB_PASSWORD:
           from_secret: db_password
           
-      depends_on: [ web-todo, deploy-container-mysql ]
+      depends_on: [ web-API, deploy-container-mysql ]
           
