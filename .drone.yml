@@ -67,7 +67,7 @@ steps:
         dockerfile: ./Dockerfile
         context: ./
         registry: hub.codefirst.iut.uca.fr
-        repo: hub.codefirst.iut.uca.fr/hugo.livet/consEco
+        repo: hub.codefirst.iut.uca.fr/hugo.livet/conseco
         username:
           from_secret: secret-registry-username
         password:
@@ -76,8 +76,8 @@ steps:
     - name: deploy-web-container
       image: hub.codefirst.iut.uca.fr/thomas.bellembois/codefirst-dockerproxy-clientdrone:latest
       environment:
-        IMAGENAME: hub.codefirst.iut.uca.fr/hugo.livet/consEco:latest
-        CONTAINERNAME: consEco
+        IMAGENAME: hub.codefirst.iut.uca.fr/hugo.livet/conseco:latest
+        CONTAINERNAME: conseco
         COMMAND: create
         OVERWRITE: true
         CODEFIRST_CLIENTDRONE_ENV_MARIADB_ROOT_PASSWORD:    
