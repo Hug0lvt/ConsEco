@@ -19,7 +19,7 @@ namespace LinqToPgSQL
     public class PersLinqToPgSQL : IPersistanceManager
     {
         private Hash hash = new Hash();
-        string connexionBDD = String.Format("Server=90.114.135.116; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
+        string connexionBDD = String.Format("Server=2.3.8.130; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
        
         public string LoadInscrit(string id, string mdp)
         {

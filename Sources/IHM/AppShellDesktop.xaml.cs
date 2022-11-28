@@ -1,4 +1,5 @@
 ﻿using IHM.Desktop;
+using IHM.Mobile;
 using Model;
 
 namespace IHM
@@ -10,6 +11,7 @@ namespace IHM
         public AppShellDesktop()
         {
             InitializeComponent();
+           
         }
 
  

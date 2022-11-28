@@ -75,6 +75,9 @@
 	  <Compile Update="AppShellDesktop.xaml.cs">
 	    <DependentUpon>AppShellDesktop.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Desktop\Dashboard.xaml.cs">
+	    <DependentUpon>DashBoard.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Desktop\MainPage.xaml.cs">
 	    <DependentUpon>MainPage.xaml</DependentUpon>
 	  </Compile>
@@ -85,6 +88,18 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ChangePassword.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\DashBoard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\Inscription.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\Operations.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\Planification.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ForgetPassword.xaml">

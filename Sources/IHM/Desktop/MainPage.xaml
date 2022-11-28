@@ -71,16 +71,17 @@
                 Text="Pas de compte ?"
                 />
 
-                    <Label
+                    <Button
                     Text="S'inscrire"
                     TextColor="{StaticResource Yellow100Accent}"
                     Margin="5,0,0,0"
-                    TextDecorations="Underline">
+                    Clicked="Button_Clicked">
+                        <!--
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding TapCommand}"
                                               CommandParameter="Inscription"/>
-                        </Label.GestureRecognizers>
-                    </Label>
+                        </Label.GestureRecognizers> -->
+                    </Button>
                 </HorizontalStackLayout>
 
 
