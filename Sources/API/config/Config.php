@@ -2,7 +2,7 @@
 //prefixe
 $rep=__DIR__.'/../';
 
-$dsn='mysql:host=10.9.0.8;dbname='.getenv("MARIADB_DATABASE");
+$dsn=getenv("DB_SERVER");
 $dbname=getenv("MARIADB_DATABASE");
 $usr=getenv("MARIADB_USER");
 $mdp=getenv("MARIADB_PASSWORD");
