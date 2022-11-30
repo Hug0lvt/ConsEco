@@ -13,12 +13,7 @@ namespace IHM
         {
             InitializeComponent();
             Routing.RegisterRoute("ForgetPassword", typeof(ForgetPassword));
-
-
         }
-
-
-
 
     }
 }

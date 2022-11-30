@@ -6,16 +6,11 @@
     <StackLayout BackgroundColor="{StaticResource Primary}">
         
 
-
-        
-       
-
         <StackLayout
             
             Spacing="25"
             Padding="30,0"
-            VerticalOptions="Start"
-            >
+            VerticalOptions="Start">
 
                 <Label
                 Margin="0,20,0,30"
@@ -27,20 +22,14 @@
 
             <Image Source="logo_sans_fond.png" HorizontalOptions="Center" HeightRequest="200" />
 
-            <Border StrokeShape="RoundRectangle 20" BackgroundColor="White" Padding="7">
-                    <Entry BackgroundColor="{StaticResource White}" 
-                       TextColor="{StaticResource Black}" 
-                       VerticalTextAlignment="Center" 
-                       FontSize="15" 
+            <Border Style="{StaticResource bordureBlanche}" Padding="7">
+                <Entry Style="{StaticResource zoneDeTexte}"
                        Placeholder="Addresse mail"
                        x:Name="EntryMail"/>
                 </Border>
 
-                <Border StrokeShape="RoundRectangle 20" BackgroundColor="White" Padding="7">
-                    <Entry BackgroundColor="{StaticResource White}" 
-                       TextColor="{StaticResource Black}" 
-                       VerticalTextAlignment="Center" 
-                       FontSize="15" 
+                <Border Style="{StaticResource bordureBlanche}" Padding="7">
+                    <Entry Style="{StaticResource zoneDeTexte}"
                        Placeholder="Mot de passe" 
                        IsPassword="True"
                        x:Name="EntryPassworld"/>
