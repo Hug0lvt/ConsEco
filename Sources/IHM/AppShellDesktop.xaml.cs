@@ -1,6 +1,7 @@
 ﻿using IHM.Desktop;
 using IHM.Mobile;
 using Model;
+using ForgetPassword = IHM.Desktop.ForgetPassword;
 
 namespace IHM
 {
@@ -11,11 +12,13 @@ namespace IHM
         public AppShellDesktop()
         {
             InitializeComponent();
-           
+            Routing.RegisterRoute("ForgetPassword", typeof(ForgetPassword));
+
+
         }
 
- 
-           
-        
+
+
+
     }
 }
