@@ -13,14 +13,34 @@ using System.Threading;
 using Model;
 using System.Runtime.CompilerServices;
 using System.Data.Common;
+using System.Reflection.PortableExecutable;
 
 namespace LinqToPgSQL
 {
     public class PersLinqToPgSQL : IPersistanceManager
     {
         private Hash hash = new Hash();
-        string connexionBDD = String.Format("Server=90.114.135.116; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
-       
+        private static string connexionBDD = String.Format("Server=2.3.8.130; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
+        private static NpgsqlConnection dbAccess = new NpgsqlConnection(connexionBDD);
+        public bool TestConnexionAsDatabase()
+        {
+            bool isOk = true;
+            try
+            {
+                dbAccess.Open();
+            }
+            catch(NpgsqlException ex)
+            {
+                isOk = false;
+                Debug.WriteLine("Problème de connection à la base de données. - " + ex.Message);
+            }
+            finally
+            {
+                dbAccess.Close();
+            }
+            return isOk;
+        }
+
         public string LoadInscrit(string id, string mdp)
         {
             int resultat=0;
@@ -53,7 +73,11 @@ namespace LinqToPgSQL
         {
             var conn = new NpgsqlConnection(connexionBDD);
             Console.Out.WriteLine("Ouverture de la connection");
-            try
+
+            conn.Open();
+
+
+            /*try
             {
                 conn.Open();
             }
@@ -62,7 +86,7 @@ namespace LinqToPgSQL
                 conn.Close();
                 Debug.WriteLine("Problème de connection à la base de données. Aprés fermeture, l'application se fermera automatiquement.");
                 Environment.Exit(-1);
-            }
+            }*/
 
             NpgsqlDataReader dbReader = new NpgsqlCommand("SELECT mail FROM Inscrit", conn).ExecuteReader();
 
@@ -335,5 +359,22 @@ namespace LinqToPgSQL
 
             // attente des autres supression
         }
+
+        public IList<Banque> ImportBanques()
+        {
+            IList<Banque> bquesDispo = new List<Banque>();
+            dbAccess.Open();
+
+            NpgsqlCommand cmd = new NpgsqlCommand($"SELECT * FROM Banque", dbAccess);
+            NpgsqlDataReader dbReader = cmd.ExecuteReader();
+            while (dbReader.Read())
+            {
+                bquesDispo.Add(new Banque(dbReader.GetString(0), dbReader.GetString(1), dbReader.GetString(2)));
+            }
+            dbAccess.Close();
+            return bquesDispo;
+        }
+
+
     }
 }

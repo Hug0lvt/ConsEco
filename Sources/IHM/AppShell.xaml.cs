@@ -14,12 +14,16 @@ namespace IHM
             Routing.RegisterRoute("Inscription", typeof(Inscription));
             Routing.RegisterRoute("ForgetPassword", typeof(ForgetPassword));
             Routing.RegisterRoute("ChangePassword", typeof(ChangePassword));
+            Routing.RegisterRoute("GestionBanques", typeof(GestionBanques));
+            Routing.RegisterRoute("AjoutBanques", typeof(AjoutBanques));
 
-            
+            Routing.RegisterRoute("ErrorPage", typeof(ErrorPage));
+
+
         }
 
- 
-           
-        
+
+
+
     }
 }

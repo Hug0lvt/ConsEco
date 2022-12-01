@@ -21,10 +21,11 @@
             <Label Text="Cons'Eco" FontSize="20" VerticalOptions="Center" FontAttributes="Bold"/>
         </HorizontalStackLayout>
 
-        <ImageButton Grid.Row="0" Grid.Column="1" Source="Resources/Images/Dashboard/account_banks.png" 
+        <ImageButton Grid.Row="0" Grid.Column="1" Source="account_banks.png" 
                      HorizontalOptions="End" Padding="10" Margin="10"
                      CornerRadius="10" HeightRequest="65" 
-                     BackgroundColor="{StaticResource Primary}"/>
+                     BackgroundColor="{StaticResource Primary}"
+                     Clicked="Banques_Clicked"/>
 
         <Label Grid.Row="1" Grid.ColumnSpan="2" Text="Liste des Dernières Opérations : " FontAttributes="Bold" FontSize="Body" Padding="20,5,0,0"/>
 

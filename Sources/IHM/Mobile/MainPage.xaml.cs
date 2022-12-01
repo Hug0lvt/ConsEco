@@ -12,9 +12,11 @@ namespace IHM.Mobile
             BindingContext = this;
         }
 
+        
+
         public void ConnectionOnClicked(object sender, EventArgs e)
         {
-            if(EntryMail.Text == null || EntryPassworld.Text ==  null)
+            if (EntryMail.Text == null || EntryPassworld.Text ==  null)
             {
                 AffichError("Champ invalide", "Veuillez compléter tout les champs", "OK");
             }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:composant="clr-namespace:IHM.Composant"
+             x:Class="IHM.Mobile.GestionBanques"
+             Title="GestionBanques">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.10*"/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <HorizontalStackLayout Grid.Row="0" Grid.Column="0" VerticalOptions="Center">
+            <Image Source="Resources/Images/logo_sans_fond.png" HeightRequest="50" Margin="20"/>
+            <Label Text="Cons'Eco" FontSize="20" VerticalOptions="Center" FontAttributes="Bold"/>
+        </HorizontalStackLayout>
+
+        <ImageButton Grid.Row="0" Grid.Column="1" Source="reload_banks.png" 
+                     HorizontalOptions="End" Padding="10" Margin="10"
+                     CornerRadius="10" HeightRequest="65" 
+                     BackgroundColor="{StaticResource Primary}"/>
+
+        <ImageButton Grid.Row="0" Grid.Column="2" Source="reload_banks.png" 
+                     HorizontalOptions="End" Padding="10" Margin="10"
+                     CornerRadius="10" HeightRequest="65" 
+                     BackgroundColor="{StaticResource Primary}"/>
+
+        <Label Grid.Row="1" Grid.ColumnSpan="3" Text="Liste des Banques disponibles : " FontAttributes="Bold" FontSize="Body" Padding="20,5,0,0"/>
+
+        <CollectionView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding BanquesDisponibleInApp}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <composant:BanqueVC NomBanque="{Binding Nom}" DateLastReload="12/12/2003" /><!-- il faut le namespace !!!! -->
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+
+    </Grid>
+</ContentPage>

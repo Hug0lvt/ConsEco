@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IHM.Mobile.ErrorPage"
+             Title="Error">
+    <FlexLayout Direction="Column" JustifyContent="Center" AlignItems="Center">
+
+        <Image Source="{AppThemeBinding Light=logo_sans_fond_black.png, Dark=logo_sans_fond.png}"
+                   HorizontalOptions="Center" HeightRequest="200"/>
+
+        <ActivityIndicator IsRunning="true" Margin="0,120,0,0" />
+
+        <Label Text="Tentative de connexion" Margin="0,20,0,0" FontSize="Body" FontAttributes="Bold"/>
+
+    </FlexLayout>
+</ContentPage>
