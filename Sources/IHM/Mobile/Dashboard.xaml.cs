@@ -13,15 +13,25 @@ public partial class DashBoard : ContentPage
 
         if (Mgr.SelectedInscrit == null)
         {
-            loadInscription();
+            loadPage(new MainPage());
+
         }
 
-        
+        if (!Mgr.testConnexionAsDatabase())
+        {
+            loadPage(new ErrorPage());
+
+        }
 
     }
 
-    public async void loadInscription()
+    public async void loadPage(Page p)
     {
-        await Navigation.PushModalAsync(new MainPage());
+        await Navigation.PushModalAsync(p);
+    }
+
+    private void Banques_Clicked(object sender, EventArgs e)
+    {
+        loadPage(new GestionBanques());
     }
 }

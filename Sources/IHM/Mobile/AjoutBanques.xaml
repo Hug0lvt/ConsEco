@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:composant="clr-namespace:IHM.Composant"
+             x:Class="IHM.Mobile.AjoutBanques"
+             Title="AjoutBanques">
+    <VerticalStackLayout>
+        <Label Text="Liste des Banques" FontAttributes="Bold" FontSize="Body" HorizontalOptions="Center"/>
+        <CollectionView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <composant:BanqueDispo ImageBanque="bla.png" />
+                    <!-- il faut le namespace !!!! -->
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
