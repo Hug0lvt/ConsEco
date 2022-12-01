@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Stub
+    public class Stub //la classe n'implémante pas IPersistanceManager
     {
         public List<Banque> Banques = new();
         public List<Inscrit> Inscrits = new();

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace Model
 {
@@ -24,6 +25,8 @@ namespace Model
             }
         }
         private Banque selectedBanque;
+
+        public ObservableCollection<Banque> BanquesDisponibleInApp { get; set; } = new ObservableCollection<Banque>();
 
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
@@ -75,6 +78,16 @@ namespace Model
         public bool isEqualHash(string mdpBdd, string mdpSent)
         {
             return hash.IsEqualHash(mdpBdd, mdpSent);
+        }
+
+        public bool testConnexionAsDatabase()
+        {
+            return Pers.TestConnexionAsDatabase();
+        }
+
+        public IList<Banque> importBanques()
+        {
+            return Pers.ImportBanques();
         }
     }
 
