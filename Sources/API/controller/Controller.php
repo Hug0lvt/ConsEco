@@ -5,7 +5,17 @@ class Controller{
     function __construct($url){
         global $dsn, $usr, $mdp;
         $con = new Connection($dsn, $usr, $mdp);
-        $query ='CREATE TABLE Devise
+        $query ='DROP TABLE Planification;
+        DROP TABLE IF EXISTS Opération;
+        DROP TABLE IF EXISTS Echeancier;
+        DROP TABLE IF EXISTS Compte;
+        DROP TABLE IF EXISTS InscrBanque;
+        DROP TABLE IF EXISTS Banque;
+        DROP TABLE IF EXISTS DeviseInscrit;
+        DROP TABLE IF EXISTS Inscrit;
+        DROP TABLE IF EXISTS Devise;
+        
+        CREATE TABLE Devise
         (
             id char(3) PRIMARY KEY,
             nom varchar(20)
