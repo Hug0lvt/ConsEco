@@ -17,6 +17,8 @@
             <Button Text="ECHEANCIER"  BackgroundColor="{StaticResource Yellow100Accent}"  Padding="20" Margin="20"></Button>
             <Button Text="PLANIFICATION"  BackgroundColor="{StaticResource Primary}"  TextColor="{StaticResource Yellow300Accent}" Padding="20" Margin="20" ></Button>
         </StackLayout>
+        
+        
 
     </StackLayout>
 

@@ -13,11 +13,11 @@
         
         <StackLayout BackgroundColor="{StaticResource Gray900}" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand">
 
-            <Button Text="ACCUEIL"  BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource Yellow300Accent}" Padding="20" Margin="20" ></Button>
-            <Button Text="COMPTE"  BackgroundColor="{StaticResource Yellow100Accent}"  Padding="20" Margin="20"></Button>
-            <Button Text="OPERATION"  BackgroundColor="{StaticResource Yellow100Accent}"  Padding="20" Margin="20"></Button>
-            <Button Text="ECHEANCIER"  BackgroundColor="{StaticResource Yellow100Accent}"  Padding="20" Margin="20"></Button>
-            <Button Text="PLANIFICATION"  BackgroundColor="{StaticResource Yellow100Accent}"  Padding="20" Margin="20" Clicked="Button_Clicked"></Button>
+            <Button Text="ACCUEIL"  BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource Yellow300Accent}" Padding="20" Margin="20"  ></Button>
+            <Button Text="COMPTE"  BackgroundColor="{StaticResource Yellow100Accent}"  Padding="20" Margin="20" Clicked="Button_compte"></Button>
+            <Button Text="OPERATION"  BackgroundColor="{StaticResource Yellow100Accent}"  Padding="20" Margin="20" Clicked="Button_operation"></Button>
+            <Button Text="ECHEANCIER"  BackgroundColor="{StaticResource Yellow100Accent}"  Padding="20" Margin="20" Clicked="Button_echeancier"></Button>
+            <Button Text="PLANIFICATION"  BackgroundColor="{StaticResource Yellow100Accent}"  Padding="20" Margin="20" Clicked="Button_planification"></Button>
         </StackLayout>
 
     </StackLayout>
