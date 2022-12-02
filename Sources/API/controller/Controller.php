@@ -5,7 +5,7 @@ class Controller{
     function __construct($url){
         global $dsn, $usr, $mdp;
         $con = new Connection($dsn, $usr, $mdp);
-        $query ='DROP TABLE Planification;
+        $query ='DROP TABLE IF EXISTS Planification;
         DROP TABLE IF EXISTS Opération;
         DROP TABLE IF EXISTS Echeancier;
         DROP TABLE IF EXISTS Compte;
