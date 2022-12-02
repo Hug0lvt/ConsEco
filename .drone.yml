@@ -15,6 +15,7 @@ steps:
         - dotnet restore CI_MAUI.sln
         - dotnet build CI_MAUI.sln -c Release --no-restore
         - dotnet publish CI_MAUI.sln -c Release --no-restore -o CI_PROJECT_DIR/build/release
+
     - name: tests
       image: mcr.microsoft.com/dotnet/sdk:6.0
       commands:
@@ -22,6 +23,7 @@ steps:
         - dotnet restore CI_MAUI.sln
         - dotnet test CI_MAUI.sln --no-restore
       depends_on: [build]
+
     - name: code-analysis
       image: hub.codefirst.iut.uca.fr/thomas.bellembois/codefirst-dronesonarplugin-dotnet6
       commands:
@@ -42,13 +44,52 @@ steps:
         sonar_token:
           from_secret: SECRET_SONAR_LOGIN
       depends_on: [tests]
-  # database container deployment
+
     - name: deploy-container-mysql
       image: hub.codefirst.iut.uca.fr/thomas.bellembois/codefirst-dockerproxy-clientdrone:latest
       environment:
-          IMAGENAME: postgres
-          CONTAINERNAME: mysql
-          COMMAND: create
-          PRIVATE: true
-          POSTGRES_PASSWORD: oui
-          
+        IMAGENAME: mariadb:latest
+        CONTAINERNAME: mariadb
+        COMMAND: create
+        OVERWRITE: true
+        PRIVATE: false
+        CODEFIRST_CLIENTDRONE_ENV_MARIADB_ROOT_PASSWORD:    
+          from_secret: db_root_password
+        CODEFIRST_CLIENTDRONE_ENV_MARIADB_DATABASE:
+          from_secret: db_database
+        CODEFIRST_CLIENTDRONE_ENV_MARIADB_USER:
+          from_secret: db_user
+        CODEFIRST_CLIENTDRONE_ENV_MARIADB_PASSWORD:
+          from_secret: db_password
+
+    - name: web-API
+      image: plugins/docker
+      settings:
+        dockerfile: ./Dockerfile
+        context: ./
+        registry: hub.codefirst.iut.uca.fr
+        repo: hub.codefirst.iut.uca.fr/vincent.astolfi/conseco
+        username:
+          from_secret: secret-registry-username
+        password:
+          from_secret: secret-registry-password
+      
+      
+    - name: deploy-web-container
+      image: hub.codefirst.iut.uca.fr/thomas.bellembois/codefirst-dockerproxy-clientdrone:latest
+      environment:
+        IMAGENAME: hub.codefirst.iut.uca.fr/vincent.astolfi/conseco:latest
+        CONTAINERNAME: conseco
+        COMMAND: create
+        OVERWRITE: true
+        CODEFIRST_CLIENTDRONE_ENV_DB_SERVER:
+          from_secret: db_server
+        CODEFIRST_CLIENTDRONE_ENV_MARIADB_ROOT_PASSWORD:    
+          from_secret: db_root_password
+        CODEFIRST_CLIENTDRONE_ENV_MARIADB_DATABASE:
+          from_secret: db_database
+        CODEFIRST_CLIENTDRONE_ENV_MARIADB_USER:
+          from_secret: db_user
+        CODEFIRST_CLIENTDRONE_ENV_MARIADB_PASSWORD:
+          from_secret: db_password
+      depends_on: [ web-API, deploy-container-mysql ]
