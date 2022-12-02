@@ -19,33 +19,23 @@ namespace LinqToPgSQL
     public class PersLinqToPgSQL : IPersistanceManager
     {
         private Hash hash = new Hash();
-        string connexionBDD = String.Format("Server=90.114.135.116; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
+        string connexionBDD = String.Format("Server=2.3.8.130; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
        
-        public string LoadInscrit(string id, string mdp)
+        public string GetId(string mail)
         {
-            int resultat=0;
+            int resultat;
             var conn = new NpgsqlConnection(connexionBDD);
             Console.Out.WriteLine("Ouverture de la connection");
             conn.Open();
-            NpgsqlParameter p1 = new NpgsqlParameter { ParameterName = "p", Value = id };
-            NpgsqlParameter p2 = new NpgsqlParameter { ParameterName = "p2", Value = mdp };
-            NpgsqlCommand cmd = new NpgsqlCommand($"SELECT id FROM INSCRIT WHERE (nom=(@p) OR mail=(@p)) AND mdp=@p2", conn);
+            NpgsqlParameter p1 = new NpgsqlParameter { ParameterName = "p", Value = mail };
+            NpgsqlCommand cmd = new NpgsqlCommand($"SELECT id FROM INSCRIT WHERE mail=(@p)", conn);
             cmd.Parameters.Add(p1);
-            cmd.Parameters.Add(p2);
             NpgsqlDataReader dr = cmd.ExecuteReader();
-            try
-            {
-                dr.Read();
-                resultat = dr.GetInt32(0);
-                dr.Close();
-                return resultat.ToString();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex+"Utilisateur inconnu");
-                dr.Close();
-                return "null";//a changer doit retester
-            }
+            dr.Read();
+            resultat = dr.GetInt32(0);
+            dr.Close();
+            return resultat.ToString();
+            
         }
 
         public bool ExistEmail(string mail)
@@ -276,12 +266,11 @@ namespace LinqToPgSQL
             return ListeCompte;
         }
 
-        public IEnumerable<Banque> LoadBanqueId(string id)
+        public List<Banque> LoadBanqueId(string id)
         {
-            //int idnombre = Int16.Parse(id);
-           // Debug.WriteLine(idnombre+"------------------------------------");
+            int idnombre = Int16.Parse(id);
             List<Banque> ListeBanque = new List<Banque>();
-            Debug.WriteLine(id);
+            Debug.WriteLine(idnombre);
             var conn = new NpgsqlConnection(connexionBDD);
             Console.Out.WriteLine("Ouverture de la connection");
             try
@@ -294,21 +283,15 @@ namespace LinqToPgSQL
                 Debug.WriteLine("Problème de connection à la base de données. Aprés fermeture, l'application se fermera automatiquement.");
                 Environment.Exit(-1);
             }
-            
-        /*    NpgsqlCommand cmd = new NpgsqlCommand("select * from banque b, inscrbanque ib, Inscrit i where ib.idinscrit =(@p) AND ib.nombanque = b.nom AND ib.idinscrit = i.id;", conn)
-            {
-                Parameters =
-                {
-                    new NpgsqlParameter("p",id),
-                }
-            };
+            NpgsqlCommand cmd = new NpgsqlCommand("select b.nom,b.urlsite,b.urllogo from banque b, inscrbanque ib, Inscrit i where ib.idinscrit =(@p) AND ib.nombanque = b.nom AND ib.idinscrit = i.id;", conn);
+            cmd.Parameters.AddWithValue("p", idnombre);
             NpgsqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
                 Debug.WriteLine(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2));
                 ListeBanque.Add(new Banque(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2)));
             }
-            dataReader.Close();*/
+            dataReader.Close();
             return ListeBanque;
         }
 

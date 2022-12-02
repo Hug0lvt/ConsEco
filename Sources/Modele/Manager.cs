@@ -8,7 +8,7 @@ namespace Model
         public event PropertyChangedEventHandler PropertyChanged;
         public IPersistanceManager Pers { get; private set; }
 
-        public string SelectedInscrit { get; set; }
+        public int SelectedInscrit { get; set; }
 
         public Hash hash = new Hash();
 
@@ -27,7 +27,24 @@ namespace Model
 
         private int solde;
 
-        public Inscrit User { get; set; }
+
+
+        private Inscrit user;
+        
+        public Inscrit User {
+            get
+            {
+                return user;
+            }
+            set
+            {
+                if (user != value)
+                {
+                    user = value;
+                    OnPropertyChanged(nameof(User));
+                }
+            }
+        }
 
         public Banque SelectedBanque
         {
@@ -42,7 +59,6 @@ namespace Model
             }
         }
         private Banque selectedBanque;
-        public IEnumerable<Banque> listeBanqueConnecte { get; private set; }
 
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
@@ -56,15 +72,18 @@ namespace Model
             Pers.SupprimerInscritBdd(i);
         }
 
-        public void LoadInscrit(string id, string mdp)
+        public string GetId(string mail)
         {
-            SelectedInscrit = Pers.LoadInscrit(id, mdp);
-            Debug.WriteLine(SelectedInscrit);
+           return Pers.GetId(mail);
         }
 
         public void LoadBanques()
         {
-            listeBanqueConnecte = Pers.LoadBanqueId(SelectedInscrit);
+            User.LesBanques = Pers.LoadBanqueId(User.Id);
+            if (User.LesBanques.Count() > 0)
+            {
+                SelectedBanque = User.LesBanques[0];
+            }
         }
        
         public void supprimerToutesBanquesBdd(Inscrit inscrit)
@@ -104,7 +123,7 @@ namespace Model
 
         public void createUser(string mail)
         {
-            User = new Inscrit(mail);
+            User = new Inscrit(mail, GetId(mail));
         }
         
         public int recupTotalSolde()
@@ -115,10 +134,7 @@ namespace Model
 
         public void deconnexion()
         {
-            SelectedBanque= null;
-            SelectedInscrit = null;
-            listeBanqueConnecte = new List<Banque>();
-            Debug.WriteLine(listeBanqueConnecte.Count());
+            User=null;
         }
     }
 }

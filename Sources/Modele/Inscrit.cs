@@ -5,13 +5,15 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Model;
 using System.Threading.Tasks;
-
+using System.ComponentModel;
 
 namespace Model
 {
-    public class Inscrit
+    public class Inscrit:INotifyPropertyChanged
     {
         public Hash hash = new Hash();
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public string Id { get; private set; }
         public string Nom { get; private set; }
@@ -34,7 +36,7 @@ namespace Model
         }
         private string mail;
 
-        public string Prenom { get; private set; }
+        public string Prenom { get; set; }
 
         public string Mdp
         {
@@ -58,10 +60,24 @@ namespace Model
         }
         private string mdp;
 
+        void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
         public double SoldeTotal { get; private set; }
         public Devises Dev { get; private set; }
-        public List<Banque> LesBanques { get; private set; } = new List<Banque>();
+        public List<Banque> LesBanques 
+        {
+            get => lesBanques;
+            set
+            {
+                if(lesBanques!=value)
+                {
+                    lesBanques = value;
+                    OnPropertyChanged(nameof(LesBanques));
+                }
+            }
+        }
 
+        private List<Banque> lesBanques;
         public Inscrit(string id, string nom, string mail, string prenom, string mdp, double soldeTotal = 0)
         {
             Id = id;
@@ -77,9 +93,11 @@ namespace Model
             LesBanques = lesbanques;
         }
 
-        public Inscrit(string mail)
+        public Inscrit(string mail, string id)
         {
+            Prenom = "Lucas";
             Mail = mail;
+            Id = id;
         }
 
         public Inscrit(List<Banque> lesbanques)

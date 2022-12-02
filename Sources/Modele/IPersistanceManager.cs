@@ -8,7 +8,7 @@ namespace Model
 {
     public interface IPersistanceManager
     {
-        string LoadInscrit(string id,string mdp);
+        string GetId(string mail);
         void SupprimerInscritBdd(Inscrit inscrit);
         void SupprimerBanqueBdd(Inscrit inscrit, Banque banque);
         void SupprimerToutesBanquesBdd(Inscrit inscrit);
@@ -18,6 +18,6 @@ namespace Model
         void ChangePasswordBdd(string mail, string newMdp);
         string RecupMdpBdd(string mail);
         int CalculTotalSoldeComtpe(Inscrit user);
-        IEnumerable<Banque> LoadBanqueId(string id);
+        List<Banque> LoadBanqueId(string id);
     }
 }
