@@ -145,6 +145,20 @@
         </Setter>
     </Style>
 
+    <Style TargetType="Border" x:Key="bordureBlanche">
+        <Setter Property="StrokeShape" Value="RoundRectangle 40"/>
+        <Setter Property="BackgroundColor" Value="White"/>
+    </Style>
+
+    <Style TargetType="Entry" x:Key="zoneDeTexte">
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="BackgroundColor" Value="White"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="15"/>
+    </Style>
+
+
+
     <Style TargetType="Label">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}" />
         <Setter Property="FontFamily" Value="OpenSansRegular" />

@@ -63,6 +63,6 @@ public partial class ForgetPassword : ContentPage
 
     public async void NavigateTo()
     {
-        //await Navigation.PushModalAsync(new ForgetPassword(EntryMail.Text));
+       await Navigation.PushModalAsync(new ChangePassword(EntryMail.Text));
     }
 }
