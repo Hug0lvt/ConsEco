@@ -5,7 +5,7 @@
              Title="Compte"
              BackgroundColor="{StaticResource Yellow100Accent}">
     <VerticalStackLayout HorizontalOptions="Center">
-        <Label
+        <Label 
             FontAttributes="Bold"
             Text="Votre compte"
             FontSize="30"/>
