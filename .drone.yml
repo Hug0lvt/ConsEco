@@ -51,6 +51,7 @@ steps:
         IMAGENAME: mariadb:latest
         CONTAINERNAME: mariadb
         COMMAND: create
+        PRIVATE: false
         CODEFIRST_CLIENTDRONE_ENV_MARIADB_ROOT_PASSWORD:    
           from_secret: db_root_password
         CODEFIRST_CLIENTDRONE_ENV_MARIADB_DATABASE:
