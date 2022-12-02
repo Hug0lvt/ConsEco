@@ -7,6 +7,7 @@ $dbname=getenv("MARIADB_DATABASE");
 $usr=getenv("MARIADB_USER");
 $mdp=getenv("MARIADB_PASSWORD");
 
+echo "test";
 echo getenv("DB_SERVER");
 echo getenv("MARIADB_DATABASE");
 ?>
