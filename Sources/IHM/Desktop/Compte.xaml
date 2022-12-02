@@ -3,24 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Desktop.Compte"
              Title="Compte"
-             BackgroundColor="{StaticResource Yellow100Accent}">
-    <VerticalStackLayout HorizontalOptions="Center">
+             BackgroundColor="{StaticResource Yellow300Accent}">
+    <StackLayout>
+
         <Label 
             FontAttributes="Bold"
             Text="Votre compte"
+            VerticalOptions="Start"
             FontSize="30"/>
+
 
         <Label
             FontAttributes="Bold"
             Text="Compte courant --- ???"
+            VerticalOptions="Center"
             FontSize="30"/>
 
 
         <Button
                 x:Name="ConnexionButton"
                 Text="Modifier votre solde"
-                BackgroundColor="Green"/>
+                VerticalOptions="End"
+                BackgroundColor="Brown"/>
 
-
-    </VerticalStackLayout>
+    </StackLayout>
 </ContentPage>
