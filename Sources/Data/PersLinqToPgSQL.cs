@@ -360,12 +360,28 @@ namespace LinqToPgSQL
             // attente des autres supression
         }
 
-        public IList<Banque> ImportBanques()
+        public List<Banque> ImportBanques()
         {
-            IList<Banque> bquesDispo = new List<Banque>();
+            List<Banque> bquesDispo = new List<Banque>();
             dbAccess.Open();
 
             NpgsqlCommand cmd = new NpgsqlCommand($"SELECT * FROM Banque", dbAccess);
+            NpgsqlDataReader dbReader = cmd.ExecuteReader();
+            while (dbReader.Read())
+            {
+                bquesDispo.Add(new Banque(dbReader.GetString(0), dbReader.GetString(1), dbReader.GetString(2)));
+            }
+            dbAccess.Close();
+            return bquesDispo;
+        }
+
+        public List<Banque> ImportBanquesForUser(Inscrit i)
+        {
+            List<Banque> bquesDispo = new List<Banque>();
+            dbAccess.Open();
+
+            NpgsqlCommand cmd = new NpgsqlCommand($"SELECT b.nom, b.urllogo, b.urldl FROM Banque b, InscrBanque ib WHERE ib.nombanque = b.nom AND ib.idinscrit=(@id);", dbAccess);
+            cmd.Parameters.AddWithValue("p", i.Id);
             NpgsqlDataReader dbReader = cmd.ExecuteReader();
             while (dbReader.Read())
             {

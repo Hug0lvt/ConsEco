@@ -1,4 +1,5 @@
 using Model;
+using System.Collections.ObjectModel;
 
 namespace IHM.Mobile;
 
@@ -10,7 +11,7 @@ public partial class GestionBanques : ContentPage
 	{
 		InitializeComponent();
 		BindingContext= Mgr;
-        //Mgr.BanquesDisponibleInApp=Mgr.importBanques();
+        //Mgr.importBanquesForUser(Mgr.SelectedInscrit);
 
     }
 }
