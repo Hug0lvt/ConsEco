@@ -66,7 +66,7 @@ steps:
         dockerfile: ./Dockerfile
         context: ./
         registry: hub.codefirst.iut.uca.fr
-        repo: hub.codefirst.iut.uca.fr/consecoteam/conseco
+        repo: hub.codefirst.iut.uca.fr/vincent.astolfi/conseco
         username:
           from_secret: secret-registry-username
         password:
