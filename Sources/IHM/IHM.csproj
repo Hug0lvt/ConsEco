@@ -38,6 +38,9 @@
 		<MauiImage Include="Resources\Images\DashBoard\account_banks.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiImage>
+		<MauiImage Include="Resources\Images\GestionBanques\add_banks.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiImage>
 		<MauiImage Include="Resources\Images\GestionBanques\reload_banks.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiImage>
@@ -67,6 +70,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\DashBoard\account_banks.png" />
+	  <None Remove="Resources\Images\GestionBanques\add_banks.png" />
 	  <None Remove="Resources\Images\GestionBanques\reload_banks.png" />
 	</ItemGroup>
 
