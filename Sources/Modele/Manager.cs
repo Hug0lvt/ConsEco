@@ -26,7 +26,33 @@ namespace Model
         }
         private Banque selectedBanque;
 
-        public ObservableCollection<Banque> BanquesDisponibleInApp { get; set; } = new ObservableCollection<Banque>();
+        public List<Banque> BanquesDisponibleInApp 
+        { 
+            get => banquesDisponibleInApp;
+            set
+            {
+                if (banquesDisponibleInApp != value)
+                {
+                    banquesDisponibleInApp = value;
+                    OnPropertyChanged(nameof(BanquesDisponibleInApp));
+                }
+            } 
+        }
+        private List<Banque> banquesDisponibleInApp;
+
+        public List<Banque> BanquesUser
+        {
+            get => banquesUser;
+            set
+            {
+                if (banquesUser != value)
+                {
+                    banquesUser = value;
+                    OnPropertyChanged(nameof(BanquesUser));
+                }
+            }
+        }
+        private List<Banque> banquesUser;
 
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
@@ -85,10 +111,16 @@ namespace Model
             return Pers.TestConnexionAsDatabase();
         }
 
-        public IList<Banque> importBanques()
+        public void importBanques()
         {
-            return Pers.ImportBanques();
+            BanquesDisponibleInApp = Pers.ImportBanques();
         }
+
+        public void importBanquesForUser(Inscrit i)
+        {
+            BanquesUser = Pers.ImportBanquesForUser(i);
+        }
+
     }
 
 }

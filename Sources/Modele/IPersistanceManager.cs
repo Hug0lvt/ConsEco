@@ -18,6 +18,7 @@ namespace Model
         void ChangePasswordBdd(string mail, string newMdp);
         string RecupMdpBdd(string mail);
         bool TestConnexionAsDatabase();
-        public IList<Banque> ImportBanques();
+        public List<Banque> ImportBanques();
+        public List<Banque> ImportBanquesForUser(Inscrit i);
     }
 }

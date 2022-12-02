@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="1.95*"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -23,7 +23,7 @@
             <Label Text="Cons'Eco" FontSize="20" VerticalOptions="Center" FontAttributes="Bold"/>
         </HorizontalStackLayout>
 
-        <ImageButton Grid.Row="0" Grid.Column="1" Source="reload_banks.png" 
+        <ImageButton Grid.Row="0" Grid.Column="1" Source="add_banks.png" 
                      HorizontalOptions="End" Padding="10" Margin="10"
                      CornerRadius="10" HeightRequest="65" 
                      BackgroundColor="{StaticResource Primary}"/>
@@ -38,7 +38,25 @@
         <CollectionView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding BanquesDisponibleInApp}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <composant:BanqueVC NomBanque="{Binding Nom}" DateLastReload="12/12/2003" /><!-- il faut le namespace !!!! -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.75*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0" Text="{Binding Nom}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                        <ImageButton Grid.Column="2" Source="reload_banks.png" 
+                             Padding="10" Margin="10"
+                             CornerRadius="10" HeightRequest="65" 
+                             BackgroundColor="{StaticResource Primary}"/>
+
+                    </Grid>
+                    
+                    
+                    
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
