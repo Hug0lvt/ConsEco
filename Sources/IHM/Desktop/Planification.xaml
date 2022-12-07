@@ -4,22 +4,41 @@
              x:Class="IHM.Desktop.Planification"
              Title="Planification">
     <StackLayout BackgroundColor="{StaticResource Yellow300Accent}" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
 
-        <StackLayout BackgroundColor="{StaticResource Gray900}" VerticalOptions="Start">
-            <Button Text="Mon compte"  BackgroundColor="{StaticResource Yellow100Accent}"  Padding="10" Margin="10" HorizontalOptions="End"></Button>
-        </StackLayout>
+            <HorizontalStackLayout BackgroundColor="{StaticResource Secondary}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" >
+                <Image Source="logo_sans_fond.png" HeightRequest="100" Margin="50,10,0,0" HorizontalOptions="Start"/>
+                <Button Text="Mon compte"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" HorizontalOptions="End" MaximumHeightRequest="50"></Button>
+            </HorizontalStackLayout>
+<!--
 
-        <StackLayout BackgroundColor="{StaticResource Gray900}" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand">
+            <VerticalStackLayout BackgroundColor="{StaticResource Secondary}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" >
+                <Button Text="ACCUEIL"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21" ></Button>
+                <Button Text="COMPTE"  BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21"></Button>
+                <Button Text="OPERATION"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21"></Button>
+                <Button Text="ECHEANCIER"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21"></Button>
+                <Button Text="PLANIFICATION"  BackgroundColor="{StaticResource Tertiary}"  TextColor="{StaticResource White}" Padding="20" Margin="21" ></Button>
+                <Button Text="STATISTIQUES"  BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21" ></Button>
+            </VerticalStackLayout>
+-->s
 
-            <Button Text="ACCUEIL"  BackgroundColor="{StaticResource Yellow100Accent}" Padding="20" Margin="20" ></Button>
-            <Button Text="COMPTE"  BackgroundColor="{StaticResource Yellow100Accent}"  Padding="20" Margin="20"></Button>
-            <Button Text="OPERATION"  BackgroundColor="{StaticResource Yellow100Accent}"  Padding="20" Margin="20"></Button>
-            <Button Text="ECHEANCIER"  BackgroundColor="{StaticResource Yellow100Accent}"  Padding="20" Margin="20"></Button>
-            <Button Text="PLANIFICATION"  BackgroundColor="{StaticResource Primary}"  TextColor="{StaticResource Yellow300Accent}" Padding="20" Margin="20" ></Button>
-        </StackLayout>
-        
-        
-
+           
+        </Grid>
+  
+      
     </StackLayout>
+
+   
 
 </ContentPage>
