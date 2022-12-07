@@ -4,27 +4,39 @@
              x:Class="IHM.Desktop.Compte"
              Title="Compte"
              BackgroundColor="{StaticResource Yellow300Accent}">
-    <StackLayout>
+    <StackLayout Margin="20" Orientation="Vertical">
+        
 
         <Label 
             FontAttributes="Bold"
-            Text="Votre compte"
-            VerticalOptions="Start"
+            Text="VOTRE COMPTE"
+            VerticalOptions="StartAndExpand"
+            HorizontalOptions="Center"
+            FontFamily="Comic Sans MS"
             FontSize="30"/>
 
 
         <Label
             FontAttributes="Bold"
-            Text="Compte courant --- ???"
-            VerticalOptions="Center"
-            FontSize="30"/>
+            Text="Compte courant --- 'BINDING'"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"
+            FontFamily="Comic Sans MS"
+            FontSize="20"/>
 
 
         <Button
-                x:Name="ConnexionButton"
-                Text="Modifier votre solde"
-                VerticalOptions="End"
-                BackgroundColor="Brown"/>
+            x:Name="ConnexionButton"
+            Text="Modifier votre solde"
+            TextColor="Black"
+            VerticalOptions="Fill"
+            Margin="20"
+            CornerRadius="20"
+            BorderWidth="2"
+            BorderColor="Black"
+            FontFamily="Comic Sans MS"
+            Background="{StaticResource TestColor}"/>
+        
 
     </StackLayout>
 </ContentPage>
