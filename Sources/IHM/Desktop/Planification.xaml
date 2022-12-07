@@ -21,7 +21,7 @@
                 <Image Source="logo_sans_fond.png" HeightRequest="100" Margin="50,10,0,0" HorizontalOptions="Start"/>
                 <Button Text="Mon compte"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" HorizontalOptions="End" MaximumHeightRequest="50"></Button>
             </HorizontalStackLayout>
-<!--
+
 
             <VerticalStackLayout BackgroundColor="{StaticResource Secondary}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" >
                 <Button Text="ACCUEIL"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21" ></Button>
@@ -31,9 +31,8 @@
                 <Button Text="PLANIFICATION"  BackgroundColor="{StaticResource Tertiary}"  TextColor="{StaticResource White}" Padding="20" Margin="21" ></Button>
                 <Button Text="STATISTIQUES"  BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21" ></Button>
             </VerticalStackLayout>
--->s
 
-           
+
         </Grid>
   
       
