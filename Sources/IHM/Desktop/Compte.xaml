@@ -4,16 +4,14 @@
              x:Class="IHM.Desktop.Compte"
              Title="Compte"
              BackgroundColor="{StaticResource Yellow300Accent}">
+    
     <StackLayout Margin="20" Orientation="Vertical">
         
 
         <Label 
-            FontAttributes="Bold"
             Text="VOTRE COMPTE"
             VerticalOptions="StartAndExpand"
-            HorizontalOptions="Center"
-            FontFamily="Comic Sans MS"
-            FontSize="30"/>
+            Style="{StaticResource TitreWindows}"/>
 
 
         <Label
@@ -28,15 +26,9 @@
         <Button
             x:Name="ConnexionButton"
             Text="Modifier votre solde"
-            TextColor="Black"
-            VerticalOptions="Fill"
-            Margin="20"
-            CornerRadius="20"
-            BorderWidth="2"
-            BorderColor="Black"
-            FontFamily="Comic Sans MS"
-            Background="{StaticResource TestColor}"/>
-        
+            Style="{StaticResource WindowsButton}"
+            VerticalOptions="Fill"/>
+
 
     </StackLayout>
 </ContentPage>
