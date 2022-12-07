@@ -19,6 +19,10 @@
             extract($row);
 
             $inscrit_item = array(
+                'id' => $id,
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'mail' => $mail,
                 'mdp' => $mdp
             );
             array_push($inscrit_array, $inscrit_item);

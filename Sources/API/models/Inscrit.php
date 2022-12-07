@@ -33,6 +33,10 @@
 
         public function readMdpFromMail($mail){
             $query = 'SELECT 
+                    i.id as id,
+                    i.nom as nom,
+                    i.prenom as prenom,
+                    i.mail as mail,
                     i.mdp as mdp
                 FROM
                     '.$this->table.' i

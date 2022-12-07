@@ -7,12 +7,12 @@ $router->map( 'GET', '/', function(){
     echo 'Hello World';
 });
 
-$router->map('GET','/Inscrit/read', function(){
+$router->map('GET','/Inscrit', function(){
     require(__DIR__.'/api/inscrit/read.php');
 });
 
-$router->map('GET','/Inscrit/read/mailToMdp/[*:mail]', function($mail){
-    require(__DIR__.'/api/inscrit/readMdpFromMail.php');
+$router->map('GET','/Inscrit/[*:mail]', function($mail){
+    require(__DIR__.'/api/inscrit/readFromMail.php');
 });
 
 $match = $router->match();
