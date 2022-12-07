@@ -8,7 +8,7 @@
     Shell.NavBarIsVisible="False">
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:Compte}"
+        ContentTemplate="{DataTemplate local:MainPage}"
         Route="Inscription" />
 
 </Shell>
