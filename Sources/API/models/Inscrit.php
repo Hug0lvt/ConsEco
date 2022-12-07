@@ -30,6 +30,20 @@
             $stmt->execute();
             return $stmt;
         }
+
+        public function readMdpFromMail($mail){
+            $query = 'SELECT 
+                    i.mdp as mdp
+                FROM
+                    '.$this->table.' i
+                WHERE
+                    i.mail=:mail
+                ';
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindValue(':mail',$mail, PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt;
+        }
     }
 
 ?>
