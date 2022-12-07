@@ -2,14 +2,14 @@
     header('Acces-Control-Allow-Origin: *');
     header('Content-Type: application/json');
 
-    include_once '../../config/Database.php';
-    include_once '../../models/Inscrit.php';
+    include_once (__DIR__.'/../../config/Database.php');
+    include_once (__DIR__.'/../../models/Inscrit.php');
 
     $database = new Database();
     $db = $database->connect();
     $inscrit = new Inscrit($db);
 
-    $results = $inscrit->readMdpFromMail($_GET['mail']);
+    $results = $inscrit->readMdpFromMail($mail);
     $num = $results->rowCount();
 
     if($num > 0){
@@ -25,6 +25,6 @@
         }
         echo json_encode($inscrit_array);
     } else {
-        echo json_encode(array('message' => 'No Inscrit with mail='.$_GET['mail']));
+        echo json_encode(array('message' => 'No Inscrit with mail='.$mail));
     }
 ?>
