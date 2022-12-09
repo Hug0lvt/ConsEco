@@ -3,41 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Desktop.CV_Planification">
     <StackLayout BackgroundColor="{StaticResource Yellow300Accent}" >
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="1*"/>
+   
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="1*"/>
+             
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                   
+                    
 
-            </Grid.ColumnDefinitions>
+                </Grid.ColumnDefinitions>
 
-            <StackLayout BackgroundColor="{StaticResource Secondary}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
+                <StackLayout BackgroundColor="{StaticResource Secondary}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
 
-            </StackLayout>
+                </StackLayout>
 
-            <Image Source="logo_sans_fond.png" HeightRequest="100" Margin="50,10,0,0" Grid.Column="0" Grid.Row="0"/>
-            <Button Text="Mon compte"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Grid.Column="4" Grid.Row="0"  MaximumWidthRequest="200" MaximumHeightRequest="50" ></Button>
-            <StackLayout BackgroundColor="{StaticResource Secondary}" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6">
+         
+                <Button Text="Planifier une échéance"  BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource Secondary}" Grid.Column="0" Grid.Row="0" ></Button>
+                <Button Text="Supprimer une échéance"  BackgroundColor="{StaticResource Tertiary}"  TextColor="{StaticResource Secondary}" Grid.Column="1" Grid.Row="0"></Button>
 
-                <Button Text="ACCUEIL"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="1" ></Button>
-                <Button Text="COMPTE"  BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="2"></Button>
-                <Button Text="OPERATION"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="3"></Button>
-                <Button Text="ECHEANCIER"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="4"></Button>
-                <Button Text="PLANIFICATION"  BackgroundColor="{StaticResource Tertiary}"  TextColor="{StaticResource White}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="5"></Button>
-                <Button Text="STATISTIQUES"  BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="6"></Button>
-            </StackLayout>
+                 
+       
 
-        </Grid>
+            </Grid>
+
+
+
 
 
     </StackLayout>
