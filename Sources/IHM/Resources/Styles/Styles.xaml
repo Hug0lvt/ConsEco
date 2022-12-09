@@ -408,16 +408,16 @@
         <Setter Property="TextColor" Value="Black"/>
         <Setter Property="Margin" Value="20"/>
         <Setter Property="CornerRadius" Value="20"/>
-        <Setter Property="BorderWidth" Value="2"/>
+        <Setter Property="BorderWidth" Value="1"/>
         <Setter Property="BorderColor" Value="Black"/>
         <Setter Property="FontFamily" Value="Comic sans MS"/>
         <Setter Property="Background" Value="{StaticResource TestColor}"/>
     </Style>
 
     <Style TargetType="Border" x:Key="TotalButton">
-        <Setter Property="StrokeThickness" Value="2"/>
-        <Setter Property="Padding" Value="220,8"/>
-        <Setter Property="StrokeShape" Value="RoundRectangle 20,20,20,20"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="Padding" Value="250,8"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 10,10,10,10"/>
         <Setter Property="Stroke" Value="Black"/>
     </Style>
 

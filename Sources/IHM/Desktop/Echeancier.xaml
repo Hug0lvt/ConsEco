@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Desktop.Echeancier"
-             Title="Echeancier"
              BackgroundColor="{StaticResource Yellow300Accent}">
     
     <VerticalStackLayout Margin="20">
@@ -28,12 +27,12 @@
 
         <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Fill">
 
-            <Border Background="Green"
+            <Border Background="{StaticResource Primary}"
             Style="{StaticResource TotalButton}">
             <Label Text=" -- BINDING -- " FontFamily="Comic sans MS"/>
             </Border>
 
-            <Border Background="Brown"
+            <Border Background="{StaticResource Tertiary}"
             Style="{StaticResource TotalButton}">
             <Label Text=" -- BINDING -- " FontFamily="Comic sans MS"/>
             </Border>
@@ -43,4 +42,4 @@
 
 
     </VerticalStackLayout>
-</ContentPage>
+</ContentView>
