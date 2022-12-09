@@ -1,6 +1,6 @@
 namespace IHM.Desktop;
 
-public partial class Compte : ContentPage
+public partial class Compte : ContentView
 {
 	public Compte()
 	{

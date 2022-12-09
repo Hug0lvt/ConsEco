@@ -32,9 +32,9 @@
             <StackLayout BackgroundColor="{StaticResource Secondary}" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6">
 
                 <Button Text="ACCUEIL"  BackgroundColor="{StaticResource Tertiary}" TextColor="{StaticResource White}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="1" ></Button>
-                <Button Text="COMPTE"  BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="2"></Button>
-                <Button Text="OPERATION"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="3"></Button>
-                <Button Text="ECHEANCIER"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="4"></Button>
+                <Button Text="COMPTE"  BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="2" Clicked="Button_compte"></Button>
+                <Button Text="OPERATION"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="3" Clicked="Button_operation"></Button>
+                <Button Text="ECHEANCIER"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="4" Clicked="Button_echeancier"></Button>
                 <Button Text="PLANIFICATION"  BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="5" Clicked="Button_planification"></Button>
                 <Button Text="STATISTIQUES"  BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="6"></Button>
             </StackLayout>

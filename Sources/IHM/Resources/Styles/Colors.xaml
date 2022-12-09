@@ -43,7 +43,7 @@
 
     <LinearGradientBrush x:Key="TestColor" StartPoint="0,0" EndPoint="1,1">
         <GradientStop Color="RosyBrown" Offset="0" />
-        <GradientStop Color="Brown" Offset="0.5" />
+        <GradientStop Color="{StaticResource Tertiary}" Offset="0.5" />
         <GradientStop Color="RosyBrown" Offset="1" />
     </LinearGradientBrush>
 

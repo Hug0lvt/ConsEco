@@ -16,17 +16,17 @@ public partial class Dashboard
 
 	private void Button_echeancier(object sender, EventArgs e)
 	{
-       
+		mainCV.Content = new Echeancier();
     }
 
 	private void Button_operation(object sender, EventArgs e)
 	{
-        
+		mainCV.Content = new Operations();
     }
 
 	private void Button_compte(object sender, EventArgs e)
 	{
-        
+		mainCV.Content = new Compte();
     }
 
 	private void Button_Clicked(object sender, EventArgs e)

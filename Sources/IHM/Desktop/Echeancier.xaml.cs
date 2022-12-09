@@ -1,6 +1,6 @@
 namespace IHM.Desktop;
 
-public partial class Echeancier : ContentPage
+public partial class Echeancier : ContentView
 {
 	public Echeancier()
 	{
