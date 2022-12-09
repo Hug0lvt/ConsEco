@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Desktop.Echeancier"
              Title="Echeancier"
-             BackgroundImageSource="logo_sans_fond.png"
              BackgroundColor="{StaticResource Yellow300Accent}">
     
     <VerticalStackLayout Margin="20">
@@ -30,18 +29,12 @@
         <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Fill">
 
             <Border Background="Green"
-            StrokeThickness="2"
-            Padding="16,8"
-            StrokeShape="RoundRectangle 30,30,30,30"
-            Stroke="Black">
+            Style="{StaticResource TotalButton}">
             <Label Text=" -- BINDING -- " FontFamily="Comic sans MS"/>
             </Border>
 
             <Border Background="Brown"
-            StrokeThickness="2"
-            Padding="16,8"
-            StrokeShape="RoundRectangle 30,30,30,30"
-            Stroke="Black">
+            Style="{StaticResource TotalButton}">
             <Label Text=" -- BINDING -- " FontFamily="Comic sans MS"/>
             </Border>
 
