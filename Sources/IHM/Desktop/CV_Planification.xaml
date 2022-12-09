@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IHM.Desktop.Planification"
-             Title="Planification">
+             x:Class="IHM.Desktop.CV_Planification">
     <StackLayout BackgroundColor="{StaticResource Yellow300Accent}" >
         <Grid>
             <Grid.RowDefinitions>
@@ -19,11 +18,11 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="1*"/>
-                
+
             </Grid.ColumnDefinitions>
 
             <StackLayout BackgroundColor="{StaticResource Secondary}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
-               
+
             </StackLayout>
 
             <Image Source="logo_sans_fond.png" HeightRequest="100" Margin="50,10,0,0" Grid.Column="0" Grid.Row="0"/>
@@ -39,10 +38,9 @@
             </StackLayout>
 
         </Grid>
-  
-      
+
+
     </StackLayout>
 
 
-
-</ContentPage>
+</ContentView>

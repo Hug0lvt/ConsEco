@@ -8,7 +8,7 @@ public partial class Planification : ContentPage
     public Planification()
 	{
 		InitializeComponent();
-		BindingContext = Mgr;
+		
 		
 		
 	}
