@@ -10,7 +10,7 @@
             Text="OPERATION"
             VerticalOptions="StartAndExpand"/>
 
-        <HorizontalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center">
             <Button
                 x:Name="AddCredit"
                 Text="Effectuer un crédit"
@@ -32,5 +32,7 @@
                 Style="{StaticResource WindowsButton}"/>
 
         </HorizontalStackLayout>
+
+
     </VerticalStackLayout>
 </ContentPage>

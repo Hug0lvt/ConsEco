@@ -3,43 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Desktop.Planification"
              Title="Planification">
-    
-    <StackLayout BackgroundColor="{StaticResource Yellow300Accent}" >
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
 
-            <HorizontalStackLayout BackgroundColor="{StaticResource Secondary}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" >
-                <Image Source="logo_sans_fond.png" HeightRequest="100" Margin="50,10,0,0" HorizontalOptions="Start"/>
-                <Button Text="Mon compte"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" HorizontalOptions="End" MaximumHeightRequest="50"></Button>
-            </HorizontalStackLayout>
-<!--
+    <VerticalStackLayout Margin="20">
 
-            <VerticalStackLayout BackgroundColor="{StaticResource Secondary}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" >
-                <Button Text="ACCUEIL"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21" ></Button>
-                <Button Text="COMPTE"  BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21"></Button>
-                <Button Text="OPERATION"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21"></Button>
-                <Button Text="ECHEANCIER"  BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21"></Button>
-                <Button Text="PLANIFICATION"  BackgroundColor="{StaticResource Tertiary}"  TextColor="{StaticResource White}" Padding="20" Margin="21" ></Button>
-                <Button Text="STATISTIQUES"  BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21" ></Button>
-            </VerticalStackLayout>
--->
+        <Label 
+            Style="{StaticResource TitreWindows}"
+            Text="PLANIFICATION"
+            VerticalOptions="StartAndExpand"/>
 
-           
-        </Grid>
-  
-      
-    </StackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Fill">
 
-   
+            <Button
+                x:Name="SavePlanification"
+                Text="Enregistrer une planification"
+                Style="{StaticResource WindowsButton}"/>
+
+            <Button
+                x:Name="DelPlanification"
+                Text="Supprimer une planification"
+                Style="{StaticResource WindowsButton}"/>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Fill">
+
+            <Border Background="Green"
+            StrokeThickness="2"
+            Padding="16,8"
+            StrokeShape="RoundRectangle 30,30,30,30"
+            Stroke="Black">
+                <Label Text=" -- BINDING -- " FontFamily="Comic sans MS"/>
+            </Border>
+
+            <Border Background="Brown"
+            StrokeThickness="2"
+            Padding="16,8"
+            StrokeShape="RoundRectangle 30,30,30,30"
+            Stroke="Black">
+                <Label Text=" -- BINDING -- " FontFamily="Comic sans MS"/>
+            </Border>
+
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+
 
 </ContentPage>
