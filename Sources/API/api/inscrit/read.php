@@ -3,7 +3,7 @@
     header('Content-Type: application/json');
 
     include_once (__DIR__.'/../../config/Database.php');
-    include_once (__DIR__.'/../../models/Inscrit.php');
+    include_once (__DIR__.'/../../gateways/Inscrit.php');
 
     $database = new Database();
     $db = $database->connect();

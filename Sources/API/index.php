@@ -7,12 +7,16 @@ $router->map( 'GET', '/', function(){
     echo 'Hello World';
 });
 
-$router->map('GET','/Inscrit', function(){
+$router->map('GET|POST','/Inscrit', function(){
     require(__DIR__.'/api/inscrit/read.php');
 });
 
 $router->map('GET','/Inscrit/[*:mail]', function($mail){
     require(__DIR__.'/api/inscrit/readFromMail.php');
+});
+
+$router->match('POST|GET','/Inscrit/add', function(){
+    require(__DIR__.'/api/Inscrit/add.php');
 });
 
 $match = $router->match();
