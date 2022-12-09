@@ -4,9 +4,8 @@
              x:Class="IHM.Desktop.Compte"
              Title="Compte"
              BackgroundColor="{StaticResource Yellow300Accent}">
-    
+
     <StackLayout Margin="20" Orientation="Vertical">
-        
 
         <Label 
             Text="VOTRE COMPTE"
