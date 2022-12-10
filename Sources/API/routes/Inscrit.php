@@ -31,7 +31,7 @@ $app->get('/Inscrit', function(Request $request, Response $response){
 });
 
 $app->post('/Inscrit/one', function(Request $request, Response $response,array $args){
-    $mail = $request->getParsedBody();
+    $mail = $request->getParsedBody()["email"];
     $query = 'SELECT * FROM Inscrit WHERE mail=:mail';
 
     try{
@@ -39,8 +39,9 @@ $app->post('/Inscrit/one', function(Request $request, Response $response,array $
         $conn = $db->connect();
 
         $stmt = $conn->prepare($query);
-        $stmt->bindValue(':mail',$mail, PDO::PARAM_STR);
+        $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
 
+        $stmt->execute();
         $inscrit = $stmt->fetchAll(PDO::FETCH_OBJ);
         
         $db = null;
