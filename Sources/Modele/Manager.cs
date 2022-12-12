@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 
 namespace Model
 {
@@ -8,9 +9,43 @@ namespace Model
         public event PropertyChangedEventHandler PropertyChanged;
         public IPersistanceManager Pers { get; private set; }
 
-        public string SelectedInscrit { get; set; }
+        public int SelectedInscrit { get; set; }
 
         public Hash hash = new Hash();
+
+        public int Solde 
+        {
+            get => solde;
+            set
+            {
+                if(solde != value)
+                {
+                    solde = value;
+                    OnPropertyChanged(nameof(Solde));
+                }
+            } 
+        }
+
+        private int solde;
+
+
+
+        private Inscrit user;
+        
+        public Inscrit User {
+            get
+            {
+                return user;
+            }
+            set
+            {
+                if (user != value)
+                {
+                    user = value;
+                    OnPropertyChanged(nameof(User));
+                }
+            }
+        }
 
         public Banque SelectedBanque
         {
@@ -20,7 +55,7 @@ namespace Model
                 if(selectedBanque != value)
                 {
                     selectedBanque = value;
-                    OnPropertyChanged(nameof(selectedBanque));
+                    OnPropertyChanged(nameof(SelectedBanque));
                 }
             }
         }
@@ -66,11 +101,20 @@ namespace Model
             Pers.SupprimerInscritBdd(i);
         }
 
-        public void LoadInscrit(string id, string mdp)
+        public string GetId(string mail)
         {
-            SelectedInscrit = Pers.LoadInscrit(id, mdp);
+           return Pers.GetId(mail);
         }
 
+        public void LoadBanques()
+        {
+            User.LesBanques = Pers.LoadBanqueId(User.Id);
+            if (User.LesBanques.Count() > 0)
+            {
+                SelectedBanque = User.LesBanques[0];
+            }
+        }
+       
         public void supprimerToutesBanquesBdd(Inscrit inscrit)
         {
             Pers.SupprimerToutesBanquesBdd(inscrit);
@@ -123,4 +167,20 @@ namespace Model
 
     }
 
+        public void createUser(string mail)
+        {
+            User = new Inscrit(mail, GetId(mail));
+        }
+        
+        public int recupTotalSolde()
+        {
+            Solde = Pers.CalculTotalSoldeComtpe(User);
+            return Solde;
+        }
+
+        public void deconnexion()
+        {
+            User=null;
+        }
+    }
 }

@@ -64,7 +64,7 @@
 
         public void ajoutEcheance(Echeance e)
         {
-            if(e == null) throw new NullReferenceException();
+            if (e == null) throw new NullReferenceException();
             LesEch.Add(e);
         }
 
@@ -75,7 +75,7 @@
 
         public void ajoutPlannification(Planification p)
         {
-            if(p == null) throw new NullReferenceException();
+            if (p == null) throw new NullReferenceException();
             LesPla.Add(p);
         }
 

@@ -25,7 +25,7 @@ namespace IHM.Mobile
                 {
                     if (Mgr.isEqualHash(Mgr.recupMdpBdd(EntryMail.Text), EntryPassworld.Text))
                     {
-                        Mgr.LoadInscrit(EntryMail.Text, EntryPassworld.Text);
+                        Mgr.createUser(EntryMail.Text);
                         ConnexionValide();
                     }
                     else
@@ -42,6 +42,7 @@ namespace IHM.Mobile
 
         private async void ConnexionValide()
         {
+            Mgr.LoadBanques();
             await Navigation.PopModalAsync();
         }
 

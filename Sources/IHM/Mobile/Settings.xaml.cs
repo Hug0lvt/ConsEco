@@ -1,5 +1,7 @@
 namespace IHM.Mobile;
 using Model;
+using System.Diagnostics;
+
 public partial class Settings : ContentPage
 {
     public Manager Mgr => (App.Current as App).Manager;
@@ -9,11 +11,12 @@ public partial class Settings : ContentPage
 	}
 	public void deconnexionOnClicked(object sender, EventArgs e)
 	{
-		Mgr.SelectedInscrit = null;
+        Mgr.deconnexion();
         NavigateTo();
     }
     private async void NavigateTo()
     {
         await Navigation.PushModalAsync(new MainPage());
     }
+
 }
