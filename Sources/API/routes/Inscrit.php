@@ -1,12 +1,12 @@
 <?php
-/**
-*   @OA\Server(url="http://localhost:8080/")
-*   @OA\Info(title="My First API", version="0.1")
-*/
-
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
+use OpenApi\Annotations as OA;
+
+/**
+*   @OA\Info(title="My First API", version="0.1")
+*/
 
 $app = AppFactory::create();
 
