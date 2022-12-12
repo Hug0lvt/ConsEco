@@ -1,49 +1,34 @@
-﻿namespace Model
+﻿using Microsoft.Maui.Graphics;
+
+namespace Model
 {
     public class Compte
     {
-        public string Identifiant { get; private set; }
-        public string Nom { get; private set; }
-        public double Solde { get; private set; }
-        public List<Operation> LesOpe { get; private set; } = new List<Operation>();
-        public List<Planification> LesPla { get; private set; } = new List<Planification>();
-        public List<Echeance> LesEch { get; private set; } = new List<Echeance>();
+        public string Identifiant { get; set; }
+        public string Nom { get; set; }
+        public double Solde { get; set; }
+        public DateTime DerniereModification { get; set; }
+        public List<Operation> LesOpe { get; set; } = new List<Operation>();
+        public List<Planification> LesPla { get; set; } = new List<Planification>();
+        public List<Echeance> LesEch { get; set; } = new List<Echeance>();
         public Compte(string id,string nom, double solde)
         {
             Identifiant = id;
             Nom = nom;
             Solde = solde;
-            LesOpe = new List<Operation>();
-            LesPla = new List<Planification>();
-            LesEch = new List<Echeance>();
+            DerniereModification = DateTime.Now;
         }
-        public Compte(string id, string nom, double solde, List<Operation> lesOpe)
+        public Compte(string id, string nom, double solde, List<Operation> lesOpe) : base()
         {
-            Identifiant = id;
-            Nom = nom;
-            Solde = solde;
             LesOpe = lesOpe;
         }
-        public Compte(string id, string nom, double solde, List<Operation> lesOpe, List<Planification> lesPla)
+        public Compte(string id, string nom, double solde, List<Operation> lesOpe, List<Planification> lesPla) : base()
         {
-            Identifiant = id;
-            Nom = nom;
-            Solde = solde;
-            LesOpe = lesOpe;
             LesPla = lesPla;
         }
-        public Compte(string id, string nom, double solde, List<Operation> lesOpe, List<Planification> lesPla, List<Echeance> lesEch)
+        public Compte(string id, string nom, double solde, List<Operation> lesOpe, List<Planification> lesPla, List<Echeance> lesEch) : base()
         {
-            Identifiant = id;
-            Nom = nom;
-            Solde = solde;
-            LesOpe = lesOpe;
-            LesPla = lesPla;
             LesEch = lesEch;
-        }
-        public void modifierSolde(double s)
-        {
-            Solde = s;
         }
 
         public void ajouterOperation(Operation o)
@@ -91,6 +76,11 @@
             {
                 return false;
             }
+            else
+            {
+                Compte objCompte = (Compte) obj;
+                if(objCompte.Identifiant == Identifiant && objCompte.DerniereModification == DerniereModification) return true;
+            }
 
             return base.Equals(obj);
         }
@@ -98,6 +88,11 @@
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return Identifiant + " " + Nom + " " + Solde + " "  + DerniereModification + "\n";
         }
 
     }

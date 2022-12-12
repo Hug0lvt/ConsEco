@@ -6,12 +6,12 @@ public partial class DashBoard : ContentPage
 {
     public Manager Mgr => (App.Current as App).Manager;
     public DashBoard()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         //Routing.RegisterRoute(nameof(DashBoard), typeof(DashBoard));
 
 
-        if (Mgr.SelectedInscrit == null)
+        if (Mgr.User == null)
         {
             loadPage(new MainPage());
 

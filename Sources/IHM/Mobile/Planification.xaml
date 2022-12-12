@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:IHM.Composant"
-             x:Class="IHM.DashBoard"
+             x:Class="IHM.Mobile.Planification"
              BackgroundColor="#A00EE8">
     <ScrollView VerticalOptions="FillAndExpand">
         <VerticalStackLayout>

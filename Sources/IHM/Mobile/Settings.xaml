@@ -22,7 +22,7 @@
         <ImageButton
             Grid.Column="1"
             Source="Resources/Image/refresh.png"
-            Clicked="Button_Clicked"
+            Clicked="deconnexionOnClicked"
             WidthRequest="35"
             HeightRequest="35"
             HorizontalOptions="End"

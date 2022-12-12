@@ -21,7 +21,9 @@ namespace LinqToPgSQL
     {
         private Hash hash = new Hash();
         private static string connexionBDD = String.Format("Server=2.3.8.130; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
+
         private static NpgsqlConnection dbAccess = new NpgsqlConnection(connexionBDD);
+
         public bool TestConnexionAsDatabase()
         {
             bool isOk = true;
@@ -41,11 +43,10 @@ namespace LinqToPgSQL
             return isOk;
         }
 
-        public string LoadInscrit(string id, string mdp)
+        public string GetId(string mail)
         {
             int resultat;
             var conn = new NpgsqlConnection(connexionBDD);
-            Console.Out.WriteLine("Ouverture de la connection");
             conn.Open();
             NpgsqlParameter p1 = new NpgsqlParameter { ParameterName = "p", Value = mail };
             NpgsqlCommand cmd = new NpgsqlCommand($"SELECT id FROM INSCRIT WHERE mail=(@p)", conn);
@@ -54,29 +55,33 @@ namespace LinqToPgSQL
             dr.Read();
             resultat = dr.GetInt32(0);
             dr.Close();
+            conn.Close();
+            return resultat.ToString();
+
+        }
+
+        public string LoadInscrit(string id, string mdp)
+        {
+            int resultat;
+            var conn = new NpgsqlConnection(connexionBDD);
+            conn.Open();
+            NpgsqlParameter p1 = new NpgsqlParameter { ParameterName = "p", Value = id };
+            NpgsqlCommand cmd = new NpgsqlCommand($"SELECT id FROM INSCRIT WHERE mail=(@p)", conn);
+            cmd.Parameters.Add(p1);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            resultat = dr.GetInt32(0);
+            dr.Close();
+            conn.Close();
             return resultat.ToString();
             
         }
 
         public bool ExistEmail(string mail)
         {
+
             var conn = new NpgsqlConnection(connexionBDD);
-            Console.Out.WriteLine("Ouverture de la connection");
-
             conn.Open();
-
-
-            /*try
-            {
-                conn.Open();
-            }
-            catch
-            {
-                conn.Close();
-                Debug.WriteLine("Problème de connection à la base de données. Aprés fermeture, l'application se fermera automatiquement.");
-                Environment.Exit(-1);
-            }*/
-
             NpgsqlDataReader dbReader = new NpgsqlCommand("SELECT mail FROM Inscrit", conn).ExecuteReader();
 
             while (dbReader.Read())
@@ -89,6 +94,7 @@ namespace LinqToPgSQL
             }
 
             dbReader.Close();
+            conn.Close();
             return false;
         }
 
@@ -282,7 +288,7 @@ namespace LinqToPgSQL
             }
 
 
-           /* while (dbReader.Read())
+            while (dbReader.Read())
             {
                 ListeCompte.Add(new Compte("NULL",dbReader.GetString(0), dbReader.GetInt64(1)));//a patch NULL
             }
@@ -421,21 +427,6 @@ namespace LinqToPgSQL
             return bquesDispo;
         }
 
-        public List<Banque> ImportBanquesForUser(Inscrit i)
-        {
-            List<Banque> bquesDispo = new List<Banque>();
-            dbAccess.Open();
-
-            NpgsqlCommand cmd = new NpgsqlCommand($"SELECT b.nom, b.urllogo, b.urldl FROM Banque b, InscrBanque ib WHERE ib.nombanque = b.nom AND ib.idinscrit=(@id);", dbAccess);
-            cmd.Parameters.AddWithValue("p", i.Id);
-            NpgsqlDataReader dbReader = cmd.ExecuteReader();
-            while (dbReader.Read())
-            {
-                bquesDispo.Add(new Banque(dbReader.GetString(0), dbReader.GetString(1), dbReader.GetString(2)));
-            }
-            dbAccess.Close();
-            return bquesDispo;
-        }
 
 
     }

@@ -23,19 +23,15 @@
             <Label Text="Cons'Eco" FontSize="20" VerticalOptions="Center" FontAttributes="Bold"/>
         </HorizontalStackLayout>
 
-        <ImageButton Grid.Row="0" Grid.Column="1" Source="add_banks.png" 
+        <ImageButton Grid.Row="0" Grid.Column="2" Source="add_banks.png" 
                      HorizontalOptions="End" Padding="10" Margin="10"
                      CornerRadius="10" HeightRequest="65" 
-                     BackgroundColor="{StaticResource Primary}"/>
+                     BackgroundColor="{StaticResource Primary}"
+                     Clicked="AddBanque_Clicked"/>
 
-        <ImageButton Grid.Row="0" Grid.Column="2" Source="reload_banks.png" 
-                     HorizontalOptions="End" Padding="10" Margin="10"
-                     CornerRadius="10" HeightRequest="65" 
-                     BackgroundColor="{StaticResource Primary}"/>
+        <Label Grid.Row="1" Grid.ColumnSpan="3" Text="Liste de vos banques : " FontAttributes="Bold" FontSize="Body" Padding="20,10,0,0"/>
 
-        <Label Grid.Row="1" Grid.ColumnSpan="3" Text="Liste des Banques disponibles : " FontAttributes="Bold" FontSize="Body" Padding="20,5,0,0"/>
-
-        <CollectionView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding BanquesDisponibleInApp}">
+        <CollectionView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding User.LesBanques}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -49,7 +45,7 @@
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
                         <ImageButton Grid.Column="2" Source="reload_banks.png" 
-                             Padding="10" Margin="10"
+                             Padding="10" Margin="5"
                              CornerRadius="10" HeightRequest="65" 
                              BackgroundColor="{StaticResource Primary}"/>
 

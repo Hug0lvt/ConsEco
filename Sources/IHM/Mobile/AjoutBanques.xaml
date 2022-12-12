@@ -4,15 +4,79 @@
              xmlns:composant="clr-namespace:IHM.Composant"
              x:Class="IHM.Mobile.AjoutBanques"
              Title="AjoutBanques">
-    <VerticalStackLayout>
-        <Label Text="Liste des Banques" FontAttributes="Bold" FontSize="Body" HorizontalOptions="Center"/>
-        <CollectionView>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.10*"/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.15*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.95*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <HorizontalStackLayout Grid.Row="0" Grid.Column="0" VerticalOptions="Center">
+            <Image Source="Resources/Images/logo_sans_fond.png" HeightRequest="50" Margin="20"/>
+            <Label Text="Cons'Eco" FontSize="20" VerticalOptions="Center" FontAttributes="Bold"/>
+        </HorizontalStackLayout>
+
+        <Label Grid.Row="1" Grid.ColumnSpan="3" Text="Liste des banques disponible : " FontAttributes="Bold" FontSize="Body" Padding="20,10,0,0"/>
+
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" 
+                BackgroundColor="{StaticResource Tertiary}" 
+                StrokeShape="RoundRectangle 20" Margin="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.75*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Text="Importer depuis un fichier" TextColor="Black"
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                <ImageButton Grid.Column="2" Source="import_from_file.png"
+                             Padding="10" Margin="5"
+                             CornerRadius="10" HeightRequest="65" 
+                             BackgroundColor="{StaticResource Primary}"
+                             Clicked="ImportOFX_Clicked"/>
+
+            </Grid>
+        </Border>
+        
+
+
+        <CollectionView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding BanquesDisponibleInApp}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <composant:BanqueDispo ImageBanque="bla.png" />
-                    <!-- il faut le namespace !!!! -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.75*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0" Text="{Binding Nom}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                        <ImageButton Grid.Column="2" Source="add_new_banks.png"
+                             Padding="10" Margin="5"
+                             CornerRadius="10" HeightRequest="65" 
+                             BackgroundColor="{StaticResource Primary}"/>
+
+                    </Grid>
+
+
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </VerticalStackLayout>
+
+
+
+    </Grid>
 </ContentPage>

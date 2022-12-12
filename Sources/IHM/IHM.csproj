@@ -32,9 +32,13 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\logo.svg" ForegroundFile="Resources\AppIcon\logo.svg" Color="#512BD4" BaseSize="100,100">
+		<MauiIcon Include="Resources\AppIcon\logo.svg" ForegroundFile="Resources\AppIcon\logo.svg" Color="#512BD4" BaseSize="100,100" />
+		<MauiImage Include="Resources\Images\AjoutBanques\add_new_banks.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</MauiIcon>
+		</MauiImage>
+		<MauiImage Include="Resources\Images\AjoutBanques\import_from_file.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiImage>
 		<MauiImage Include="Resources\Images\DashBoard\account_banks.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiImage>
@@ -44,8 +48,12 @@
 		<MauiImage Include="Resources\Images\GestionBanques\reload_banks.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiImage>
-		<MauiImage Include="Resources\Images\NavBar\dollar_black.png" />
-		<MauiImage Include="Resources\Images\NavBar\settings_black.png" />
+		<MauiImage Include="Resources\Images\NavBar\dollar_black.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiImage>
+		<MauiImage Include="Resources\Images\NavBar\settings_black.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiImage>
 		<Resource Include="Resources\Images\NavBar\home_black.png" />
 
 		<!-- Splash Screen -->
@@ -57,10 +65,10 @@
 		<MauiImage Update="Resources\Images\logo_sans_fond.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiImage>
-		<MauiImage Update="Resources\Images\refresh.png">
+		<MauiImage Update="Resources\Images\logo_sans_fond_black.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiImage>
-		<MauiImage Update="Resources\Images\logo_sans_fond_black.png">
+		<MauiImage Update="Resources\Images\refresh.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiImage>
 
@@ -72,22 +80,23 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\AjoutBanques\add_new_banks.png" />
+	  <None Remove="Resources\Images\AjoutBanques\import_from_file.png" />
+	  <None Remove="Resources\Images\DashBoard\account_banks.png" />
+	  <None Remove="Resources\Images\GestionBanques\add_banks.png" />
+	  <None Remove="Resources\Images\GestionBanques\reload_banks.png" />
 	  <None Remove="Resources\Images\refresh.png" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\DashBoard\account_banks.png" />
-	  <None Remove="Resources\Images\GestionBanques\add_banks.png" />
-	  <None Remove="Resources\Images\GestionBanques\reload_banks.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiImage Include="Resources\Images\NavBar\planification_black.png" />
+	  <MauiImage Include="Resources\Images\NavBar\planification_black.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiImage Include="Resources\Images\NavBar\home_black.png">
-	    <CopyToOutputDirectory></CopyToOutputDirectory>
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
 	</ItemGroup>
 
@@ -97,21 +106,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="AppShellDesktop.xaml.cs">
-	    <DependentUpon>AppShellDesktop.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Desktop\MainPage.xaml.cs">
-	    <DependentUpon>MainPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Mobile\ErrorPage.xaml.cs">
-	    <DependentUpon>ErrorPage.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="AppShellDesktop.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="ChangePassword.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -119,10 +113,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="DashBoard.xaml">
-	  <MauiXaml Update="Composant\BanqueDispo.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Composant\BanqueVC.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ForgetPassword.xaml">
@@ -132,15 +122,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="NewPage1.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Mobile\AjoutBanques.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Mobile\ErrorPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Mobile\GestionBanques.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Operations.xaml">
@@ -153,9 +134,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Inscription.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Desktop\MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

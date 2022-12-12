@@ -11,7 +11,17 @@ public partial class GestionBanques : ContentPage
 	{
 		InitializeComponent();
 		BindingContext= Mgr;
-        //Mgr.importBanquesForUser(Mgr.SelectedInscrit);
+        Mgr.LoadBanques();
 
+    }
+
+    public async void loadPage(Page p)
+    {
+        await Navigation.PushModalAsync(p);
+    }
+
+    private void AddBanque_Clicked(object sender, EventArgs e)
+    {
+        loadPage(new AjoutBanques());
     }
 }

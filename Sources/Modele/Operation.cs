@@ -18,13 +18,10 @@ namespace Model
         public MethodePayement ModePayement { get; private set; }
 
         public bool IsDebit { get; private set; }
-        
-        public string IdCompte { get; private set; }
 
-        public Operation(string intituleOperation, string idCompte, double montant, DateTime dateOperation, MethodePayement modePayement, bool isDebit=true)
+        public Operation(string intituleOperation, double montant, DateTime dateOperation, MethodePayement modePayement, bool isDebit=true)
         {
             IntituleOperation = intituleOperation;
-            IdCompte = idCompte;
             Montant = montant;
             DateOperation = dateOperation;
             ModePayement = modePayement;
@@ -33,7 +30,7 @@ namespace Model
 
         public override string ToString()
         {
-            return IdCompte + " " + IntituleOperation + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + "\n";
+            return IntituleOperation + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + "\n";
         }
     }
 }

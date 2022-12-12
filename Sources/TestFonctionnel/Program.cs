@@ -3,14 +3,17 @@ using Model;
 
 Console.WriteLine("Test Deserializer OFX - simplifié");
 
-IList<Operation> operations= new List<Operation>();
-operations.Add(new Operation("OpeDeTest", "01234567890", 100, DateTime.Now, MethodePayement.Esp, true));
+IList<Compte> comptes= new List<Compte>();
 
 
-operations = LoadOperation.LoadOperationsFromOFX("C:\\Dev\\ConsEcoAndMAUI\\Sources\\TestFonctionnel\\CA_simplifié.ofx");
+comptes = LoadOperation.LoadOperationsFromOFX("C:\\Dev\\ConsEco\\Sources\\TestFonctionnel\\CAcomplet.ofx");
 
 
-foreach (Operation op in operations)
+foreach (Compte compte in comptes)
 {
-    Console.WriteLine(op);
+    Console.WriteLine(compte);
+    foreach(Operation operation in compte.LesOpe)
+    {
+        Console.WriteLine("\t\t"+operation);
+    }
 }

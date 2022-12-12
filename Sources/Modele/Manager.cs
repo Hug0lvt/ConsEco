@@ -13,17 +13,17 @@ namespace Model
 
         public Hash hash = new Hash();
 
-        public int Solde 
+        public int Solde
         {
             get => solde;
             set
             {
-                if(solde != value)
+                if (solde != value)
                 {
                     solde = value;
                     OnPropertyChanged(nameof(Solde));
                 }
-            } 
+            }
         }
 
         private int solde;
@@ -31,8 +31,9 @@ namespace Model
 
 
         private Inscrit user;
-        
-        public Inscrit User {
+
+        public Inscrit User
+        {
             get
             {
                 return user;
@@ -52,7 +53,7 @@ namespace Model
             get => selectedBanque;
             set
             {
-                if(selectedBanque != value)
+                if (selectedBanque != value)
                 {
                     selectedBanque = value;
                     OnPropertyChanged(nameof(SelectedBanque));
@@ -60,9 +61,8 @@ namespace Model
             }
         }
         private Banque selectedBanque;
-
-        public List<Banque> BanquesDisponibleInApp 
-        { 
+        public List<Banque> BanquesDisponibleInApp
+        {
             get => banquesDisponibleInApp;
             set
             {
@@ -71,23 +71,9 @@ namespace Model
                     banquesDisponibleInApp = value;
                     OnPropertyChanged(nameof(BanquesDisponibleInApp));
                 }
-            } 
-        }
-        private List<Banque> banquesDisponibleInApp;
-
-        public List<Banque> BanquesUser
-        {
-            get => banquesUser;
-            set
-            {
-                if (banquesUser != value)
-                {
-                    banquesUser = value;
-                    OnPropertyChanged(nameof(BanquesUser));
-                }
             }
         }
-        private List<Banque> banquesUser;
+        private List<Banque> banquesDisponibleInApp;
 
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
@@ -103,7 +89,7 @@ namespace Model
 
         public string GetId(string mail)
         {
-           return Pers.GetId(mail);
+            return Pers.GetId(mail);
         }
 
         public void LoadBanques()
@@ -114,7 +100,7 @@ namespace Model
                 SelectedBanque = User.LesBanques[0];
             }
         }
-       
+
         public void supprimerToutesBanquesBdd(Inscrit inscrit)
         {
             Pers.SupprimerToutesBanquesBdd(inscrit);
@@ -150,6 +136,22 @@ namespace Model
             return hash.IsEqualHash(mdpBdd, mdpSent);
         }
 
+        public void createUser(string mail)
+        {
+            User = new Inscrit(mail, GetId(mail));
+        }
+
+        public int recupTotalSolde()
+        {
+            Solde = Pers.CalculTotalSoldeComtpe(User);
+            return Solde;
+        }
+
+        public void deconnexion()
+        {
+            User = null;
+        }
+
         public bool testConnexionAsDatabase()
         {
             return Pers.TestConnexionAsDatabase();
@@ -160,27 +162,6 @@ namespace Model
             BanquesDisponibleInApp = Pers.ImportBanques();
         }
 
-        public void importBanquesForUser(Inscrit i)
-        {
-            BanquesUser = Pers.ImportBanquesForUser(i);
-        }
-
-    }
-
-        public void createUser(string mail)
-        {
-            User = new Inscrit(mail, GetId(mail));
-        }
-        
-        public int recupTotalSolde()
-        {
-            Solde = Pers.CalculTotalSoldeComtpe(User);
-            return Solde;
-        }
-
-        public void deconnexion()
-        {
-            User=null;
-        }
     }
 }
+
