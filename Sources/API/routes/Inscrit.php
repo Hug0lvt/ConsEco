@@ -33,13 +33,7 @@ $app->get('/Inscrit/', function(Request $request, Response $response){
         $db = null;
         $response->getBody()->write(json_encode($inscrits));
         return $response
-            ->withHeader('content-type', 'a Textes complets
-            id 	nom 	prenom 	mail 	mdp 	
-            Éditer Éditer 	Copier Copier 	Supprimer Supprimer 	1 	EVARD 	LUCAS 	lucasevard@gmail.com 	test
-            Éditer Éditer 	Copier Copier 	Supprimer Supprimer 	2 	MONCUL 	STEPHANE 	stef@gmail.com 	teststef
-            Éditer Éditer 	Copier Copier 	Supprimer Supprimer 	3 	MENFOUMETTOITOUTNU 	RENAUD 	renaudtoutnu@gmail.com 	test000
-            Éditer Éditer 	Copier Copier 	Supprimer Supprimer 	4 	YOUVOI 	BENJAMIN 	BENJAMIN@gmail.com 	BENJAMIN
-            Éditer Éditer 	Copier Copier 	Supprimer Supprimer 	5 	TUBEAU 	RAOUL 	raoullacouille@gmail.com 	oui oui le culpplication/json')
+            ->withHeader('content-type', 'application/json')
             ->withStatus(200);
     } catch(PDOException $e){
         $error = array("message" => $e->getMessage());
