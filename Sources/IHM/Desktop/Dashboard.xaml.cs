@@ -4,29 +4,52 @@ namespace IHM.Desktop;
 
 public partial class Dashboard 
 {
-	public Dashboard()
+
+    public Dashboard()
 	{
 		InitializeComponent();
 	}
 
-	private void Button_planification(object sender, EventArgs e)
+	private void RetourFormeBase()
 	{
-		mainCV.Content= new CV_Planification();
+		ButPla.BackgroundColor = Colors.Yellow; ButPla.TextColor = Colors.Black;
+        ButEch.BackgroundColor = Colors.Yellow; ButEch.TextColor = Colors.Black;
+        ButOpe.BackgroundColor = Colors.Yellow; ButOpe.TextColor = Colors.Black;
+        ButCom.BackgroundColor = Colors.Yellow; ButCom.TextColor = Colors.Black;
+        ButAcc.BackgroundColor = Colors.Yellow; ButAcc.TextColor = Colors.Black;
+        ButSta.BackgroundColor = Colors.Yellow; ButSta.TextColor = Colors.Black;
     }
 
-	private void Button_echeancier(object sender, EventArgs e)
+    private void Button_planification(object sender, EventArgs e)
 	{
-		mainCV.Content = new Echeancier();
+        RetourFormeBase();
+		ButPla.TextColor = Colors.White;
+        ButPla.BackgroundColor = Colors.Red;
+        mainCV.Content= new CV_Planification();
+    }
+
+    private void Button_echeancier(object sender, EventArgs e)
+	{
+        RetourFormeBase();
+        ButEch.TextColor = Colors.White;
+        ButEch.BackgroundColor = Colors.Red;
+        mainCV.Content = new Echeancier();
     }
 
 	private void Button_operation(object sender, EventArgs e)
 	{
-		mainCV.Content = new Operations();
+        RetourFormeBase();
+        ButOpe.TextColor = Colors.White;
+        ButOpe.BackgroundColor = Colors.Red;
+        mainCV.Content = new Operations();
     }
 
 	private void Button_compte(object sender, EventArgs e)
 	{
-		mainCV.Content = new Compte();
+        RetourFormeBase();
+        ButCom.TextColor = Colors.White;
+        ButCom.BackgroundColor = Colors.Red;
+        mainCV.Content = new Compte();
     }
 
 	private void Button_Clicked(object sender, EventArgs e)
