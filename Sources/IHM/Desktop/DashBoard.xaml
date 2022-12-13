@@ -4,7 +4,7 @@
              x:Class="IHM.Desktop.Dashboard"
              Title="Dashboard">
 
-    <StackLayout BackgroundColor="{StaticResource Yellow300Accent}" >
+    <StackLayout BackgroundColor="{StaticResource Secondary}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
@@ -39,9 +39,14 @@
                 <Button Text="STATISTIQUES" x:Name="ButSta" BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="6"></Button>
             </StackLayout>
 
-                <ContentView BackgroundColor="AliceBlue" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="6"  x:Name="mainCV">
+
+
+
+            
+      
+            <ContentView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="6"  x:Name="mainCV">
                     
-                </ContentView>
+            </ContentView>
 
 
          
