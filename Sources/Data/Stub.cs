@@ -4,9 +4,28 @@ namespace Data
 {
     public class Stub : IPersistanceManager
     {
+        private List<Inscrit> lesInscrits = new List<Inscrit>();
+
+        public Stub()
+        {
+            lesInscrits.Add(new Inscrit(
+                "1",
+                "LIVET",
+                "livet.hugo2003@gmail.com",
+                "Hugo",
+                "Bonjour63."
+                ));
+        }
         public string GetId(string mail)
         {
-            return "1";
+            foreach(Inscrit i in lesInscrits)
+            {
+                if(i.Mail == mail)
+                {
+                    return i.Id;
+                }
+            }
+            return null;
         }
         public void SupprimerInscritBdd(Inscrit inscrit)
         {
@@ -20,22 +39,45 @@ namespace Data
         {
             throw new NotImplementedException();
         }
-        public void CreateInscrit(Inscrit inscrit){}
+        public void CreateInscrit(Inscrit inscrit){
+            lesInscrits.Add(inscrit);
+        }
         public string LastInscrit()
         {
             return "1";
         }
         public bool ExistEmail(string mail)
         {
-            return true;
+            foreach(Inscrit i in lesInscrits)
+            {
+                if(i.Mail == mail)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         public void ChangePasswordBdd(string mail, string newMdp)
         {
-            throw new NotImplementedException();
+            foreach(Inscrit i in lesInscrits)
+            {
+                if(i.Mail == mail)
+                {
+                    i.Mdp = newMdp;
+                }
+            }
         }
         public string RecupMdpBdd(string mail)
         {
-            return "61202106183104184172149183829180134166241997147151111351903525172892257223616564213999421532841808077145252175106506275806214514321147161111472321892055913517616241";
+            Hash hash = new Hash();
+            foreach(Inscrit i in lesInscrits)
+            {
+                if(i.Mail == mail)
+                {
+                    return hash.CreateHashCode(i.Mdp);
+                }
+            }
+            return "inexistant";
         }
         public int CalculTotalSoldeComtpe(Inscrit user)
         {
@@ -65,10 +107,14 @@ namespace Data
 
         public Inscrit GetInscrit(string mail)
         {
-            string mdp = "Azerty12345678!";
-            Inscrit i = new Inscrit("1", "LIVET", "livet.hugo2003@gmail.com", "Hugo", mdp);
-
-            return i;
+            foreach(Inscrit i in lesInscrits)
+            {
+                if(i.Mail == mail)
+                {
+                    return i;
+                }
+            }
+            return null; 
         }
 
         public IList<Compte> GetCompteFromOFX(string ofx)

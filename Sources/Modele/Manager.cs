@@ -28,10 +28,7 @@ namespace Model
 
         private int solde;
 
-
-
         private Inscrit user;
-
         public Inscrit User
         {
             get
