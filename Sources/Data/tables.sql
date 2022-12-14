@@ -1,12 +1,12 @@
-DROP TABLE Planification;
-DROP TABLE Opération;
-DROP TABLE Echeancier;
-DROP TABLE Compte;
-DROP TABLE InscrBanque;
-DROP TABLE Banque;
-DROP TABLE DeviseInscrit;
-DROP TABLE Inscrit;
-DROP TABLE Devise;
+DROP TABLE if exists Planification;
+DROP TABLE if exists Operation;
+DROP TABLE if exists Echeancier;
+DROP TABLE if exists Compte;
+DROP TABLE if exists InscrBanque;
+DROP TABLE if exists Banque;
+DROP TABLE if exists DeviseInscrit;
+DROP TABLE if exists Inscrit;
+DROP TABLE if exists Devise;
 
 
 CREATE TABLE Devise
@@ -17,7 +17,7 @@ CREATE TABLE Devise
 
 CREATE TABLE Inscrit
 (
-    id serial PRIMARY KEY,
+    id MEDIUMINT  PRIMARY KEY AUTO_INCREMENT,
     nom varchar(40),
     prenom varchar(40),
     mail varchar(40) UNIQUE,
@@ -27,7 +27,7 @@ CREATE TABLE Inscrit
 CREATE TABLE DeviseInscrit
 (
     devise char(3),
-    idInscrit serial UNIQUE,
+    idInscrit MEDIUMINT UNIQUE,
     PRIMARY KEY(devise,idInscrit),
     FOREIGN KEY (devise) REFERENCES Devise(id),
     FOREIGN KEY (idInscrit) REFERENCES Inscrit(id)
@@ -37,15 +37,14 @@ CREATE TABLE Banque
 (
     nom varchar(40) PRIMARY KEY,
     urlsite varchar(60),
-    urllogo varchar(60),
-    urldl varchar(500)
+    urllogo longblob
 );
 
 CREATE TABLE InscrBanque
 (
-    id serial PRIMARY KEY,
+    id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
     nomBanque varchar(40),
-    idInscrit serial,
+    idInscrit MEDIUMINT,
     UNIQUE(nomBanque,idInscrit),
     FOREIGN KEY (nomBanque) REFERENCES Banque(nom),
     FOREIGN KEY (idInscrit) REFERENCES Inscrit(id)
@@ -53,34 +52,34 @@ CREATE TABLE InscrBanque
 
 CREATE TABLE Compte
 (
-    id serial PRIMARY KEY,
+    id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
     nom varchar(40),
-    idInscritBanque serial,
+    idInscritBanque MEDIUMINT,
     FOREIGN KEY (idInscritBanque) REFERENCES InscrBanque(id),
     UNIQUE(idInscritBanque,nom)
 );
 
 CREATE TABLE Echeancier
 (
-    id serial PRIMARY KEY,
+    id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
     nom varchar(40),
     credit numeric,
-    compte serial,
+    compte MEDIUMINT,
     debit numeric,
     dateE date,
     datecrea date,
     methodePayement varchar(20),
-    CONSTRAINT ck_methPaye CHECK (methodePayement IN ('CB','Cheque','Espece','Prélevement')),
+    CONSTRAINT ck_echan CHECK (methodePayement IN ('CB','Cheque','Espece','Prélevement')),
     FOREIGN KEY(compte) REFERENCES Compte(id),
     UNIQUE (datecrea,compte)
 );
 
-CREATE TABLE Opération
+CREATE TABLE Operation
 (
-    id serial PRIMARY KEY,
+    id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
     nom varchar(40),
     credit numeric,
-    compte serial,
+    compte MEDIUMINT,
     debit numeric,
     dateO date,
     datecrea date,
@@ -92,15 +91,15 @@ CREATE TABLE Opération
 
 CREATE TABLE Planification
 (
-    id serial PRIMARY KEY,
+    id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
     nom varchar(40),
     credit numeric,
-    compte serial,
+    compte MEDIUMINT,
     debit numeric,
     dateP date,
     datecrea date,
     methodePayement varchar(20),
-    CONSTRAINT ck_methPaye CHECK (methodePayement IN ('CB','Cheque','Espece','Prélevement')),
+    CONSTRAINT ck_planif CHECK (methodePayement IN ('CB','Cheque','Espece','Prélevement')),
     FOREIGN KEY(compte) REFERENCES Compte(id),
     UNIQUE (datecrea,compte)
-);,
+);
