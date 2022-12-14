@@ -48,9 +48,6 @@
 		<MauiImage Update="Resources\Images\logo_sans_fond.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiImage>
-		<MauiImage Update="Resources\Images\logo_sans_fond_black.png">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</MauiImage>
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -60,7 +57,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\DashBoard\account_banks.png" />
+	  <Compile Remove="Desktop\Planification.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Remove="Desktop\Planification.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -82,8 +83,14 @@
 	  <Compile Update="AppShellDesktop.xaml.cs">
 	    <DependentUpon>AppShellDesktop.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Desktop\Dashboard.xaml.cs">
+	    <DependentUpon>DashBoard.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Desktop\MainPage.xaml.cs">
 	    <DependentUpon>MainPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Desktop\Compte.xaml.cs">
+	    <DependentUpon>Compte.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -92,6 +99,33 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ChangePassword.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\ChangePassword.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\CV_AddPlanification.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\CV_Planification.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\DashBoard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\Echeancier.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\ForgetPassword.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\Inscription.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\Compte.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\Operations.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ForgetPassword.xaml">

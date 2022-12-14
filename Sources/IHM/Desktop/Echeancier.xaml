@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IHM.Desktop.Echeancier"
+             BackgroundColor="{StaticResource Yellow300Accent}">
+    
+    <VerticalStackLayout Margin="20">
+
+        <Label 
+            Style="{StaticResource TitreWindows}"
+            Text="ECHEANCIER"
+            VerticalOptions="StartAndExpand"/>
+        
+        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Fill">
+            
+            <Button
+                x:Name="SaveEcheance"
+                Text="Enregistrer une échéance"
+                Style="{StaticResource WindowsButton}"/>
+
+            <Button
+                x:Name="DelEcheance"
+                Text="Supprimer une échéance"
+                Style="{StaticResource WindowsButton}"/>
+            
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Fill">
+
+            <Border Background="{StaticResource Primary}"
+            Style="{StaticResource TotalButton}">
+            <Label Text=" -- BINDING -- " FontFamily="Comic sans MS"/>
+            </Border>
+
+            <Border Background="{StaticResource Tertiary}"
+            Style="{StaticResource TotalButton}">
+            <Label Text=" -- BINDING -- " FontFamily="Comic sans MS"/>
+            </Border>
+
+        </HorizontalStackLayout>
+
+
+
+    </VerticalStackLayout>
+</ContentView>

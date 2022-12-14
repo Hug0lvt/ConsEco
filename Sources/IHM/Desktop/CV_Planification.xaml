@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IHM.Desktop.CV_Planification">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Button Text="Planifier une échéance"  BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource Secondary}" Grid.Column="0" Grid.Row="0" Clicked="Button_Clicked" ></Button>
+        <Button Text="Supprimer une échéance"  BackgroundColor="{StaticResource Tertiary}" TextColor="{StaticResource Secondary}" Grid.Column="1" Grid.Row="0" Clicked="Button_Clicked_1"></Button>
+
+        <ContentView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"  Margin="15" x:Name="windowAjout">
+            <Grid BackgroundColor="{StaticResource Yellow300Accent}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Label Text="Planification"/>
+               
+
+            </Grid>
+
+        </ContentView>
+
+        
+
+   
+
+    
+
+    </Grid>
+
+
+</ContentView>

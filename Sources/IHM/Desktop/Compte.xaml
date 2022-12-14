@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IHM.Desktop.Compte"
+             BackgroundColor="{StaticResource Yellow300Accent}">
+
+    <StackLayout Margin="20" Orientation="Vertical">
+
+        <Label 
+            Text="VOTRE COMPTE"
+            VerticalOptions="StartAndExpand"
+            Style="{StaticResource TitreWindows}"/>
+
+
+        <Label
+            FontAttributes="Bold"
+            Text="Compte courant --- 'BINDING'"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"
+            FontFamily="Comic Sans MS"
+            FontSize="20"/>
+
+
+        <Button
+            x:Name="ConnexionButton"
+            Text="Modifier votre solde"
+            Style="{StaticResource WindowsButton}"
+            VerticalOptions="Fill"/>
+
+
+    </StackLayout>
+</ContentView>

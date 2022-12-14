@@ -56,4 +56,9 @@ public partial class MainPage : ContentPage
 
     //Exception à gérer pour cette version desktop
     public ICommand TapCommand => new Command<string>(async (page) => await Shell.Current.GoToAsync(page));
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new Dashboard());
+    }
 }
