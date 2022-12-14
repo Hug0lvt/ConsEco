@@ -25,7 +25,7 @@ public partial class Dashboard
 	{
         RetourFormeBase();
 		ButPla.TextColor = Colors.White;
-        ButPla.BackgroundColor = Colors.Red;
+        ButPla.BackgroundColor = Colors.Coral;
         mainCV.Content= new CV_Planification();
     }
 

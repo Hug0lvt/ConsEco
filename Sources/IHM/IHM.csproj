@@ -110,6 +110,9 @@
 	  <MauiXaml Update="Desktop\CV_AddPlanification.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Desktop\CV_DeletePlanification.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Desktop\CV_Planification.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

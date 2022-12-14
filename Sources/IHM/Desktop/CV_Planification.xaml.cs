@@ -21,6 +21,6 @@ public partial class CV_Planification : ContentView
 
 	private void Button_Clicked_1(object sender, EventArgs e)
 	{
-
-	}
+        windowAjout.Content = new CV_DeletePlanification();
+    }
 }
