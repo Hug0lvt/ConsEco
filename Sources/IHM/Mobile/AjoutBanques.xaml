@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:composant="clr-namespace:IHM.Composant"
@@ -22,8 +22,8 @@
         <HorizontalStackLayout Grid.Row="0" Grid.Column="0" VerticalOptions="Center">
             <Image Source="Resources/Images/logo_sans_fond.png" HeightRequest="50" Margin="20"/>
             <Label Text="Cons'Eco" FontSize="20" VerticalOptions="Center" FontAttributes="Bold"/>
+            <Button x:Name="boutonRetour" Text="retour" HeightRequest="50" Clicked="returnbutton" IsVisible="False" HorizontalOptions="End"/>
         </HorizontalStackLayout>
-
         <Label Grid.Row="1" Grid.ColumnSpan="3" Text="Liste des banques disponible : " FontAttributes="Bold" FontSize="Body" Padding="20,10,0,0"/>
 
         <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" 

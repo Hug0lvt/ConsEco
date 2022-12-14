@@ -12,12 +12,16 @@ public partial class AjoutBanques : ContentPage
 		InitializeComponent();
         BindingContext = Mgr;
         Mgr.importBanques();
+        if (OperatingSystem.IsIOS())
+        {
+            boutonRetour.IsVisible = true;
+        }
     }
 
-     private async void ImportOFX_Clicked(object sender, EventArgs e)
-     {
-         PickOptions options = new PickOptions();
-         options.PickerTitle = "Choisir un fichier OFX";
+    private async void ImportOFX_Clicked(object sender, EventArgs e)
+    {
+        PickOptions options = new PickOptions();
+        options.PickerTitle = "Choisir un fichier OFX";
 
         try{
             var result = await FilePicker.Default.PickAsync(options);
@@ -45,9 +49,10 @@ public partial class AjoutBanques : ContentPage
         {
             Debug.WriteLine(ex.Message);
         }
-        
-
-
     }
-
+    private async void returnbutton(object sender, EventArgs e)
+    {
+        await Navigation.PopModalAsync();
+    }
 }
+

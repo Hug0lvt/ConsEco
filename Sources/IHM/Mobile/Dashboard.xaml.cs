@@ -9,7 +9,7 @@ public partial class DashBoard : ContentPage
     {
         InitializeComponent();
         //Routing.RegisterRoute(nameof(DashBoard), typeof(DashBoard));
-
+        BindingContext = Mgr;
 
         if (Mgr.User == null)
         {
@@ -34,4 +34,6 @@ public partial class DashBoard : ContentPage
     {
         loadPage(new GestionBanques());
     }
+
+
 }

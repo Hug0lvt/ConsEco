@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Mobile.Operations">
     <VerticalStackLayout>
-        <ScrollView>
             <CollectionView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding User.LesBanques[0].ListeDesComptes[0].LesOpe}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10">
+                        <Grid Padding="10" >
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -24,7 +23,7 @@
                                CornerRadius="10"/>-->
                             <Label Grid.Row="0" Grid.Column="1"
                                Text="{Binding IntituleOperation}"
-                               FontAttributes="Bold" />
+                               FontAttributes="Bold" TextColor="Brown" />
                             <Label Grid.Row="1" Grid.Column="1"
                                Text="{Binding DetailTypeOpe}"
                                FontAttributes="Italic"/>
@@ -36,9 +35,6 @@
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-            </CollectionView>
-
-        </ScrollView>
-        
+            </CollectionView>        
     </VerticalStackLayout>
 </ContentPage>

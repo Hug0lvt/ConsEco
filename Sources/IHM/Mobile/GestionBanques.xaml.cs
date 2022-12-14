@@ -12,7 +12,10 @@ public partial class GestionBanques : ContentPage
 		InitializeComponent();
 		BindingContext= Mgr;
         Mgr.LoadBanques();
-
+        if (OperatingSystem.IsIOS())
+        {
+            boutonRetour.IsVisible = true;
+        }
     }
 
     public async void loadPage(Page p)
@@ -24,4 +27,9 @@ public partial class GestionBanques : ContentPage
     {
         loadPage(new AjoutBanques());
     }
+    private async void returnbutton(object sender, EventArgs e)
+    {
+        await Navigation.PopModalAsync();
+    }
+
 }

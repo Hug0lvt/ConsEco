@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Model;
 
 namespace IHM.Mobile;
@@ -10,5 +11,4 @@ public partial class Operations : ContentPage
 		InitializeComponent();
 		BindingContext = Mgr;
     }
-    
 }
