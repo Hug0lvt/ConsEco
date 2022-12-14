@@ -137,5 +137,5 @@ $app->post('/Inscrit/add/', function(Request $request, Response $response, array
             ->withHeader('content-type', 'application/json')
             ->withStatus(500);
     }
-})
+});
 ?>
