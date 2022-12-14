@@ -1,101 +1,40 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Mobile.Operations">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.25*"/>
-            <RowDefinition Height="0.15*"/>
-            <RowDefinition Height="1.40*"/>
-            <RowDefinition Height="0.15*"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+    <VerticalStackLayout>
+            <CollectionView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding User.LesBanques[0].ListeDesComptes[0].LesOpe}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <!--<ColumnDefinition/>-->
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-        <HorizontalStackLayout Grid.Row="0" Grid.Column="0" VerticalOptions="Center">
-            <Image Source="Resources/Images/logo_sans_fond.png" HeightRequest="50" Margin="20"/>
-            <Label Text="Cons'Eco" FontSize="20" VerticalOptions="Center" FontAttributes="Bold"/>
-        </HorizontalStackLayout>
-
-        <ImageButton Grid.Row="0" Grid.Column="1" Source="Resources/Images/Dashboard/account_banks.png" 
-                     HorizontalOptions="End" Padding="10" Margin="10"
-                     CornerRadius="10" HeightRequest="65" 
-                     BackgroundColor="{StaticResource Primary}"/>
-
-        <Label Grid.Row="1" Grid.ColumnSpan="2" Text="Liste des Dernières Opérations : " FontAttributes="Bold" FontSize="Body" Padding="20,5,0,0"/>
-
-        <CollectionView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding LesOpe}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <ImageButton Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                            <!--<ImageButton Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                                Source="{Binding ImageSrc}"
-                               CornerRadius="10"/>
-                        <Label Grid.Row="0" Grid.Column="1"
-                               Text="{Binding NomOpe}"
-                               FontAttributes="Bold" />
-                        <Label Grid.Row="1" Grid.Column="1"
+                               CornerRadius="10"/>-->
+                            <Label Grid.Row="0" Grid.Column="1"
+                               Text="{Binding IntituleOperation}"
+                               FontAttributes="Bold" TextColor="Brown" />
+                            <Label Grid.Row="1" Grid.Column="1"
                                Text="{Binding DetailTypeOpe}"
                                FontAttributes="Italic"/>
-                        <Label Grid.Row="0" Grid.Column="2"
-                               Text="{Binding DateOpe}"/>
-                        <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2"
-                               Text="{Binding MontantOpe}"
+                            <Label Grid.Row="0" Grid.Column="2"
+                               Text="{Binding DateOperation}"/>
+                            <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2"
+                               Text="{Binding Montant}"
                                FontAttributes="Bold"/>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-
-        <Label Grid.Row="3" Grid.ColumnSpan="2" Text="Liste des Comptes favoris :" FontAttributes="Bold" FontSize="Body" Padding="20,0,0,0"/>
-
-        <CollectionView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding ComptesFav}" ItemsLayout="HorizontalList">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
-                               Text="{Binding Banque}"
-                               FontAttributes="Bold"/>
-                        <Label Grid.Row="0" Grid.Column="1"
-                               Text="{Binding Type}"
-                               FontAttributes="Italic"/>
-                        <Label Grid.Row="1" Grid.Column="1"
-                               Text="{Binding Solde}"
-                               FontAttributes="Bold"/>
-                        <Label Grid.Row="0" Grid.Column="2"
-                               Text="{Binding DateMaJ}"/>
-                        
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>        
-
-
-
-    </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>        
+    </VerticalStackLayout>
 </ContentPage>

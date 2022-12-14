@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="IHM.Composant.BanqueVC"
+            x:Name="root">
+    
+    <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceAround">
+
+        <Label Text="{Binding NomBanque}" FontAttributes="Bold" FontSize="Body"/>
+        <Label Text="{Binding DateLastReload}" FontAttributes="Italic" FontSize="Body"/>
+        <ImageButton Source="reload_banks.png" 
+                     Padding="10" Margin="10"
+                     CornerRadius="10" HeightRequest="65" 
+                     BackgroundColor="{StaticResource Primary}"
+                     Clicked="MaBanque_Clicked"/>
+
+    </FlexLayout>
+</ViewCell>

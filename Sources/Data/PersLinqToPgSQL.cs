@@ -13,57 +13,75 @@ using System.Threading;
 using Model;
 using System.Runtime.CompilerServices;
 using System.Data.Common;
+using System.Reflection.PortableExecutable;
 
 namespace LinqToPgSQL
 {
     public class PersLinqToPgSQL : IPersistanceManager
     {
         private Hash hash = new Hash();
-        string connexionBDD = String.Format("Server=2.3.8.130; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
-       
-        public string LoadInscrit(string id, string mdp)
+        private static string connexionBDD = String.Format("Server=2.3.8.130; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
+
+        private static NpgsqlConnection dbAccess = new NpgsqlConnection(connexionBDD);
+
+        public bool TestConnexionAsDatabase()
         {
-            int resultat=0;
-            var conn = new NpgsqlConnection(connexionBDD);
-            Console.Out.WriteLine("Ouverture de la connection");
-            conn.Open();
-            NpgsqlParameter p1 = new NpgsqlParameter { ParameterName = "p", Value = id };
-            NpgsqlParameter p2 = new NpgsqlParameter { ParameterName = "p2", Value = mdp };
-            NpgsqlCommand cmd = new NpgsqlCommand($"SELECT id FROM INSCRIT WHERE (nom=(@p) OR mail=(@p)) AND mdp=@p2", conn);
-            cmd.Parameters.Add(p1);
-            cmd.Parameters.Add(p2);
-            NpgsqlDataReader dr = cmd.ExecuteReader();
+            bool isOk = true;
             try
             {
-                dr.Read();
-                resultat = dr.GetInt32(0);
-                dr.Close();
-                return resultat.ToString();
+                dbAccess.Open();
             }
-            catch (Exception ex)
+            catch(NpgsqlException ex)
             {
-                Debug.WriteLine(ex+"Utilisateur inconnu");
-                dr.Close();
-                return "null";//a changer doit retester
+                isOk = false;
+                Debug.WriteLine("Problème de connection à la base de données. - " + ex.Message);
             }
+            finally
+            {
+                dbAccess.Close();
+            }
+            return isOk;
+        }
+
+        public string GetId(string mail)
+        {
+            int resultat;
+            var conn = new NpgsqlConnection(connexionBDD);
+            conn.Open();
+            NpgsqlParameter p1 = new NpgsqlParameter { ParameterName = "p", Value = mail };
+            NpgsqlCommand cmd = new NpgsqlCommand($"SELECT id FROM INSCRIT WHERE mail=(@p)", conn);
+            cmd.Parameters.Add(p1);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            resultat = dr.GetInt32(0);
+            dr.Close();
+            conn.Close();
+            return resultat.ToString();
+
+        }
+
+        public string LoadInscrit(string id, string mdp)
+        {
+            int resultat;
+            var conn = new NpgsqlConnection(connexionBDD);
+            conn.Open();
+            NpgsqlParameter p1 = new NpgsqlParameter { ParameterName = "p", Value = id };
+            NpgsqlCommand cmd = new NpgsqlCommand($"SELECT id FROM INSCRIT WHERE mail=(@p)", conn);
+            cmd.Parameters.Add(p1);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            resultat = dr.GetInt32(0);
+            dr.Close();
+            conn.Close();
+            return resultat.ToString();
             
         }
 
         public bool ExistEmail(string mail)
         {
-            var conn = new NpgsqlConnection(connexionBDD);
-            Console.Out.WriteLine("Ouverture de la connection");
-            try
-            {
-                conn.Open();
-            }
-            catch
-            {
-                conn.Close();
-                Debug.WriteLine("Problème de connection à la base de données. Aprés fermeture, l'application se fermera automatiquement.");
-                Environment.Exit(-1);
-            }
 
+            var conn = new NpgsqlConnection(connexionBDD);
+            conn.Open();
             NpgsqlDataReader dbReader = new NpgsqlCommand("SELECT mail FROM Inscrit", conn).ExecuteReader();
 
             while (dbReader.Read())
@@ -76,6 +94,7 @@ namespace LinqToPgSQL
             }
 
             dbReader.Close();
+            conn.Close();
             return false;
         }
 
@@ -147,6 +166,35 @@ namespace LinqToPgSQL
                 }
             };
             await cmd.ExecuteNonQueryAsync();
+        }
+
+        public int CalculTotalSoldeComtpe(Inscrit user)
+        {
+            var conn = new NpgsqlConnection(connexionBDD);
+            Console.Out.WriteLine("Ouverture de la connection");
+            try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                conn.Close();
+                Debug.WriteLine("Problème de connection à la base de données. Aprés fermeture, l'application se fermera automatiquement.");
+                Environment.Exit(-1);
+            }
+            NpgsqlCommand cmd = new NpgsqlCommand($"SELECT sum(c.solde) FROM Compte c, Inscrit i, InscrBanque ib WHERE i.mail = (@mailUser) AND i.id = ib.idinscrit AND c.idinscritbanque = ib.id", conn)
+            {
+                Parameters =
+                {
+                    new NpgsqlParameter("mailuser", user.Mail),
+                }
+            };
+            NpgsqlDataReader dataReader = cmd.ExecuteReader();
+            if (dataReader.Read())
+            {
+                return dataReader.GetInt32(0);
+            }
+            return -1;
         }
 
         public string RecupMdpBdd(string mail)
@@ -237,7 +285,6 @@ namespace LinqToPgSQL
             using (var command1 = new NpgsqlCommand(requete, conn))
             {
                 command1.Parameters.AddWithValue("p", i.Id);
-                /*await command1.ExecuteNonQueryAsync();*/
             }
 
 
@@ -247,6 +294,35 @@ namespace LinqToPgSQL
             }
             dbReader.Close();
             return ListeCompte;
+        }
+
+        public List<Banque> LoadBanqueId(string id)
+        {
+            int idnombre = Int16.Parse(id);
+            List<Banque> ListeBanque = new List<Banque>();
+            Debug.WriteLine(idnombre);
+            var conn = new NpgsqlConnection(connexionBDD);
+            Console.Out.WriteLine("Ouverture de la connection");
+            try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                conn.Close();
+                Debug.WriteLine("Problème de connection à la base de données. Aprés fermeture, l'application se fermera automatiquement.");
+                Environment.Exit(-1);
+            }
+            NpgsqlCommand cmd = new NpgsqlCommand("select b.nom,b.urlsite,b.urllogo from banque b, inscrbanque ib, Inscrit i where ib.idinscrit =(@p) AND ib.nombanque = b.nom AND ib.idinscrit = i.id;", conn);
+            cmd.Parameters.AddWithValue("p", idnombre);
+            NpgsqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Debug.WriteLine(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2));
+                ListeBanque.Add(new Banque(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2)));
+            }
+            dataReader.Close();
+            return ListeBanque;
         }
 
         /*Suppression d'un inscrit dans la base de données*/
@@ -334,6 +410,31 @@ namespace LinqToPgSQL
             await cmd.ExecuteNonQueryAsync();
 
             // attente des autres supression
+        }
+
+        public List<Banque> ImportBanques()
+        {
+            List<Banque> bquesDispo = new List<Banque>();
+            dbAccess.Open();
+
+            NpgsqlCommand cmd = new NpgsqlCommand($"SELECT * FROM Banque", dbAccess);
+            NpgsqlDataReader dbReader = cmd.ExecuteReader();
+            while (dbReader.Read())
+            {
+                bquesDispo.Add(new Banque(dbReader.GetString(0), dbReader.GetString(1), dbReader.GetString(2)));
+            }
+            dbAccess.Close();
+            return bquesDispo;
+        }
+
+        public Inscrit GetInscrit(string mail)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Compte> GetCompteFromOFX(string ofx)
+        {
+            throw new NotImplementedException();
         }
     }
 }

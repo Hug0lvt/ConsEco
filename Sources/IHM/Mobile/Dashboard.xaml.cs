@@ -6,22 +6,34 @@ public partial class DashBoard : ContentPage
 {
     public Manager Mgr => (App.Current as App).Manager;
     public DashBoard()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         //Routing.RegisterRoute(nameof(DashBoard), typeof(DashBoard));
+        BindingContext = Mgr;
 
-
-        if (Mgr.SelectedInscrit == null)
+        if (Mgr.User == null)
         {
-            loadInscription();
+            loadPage(new MainPage());
+
         }
 
-        
+        if (!Mgr.testConnexionAsDatabase())
+        {
+            loadPage(new ErrorPage());
+
+        }
 
     }
 
-    public async void loadInscription()
+    public async void loadPage(Page p)
     {
-        await Navigation.PushModalAsync(new MainPage());
+        await Navigation.PushModalAsync(p);
     }
+
+    private void Banques_Clicked(object sender, EventArgs e)
+    {
+        loadPage(new GestionBanques());
+    }
+
+
 }

@@ -7,11 +7,6 @@
     Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False">
 
-    <!--<ShellContent
-        
-        ContentTemplate="{DataTemplate local:Dashboard}"
-        Route="MainPage" />-->
-
     <TabBar>
         <ShellContent Title="Tableau de Bord"
                      Icon="home_black.png"
@@ -40,5 +35,17 @@
     <ShellContent
         ContentTemplate="{DataTemplate local:ChangePassword}"
         Route="ChangePassword"/>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:GestionBanques}"
+        Route="GestionBanques"/>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:AjoutBanques}"
+        Route="AjoutBanques"/>
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:ErrorPage}"
+        Route="ErrorPage"/>
 
 </Shell>

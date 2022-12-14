@@ -28,6 +28,10 @@ public partial class ForgetPassword : ContentPage
 			ConnexionButton.IsEnabled = false;
 			UpdateArc();
 		}
+		else
+		{
+			AffichError("Mail inexistant", "Aucun compte possédant cette adresse email trouvé", "OK");
+		}
 	}
     private async void AffichError(string s, string s1, string s2)
     {

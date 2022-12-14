@@ -1,15 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Operation
+    public class Operation : INotifyPropertyChanged
     {
-
-        public string IntituleOperation { get; private set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public string IntituleOperation 
+        {
+            get => intituleOperation;
+            set
+            {
+                if (intituleOperation != value)
+                {
+                    intituleOperation = value;
+                    OnPropertyChanged(nameof(IntituleOperation));
+                }
+            }
+        }
+        private string intituleOperation;
 
         public double Montant { get; private set; }
 
@@ -18,22 +31,21 @@ namespace Model
         public MethodePayement ModePayement { get; private set; }
 
         public bool IsDebit { get; private set; }
-        
-        public string IdCompte { get; private set; }
 
-        public Operation(string intituleOperation, string idCompte, double montant, DateTime dateOperation, MethodePayement modePayement, bool isDebit=true)
+        public Operation(string intituleOperation, double montant, DateTime dateOperation, MethodePayement modePayement, bool isDebit=true)
         {
             IntituleOperation = intituleOperation;
-            IdCompte = idCompte;
             Montant = montant;
             DateOperation = dateOperation;
             ModePayement = modePayement;
             IsDebit = isDebit;
         }
 
+        void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
         public override string ToString()
         {
-            return IdCompte + " " + IntituleOperation + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + "\n";
+            return IntituleOperation + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + "\n";
         }
     }
 }

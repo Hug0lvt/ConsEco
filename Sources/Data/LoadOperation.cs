@@ -14,10 +14,11 @@ namespace Data
 {
     public class LoadOperation
     {
-        public static IList<Operation> LoadOperationsFromOFX(string csv)
+        public static IList<Compte> LoadOperationsFromOFX(string ofx)
         {
-            //liste des opérations d'un compte
-            IList<Operation> lesOpe = new List<Operation>();
+            IList<Compte> lesComptes = new List<Compte>();
+
+            Compte compteEnCoursDeSaisie = null;
 
             //détail d'une Operation
             string intituleOperation;
@@ -28,26 +29,31 @@ namespace Data
 
             //info compte
             string identifiantCompte="";
-            double solde=0;
 
-            using (StreamReader reader = new StreamReader(csv))
+            using (StreamReader reader = new StreamReader(ofx))
             {
                 if (reader != null)
                 {
                     string row;
                     while ((row = reader.ReadLine()) != null)
                     {
-                        if (row.Contains("<CURDEF>"))
+                        if (row.Contains("<STMTTRNRS>"))
                         {
-                            row = "";
+                            compteEnCoursDeSaisie = new Compte(identifiantCompte, identifiantCompte, 0);
+                            
+                        } 
+                        else if (row.Contains("</STMTTRNRS>")){
+                            lesComptes.Add(compteEnCoursDeSaisie);
                         }
-                        else if (row.Contains("<ACCTID>"))
+                        else if (row.Contains("<ACCTID>") || row.Contains("<CURDEF>"))
                         {
-                            identifiantCompte = CutRow(row).Last();
+                            compteEnCoursDeSaisie.Identifiant = CutRow(row).Last();
+                            compteEnCoursDeSaisie.Nom = CutRow(row).Last();
+
                         }
                         else if (row.Contains("<BALAMT>"))
                         {
-                            solde = Convert.ToDouble(GetValueInRow(row, 4));
+                            compteEnCoursDeSaisie.Solde = double.Parse(CutRow(row).Last(), CultureInfo.InvariantCulture);
                         }
                         else if (row.Contains("<STMTTRN>"))
                         {
@@ -93,7 +99,7 @@ namespace Data
                                     row = "";
                                 }
                             }
-                            lesOpe.Add(new Operation(intituleOperation, identifiantCompte, montant, dateOperation, modePayement, isDebit));
+                            compteEnCoursDeSaisie.ajouterOperation(new Operation(intituleOperation, montant, dateOperation, modePayement, isDebit));
                         }
                         else
                         {
@@ -102,7 +108,7 @@ namespace Data
                     }
                 }
             }
-            return lesOpe;
+            return lesComptes;
             
         }
 
@@ -114,19 +120,5 @@ namespace Data
             return cutRow;
         }
 
-        public static string GetValueInRow(string row, int position) 
-        {
-            string value;
-            string[] cutedRow = CutRow(row);
-            if (cutedRow != null)
-            {
-                if(cutedRow.Count() > position || position < 0) throw new IndexOutOfRangeException();
-                value = cutedRow[position];
-                return value;
-            }
-
-            throw new ArgumentNullException();
-            
-        }
     }
 }

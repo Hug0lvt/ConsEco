@@ -12,9 +12,11 @@ namespace IHM.Mobile
             BindingContext = this;
         }
 
+        
+
         public void ConnectionOnClicked(object sender, EventArgs e)
         {
-            if(EntryMail.Text == null || EntryPassworld.Text ==  null)
+            if (EntryMail.Text == null || EntryPassworld.Text ==  null)
             {
                 AffichError("Champ invalide", "Veuillez compléter tout les champs", "OK");
             }
@@ -23,7 +25,7 @@ namespace IHM.Mobile
                 {
                     if (Mgr.isEqualHash(Mgr.recupMdpBdd(EntryMail.Text), EntryPassworld.Text))
                     {
-                        Mgr.LoadInscrit(EntryMail.Text, EntryPassworld.Text);
+                        Mgr.createUser(EntryMail.Text);
                         ConnexionValide();
                     }
                     else
@@ -40,6 +42,7 @@ namespace IHM.Mobile
 
         private async void ConnexionValide()
         {
+            Mgr.LoadBanques();
             await Navigation.PopModalAsync();
         }
 

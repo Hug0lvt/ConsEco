@@ -32,5 +32,6 @@ namespace TestsUnitaires
             i1.SupprimerBanque(bq);
             Assert.DoesNotContain(bq, i1.LesBanques);
         }
+   
     }
 }
