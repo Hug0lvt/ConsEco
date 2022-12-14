@@ -25,6 +25,40 @@
             
         </HorizontalStackLayout>
 
+        <CollectionView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding LesOpe}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                               Source="{Binding ImageSrc}"
+                               CornerRadius="10"/>
+                        <Label Grid.Row="0" Grid.Column="1"
+                               Text="{Binding NomOpe}"
+                               FontAttributes="Bold" />
+                        <Label Grid.Row="1" Grid.Column="1"
+                               Text="{Binding DetailTypeOpe}"
+                               FontAttributes="Italic"/>
+                        <Label Grid.Row="0" Grid.Column="2"
+                               Text="{Binding DateOpe}"/>
+                        <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2"
+                               Text="{Binding MontantOpe}"
+                               FontAttributes="Bold"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
         <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Fill">
 
             <Border Background="{StaticResource Primary}"
