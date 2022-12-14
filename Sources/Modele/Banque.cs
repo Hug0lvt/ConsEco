@@ -1,17 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Banque
+    public class Banque : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public string Nom { get; private set; }
         public string UrlSite { get; private set; }
         public string UrlLogo { get; private set; }
-        public List<Compte> ListeDesComptes { get; private set; } = new List<Compte>();
+        public List<Compte> ListeDesComptes 
+        {
+            get => listeDesComptes;
+            set
+            {
+                if (listeDesComptes != value)
+                {
+                    listeDesComptes = value;
+                    OnPropertyChanged(nameof(ListeDesComptes));
+                }
+            } 
+        }
+        private List<Compte> listeDesComptes = new List<Compte>();
 
         public Banque(string nom, string urlSite, string urlLogo)
         {
@@ -28,6 +42,7 @@ namespace Model
             ListeDesComptes = lescomptes;
         }
 
+        void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         public void AjouterCompte(Compte compte)
         {
             ListeDesComptes.Add(compte);

@@ -21,5 +21,8 @@ namespace Model
         List<Banque> LoadBanqueId(string id);
         public bool TestConnexionAsDatabase();
         public List<Banque> ImportBanques();
+        public Inscrit GetInscrit(string mail);
+
+        public IList<Compte> GetCompteFromOFX(string ofx);
     }
 }

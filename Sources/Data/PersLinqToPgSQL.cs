@@ -427,7 +427,14 @@ namespace LinqToPgSQL
             return bquesDispo;
         }
 
+        public Inscrit GetInscrit(string mail)
+        {
+            throw new NotImplementedException();
+        }
 
-
+        public IList<Compte> GetCompteFromOFX(string ofx)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

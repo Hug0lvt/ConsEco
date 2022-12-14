@@ -138,7 +138,8 @@ namespace Model
 
         public void createUser(string mail)
         {
-            User = new Inscrit(mail, GetId(mail));
+            //User = new Inscrit(mail, GetId(mail));
+            User = Pers.GetInscrit(mail);
         }
 
         public int recupTotalSolde()
@@ -160,6 +161,11 @@ namespace Model
         public void importBanques()
         {
             BanquesDisponibleInApp = Pers.ImportBanques();
+        }
+
+        public IList<Compte> getCompteFromOFX(string ofx)
+        {
+            return Pers.GetCompteFromOFX(ofx);
         }
 
     }

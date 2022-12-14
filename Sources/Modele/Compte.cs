@@ -1,14 +1,29 @@
 ﻿using Microsoft.Maui.Graphics;
+using System.Collections.Specialized;
+using System.ComponentModel;
 
 namespace Model
 {
-    public class Compte
+    public class Compte : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public string Identifiant { get; set; }
         public string Nom { get; set; }
         public double Solde { get; set; }
         public DateTime DerniereModification { get; set; }
-        public List<Operation> LesOpe { get; set; } = new List<Operation>();
+        public List<Operation> LesOpe 
+        {
+            get => lesOpe;
+            set
+            {
+                if (lesOpe != value)
+                {
+                    lesOpe = value;
+                    OnPropertyChanged(nameof(LesOpe));
+                }
+            }
+        } 
+        private List<Operation> lesOpe = new List<Operation>();
         public List<Planification> LesPla { get; set; } = new List<Planification>();
         public List<Echeance> LesEch { get; set; } = new List<Echeance>();
         public Compte(string id,string nom, double solde)
@@ -30,6 +45,9 @@ namespace Model
         {
             LesEch = lesEch;
         }
+
+        
+        void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         public void ajouterOperation(Operation o)
         {

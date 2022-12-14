@@ -1,15 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Operation
+    public class Operation : INotifyPropertyChanged
     {
-
-        public string IntituleOperation { get; private set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public string IntituleOperation 
+        {
+            get => intituleOperation;
+            set
+            {
+                if (intituleOperation != value)
+                {
+                    intituleOperation = value;
+                    OnPropertyChanged(nameof(IntituleOperation));
+                }
+            }
+        }
+        private string intituleOperation;
 
         public double Montant { get; private set; }
 
@@ -27,6 +40,8 @@ namespace Model
             ModePayement = modePayement;
             IsDebit = isDebit;
         }
+
+        void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         public override string ToString()
         {
