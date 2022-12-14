@@ -5,6 +5,7 @@ public partial class Compte : ContentView
 	public Compte()
 	{
 		InitializeComponent();
+
 	}
 
 }

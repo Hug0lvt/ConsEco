@@ -14,7 +14,7 @@
 
         <Label
             FontAttributes="Bold"
-            Text="Compte courant --- 'BINDING'"
+            Text="{Binding Banque}"
             HorizontalOptions="Center"
             VerticalOptions="CenterAndExpand"
             FontFamily="Comic Sans MS"

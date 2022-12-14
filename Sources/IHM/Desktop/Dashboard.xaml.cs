@@ -8,6 +8,7 @@ public partial class Dashboard
     public Dashboard()
 	{
 		InitializeComponent();
+
 	}
 
 	private void RetourFormeBase()
