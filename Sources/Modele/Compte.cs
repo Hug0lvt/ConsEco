@@ -1,6 +1,4 @@
-﻿using Microsoft.Maui.Graphics;
-using System.Collections.Specialized;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace Model
 {

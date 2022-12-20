@@ -12,9 +12,9 @@ namespace TestsUnitaires
         [Fact]
         public void testCtorInscrit()
         {
-            Inscrit i = new Inscrit("I001", "LIVET", "Hugo.LIVET@etu.uca.fr", "Hugo", "Tu Sauras Passss:)1215", 2000);
+            Inscrit i = new Inscrit(1, "LIVET", "Hugo.LIVET@etu.uca.fr", "Hugo", "Tu Sauras Passss:)1215", 2000);
             Assert.NotNull(i);
-            Assert.Equal("I001", i.Id);
+            Assert.Equal(1, i.Id);
             Assert.Equal("LIVET", i.Nom);
             Assert.Equal("Hugo.LIVET@etu.uca.fr", i.Mail);
             Assert.Equal("Hugo", i.Prenom);
@@ -28,9 +28,9 @@ namespace TestsUnitaires
             List<Banque> lesBanques = new List<Banque>();
             Banque b = new Banque("CA", "enavantouioui.fr", "NaN.fr");
             lesBanques.Add(b);
-            Inscrit i = new Inscrit("I001", "LIVET", "Hugo.LIVET@etu.uca.fr", "Hugo", "Tu Sauras Passss:)1215", 2000, lesBanques);
+            Inscrit i = new Inscrit(1, "LIVET", "Hugo.LIVET@etu.uca.fr", "Hugo", "Tu Sauras Passss:)1215", 2000, lesBanques);
             Assert.NotNull(i);
-            Assert.Equal("I001", i.Id);
+            Assert.Equal(1, i.Id);
             Assert.Equal("LIVET", i.Nom);
             Assert.Equal("Hugo.LIVET@etu.uca.fr", i.Mail);
             Assert.Equal("Hugo", i.Prenom);
@@ -45,7 +45,7 @@ namespace TestsUnitaires
         public void testAjoutBanqueInscrit()
         {
             Banque b = new Banque("CA", "enavantouioui.fr", "NaN.fr");
-            Inscrit i = new Inscrit("I001", "LIVET", "Hugo.LIVET@etu.uca.fr", "Hugo", "Tu Sauras Passss:)1215", 2000);
+            Inscrit i = new Inscrit(1, "LIVET", "Hugo.LIVET@etu.uca.fr", "Hugo", "Tu Sauras Passss:)1215", 2000);
             i.ajouterBanque(b);
             Assert.Contains(b, i.LesBanques);
         }
@@ -54,7 +54,7 @@ namespace TestsUnitaires
         public void testSupprimerBanqueInscrit()
         {
             Banque b = new Banque("CA", "enavantouioui.fr", "NaN.fr");
-            Inscrit i = new Inscrit("I001", "LIVET", "Hugo.LIVET@etu.uca.fr", "Hugo", "Tu Sauras Passss:)1215", 2000);
+            Inscrit i = new Inscrit(1, "LIVET", "Hugo.LIVET@etu.uca.fr", "Hugo", "Tu Sauras Passss:)1215", 2000);
             i.ajouterBanque(b);
             i.SupprimerBanque(b);
             Assert.DoesNotContain(b, i.LesBanques);
@@ -66,17 +66,17 @@ namespace TestsUnitaires
         [Fact]
         public void testChoixDeviseInscrit()
         {
-            Inscrit i = new Inscrit("I001", "LIVET", "Hugo.LIVET@etu.uca.fr", "Hugo", "Tu Sauras Passss:)1215", 2000);
+            Inscrit i = new Inscrit(1, "LIVET", "Hugo.LIVET@etu.uca.fr", "Hugo", "Tu Sauras Passss:)1215", 2000);
             i.ChoisirDevise(Devises.Euro);
             Assert.Equal(Devises.Euro, i.Dev);
         }
 
         [Theory]
-        [InlineData("I000001", "LIVET", "a@a.fr", "Hugo", "123Soleil@azerty", 20000, true)]//OK
-        [InlineData("I000002", "LIVET", "aa.fr", "Hugo", "123Soleil@azerty", 20000, false)]//Mail invalide psk pas de @
-        [InlineData("I000003", "LIVET", "a@a.fr", "Hugo", "123soleil@azerty", 20000, false)]//mdp Invalide psk mdp sans Maj
-        [InlineData("I000004", "LIVET", "a@a.fr", "Hugo", "Soleil@azerty", 20000, false)]//mdp Invalide psk pas de chiffres
-        public void CtorInscrit2TU(string id, string nom, string mail, string prenom, string mdp, double solde, bool notShouldThrowException)
+        [InlineData(1, "LIVET", "a@a.fr", "Hugo", "123Soleil@azerty", 20000, true)]//OK
+        [InlineData(2, "LIVET", "aa.fr", "Hugo", "123Soleil@azerty", 20000, false)]//Mail invalide psk pas de @
+        [InlineData(3, "LIVET", "a@a.fr", "Hugo", "123soleil@azerty", 20000, false)]//mdp Invalide psk mdp sans Maj
+        [InlineData(4, "LIVET", "a@a.fr", "Hugo", "Soleil@azerty", 20000, false)]//mdp Invalide psk pas de chiffres
+        public void CtorInscrit2TU(int id, string nom, string mail, string prenom, string mdp, double solde, bool notShouldThrowException)
         {
             if (!notShouldThrowException)
             {
