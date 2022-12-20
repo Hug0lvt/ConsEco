@@ -18,7 +18,7 @@ namespace Model
         void ChangePasswordBdd(string mail, string newMdp);
         string RecupMdpBdd(string mail);
         int CalculTotalSoldeComtpe(Inscrit user);
-        List<Banque> LoadBanqueId(string id);
+        List<Banque> LoadBanqueId(int id);
         public bool TestConnexionAsDatabase();
         public List<Banque> ImportBanques();
         public Inscrit GetInscrit(string mail);

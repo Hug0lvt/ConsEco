@@ -9,14 +9,14 @@ namespace Data
         public Stub()
         {
             lesInscrits.Add(new Inscrit(
-                "1",
+                1,
                 "LIVET",
                 "livet.hugo2003@gmail.com",
                 "Hugo",
                 "Bonjour63."
                 ));
         }
-        public string GetId(string mail)
+        public int GetId(string mail)
         {
             foreach(Inscrit i in lesInscrits)
             {
@@ -25,7 +25,7 @@ namespace Data
                     return i.Id;
                 }
             }
-            return null;
+            return -1;
         }
         public void SupprimerInscritBdd(Inscrit inscrit)
         {
@@ -120,6 +120,16 @@ namespace Data
         public IList<Compte> GetCompteFromOFX(string ofx)
         {
             return LoadOperation.LoadOperationsFromOFX(ofx);
+        }
+
+        string IPersistanceManager.GetId(string mail)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Banque> LoadBanqueId(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
