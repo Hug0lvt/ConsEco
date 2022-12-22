@@ -10,9 +10,9 @@ steps:
     - name: build
       image: mcr.microsoft.com/dotnet/sdk:6.0
       commands:
+        - dotnet add package Newtonsoft.Json
         - cd Sources
         - dotnet workload restore
-        - dotnet add package Newtonsoft.Json
         - dotnet restore CI_MAUI.sln
         - dotnet build CI_MAUI.sln -c Release --no-restore
         - dotnet publish CI_MAUI.sln -c Release --no-restore -o CI_PROJECT_DIR/build/release
@@ -28,9 +28,9 @@ steps:
     - name: code-analysis
       image: hub.codefirst.iut.uca.fr/thomas.bellembois/codefirst-dronesonarplugin-dotnet6
       commands:
+        - dotnet add package Newtonsoft.Json
         - cd Sources/
         - dotnet workload restore
-        - dotnet add package Newtonsoft.Json
         - dotnet restore CI_MAUI.sln
         - dotnet sonarscanner begin /k:ConsEco /d:sonar.host.url=$${PLUGIN_SONAR_HOST} /d:sonar.coverageReportPaths="coveragereport/SonarQube.xml" /d:sonar.coverage.exclusions="Tests/**" /d:sonar.login=$${PLUGIN_SONAR_TOKEN} 
         - dotnet build CI_MAUI.sln -c Release --no-restore
