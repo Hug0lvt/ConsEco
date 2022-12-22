@@ -2,11 +2,11 @@
 
 namespace Data
 {
-    public class Stub : IPersistanceManager
+    public class PersStub : IPersistanceManager
     {
         private List<Inscrit> lesInscrits = new List<Inscrit>();
 
-        public Stub()
+        public PersStub()
         {
             lesInscrits.Add(new Inscrit(
                 1,
