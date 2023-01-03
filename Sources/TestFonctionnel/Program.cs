@@ -31,6 +31,8 @@ foreach (Compte compte in comptes)
 
 Console.WriteLine("Test ClientAPI");
 
+Console.WriteLine("\n\n\n----Inscrits----\n");
+
 IList<Inscrit> res = ClientAPI.GetInscritsAsync().GetAwaiter().GetResult();
 foreach(Inscrit i in res)
 {
@@ -64,7 +66,7 @@ foreach (Inscrit i in modif)
 Console.WriteLine("\n----Modifs----\n");
 
 bool rrr = ClientAPI.DeleteInscritAsync("livet.hugo2003@gmail.com").GetAwaiter().GetResult();
-Console.WriteLine("Del user : " + rr + "\n");
+Console.WriteLine("Del user : " + rrr + "\n");
 
 
 modif = ClientAPI.GetInscritsAsync().GetAwaiter().GetResult();
@@ -77,6 +79,40 @@ Console.WriteLine("\n\n\n----Banques----\n");
 
 IList<Banque> banques = ClientAPI.GetBanquesAsync().GetAwaiter().GetResult();
 foreach (Banque b in banques)
+{
+    Console.WriteLine(b);
+}
+
+Console.WriteLine("\n--------\n");
+
+IList<Banque> banquesId1 = ClientAPI.GetBanqueAsync("1").GetAwaiter().GetResult();
+foreach (Banque b in banquesId1)
+{
+    Console.WriteLine(b);
+}
+
+Console.WriteLine("\n----Modifs----\n");
+
+bool rrrr = ClientAPI.PostAddBanqueInscritAsync("ORANGE BANK","1").GetAwaiter().GetResult();
+Console.WriteLine("Add banque for user : " + rrrr + "\n");
+
+Console.WriteLine("\n----Verif----\n");
+
+banquesId1 = ClientAPI.GetBanqueAsync("1").GetAwaiter().GetResult();
+foreach (Banque b in banquesId1)
+{
+    Console.WriteLine(b);
+}
+
+Console.WriteLine("\n----Modifs----\n");
+
+bool rrrrrr = ClientAPI.DeleteBanqueInscritAsync("ORANGE BANK", "1").GetAwaiter().GetResult();
+Console.WriteLine("Del banque for user : " + rrrrrr + "\n");
+
+Console.WriteLine("\n----Verif----\n");
+
+banquesId1 = ClientAPI.GetBanqueAsync("1").GetAwaiter().GetResult();
+foreach (Banque b in banquesId1)
 {
     Console.WriteLine(b);
 }

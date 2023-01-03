@@ -48,19 +48,19 @@ namespace Data
         //actions sur les banques
         public bool AjouterBanque(Banque banque, Inscrit inscrit)
         {
-            throw new NotImplementedException();
+            return ClientAPI.PostAddBanqueInscritAsync(banque.Nom, inscrit.Id.ToString()).GetAwaiter().GetResult();
         }
         public bool SupprimerBanque(Banque banque, Inscrit inscrit)
         {
-            throw new NotImplementedException();
+            return ClientAPI.DeleteBanqueInscritAsync(banque.Nom, inscrit.Id.ToString()).GetAwaiter().GetResult();
         }
         public IList<Banque> RecupererBanques(Inscrit inscrit)
         {
-            throw new NotImplementedException();
+            return ClientAPI.GetBanqueAsync(inscrit.Id.ToString()).GetAwaiter().GetResult();
         }
         public IList<Banque> RecupererBanquesDisponible()
         {
-            throw new NotImplementedException();
+            return ClientAPI.GetBanquesAsync().GetAwaiter().GetResult();
         }
 
 

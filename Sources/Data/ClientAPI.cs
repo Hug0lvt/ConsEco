@@ -137,6 +137,60 @@ namespace Data
             }
         }
 
+        public static async Task<List<Banque>> GetBanqueAsync(string id)
+        {
+            var dataBody = new Dictionary<string, string> { { "id", id } };
+            HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_BANQUES_INSCRIT_DATA_URL, dataBody);
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<List<Banque>>(await reponse.Content.ReadAsStringAsync());
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
+        public static async Task<bool> PostAddBanqueInscritAsync(string nomBanque, string idInscrit)
+        {
+            var dataBody = new Dictionary<string, string> { { "nom", nomBanque }, { "idInscrit", idInscrit } };
+            HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_ADD_BANQUE_INSCRIT_DATA_URL, dataBody);
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
+        public static async Task<bool> DeleteBanqueInscritAsync(string nomBanque, string idInscrit)
+        {
+            var dataBody = new Dictionary<string, string> { { "nom", nomBanque }, { "idInscrit", idInscrit } };
+
+            var reponse =
+                cli.SendAsync(
+                new HttpRequestMessage(HttpMethod.Delete, DELETE_BANQUE_INSCRIT_DATA_URL)
+                {
+                    Content = new FormUrlEncodedContent(dataBody)
+                })
+                .Result;
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
 
 
     }

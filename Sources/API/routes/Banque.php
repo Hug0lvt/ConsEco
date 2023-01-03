@@ -74,9 +74,9 @@ $app->post('/Banque/FromId/', function(Request $request, Response $response,arra
 
 $app->post('/Banque/add/', function(Request $request, Response $response, array $args){
     $nom = $request->getParsedBody()["nom"];
-    $idInscrit = $request->getParsedBody()["idIscrit"];
+    $idInscrit = $request->getParsedBody()["idInscrit"];
 
-    $query = "INSERT INTO InscrBanque (nomBanque, idInscrit) VALUES (:nom, :idInscrit) WHERE EXISTS (SELECT nom FROM Banque WHERE nom=:nom)";
+    $query = "INSERT INTO InscrBanque (nomBanque, idInscrit) VALUES (:nom, :idI)";
 
     try{
         $db = new Database();
@@ -84,7 +84,7 @@ $app->post('/Banque/add/', function(Request $request, Response $response, array 
 
         $stmt = $conn->prepare($query);
         $stmt->bindValue(':nom', $nom, PDO::PARAM_STR);
-        $stmt->bindValue(':idInscrit', $idInscrit, PDO::PARAM_STR);
+        $stmt->bindValue(':idI', $idInscrit, PDO::PARAM_STR);
 
         $result = $stmt->execute();
         
@@ -105,9 +105,9 @@ $app->post('/Banque/add/', function(Request $request, Response $response, array 
 
 $app->delete('/Banque/delete/', function (Request $request, Response $response, array $args) {
     $nom = $request->getParsedBody()["nom"];
-    $idInscrit = $request->getParsedBody()["idIscrit"];
+    $idInscrit = $request->getParsedBody()["idInscrit"];
 
-    $query = "DELETE FROM InscrBanque WHERE nom=:nom AND idInscrit=:idI";
+    $query = "DELETE FROM InscrBanque WHERE nomBanque=:nom AND idInscrit=:idI";
 
     try{
         $db = new Database();
