@@ -8,8 +8,6 @@ use OpenApi\Annotations as OA;
 *   @OA\Info(title="My First API", version="0.1")
 */
 
-$app = AppFactory::create();
-
 $app->addBodyParsingMiddleware();
 $app->addRoutingMiddleware();
 $app->addErrorMiddleware(true, true, true);

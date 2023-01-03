@@ -14,10 +14,6 @@ $app->get('/', function (Request $request, Response $response, $args) {
     return $response;
 });
 
-$app->get('/Inscrit/', function(Request $request, Response $response, $args){
-    print('TEEEEST');
-});
-
 require __DIR__.'/../routes/Inscrit.php';
 require __DIR__.'/../routes/Banque.php';
 
