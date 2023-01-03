@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -27,6 +28,7 @@ namespace Model
         }
         private List<Compte> listeDesComptes = new List<Compte>();
 
+        [JsonConstructor]
         public Banque(string nom, string urlSite, string urlLogo)
         {
             Nom = nom;
@@ -70,6 +72,11 @@ namespace Model
                     return compte;
             }
             throw new KeyNotFoundException();
+        }
+
+        public override string ToString()
+        {
+            return Nom + " " + UrlSite + " " + UrlLogo;
         }
 
     }

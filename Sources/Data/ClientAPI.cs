@@ -24,11 +24,20 @@ namespace Data
         private const string POST_ADD_INSCRIT_DATA_URL = ROOT_URL + "Inscrit/add/";
         private const string DELETE_INSCRIT_DATA_URL = ROOT_URL + "Inscrit/delete/";
 
+        //routes banque
+        private const string GET_BANQUES_DATA_URL = ROOT_URL + "Banque/";
+        private const string POST_BANQUES_INSCRIT_DATA_URL = ROOT_URL + "Banque/FromId/";
+        private const string POST_ADD_BANQUE_INSCRIT_DATA_URL = ROOT_URL + "Banque/add/";
+        private const string DELETE_BANQUE_INSCRIT_DATA_URL = ROOT_URL + "Banque/delete/";
+
         //add all routes
 
 
         private static HttpClient cli = new HttpClient();
 
+
+
+        //Inscrit
         public static async Task<List<Inscrit>> GetInscritsAsync()
         { 
             HttpResponseMessage reponse = await cli.GetAsync(GET_INSCRITS_DATA_URL);
@@ -112,6 +121,23 @@ namespace Data
             }
 
         }
+
+
+        //Banque
+        public static async Task<List<Banque>> GetBanquesAsync()
+        {
+            HttpResponseMessage reponse = await cli.GetAsync(GET_BANQUES_DATA_URL);
+            if (reponse.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<List<Banque>>(await reponse.Content.ReadAsStringAsync());
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+        }
+
+
 
     }
 }

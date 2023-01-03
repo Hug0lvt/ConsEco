@@ -30,13 +30,13 @@ foreach (Compte compte in comptes)
 
 
 Console.WriteLine("Test ClientAPI");
-
+/*
 IList<Inscrit> res = ClientAPI.GetInscritsAsync().GetAwaiter().GetResult();
 foreach(Inscrit i in res)
 {
     Console.WriteLine(i);
 }
-
+*/
 Console.WriteLine("\n--------\n");
 
 IList<Inscrit> inscrit = ClientAPI.GetInscritAsync("renaudtoutnu@gmail.com").GetAwaiter().GetResult();
@@ -71,4 +71,12 @@ modif = ClientAPI.GetInscritsAsync().GetAwaiter().GetResult();
 foreach (Inscrit i in modif)
 {
     Console.WriteLine(i);
+}
+
+Console.WriteLine("\n\n\n----Banques----\n");
+
+IList<Banque> banques = ClientAPI.GetBanquesAsync().GetAwaiter().GetResult();
+foreach (Banque b in banques)
+{
+    Console.WriteLine(b);
 }

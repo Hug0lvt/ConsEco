@@ -20,9 +20,8 @@ namespace Model
 
 
         //actions sur les banques
-        bool AjouterBanque(Banque banque);
-        bool SupprimerBanque(Banque banque);
-        bool ModifierBanque(Banque banque);
+        bool AjouterBanque(Banque banque, Inscrit inscrit);
+        bool SupprimerBanque(Banque banque, Inscrit inscrit);
         IList<Banque> RecupererBanques(Inscrit inscrit);
         IList<Banque> RecupererBanquesDisponible();
 

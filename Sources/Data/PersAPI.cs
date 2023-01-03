@@ -46,15 +46,11 @@ namespace Data
 
 
         //actions sur les banques
-        public bool AjouterBanque(Banque banque)
+        public bool AjouterBanque(Banque banque, Inscrit inscrit)
         {
             throw new NotImplementedException();
         }
-        public bool SupprimerBanque(Banque banque)
-        {
-            throw new NotImplementedException();
-        }
-        public bool ModifierBanque(Banque banque)
+        public bool SupprimerBanque(Banque banque, Inscrit inscrit)
         {
             throw new NotImplementedException();
         }
