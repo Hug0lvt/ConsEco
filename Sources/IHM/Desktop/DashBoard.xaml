@@ -36,7 +36,7 @@
                 <Button Text="OPERATION" x:Name="ButOpe" BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="3" Clicked="Button_operation"></Button>
                 <Button Text="ECHEANCIER" x:Name="ButEch" BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="4" Clicked="Button_echeancier"></Button>
                 <Button Text="PLANIFICATION" x:Name="ButPla"  BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="5" Clicked="Button_planification"></Button>
-                <Button Text="STATISTIQUES" x:Name="ButSta" BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="6"></Button>
+                <Button Text="STATISTIQUES" x:Name="ButSta" BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="6" Clicked="Button_statistiques"></Button>
             </StackLayout>
 
 

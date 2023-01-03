@@ -25,7 +25,7 @@ public partial class Dashboard
 	{
         RetourFormeBase();
 		ButPla.TextColor = Colors.White;
-        ButPla.BackgroundColor = Colors.Red;
+        ButPla.BackgroundColor = Colors.Coral;
         mainCV.Content= new CV_Planification();
     }
 
@@ -53,8 +53,11 @@ public partial class Dashboard
         mainCV.Content = new Compte();
     }
 
-	private void Button_Clicked(object sender, EventArgs e)
+	private void Button_statistiques(object sender, EventArgs e)
 	{
-
-	}
+        RetourFormeBase();
+        ButSta.TextColor = Colors.White;
+        ButSta.BackgroundColor = Colors.Red;
+        mainCV.Content = new CV_Statistiques();
+    }
 }
