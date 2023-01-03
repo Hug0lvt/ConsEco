@@ -30,13 +30,13 @@ foreach (Compte compte in comptes)
 
 
 Console.WriteLine("Test ClientAPI");
-/*
+
 IList<Inscrit> res = ClientAPI.GetInscritsAsync().GetAwaiter().GetResult();
 foreach(Inscrit i in res)
 {
     Console.WriteLine(i);
 }
-*/
+
 Console.WriteLine("\n--------\n");
 
 IList<Inscrit> inscrit = ClientAPI.GetInscritAsync("renaudtoutnu@gmail.com").GetAwaiter().GetResult();
