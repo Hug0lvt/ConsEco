@@ -1,11 +1,15 @@
 using Microsoft.Maui.Controls.Internals;
 using Model;
+using static AndroidX.ConstraintLayout.Core.Motion.Utils.HyperSpline;
 
 namespace IHM.Desktop;
 
 public partial class CV_Planification : ContentView
 {
-   
+   //pour test sur la listView en attendant le stub ou la pers
+	public List<Compte> listTest = new List<Compte>();
+
+
     public CV_Planification()
 	{
 		InitializeComponent();

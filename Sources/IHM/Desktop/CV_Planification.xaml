@@ -19,34 +19,67 @@
         <Button Text="Planifier une échéance"  BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource Secondary}" Grid.Column="0" Grid.Row="0" Clicked="Button_Clicked" ></Button>
         <Button Text="Supprimer une planification"  BackgroundColor="{StaticResource Tertiary}" TextColor="{StaticResource Secondary}" Grid.Column="1" Grid.Row="0" Clicked="Button_Clicked_1"></Button>
 
-        <ContentView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"  Margin="15" x:Name="windowAjout">
-            <Grid BackgroundColor="{StaticResource Yellow300Accent}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
 
 
-                <Label Text="Planification"/>
-                
-               
+            <ContentView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"  Margin="15"  x:Name="windowAjout">
+                <Grid BackgroundColor="{StaticResource Yellow300Accent}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
 
-            </Grid>
 
-        </ContentView>
+                    <Label Text="Nom" Grid.Column="0" TextColor="{StaticResource Secondary}" />
+                    <Label Text="Date" Grid.Column="1" TextColor="{StaticResource Secondary}" />
+                    <Label Text="Type" Grid.Column="2" TextColor="{StaticResource Secondary}" />
+                    <Label Text="Tag" Grid.Column="3" TextColor="{StaticResource Secondary}" />
+                    <Label Text="Montant" Grid.Column="4" TextColor="{StaticResource Secondary}" />
 
+
+                    <ListView Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="6" BackgroundColor="Aqua" ItemsSource="{Binding listTest}">
+                        <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="leclerc" Grid.Column="0" TextColor="{StaticResource Tertiary}"  />
+                                        <Label Text="12/12/2022" Grid.Column="1" TextColor="{StaticResource Secondary}" />
+                                        <Label Text="CB" Grid.Column="2" TextColor="{StaticResource Secondary}" />
+                                        <Label Text="Alimentation" Grid.Column="3" TextColor="{StaticResource Secondary}" />
+                                        <Label Text="55€" Grid.Column="4" TextColor="{StaticResource Secondary}" />
+
+                                  
+                                    </Grid>
+                                </ViewCell> 
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
+                </Grid>
+
+
+
+            </ContentView>
+
+       
         
 
    
