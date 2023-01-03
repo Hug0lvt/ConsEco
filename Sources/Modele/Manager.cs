@@ -23,6 +23,9 @@ namespace Model
                 }
             }
         }
+
+    
+
         private Banque selectedBanque;
 
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -32,6 +35,7 @@ namespace Model
             Pers = persistance;
         }
 
+     
         public void SupprimerInscritBdd(Inscrit i)
         {
             Pers.SupprimerInscritBdd(i);
@@ -76,6 +80,8 @@ namespace Model
         {
             return hash.IsEqualHash(mdpBdd, mdpSent);
         }
+
+
     }
 
 }

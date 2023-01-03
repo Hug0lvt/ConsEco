@@ -17,7 +17,7 @@
 
 
         <Button Text="Planifier une échéance"  BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource Secondary}" Grid.Column="0" Grid.Row="0" Clicked="Button_Clicked" ></Button>
-        <Button Text="Supprimer une échéance"  BackgroundColor="{StaticResource Tertiary}" TextColor="{StaticResource Secondary}" Grid.Column="1" Grid.Row="0" Clicked="Button_Clicked_1"></Button>
+        <Button Text="Supprimer une planification"  BackgroundColor="{StaticResource Tertiary}" TextColor="{StaticResource Secondary}" Grid.Column="1" Grid.Row="0" Clicked="Button_Clicked_1"></Button>
 
         <ContentView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"  Margin="15" x:Name="windowAjout">
             <Grid BackgroundColor="{StaticResource Yellow300Accent}">
@@ -40,6 +40,7 @@
 
 
                 <Label Text="Planification"/>
+                
                
 
             </Grid>

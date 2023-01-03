@@ -5,10 +5,12 @@ namespace IHM.Desktop;
 
 public partial class CV_Planification : ContentView
 {
-    public Manager Mgr => (App.Current as App).Manager;
+   
     public CV_Planification()
 	{
 		InitializeComponent();
+
+	
 
 		
 
@@ -21,6 +23,6 @@ public partial class CV_Planification : ContentView
 
 	private void Button_Clicked_1(object sender, EventArgs e)
 	{
-
-	}
+        windowAjout.Content = new CV_DeletePlanification();
+    }
 }
