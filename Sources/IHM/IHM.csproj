@@ -60,6 +60,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Desktop\CV_retirer.cs" />
 	  <Compile Remove="Desktop\Planification.xaml.cs" />
 	</ItemGroup>
 
@@ -110,10 +111,19 @@
 	  <MauiXaml Update="Desktop\CV_AddPlanification.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Desktop\CV_credit.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\CV_debit.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Desktop\CV_DeletePlanification.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Desktop\CV_Planification.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Desktop\CV_retirer.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Desktop\CV_Statistiques.xaml">

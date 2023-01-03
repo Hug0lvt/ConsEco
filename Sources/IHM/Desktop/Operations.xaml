@@ -2,36 +2,103 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Desktop.Operations"
-             BackgroundColor="{StaticResource Yellow300Accent}">
-    <VerticalStackLayout Margin="20">
-        <Label 
-            Style="{StaticResource TitreWindows}"
-            Text="OPERATION"
-            VerticalOptions="StartAndExpand"/>
+            >
+   
 
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Button
+
+  
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--        <Button Text="Planifier une échéance"  BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource Secondary}" Grid.Column="0" Grid.Row="0" Clicked="Button_Clicked" ></Button>
+        <Button Text="Supprimer une planification"  BackgroundColor="{StaticResource Tertiary}" TextColor="{StaticResource Secondary}" Grid.Column="1" Grid.Row="0" Clicked="Button_Clicked_1"></Button>
+        <Button Text="Supprimer une planification"  BackgroundColor="{StaticResource Tertiary}" TextColor="{StaticResource Secondary}" Grid.Column="2" Grid.Row="0" Clicked="Button_Clicked_1"></Button>
+        <Button Text="Supprimer une planification"  BackgroundColor="{StaticResource Tertiary}" TextColor="{StaticResource Secondary}" Grid.Column="3" Grid.Row="0" Clicked="Button_Clicked_1"></Button>
+
+-->
+
+        <Button
+                Clicked="AddCredit_Clicked"
+                Grid.Column="0" Grid.Row="0" 
                 x:Name="AddCredit"
                 Text="Effectuer un crédit"
                 Style="{StaticResource WindowsButton}"/>
 
-            <Button
+        <Button
+                Clicked="RetireOperation_Clicked"
+                Grid.Column="1" Grid.Row="0" 
                 x:Name="RetireOperation"
                 Text="Retirer une opération"
                 Style="{StaticResource WindowsButton}"/>
 
-            <Button
+        <Button
+                Clicked="AddDebit_Clicked"
+                Grid.Column="2" Grid.Row="0" 
                 x:Name="AddDebit"
                 Text="effectuer un débit"
                 Style="{StaticResource WindowsButton}"/>
 
-            <Button
+        <Button
+                Clicked="DelOperation_Clicked"
+                Grid.Column="3" Grid.Row="0" 
                 x:Name="DelOperation"
                 Text="Supprimer une opération"
                 Style="{StaticResource WindowsButton}"/>
 
-        </HorizontalStackLayout>
 
 
-    </VerticalStackLayout>
+
+
+        <ContentView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="2"  Margin="15"  x:Name="windowAjout">
+            <Grid BackgroundColor="{StaticResource Yellow300Accent}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+
+          
+
+
+               
+
+            </Grid>
+
+
+
+        </ContentView>
+
+
+
+
+
+
+
+
+    </Grid>
 </ContentView>

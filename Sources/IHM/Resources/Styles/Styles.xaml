@@ -406,7 +406,7 @@
 
     <Style TargetType="Button" x:Key="WindowsButton">
         <Setter Property="TextColor" Value="Black"/>
-        <Setter Property="Margin" Value="20"/>
+        <Setter Property="Margin" Value="10"/>
         <Setter Property="CornerRadius" Value="20"/>
         <Setter Property="BorderWidth" Value="1"/>
         <Setter Property="BorderColor" Value="Black"/>
@@ -416,7 +416,7 @@
 
     <Style TargetType="Border" x:Key="TotalButton">
         <Setter Property="StrokeThickness" Value="1"/>
-        <Setter Property="Padding" Value="250,8"/>
+        <Setter Property="Padding" Value="200,8"/>
         <Setter Property="StrokeShape" Value="RoundRectangle 10,10,10,10"/>
         <Setter Property="Stroke" Value="Black"/>
     </Style>

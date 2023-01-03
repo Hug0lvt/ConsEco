@@ -5,7 +5,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.7*"/>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="1*"/>
 
@@ -16,12 +16,23 @@
         </Grid.ColumnDefinitions>
 
 
-        <Button Text="Planifier une échéance"  BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource Secondary}" Grid.Column="0" Grid.Row="0" Clicked="Button_Clicked" ></Button>
-        <Button Text="Supprimer une planification"  BackgroundColor="{StaticResource Tertiary}" TextColor="{StaticResource Secondary}" Grid.Column="1" Grid.Row="0" Clicked="Button_Clicked_1"></Button>
+      
+        <Button
+                Clicked="Button_Clicked"
+                Grid.Column="0" Grid.Row="0" 
+                x:Name="AddCredit"
+                Text="Effectuer un crédit"
+                Style="{StaticResource WindowsButton}"/>
+
+        <Button
+                Clicked="Button_Clicked_1"
+                Grid.Column="1" Grid.Row="0" 
+                x:Name="RetireOperation"
+                Text="Retirer une opération"
+                Style="{StaticResource WindowsButton}"/>
 
 
-
-            <ContentView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"  Margin="15"  x:Name="windowAjout">
+        <ContentView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"  Margin="15"  x:Name="windowAjout">
                 <Grid BackgroundColor="{StaticResource Yellow300Accent}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
@@ -48,7 +59,7 @@
                     <Label Text="Montant" Grid.Column="4" TextColor="{StaticResource Secondary}" />
 
 
-                    <ListView Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="6" BackgroundColor="Aqua" ItemsSource="{Binding listTest}">
+                    <ListView Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="6" ItemsSource="{Binding Mgr}">
                         <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -60,7 +71,8 @@
                                             <ColumnDefinition Width="2*"/>
                                             <ColumnDefinition Width="1*"/>
                                         </Grid.ColumnDefinitions>
-                                        <Label Text="leclerc" Grid.Column="0" TextColor="{StaticResource Tertiary}"  />
+                                        
+                                        <Label Text="{Binding Nom}" Grid.Column="0" TextColor="{StaticResource Tertiary}"  />
                                         <Label Text="12/12/2022" Grid.Column="1" TextColor="{StaticResource Secondary}" />
                                         <Label Text="CB" Grid.Column="2" TextColor="{StaticResource Secondary}" />
                                         <Label Text="Alimentation" Grid.Column="3" TextColor="{StaticResource Secondary}" />
