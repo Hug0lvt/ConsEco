@@ -121,6 +121,11 @@ namespace Data
         {
             return LoadOperation.LoadOperationsFromOFX(ofx);
         }
+
+        public string LoadInscrit(string id, string mdp)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
