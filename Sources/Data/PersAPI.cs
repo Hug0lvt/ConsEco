@@ -19,7 +19,7 @@ namespace Data
         }
         public bool SupprimerInscrit(Inscrit inscrit)
         {
-            throw new NotImplementedException();
+            return ClientAPI.DeleteInscritAsync(inscrit.Mail).GetAwaiter().GetResult();
         }
         public bool ModifierMdpInscrit(string mail, string nouveauMdp)
         {
@@ -36,7 +36,12 @@ namespace Data
         }
         public bool EmailDisponible(string mail)
         {
-            throw new NotImplementedException();
+            List<Inscrit> inscrits = ClientAPI.GetInscritAsync(mail).GetAwaiter().GetResult();
+            if (inscrits.Count >= 1)
+            {
+                return false;
+            }
+            return true;
         }
 
 

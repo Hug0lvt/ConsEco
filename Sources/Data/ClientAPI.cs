@@ -22,6 +22,7 @@ namespace Data
         private const string POST_EMAIL_INSCRIT_DATA_URL = ROOT_URL+"Inscrit/FromMail/";
         private const string PUT_PASSWORD_INSCRIT_DATA_URL = ROOT_URL+"Inscrit/UpdatePassword/";
         private const string POST_ADD_INSCRIT_DATA_URL = ROOT_URL + "Inscrit/add/";
+        private const string DELETE_INSCRIT_DATA_URL = ROOT_URL + "Inscrit/delete/";
 
         //add all routes
 
@@ -77,6 +78,29 @@ namespace Data
         {
             var dataBody = new Dictionary<string, string> { { "nom", nom }, { "prenom", prenom }, { "email", email }, { "password", password } };
             HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_ADD_INSCRIT_DATA_URL, dataBody);
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
+        public static async Task<bool> DeleteInscritAsync(string email)
+        {
+            var dataBody = new Dictionary<string, string> { { "email", email } };
+
+            var reponse =
+                cli.SendAsync(
+                new HttpRequestMessage(HttpMethod.Delete, DELETE_INSCRIT_DATA_URL)
+                {
+                    Content = new FormUrlEncodedContent(dataBody)
+                })
+                .Result;
 
             if (reponse.IsSuccessStatusCode)
             {

@@ -17,7 +17,7 @@ using System.Reflection.PortableExecutable;
 
 namespace LinqToPgSQL
 {
-    public class PersLinqToPgSQL : IPersistanceManager
+    public class PersLinqToPgSQL /*: IPersistanceManager*/
     {
         private Hash hash = new Hash();
         private static string connexionBDD = String.Format("Server=2.3.8.130; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");

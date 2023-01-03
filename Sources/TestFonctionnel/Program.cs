@@ -60,3 +60,15 @@ foreach (Inscrit i in modif)
 {
     Console.WriteLine(i);
 }
+
+Console.WriteLine("\n----Modifs----\n");
+
+bool rrr = ClientAPI.DeleteInscritAsync("livet.hugo2003@gmail.com").GetAwaiter().GetResult();
+Console.WriteLine("Del user : " + rr + "\n");
+
+
+modif = ClientAPI.GetInscritsAsync().GetAwaiter().GetResult();
+foreach (Inscrit i in modif)
+{
+    Console.WriteLine(i);
+}

@@ -2,7 +2,7 @@
 
 namespace Data
 {
-    public class PersStub : IPersistanceManager
+    public class PersStub /*: IPersistanceManager*/
     {
         private List<Inscrit> lesInscrits = new List<Inscrit>();
 
@@ -122,10 +122,7 @@ namespace Data
             return LoadOperation.LoadOperationsFromOFX(ofx);
         }
 
-        string IPersistanceManager.GetId(string mail)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public List<Banque> LoadBanqueId(int id)
         {
