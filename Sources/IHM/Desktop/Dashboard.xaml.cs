@@ -13,19 +13,19 @@ public partial class Dashboard
 
 	private void RetourFormeBase()
 	{
-		ButPla.BackgroundColor = Colors.Yellow; ButPla.TextColor = Colors.Black;
-        ButEch.BackgroundColor = Colors.Yellow; ButEch.TextColor = Colors.Black;
-        ButOpe.BackgroundColor = Colors.Yellow; ButOpe.TextColor = Colors.Black;
-        ButCom.BackgroundColor = Colors.Yellow; ButCom.TextColor = Colors.Black;
-        ButAcc.BackgroundColor = Colors.Yellow; ButAcc.TextColor = Colors.Black;
-        ButSta.BackgroundColor = Colors.Yellow; ButSta.TextColor = Colors.Black;
+		ButPla.BackgroundColor = Color.FromArgb("F7B548"); ButPla.TextColor = Colors.Black;
+        ButEch.BackgroundColor = Color.FromArgb("F7B548"); ButEch.TextColor = Colors.Black;
+        ButOpe.BackgroundColor = Color.FromArgb("F7B548"); ButOpe.TextColor = Colors.Black;
+        ButCom.BackgroundColor = Color.FromArgb("F7B548"); ButCom.TextColor = Colors.Black;
+        ButAcc.BackgroundColor = Color.FromArgb("F7B548"); ButAcc.TextColor = Colors.Black;
+        ButSta.BackgroundColor = Color.FromArgb("F7B548"); ButSta.TextColor = Colors.Black;
     }
 
     private void Button_planification(object sender, EventArgs e)
 	{
         RetourFormeBase();
 		ButPla.TextColor = Colors.White;
-        ButPla.BackgroundColor = Colors.Red;
+        ButPla.BackgroundColor = Color.FromArgb("DF775C");
         mainCV.Content= new CV_Planification();
     }
 
@@ -33,7 +33,7 @@ public partial class Dashboard
 	{
         RetourFormeBase();
         ButEch.TextColor = Colors.White;
-        ButEch.BackgroundColor = Colors.Red;
+        ButEch.BackgroundColor = Color.FromArgb("DF775C");
         mainCV.Content = new Echeancier();
     }
 
@@ -41,7 +41,7 @@ public partial class Dashboard
 	{
         RetourFormeBase();
         ButOpe.TextColor = Colors.White;
-        ButOpe.BackgroundColor = Colors.Red;
+        ButOpe.BackgroundColor = Color.FromArgb("DF775C");
         mainCV.Content = new Operations();
     }
 
@@ -49,7 +49,7 @@ public partial class Dashboard
 	{
         RetourFormeBase();
         ButCom.TextColor = Colors.White;
-        ButCom.BackgroundColor = Colors.Red;
+        ButCom.BackgroundColor = Color.FromArgb("DF775C");
         mainCV.Content = new Compte();
     }
 
@@ -57,7 +57,7 @@ public partial class Dashboard
 	{
         RetourFormeBase();
         ButSta.TextColor = Colors.White;
-        ButSta.BackgroundColor = Colors.Red;
+        ButSta.BackgroundColor = Color.FromArgb("DF775C");
         mainCV.Content = new CV_Statistiques();
     }
 }
