@@ -77,7 +77,7 @@ namespace Model
             }
         }
 
-        private List<Banque> lesBanques;
+        private List<Banque> lesBanques =new();
         public Inscrit(string id, string nom, string mail, string prenom, string mdp, double soldeTotal = 0)
         {
             Id = id;
