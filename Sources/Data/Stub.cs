@@ -33,18 +33,39 @@ namespace Data
         }
         public void SupprimerBanqueBdd(Inscrit inscrit, Banque banque)
         {
-            throw new NotImplementedException();
+            foreach(Inscrit i in lesInscrits)
+            {
+                if (i == inscrit)
+                {
+                    foreach(Banque b in i.LesBanques)
+                    {
+                        if(b == banque)
+                        {
+                            i.SupprimerBanque(b);
+                        }
+                    }
+                }
+            }
         }
         public void SupprimerToutesBanquesBdd(Inscrit inscrit)
         {
-            throw new NotImplementedException();
+            foreach(Inscrit i in lesInscrits)
+            {
+                if(i == inscrit)
+                {
+                    foreach(Banque b in i.LesBanques)
+                    {
+                        i.SupprimerBanque(b);
+                    }
+                }
+            }
         }
         public void CreateInscrit(Inscrit inscrit){
             lesInscrits.Add(inscrit);
         }
         public string LastInscrit()
         {
-            return "1";
+            return lesInscrits[lesInscrits.Count - 1].Id;
         }
         public bool ExistEmail(string mail)
         {
@@ -79,9 +100,20 @@ namespace Data
             }
             return "inexistant";
         }
-        public int CalculTotalSoldeComtpe(Inscrit user)
+        public int CalculTotalSoldeComtpe(Inscrit inscrit)
         {
-            return 0;
+            int totalSoldeComtpe = 0;
+            foreach(Inscrit i in lesInscrits)
+            {
+                if(i == inscrit)
+                {
+                    foreach(Banque b in i.LesBanques)
+                    {
+                        totalSoldeComtpe = b.ListeDesComptes.Sum(x => Convert.ToInt32(x));
+                    }
+                }
+            }
+            return totalSoldeComtpe;
         }
         public List<Banque> LoadBanqueId(string id)
         {
