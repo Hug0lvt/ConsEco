@@ -26,7 +26,7 @@ public partial class ChangePassword : ContentPage
             }
             else
             {
-                Mgr.changePasswordBdd(MailUser, EntryNewMdp.Text);
+                //Mgr.changePasswordBdd(MailUser, EntryNewMdp.Text);
                 AffichError("mdp changé", "mot de passe bien changé", "ok");
                 NavigateTo("../..");
             }

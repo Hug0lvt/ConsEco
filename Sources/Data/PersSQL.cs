@@ -111,19 +111,15 @@ namespace Data
 
 
         //actions sur les comptes
-        public bool AjouterCompte(Compte compte)
+        public bool AjouterCompte(Compte compte, Inscrit inscrit)
         {
             throw new NotImplementedException();
         }
-        public bool SupprimerCompte(Compte compte)
+        public bool SupprimerCompte(Compte compte, Inscrit inscrit)
         {
             throw new NotImplementedException();
         }
-        public bool ModifierCompte(Compte compte)
-        {
-            throw new NotImplementedException();
-        }
-        public IList<Compte> RecupererCompte(Banque banque)
+        public IList<Compte> RecupererCompte(Banque banque, Inscrit inscrit)
         {
             throw new NotImplementedException();
         }

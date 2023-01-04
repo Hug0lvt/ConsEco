@@ -116,3 +116,35 @@ foreach (Banque b in banquesId1)
 {
     Console.WriteLine(b);
 }
+
+Console.WriteLine("\n\n\n----Comptes----\n");
+
+IList<Compte> comptes = ClientAPI.GetCompteAsync("1").GetAwaiter().GetResult();
+foreach (Compte c in comptes)
+{
+    Console.WriteLine(c);
+}
+
+Console.WriteLine("\n----Modifs----\n");
+
+bool rrrrrrr = ClientAPI.PostAddCompteInscritAsync("PEL","1").GetAwaiter().GetResult();
+Console.WriteLine("Add Compte for user : " + rrrrrrr + "\n");
+
+Console.WriteLine("\n----Verif----\n");
+
+comptes = ClientAPI.GetCompteAsync("1").GetAwaiter().GetResult();
+foreach (Compte c in comptes)
+{
+    Console.WriteLine(c);
+}
+
+rrrrrrr = ClientAPI.DeleteCompteInscritAsync("PEL", "1").GetAwaiter().GetResult();
+Console.WriteLine("Del Compte for user : " + rrrrrrr + "\n");
+
+Console.WriteLine("\n----Verif----\n");
+
+comptes = ClientAPI.GetCompteAsync("1").GetAwaiter().GetResult();
+foreach (Compte c in comptes)
+{
+    Console.WriteLine(c);
+}

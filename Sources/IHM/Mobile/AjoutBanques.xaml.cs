@@ -11,7 +11,7 @@ public partial class AjoutBanques : ContentPage
 	{
 		InitializeComponent();
         BindingContext = Mgr;
-        Mgr.importBanques();
+        //Mgr.importBanques();
         if (OperatingSystem.IsIOS())
         {
             boutonRetour.IsVisible = true;
@@ -29,12 +29,12 @@ public partial class AjoutBanques : ContentPage
             {
                 if (result.FileName.EndsWith("ofx", StringComparison.OrdinalIgnoreCase))
                 {
-                    IList<Compte> lesComptes = Mgr.getCompteFromOFX(result.FullPath);
-                    Debug.WriteLine(lesComptes.Count);
+                    //IList<Compte> lesComptes = Mgr.getCompteFromOFX(result.FullPath);
+                    /*Debug.WriteLine(lesComptes.Count);
                     foreach(Compte compte in lesComptes)
                     {
                         Mgr.User.LesBanques.First().AjouterCompte(compte);
-                    }
+                    }*/
 
                 }
             }

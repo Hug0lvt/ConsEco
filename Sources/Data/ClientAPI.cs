@@ -30,12 +30,15 @@ namespace Data
         private const string POST_ADD_BANQUE_INSCRIT_DATA_URL = ROOT_URL + "Banque/add/";
         private const string DELETE_BANQUE_INSCRIT_DATA_URL = ROOT_URL + "Banque/delete/";
 
+        //routes compte
+        private const string POST_COMPTE_INSCRIT_DATA_URL = ROOT_URL + "Compte/FromIdInscrit/";
+        private const string POST_ADD_COMPTE_INSCRIT_DATA_URL = ROOT_URL + "Compte/add/";
+        private const string DELETE_COMPTE_INSCRIT_DATA_URL = ROOT_URL + "Compte/delete/";
+
+
         //add all routes
 
-
         private static HttpClient cli = new HttpClient();
-
-
 
         //Inscrit
         public static async Task<List<Inscrit>> GetInscritsAsync()
@@ -176,6 +179,63 @@ namespace Data
             var reponse =
                 cli.SendAsync(
                 new HttpRequestMessage(HttpMethod.Delete, DELETE_BANQUE_INSCRIT_DATA_URL)
+                {
+                    Content = new FormUrlEncodedContent(dataBody)
+                })
+                .Result;
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
+
+        //Comptes
+        public static async Task<List<Compte>> GetCompteAsync(string id)
+        {
+            var dataBody = new Dictionary<string, string> { { "id", id } };
+            HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_COMPTE_INSCRIT_DATA_URL, dataBody);
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<List<Compte>>(await reponse.Content.ReadAsStringAsync());
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
+        public static async Task<bool> PostAddCompteInscritAsync(string nomCompte, string idInscrit)
+        {
+            var dataBody = new Dictionary<string, string> { { "nom", nomCompte }, { "idInscrit", idInscrit } };
+            HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_ADD_COMPTE_INSCRIT_DATA_URL, dataBody);
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
+        public static async Task<bool> DeleteCompteInscritAsync(string nomCompte, string idInscrit)
+        {
+            var dataBody = new Dictionary<string, string> { { "nom", nomCompte }, { "idInscrit", idInscrit } };
+
+            var reponse =
+                cli.SendAsync(
+                new HttpRequestMessage(HttpMethod.Delete, DELETE_COMPTE_INSCRIT_DATA_URL)
                 {
                     Content = new FormUrlEncodedContent(dataBody)
                 })

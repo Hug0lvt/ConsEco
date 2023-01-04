@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Newtonsoft.Json;
+using System.ComponentModel;
 
 namespace Model
 {
@@ -24,12 +25,18 @@ namespace Model
         private List<Operation> lesOpe = new List<Operation>();
         public List<Planification> LesPla { get; set; } = new List<Planification>();
         public List<Echeance> LesEch { get; set; } = new List<Echeance>();
-        public Compte(string id,string nom, double solde)
+
+        [JsonConstructor]
+        public Compte(string id, string nom)
         {
             Identifiant = id;
             Nom = nom;
-            Solde = solde;
+            Solde = 0;
             DerniereModification = DateTime.Now;
+        }
+        public Compte(string id,string nom, double solde) : base()
+        {
+            Solde = solde;
         }
         public Compte(string id, string nom, double solde, List<Operation> lesOpe) : base()
         {
@@ -108,7 +115,7 @@ namespace Model
 
         public override string ToString()
         {
-            return Identifiant + " " + Nom + " " + Solde + " "  + DerniereModification + "\n";
+            return Identifiant + " " + Nom + " " + Solde + " "  + DerniereModification;
         }
 
     }

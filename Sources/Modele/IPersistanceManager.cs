@@ -27,10 +27,9 @@ namespace Model
 
 
         //actions sur les comptes
-        bool AjouterCompte(Compte compte);
-        bool SupprimerCompte(Compte compte);
-        bool ModifierCompte(Compte compte);
-        IList<Compte> RecupererCompte(Banque banque);
+        bool AjouterCompte(Compte compte, Inscrit inscrit);
+        bool SupprimerCompte(Compte compte, Inscrit inscrit);
+        IList<Compte> RecupererCompte(Banque banque, Inscrit inscrit);
 
 
         //actions sur les Opérations

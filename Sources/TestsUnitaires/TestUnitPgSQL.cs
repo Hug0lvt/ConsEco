@@ -1,4 +1,5 @@
-﻿using LinqToPgSQL;
+﻿using Data;
+using LinqToPgSQL;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace TestsUnitaires
         [Fact]
         public void testLoadInscrit()
         {
-            Manager m = new Manager(new PersLinqToPgSQL());
+            Manager m = new Manager(new PersAPI());
             //Assert.Null(m.SelectedBanque);
             //m.LoadInscrit("lucasevard@gmail.com", "test");
             //Assert.Equal(m.SelectedInscrits, "00001");

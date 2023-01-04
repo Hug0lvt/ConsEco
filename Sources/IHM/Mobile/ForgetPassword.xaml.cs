@@ -20,7 +20,7 @@ public partial class ForgetPassword : ContentPage
 		{
 			AffichError("Email inconnue", "Aucun compte existant portant cette adresse mail", "OK");
 		}
-		if (Mgr.existEmail(EntryMail.Text)){
+		/*if (Mgr.existEmail(EntryMail.Text)){
             Random generator = new Random();
             code = generator.Next(0, 1000000).ToString("D6");
             Email.CreateMail(EntryMail.Text, code);
@@ -31,7 +31,7 @@ public partial class ForgetPassword : ContentPage
 		else
 		{
 			AffichError("Mail inexistant", "Aucun compte possédant cette adresse email trouvé", "OK");
-		}
+		}*/
 	}
     private async void AffichError(string s, string s1, string s2)
     {
