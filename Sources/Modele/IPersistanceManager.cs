@@ -33,9 +33,8 @@ namespace Model
 
 
         //actions sur les Opérations
-        bool AjouterOperation(Compte compte);
-        bool SupprimerOperation(Compte compte);
-        bool ModifierOperation(Compte compte);
+        bool AjouterOperation(Compte compte, Operation operation);
+        bool SupprimerOperation(Compte compte, Operation operation);
         IList<Compte> RecupererOperation(Compte compte);
 
 

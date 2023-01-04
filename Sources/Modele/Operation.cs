@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace Model
 
         public bool IsDebit { get; private set; }
 
+        [JsonConstructor]
         public Operation(string intituleOperation, double montant, DateTime dateOperation, MethodePayement modePayement, bool isDebit=true)
         {
             IntituleOperation = intituleOperation;
@@ -45,7 +47,7 @@ namespace Model
 
         public override string ToString()
         {
-            return IntituleOperation + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + "\n";
+            return IntituleOperation + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit;
         }
     }
 }

@@ -148,3 +148,35 @@ foreach (Compte c in comptes)
 {
     Console.WriteLine(c);
 }
+
+Console.WriteLine("\n\n\n----Operations----\n");
+
+IList<Operation> operations = ClientAPI.GetOperationAsync("1").GetAwaiter().GetResult();
+foreach (Operation o in operations)
+{
+    Console.WriteLine(o);
+}
+
+Console.WriteLine("\n----Modifs----\n");
+
+rrrrrrr = ClientAPI.PostAddOperationInscritAsync(new Compte("1","PEL"), new Operation("test",100,DateTime.Now,MethodePayement.Cb,true)).GetAwaiter().GetResult();
+Console.WriteLine("Add Ope On Compte : " + rrrrrrr + "\n");
+
+Console.WriteLine("\n----Verif----\n");
+operations = ClientAPI.GetOperationAsync("1").GetAwaiter().GetResult();
+foreach (Operation o in operations)
+{
+    Console.WriteLine(o);
+}
+
+Console.WriteLine("\n----Modifs----\n");
+
+rrrrrrr = ClientAPI.DeleteOperationInscritAsync("1", "test").GetAwaiter().GetResult();
+Console.WriteLine("Del Ope On Compte : " + rrrrrrr + "\n");
+
+Console.WriteLine("\n----Verif----\n");
+operations = ClientAPI.GetOperationAsync("1").GetAwaiter().GetResult();
+foreach (Operation o in operations)
+{
+    Console.WriteLine(o);
+}

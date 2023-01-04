@@ -12,6 +12,7 @@ namespace Model
         Cb,
         Esp,
         Chq,
-        Vir
+        Vir,
+        Pre
     }
 }

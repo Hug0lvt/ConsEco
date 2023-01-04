@@ -35,6 +35,10 @@ namespace Data
         private const string POST_ADD_COMPTE_INSCRIT_DATA_URL = ROOT_URL + "Compte/add/";
         private const string DELETE_COMPTE_INSCRIT_DATA_URL = ROOT_URL + "Compte/delete/";
 
+        //routes operation
+        private const string POST_OPERATION_COMPTE_DATA_URL = ROOT_URL + "Operation/FromIdCompte/";
+        private const string POST_ADD_OPERATION_COMPTE_DATA_URL = ROOT_URL + "Operation/add/";
+        private const string DELETE_OPERATION_COMPTE_DATA_URL = ROOT_URL + "Operation/delete/";
 
         //add all routes
 
@@ -253,5 +257,70 @@ namespace Data
         }
 
 
+        //Operations
+        public static async Task<List<Operation>> GetOperationAsync(string id)
+        {
+            var dataBody = new Dictionary<string, string> { { "id", id } };
+            HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_OPERATION_COMPTE_DATA_URL, dataBody);
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<List<Operation>>(await reponse.Content.ReadAsStringAsync());
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
+        public static async Task<bool> PostAddOperationInscritAsync(Compte compte, Operation operation)
+        {
+            var dataBody = new Dictionary<string, string> 
+            { 
+                { "compte", compte.Identifiant }, 
+                { "nom", operation.IntituleOperation },
+                { "montant", operation.Montant.ToString() },
+                { "dateO", operation.DateOperation.ToString() },
+                { "methodePayement", operation.ModePayement.ToString() },
+                { "isDebit", operation.IsDebit.ToString() }
+            };
+            HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_ADD_OPERATION_COMPTE_DATA_URL, dataBody);
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
+        public static async Task<bool> DeleteOperationInscritAsync(string nomCompte, string nomOpe)
+        {
+            var dataBody = new Dictionary<string, string> { { "compte", nomCompte }, { "nom", nomOpe } };
+
+            var reponse =
+                cli.SendAsync(
+                new HttpRequestMessage(HttpMethod.Delete, DELETE_OPERATION_COMPTE_DATA_URL)
+                {
+                    Content = new FormUrlEncodedContent(dataBody)
+                })
+                .Result;
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
+        
     }
 }

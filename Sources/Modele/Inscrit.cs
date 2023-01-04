@@ -97,13 +97,6 @@ namespace Model
             LesBanques = lesbanques;
         }
 
-        public Inscrit(string mail, int id)
-        {
-            Prenom = "Lucas";
-            Mail = mail;
-            Id = id;
-        }
-
         public Inscrit(List<Banque> lesbanques)
         {
             LesBanques = lesbanques;

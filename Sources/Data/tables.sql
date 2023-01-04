@@ -62,44 +62,38 @@ CREATE TABLE Compte
 CREATE TABLE Echeancier
 (
     id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
-    nom varchar(40),
-    credit numeric,
     compte MEDIUMINT,
-    debit numeric,
-    dateE date,
-    datecrea date,
+    nom varchar(40),
+    montant numeric,
+    dateO date,
     methodePayement varchar(20),
-    CONSTRAINT ck_echan CHECK (methodePayement IN ('CB','Cheque','Espece','Prélevement')),
-    FOREIGN KEY(compte) REFERENCES Compte(id),
-    UNIQUE (datecrea,compte)
+    isDebit boolean,
+    CONSTRAINT ck_ech CHECK (methodePayement IN ('Cb','Esp','Chq','Vir','Pre')),
+    FOREIGN KEY(compte) REFERENCES Compte(id)
 );
 
 CREATE TABLE Operation
 (
     id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
-    nom varchar(40),
-    credit numeric,
     compte MEDIUMINT,
-    debit numeric,
+    nom varchar(40),
+    montant numeric,
     dateO date,
-    datecrea date,
     methodePayement varchar(20),
-    CONSTRAINT ck_methPaye CHECK (methodePayement IN ('CB','Cheque','Espece','Prélevement')),
-    FOREIGN KEY(compte) REFERENCES Compte(id),
-    UNIQUE (datecrea,compte)
+    isDebit boolean,
+    CONSTRAINT ck_methPaye CHECK (methodePayement IN ('Cb','Esp','Chq','Vir','Pre')),
+    FOREIGN KEY(compte) REFERENCES Compte(id)
 );
 
 CREATE TABLE Planification
 (
     id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
-    nom varchar(40),
-    credit numeric,
     compte MEDIUMINT,
-    debit numeric,
-    dateP date,
-    datecrea date,
+    nom varchar(40),
+    montant numeric,
+    dateO date,
     methodePayement varchar(20),
-    CONSTRAINT ck_planif CHECK (methodePayement IN ('CB','Cheque','Espece','Prélevement')),
-    FOREIGN KEY(compte) REFERENCES Compte(id),
-    UNIQUE (datecrea,compte)
+    isDebit boolean,
+    CONSTRAINT ck_pla CHECK (methodePayement IN ('Cb','Esp','Chq','Vir','Pre')),
+    FOREIGN KEY(compte) REFERENCES Compte(id)
 );

@@ -126,15 +126,11 @@ namespace Data
 
 
         //actions sur les Opérations
-        public bool AjouterOperation(Compte compte)
+        public bool AjouterOperation(Compte compte, Operation operation)
         {
             throw new NotImplementedException();
         }
-        public bool SupprimerOperation(Compte compte)
-        {
-            throw new NotImplementedException();
-        }
-        public bool ModifierOperation(Compte compte)
+        public bool SupprimerOperation(Compte compte, Operation operation)
         {
             throw new NotImplementedException();
         }

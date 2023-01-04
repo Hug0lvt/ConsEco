@@ -67,28 +67,24 @@ namespace Data
         //actions sur les comptes
         public bool AjouterCompte(Compte compte, Inscrit inscrit)
         {
-            throw new NotImplementedException();
+            return ClientAPI.PostAddCompteInscritAsync(compte.Nom, inscrit.Id.ToString()).GetAwaiter().GetResult();
         }
         public bool SupprimerCompte(Compte compte, Inscrit inscrit)
         {
-            throw new NotImplementedException();
+            return ClientAPI.DeleteCompteInscritAsync(compte.Nom, inscrit.Id.ToString()).GetAwaiter().GetResult();
         }
         public IList<Compte> RecupererCompte(Banque banque, Inscrit inscrit)
         {
-            throw new NotImplementedException();
+            return ClientAPI.GetCompteAsync(inscrit.Id.ToString()).GetAwaiter().GetResult();
         }
 
 
         //actions sur les Opérations
-        public bool AjouterOperation(Compte compte)
+        public bool AjouterOperation(Compte compte, Operation operation)
         {
             throw new NotImplementedException();
         }
-        public bool SupprimerOperation(Compte compte)
-        {
-            throw new NotImplementedException();
-        }
-        public bool ModifierOperation(Compte compte)
+        public bool SupprimerOperation(Compte compte, Operation operation)
         {
             throw new NotImplementedException();
         }

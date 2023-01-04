@@ -7,11 +7,11 @@ INSERT INTO Devise VALUES('NZD','DOLLAR NEO-ZELANDAIS');
 INSERT INTO Devise VALUES('ZAR','RANd');
 
 
-INSERT INTO Inscrit (nom,prenom,mail,mdp)VALUES('EVARD','LUCAS','lucasevard@gmail.com','test');
-INSERT INTO Inscrit (nom,prenom,mail,mdp)VALUES('MONCUL','STEPHANE','stef@gmail.com','teststef');
-INSERT INTO Inscrit (nom,prenom,mail,mdp)VALUES('MENFOUMETTOITOUTNU','RENAUD','renaudtoutnu@gmail.com','test000');
-INSERT INTO Inscrit (nom,prenom,mail,mdp)VALUES('YOUVOI','BENJAMIN','BENJAMIN@gmail.com','BENJAMIN');
-INSERT INTO Inscrit (nom,prenom,mail,mdp)VALUES('TUBEAU','RAOUL','raoullacouille@gmail.com','zizi');
+INSERT INTO Inscrit (nom,prenom,mail,mdp)VALUES('EVARD','LUCAS','lucasevard@gmail.com','Azerty12345678!');
+INSERT INTO Inscrit (nom,prenom,mail,mdp)VALUES('MONCUL','STEPHANE','stef@gmail.com','Azerty12345678!');
+INSERT INTO Inscrit (nom,prenom,mail,mdp)VALUES('MENFOUMETTOITOUTNU','RENAUD','renaudtoutnu@gmail.com','Azerty12345678!');
+INSERT INTO Inscrit (nom,prenom,mail,mdp)VALUES('YOUVOI','BENJAMIN','BENJAMIN@gmail.com','Azerty12345678!');
+INSERT INTO Inscrit (nom,prenom,mail,mdp)VALUES('TUBEAU','RAOUL','raoullacouille@gmail.com','Azerty12345678!');
 
 INSERT INTO DeviseInscrit VALUES('EUR','1');
 INSERT INTO DeviseInscrit VALUES('JPY','2');
@@ -35,9 +35,3 @@ INSERT INTO Compte (nom,idInscritBanque)VALUES('LIVRET A','1');
 INSERT INTO Compte (nom,idInscritBanque)VALUES('LIVRET A','2');
 INSERT INTO Compte (nom,idInscritBanque)VALUES('LIVRET A','3');
 INSERT INTO Compte (nom,idInscritBanque)VALUES('LIVRET A','4');
-
-
-INSERT INTO Planification (nom,credit,compte,datep,datecrea,methodePayement) VALUES ('EDF','190','1',now(),now(),'CB');
-INSERT INTO Planification (nom,credit,compte,datep,datecrea,methodePayement) VALUES ('SPOTIFY','190','2',now(),now(),'Prélevement');
-INSERT INTO Planification (nom,credit,compte,datep,datecrea,methodePayement) VALUES ('NETFLIX','190','3',now(),now(),'Cheque');
-INSERT INTO Planification (nom,credit,compte,datep,datecrea,methodePayement) VALUES ('PLAYSTATION PLUS','190','4',now(),now(),'Espece');
