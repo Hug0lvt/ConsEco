@@ -17,5 +17,6 @@ namespace Model
         bool ExistEmail(string mail);
         void ChangePasswordBdd(string mail, string newMdp);
         string RecupMdpBdd(string mail);
+
     }
 }

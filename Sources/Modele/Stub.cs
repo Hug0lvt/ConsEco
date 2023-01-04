@@ -11,7 +11,9 @@ namespace Model
         public List<Banque> Banques = new();
         public List<Inscrit> Inscrits = new();
         public List<Compte> Comptes = new();
+        public List<Operation> operations = new();
 
+    
         // ajouter load all pour tout les inscrits
 
         public List<Inscrit> LoadInscrit()
@@ -38,7 +40,17 @@ namespace Model
             return Comptes;
         }
 
-       
+        // Load les opérations
+        public List<Operation> loadOperation()
+        {
+            operations.Add(new("course", "CB", "Alimentation", "12/12/2022", 22.45));
+            operations.Add(new("essence", "cheque", "Carburant", "12/12/2022", 45.80));
+            operations.Add(new("Orange", "Prelevement", "Facture", "12/12/2022", 48));
+            return operations;
+        }
+
+
+
     }
 }
 

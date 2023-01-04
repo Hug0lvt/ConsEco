@@ -34,6 +34,7 @@ namespace Model
             }
         }
         private Banque selectedBanque;
+        
 
         /// <summary>
         /// A compléter
@@ -45,6 +46,9 @@ namespace Model
         {
             Pers = persistance;
         }
+
+
+
 
         /// <summary>
         /// Permet la supression d'un inscrit de la base de donnée.
