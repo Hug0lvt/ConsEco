@@ -25,7 +25,7 @@ public partial class Operations : ContentView
 
 	private void DelOperation_Clicked(object sender, EventArgs e)
 	{
-        windowAjout.Content = new CV_debit();
+        windowAjout.Content = new CV_supprimerOp();
 
     }
 }

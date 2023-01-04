@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <Label Text="Planification d'une échéance" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource TitreWindows}"/>
+        <Label Text="Effectuer un crédit" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource TitreWindows}"/>
         <Label Text="Nom" Grid.Column="1" Grid.Row="2" Style="{StaticResource TitreWindows}" Margin="20"/>
         <Label Text="Montant" Grid.Column="1" Grid.Row="3" Style="{StaticResource TitreWindows}" Margin="20"/>
         <Label Text="Type" Grid.Column="1" Grid.Row="4" Style="{StaticResource TitreWindows}" Margin="20"/>

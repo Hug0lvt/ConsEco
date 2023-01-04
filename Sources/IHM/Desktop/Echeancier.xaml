@@ -3,28 +3,117 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Desktop.Echeancier"
              BackgroundColor="{StaticResource Yellow300Accent}">
-    
-    <VerticalStackLayout Margin="20">
 
-        <Label 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StackLayout Grid.Row="0" Grid.ColumnSpan="2">
+            <Label 
             Style="{StaticResource TitreWindows}"
-            Text="ECHEANCIER"
-            VerticalOptions="StartAndExpand"/>
-        
-        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Fill">
-            
-            <Button
+            Text="Echeancier"
+            HorizontalOptions="Center"/>
+        </StackLayout>
+
+
+        <Button
+                Clicked="Button_Clicked"
+                Grid.Column="0" Grid.Row="1" 
                 x:Name="SaveEcheance"
                 Text="Enregistrer une échéance"
                 Style="{StaticResource WindowsButton}"/>
 
-            <Button
+        <Button
+                Clicked="Button_Clicked_1"
+                Grid.Column="1" Grid.Row="1" 
                 x:Name="DelEcheance"
                 Text="Supprimer une échéance"
                 Style="{StaticResource WindowsButton}"/>
-            
-        </HorizontalStackLayout>
 
+
+        <ContentView Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2"  Margin="15"  x:Name="windowAjout">
+            <Grid BackgroundColor="{StaticResource Yellow300Accent}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Label Text="Nom" Grid.Column="0" TextColor="{StaticResource Secondary}" />
+                <Label Text="Date" Grid.Column="1" TextColor="{StaticResource Secondary}" />
+                <Label Text="Type" Grid.Column="2" TextColor="{StaticResource Secondary}" />
+                <Label Text="Tag" Grid.Column="3" TextColor="{StaticResource Secondary}" />
+                <Label Text="Montant" Grid.Column="4" TextColor="{StaticResource Secondary}" />
+
+
+                <ListView Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="6" ItemsSource="{Binding Mgr}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding Nom}" Grid.Column="0" TextColor="{StaticResource Tertiary}"  />
+                                    <Label Text="12/12/2022" Grid.Column="1" TextColor="{StaticResource Secondary}" />
+                                    <Label Text="CB" Grid.Column="2" TextColor="{StaticResource Secondary}" />
+                                    <Label Text="Alimentation" Grid.Column="3" TextColor="{StaticResource Secondary}" />
+                                    <Label Text="55€" Grid.Column="4" TextColor="{StaticResource Secondary}" />
+
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </Grid>
+
+
+
+        </ContentView>
+
+
+
+
+
+
+
+
+    </Grid>
+
+   
+
+
+
+<!--
         <CollectionView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding LesOpe}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -63,17 +152,16 @@
 
             <Border Background="{StaticResource Primary}"
             Style="{StaticResource TotalButton}">
-            <Label Text=" -- BINDING -- " FontFamily="Comic sans MS"/>
+                <Label Text=" -- BINDING -- " FontFamily="Comic sans MS"/>
             </Border>
 
             <Border Background="{StaticResource Tertiary}"
             Style="{StaticResource TotalButton}">
-            <Label Text=" -- BINDING -- " FontFamily="Comic sans MS"/>
+                <Label Text=" -- BINDING -- " FontFamily="Comic sans MS"/>
             </Border>
 
         </HorizontalStackLayout>
+-->
 
-
-
-    </VerticalStackLayout>
+   
 </ContentView>
