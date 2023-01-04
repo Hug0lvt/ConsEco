@@ -8,4 +8,9 @@ public partial class Compte : ContentView
 
 	}
 
+	private void AddCredit_Clicked(object sender, EventArgs e)
+	{
+        windowAjout.Content = new CV_modificationSolde();
+
+    }
 }

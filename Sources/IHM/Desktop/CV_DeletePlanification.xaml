@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Desktop.CV_DeletePlanification">
 
-    <Grid BackgroundColor="{StaticResource Tertiary}">
+    <Grid BackgroundColor="{StaticResource Secondary}">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
