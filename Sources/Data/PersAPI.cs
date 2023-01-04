@@ -82,15 +82,15 @@ namespace Data
         //actions sur les Opérations
         public bool AjouterOperation(Compte compte, Operation operation)
         {
-            throw new NotImplementedException();
+            return ClientAPI.PostAddOperationInscritAsync(compte,operation).GetAwaiter().GetResult();
         }
         public bool SupprimerOperation(Compte compte, Operation operation)
         {
-            throw new NotImplementedException();
+            return ClientAPI.DeleteOperationInscritAsync(compte.Identifiant, operation.IntituleOperation).GetAwaiter().GetResult();
         }
         public IList<Compte> RecupererOperation(Compte compte)
         {
-            throw new NotImplementedException();
+            return ClientAPI.GetCompteAsync(compte.Identifiant).GetAwaiter().GetResult();
         }
 
 

@@ -298,9 +298,9 @@ namespace Data
 
         }
 
-        public static async Task<bool> DeleteOperationInscritAsync(string nomCompte, string nomOpe)
+        public static async Task<bool> DeleteOperationInscritAsync(string idCompte, string nomOpe)
         {
-            var dataBody = new Dictionary<string, string> { { "compte", nomCompte }, { "nom", nomOpe } };
+            var dataBody = new Dictionary<string, string> { { "compte", idCompte }, { "nom", nomOpe } };
 
             var reponse =
                 cli.SendAsync(
