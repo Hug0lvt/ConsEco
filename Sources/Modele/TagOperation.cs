@@ -8,6 +8,7 @@ namespace Model
 {
     public enum TagOperation
     {
+        None,
         Alimentaire,
         Carburant,
         Habitation,

@@ -45,7 +45,13 @@ namespace Data
         private const string POST_ADD_PLANIFICATION_COMPTE_DATA_URL = ROOT_URL + "Planification/add/";
         private const string DELETE_PLANIFICATION_COMPTE_DATA_URL = ROOT_URL + "Planification/delete/";
 
-        //add all routes
+        //routes echeance
+        private const string POST_ECHEANCE_COMPTE_DATA_URL = ROOT_URL + "Echeance/FromIdCompte/";
+        private const string POST_ADD_ECHEANCE_COMPTE_DATA_URL = ROOT_URL + "Echeance/add/";
+        private const string DELETE_ECHEANCE_COMPTE_DATA_URL = ROOT_URL + "Echeance/delete/";
+
+        //routes utilitaire
+        private const string TEST_API_STATEMENT = ROOT_URL;
 
         private static HttpClient cli = new HttpClient();
 
@@ -288,7 +294,8 @@ namespace Data
                 { "montant", operation.Montant.ToString() },
                 { "dateO", operation.DateOperation.ToString() },
                 { "methodePayement", operation.ModePayement.ToString() },
-                { "isDebit", operation.IsDebit.ToString() }
+                { "isDebit", operation.IsDebit.ToString() },
+                { "tag", operation.Tag.ToString() }
             };
             HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_ADD_OPERATION_COMPTE_DATA_URL, dataBody);
 
@@ -354,7 +361,7 @@ namespace Data
                 { "dateO", planification.DateOperation.ToString() },
                 { "methodePayement", planification.ModePayement.ToString() },
                 { "isDebit", planification.IsDebit.ToString() },
-                { "freq", planification.Frequance.ToString() }
+                { "tag", planification.Tag.ToString() }
             };
             HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_ADD_PLANIFICATION_COMPTE_DATA_URL, dataBody);
 
@@ -392,5 +399,84 @@ namespace Data
 
         }
 
+
+        //Echeances
+        public static async Task<List<Echeance>> GetEcheanceAsync(string id)
+        {
+            var dataBody = new Dictionary<string, string> { { "id", id } };
+            HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_ECHEANCE_COMPTE_DATA_URL, dataBody);
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<List<Echeance>>(await reponse.Content.ReadAsStringAsync());
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
+        public static async Task<bool> PostAddEcheanceInscritAsync(Compte compte, Echeance echeance)
+        {
+            var dataBody = new Dictionary<string, string>
+            {
+                { "compte", compte.Identifiant },
+                { "nom", echeance.IntituleOperation },
+                { "montant", echeance.Montant.ToString() },
+                { "dateO", echeance.DateOperation.ToString() },
+                { "methodePayement", echeance.ModePayement.ToString() },
+                { "isDebit", echeance.IsDebit.ToString() },
+                { "tag", echeance.Tag.ToString() }
+            };
+            HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_ADD_ECHEANCE_COMPTE_DATA_URL, dataBody);
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
+        public static async Task<bool> DeleteEcheanceInscritAsync(string idCompte, string nomOpe)
+        {
+            var dataBody = new Dictionary<string, string> { { "compte", idCompte }, { "nom", nomOpe } };
+
+            var reponse =
+                cli.SendAsync(
+                new HttpRequestMessage(HttpMethod.Delete, DELETE_ECHEANCE_COMPTE_DATA_URL)
+                {
+                    Content = new FormUrlEncodedContent(dataBody)
+                })
+                .Result;
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
+        //Utilitaires
+        public static async Task<bool> GetStateApi()
+        {
+            HttpResponseMessage reponse = await cli.GetAsync(TEST_API_STATEMENT);
+            if (reponse.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

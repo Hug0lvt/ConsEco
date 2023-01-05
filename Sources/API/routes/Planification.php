@@ -55,9 +55,9 @@ $app->post('/Planification/add/', function(Request $request, Response $response,
     $dateO = $request->getParsedBody()["dateO"];
     $methodePayement = $request->getParsedBody()["methodePayement"];
     $isDebit = $request->getParsedBody()["isDebit"];
-    $freq = $request->getParsedBody()["freq"];
+    $tag = $request->getParsedBody()["tag"];
 
-    $query = "INSERT INTO Planification (compte, nom, montant, dateO, methodePayement, isDebit, frequance) SELECT :compte,:nom,:montant, STR_TO_DATE(:dateO, '%d/%m/%Y %H:%i:%s' ), :methodePayement, :isD ,:freq;";
+    $query = "INSERT INTO Planification (compte, nom, montant, dateO, methodePayement, isDebit, tag) SELECT :compte,:nom,:montant, STR_TO_DATE(:dateO, '%d/%m/%Y %H:%i:%s' ), :methodePayement, :isD ,:tag;";
     try{
         $db = new Database();
         $conn = $db->connect();
@@ -69,7 +69,7 @@ $app->post('/Planification/add/', function(Request $request, Response $response,
         $stmt->bindValue(':dateO', $dateO, PDO::PARAM_STR);
         $stmt->bindValue(':methodePayement', $methodePayement, PDO::PARAM_STR);
         $stmt->bindValue(':isD', $isDebit, PDO::PARAM_BOOL);
-        $stmt->bindValue(':freq', $freq, PDO::PARAM_STR);
+        $stmt->bindValue(':tag', $tag, PDO::PARAM_STR);
 
         $result = $stmt->execute();
         

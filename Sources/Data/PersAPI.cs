@@ -88,50 +88,46 @@ namespace Data
         {
             return ClientAPI.DeleteOperationInscritAsync(compte.Identifiant, operation.IntituleOperation).GetAwaiter().GetResult();
         }
-        public IList<Compte> RecupererOperation(Compte compte)
+        public IList<Operation> RecupererOperation(Compte compte)
         {
-            return ClientAPI.GetCompteAsync(compte.Identifiant).GetAwaiter().GetResult();
+            return ClientAPI.GetOperationAsync(compte.Identifiant).GetAwaiter().GetResult();
         }
 
 
         //actions sur les Planifications
         public bool AjouterPlanification(Compte compte, Planification planification)
         {
-            throw new NotImplementedException();
+            return ClientAPI.PostAddPlanificationInscritAsync(compte, planification).GetAwaiter().GetResult();
         }
         public bool SupprimerPlanification(Compte compte, Planification planification)
         {
-            throw new NotImplementedException();
+            return ClientAPI.DeletePlanificationInscritAsync(compte.Identifiant, planification.IntituleOperation).GetAwaiter().GetResult();
         }
-        public IList<Compte> RecupererPlanification(Compte compte)
+        public IList<Planification> RecupererPlanification(Compte compte)
         {
-            throw new NotImplementedException();
+            return ClientAPI.GetPlanificationAsync(compte.Identifiant).GetAwaiter().GetResult();
         }
 
 
         //actions sur les Echéances
-        public bool AjouterEcheance(Compte compte)
+        public bool AjouterEcheance(Compte compte, Echeance echeance)
         {
-            throw new NotImplementedException();
+            return ClientAPI.PostAddEcheanceInscritAsync(compte, echeance).GetAwaiter().GetResult();
         }
-        public bool SupprimerEcheance(Compte compte)
+        public bool SupprimerEcheance(Compte compte, Echeance echeance)
         {
-            throw new NotImplementedException();
+            return ClientAPI.DeleteEcheanceInscritAsync(compte.Identifiant, echeance.IntituleOperation).GetAwaiter().GetResult();
         }
-        public bool ModifierEcheance(Compte compte)
+        public IList<Echeance> RecupererEcheance(Compte compte)
         {
-            throw new NotImplementedException();
-        }
-        public IList<Compte> RecupererEcheance(Compte compte)
-        {
-            throw new NotImplementedException();
+            return ClientAPI.GetEcheanceAsync(compte.Identifiant).GetAwaiter().GetResult();
         }
 
 
         //actions utilitaire
         public bool TestConnexion()
         {
-            throw new NotImplementedException();
+            return ClientAPI.GetStateApi().GetAwaiter().GetResult();
         }
     }
 }

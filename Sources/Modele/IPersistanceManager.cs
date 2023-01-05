@@ -35,20 +35,19 @@ namespace Model
         //actions sur les Opérations
         bool AjouterOperation(Compte compte, Operation operation);
         bool SupprimerOperation(Compte compte, Operation operation);
-        IList<Compte> RecupererOperation(Compte compte);
+        IList<Operation> RecupererOperation(Compte compte);
 
 
         //actions sur les Planifications
         bool AjouterPlanification(Compte compte, Planification planification);
         bool SupprimerPlanification(Compte compte, Planification planification);
-        IList<Compte> RecupererPlanification(Compte compte);
+        IList<Planification> RecupererPlanification(Compte compte);
 
 
         //actions sur les Echéances
-        bool AjouterEcheance(Compte compte);
-        bool SupprimerEcheance(Compte compte);
-        bool ModifierEcheance(Compte compte);
-        IList<Compte> RecupererEcheance(Compte compte);
+        bool AjouterEcheance(Compte compte, Echeance echeance);
+        bool SupprimerEcheance(Compte compte, Echeance echeance);
+        IList<Echeance> RecupererEcheance(Compte compte);
 
 
         //actions utilitaire

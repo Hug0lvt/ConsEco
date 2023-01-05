@@ -23,6 +23,7 @@ INSERT INtO Banque(nom,urlsite,urllogo) VALUES('BNP PARIBAS','mabanque','imagesi
 INSERT INtO Banque(nom,urlsite,urllogo) VALUES('CREDIT AGRICOLE','credit-agricole.fr','imageca');
 INSERT INtO Banque(nom,urlsite,urllogo) VALUES('BANQUE POSTALE','labanquepostale.fr','imgbp');
 INSERT INtO Banque(nom,urlsite,urllogo) VALUES('CAISSE D EPARGNE','caisse-epargne.fr','imgcaissedepargne');
+INSERT INtO Banque(nom,urlsite,urllogo) VALUES('ORANGE BANK','orange.fr','cpt');
 
 
 INSERT INTO InscrBanque (nomBanque,idInscrit)VALUES('BNP PARIBAS','1');
@@ -35,3 +36,7 @@ INSERT INTO Compte (nom,idInscritBanque)VALUES('LIVRET A','1');
 INSERT INTO Compte (nom,idInscritBanque)VALUES('LIVRET A','2');
 INSERT INTO Compte (nom,idInscritBanque)VALUES('LIVRET A','3');
 INSERT INTO Compte (nom,idInscritBanque)VALUES('LIVRET A','4');
+
+INSERT INTO `Operation` (`id`, `compte`, `nom`, `montant`, `dateO`, `methodePayement`, `isDebit`, `tag`) VALUES (NULL, '1', 'JSP MAIS JAI PAYER', '500', '2023-01-02', 'Esp', '1', 'Divers');
+INSERT INTO `Planification` (`id`, `compte`, `nom`, `montant`, `dateO`, `methodePayement`, `isDebit`, `tag`) VALUES (NULL, '1', 'FAUT QUE JE PAYE', '100', '2023-01-30', 'Vir', '1', 'Energie');
+INSERT INTO `Echeancier` (`id`, `compte`, `nom`, `montant`, `dateO`, `methodePayement`, `isDebit`, `tag`) VALUES (NULL, '1', 'FAUT PAYER VITEEEE', '50', '2023-01-06', 'Vir', '1', 'Divers');

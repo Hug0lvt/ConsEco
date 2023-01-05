@@ -13,15 +13,15 @@ $app->addRoutingMiddleware();
 $app->addErrorMiddleware(true, true, true);
 
 /**
-*   @OA\Get(path="/api/Operation",
+*   @OA\Get(path="/api/Echeance",
 *       @OA\Response(response="200", description="Succes")
 *       @OA\Response(response="500", description="Bdd Error")
 *   )
 */
 
-$app->post('/Operation/FromIdCompte/', function(Request $request, Response $response,array $args){
+$app->post('/Echeance/FromIdCompte/', function(Request $request, Response $response,array $args){
     $idCompte = $request->getParsedBody()["id"];
-    $query = 'SELECT * FROM Operation WHERE compte=:id';
+    $query = 'SELECT * FROM Echeancier WHERE compte=:id';
 
     try{
         $db = new Database();
@@ -48,7 +48,7 @@ $app->post('/Operation/FromIdCompte/', function(Request $request, Response $resp
     }
 });
 
-$app->post('/Operation/add/', function(Request $request, Response $response, array $args){
+$app->post('/Echeance/add/', function(Request $request, Response $response, array $args){
     $compte = $request->getParsedBody()["compte"];
     $nom = $request->getParsedBody()["nom"];
     $montant = $request->getParsedBody()["montant"];
@@ -57,7 +57,7 @@ $app->post('/Operation/add/', function(Request $request, Response $response, arr
     $isDebit = $request->getParsedBody()["isDebit"];
     $tag = $request->getParsedBody()["tag"];
 
-    $query = "INSERT INTO Operation (compte, nom, montant, dateO, methodePayement, isDebit, tag) SELECT :compte,:nom,:montant, STR_TO_DATE(:dateO, '%d/%m/%Y %H:%i:%s' ), :methodePayement, :isD, :tag;";
+    $query = "INSERT INTO Echeancier (compte, nom, montant, dateO, methodePayement, isDebit, tag) SELECT :compte,:nom,:montant, STR_TO_DATE(:dateO, '%d/%m/%Y %H:%i:%s' ), :methodePayement, :isD ,:tag;";
     try{
         $db = new Database();
         $conn = $db->connect();
@@ -88,11 +88,11 @@ $app->post('/Operation/add/', function(Request $request, Response $response, arr
     }
 });
 
-$app->delete('/Operation/delete/', function (Request $request, Response $response, array $args) {
+$app->delete('/Echeance/delete/', function (Request $request, Response $response, array $args) {
     $compte = $request->getParsedBody()["compte"];
     $nom = $request->getParsedBody()["nom"];
 
-    $query = "DELETE FROM Operation WHERE compte=:compte AND nom=:nom";
+    $query = "DELETE FROM Echeancier WHERE compte=:compte AND nom=:nom";
 
     try{
         $db = new Database();
