@@ -59,7 +59,7 @@
 
 
 
-        <ContentView BackgroundColor="{StaticResource Yellow300Accent}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2"  Margin="15"  x:Name="windowAjout">
+        <ContentView BackgroundColor="{StaticResource Yellow300Accent}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2"   x:Name="windowAjout">
 
             <CollectionView  ItemsSource="{Binding}"  Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2">
                 
@@ -76,21 +76,21 @@
 
                             </Grid.ColumnDefinitions>
 
-                           
 
-                            <Label Grid.Column="0" Text="{Binding Nom}" 
+
+                            <Label Grid.Column="0" Text="{Binding IntituleOperation}" 
                                    TextColor="{StaticResource Secondary}" 
                                FontAttributes="Bold" FontSize="Body" 
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
 
-                            <Label Grid.Column="1" Text="{Binding Date}" 
+                            <Label Grid.Column="1" Text="{Binding DateOperation}" 
                                    TextColor="{StaticResource Secondary}" 
                                FontAttributes="Bold" FontSize="Body" 
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
 
-                            <Label Grid.Column="2" Text="{Binding Type}" 
+                            <Label Grid.Column="2" Text="{Binding ModePayement}" 
                                    TextColor="{StaticResource Secondary}" 
                                FontAttributes="Bold" FontSize="Body" 
                                HorizontalOptions="Center"

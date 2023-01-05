@@ -42,62 +42,61 @@
                 Style="{StaticResource WindowsButton}"/>
 
 
-        <ContentView Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="3"  Margin="15"  x:Name="windowAjout">
-            <Grid BackgroundColor="{StaticResource Yellow300Accent}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
+        <ContentView BackgroundColor="{StaticResource Yellow300Accent}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2"   x:Name="windowAjout">
+
+            <CollectionView  ItemsSource="{Binding}"  Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2">
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+
+                            </Grid.ColumnDefinitions>
 
 
-                <Label Text="Nom" Grid.Column="0" TextColor="{StaticResource Secondary}" />
-                <Label Text="Date" Grid.Column="1" TextColor="{StaticResource Secondary}" />
-                <Label Text="Type" Grid.Column="2" TextColor="{StaticResource Secondary}" />
-                <Label Text="Tag" Grid.Column="3" TextColor="{StaticResource Secondary}" />
-                <Label Text="Montant" Grid.Column="4" TextColor="{StaticResource Secondary}" />
+
+                            <Label Grid.Column="0" Text="{Binding IntituleOperation}" 
+                                   TextColor="{StaticResource Secondary}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+
+                            <Label Grid.Column="1" Text="{Binding DateOperation}" 
+                                   TextColor="{StaticResource Secondary}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+
+                            <Label Grid.Column="2" Text="{Binding ModePayement}" 
+                                   TextColor="{StaticResource Secondary}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+
+                            <Label Grid.Column="3" Text="{Binding Tag}" 
+                                   TextColor="{StaticResource Secondary}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
 
 
-                <ListView Grid.Row="4" Grid.ColumnSpan="5" Grid.RowSpan="6" ItemsSource="{Binding Mgr}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="2*"/>
-                                        <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="2*"/>
-                                        <ColumnDefinition Width="1*"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label Text="{Binding Nom}" Grid.Column="0" TextColor="{StaticResource Tertiary}"  />
-                                    <Label Text="12/12/2022" Grid.Column="1" TextColor="{StaticResource Secondary}" />
-                                    <Label Text="CB" Grid.Column="2" TextColor="{StaticResource Secondary}" />
-                                    <Label Text="Alimentation" Grid.Column="3" TextColor="{StaticResource Secondary}" />
-                                    <Label Text="55€" Grid.Column="4" TextColor="{StaticResource Secondary}" />
+                            <Label Grid.Column="4" Text="{Binding Montant}" 
+                                   TextColor="{StaticResource Secondary}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
 
 
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-
-            </Grid>
-
-
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
         </ContentView>
 
@@ -108,9 +107,8 @@
 
 
 
-  
 
-  
+
         <CollectionView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding LesOpe}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
