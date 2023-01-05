@@ -95,15 +95,11 @@ namespace Data
 
 
         //actions sur les Planifications
-        public bool AjouterPlanification(Compte compte)
+        public bool AjouterPlanification(Compte compte, Planification planification)
         {
             throw new NotImplementedException();
         }
-        public bool SupprimerPlanification(Compte compte)
-        {
-            throw new NotImplementedException();
-        }
-        public bool ModifierPlanification(Compte compte)
+        public bool SupprimerPlanification(Compte compte, Planification planification)
         {
             throw new NotImplementedException();
         }

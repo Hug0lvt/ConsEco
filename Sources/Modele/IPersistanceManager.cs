@@ -39,9 +39,8 @@ namespace Model
 
 
         //actions sur les Planifications
-        bool AjouterPlanification(Compte compte);
-        bool SupprimerPlanification(Compte compte);
-        bool ModifierPlanification(Compte compte);
+        bool AjouterPlanification(Compte compte, Planification planification);
+        bool SupprimerPlanification(Compte compte, Planification planification);
         IList<Compte> RecupererPlanification(Compte compte);
 
 

@@ -94,6 +94,7 @@ CREATE TABLE Planification
     dateO date,
     methodePayement varchar(20),
     isDebit boolean,
+    frequance numeric,
     CONSTRAINT ck_pla CHECK (methodePayement IN ('Cb','Esp','Chq','Vir','Pre')),
     FOREIGN KEY(compte) REFERENCES Compte(id)
 );

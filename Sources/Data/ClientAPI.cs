@@ -40,6 +40,11 @@ namespace Data
         private const string POST_ADD_OPERATION_COMPTE_DATA_URL = ROOT_URL + "Operation/add/";
         private const string DELETE_OPERATION_COMPTE_DATA_URL = ROOT_URL + "Operation/delete/";
 
+        //routes planification
+        private const string POST_PLANIFICATION_COMPTE_DATA_URL = ROOT_URL + "Planification/FromIdCompte/";
+        private const string POST_ADD_PLANIFICATION_COMPTE_DATA_URL = ROOT_URL + "Planification/add/";
+        private const string DELETE_PLANIFICATION_COMPTE_DATA_URL = ROOT_URL + "Planification/delete/";
+
         //add all routes
 
         private static HttpClient cli = new HttpClient();
@@ -321,6 +326,71 @@ namespace Data
 
         }
 
-        
+
+        //Planifications
+        public static async Task<List<Planification>> GetPlanificationAsync(string id)
+        {
+            var dataBody = new Dictionary<string, string> { { "id", id } };
+            HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_PLANIFICATION_COMPTE_DATA_URL, dataBody);
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<List<Planification>>(await reponse.Content.ReadAsStringAsync());
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
+        public static async Task<bool> PostAddPlanificationInscritAsync(Compte compte, Planification planification)
+        {
+            var dataBody = new Dictionary<string, string>
+            {
+                { "compte", compte.Identifiant },
+                { "nom", planification.IntituleOperation },
+                { "montant", planification.Montant.ToString() },
+                { "dateO", planification.DateOperation.ToString() },
+                { "methodePayement", planification.ModePayement.ToString() },
+                { "isDebit", planification.IsDebit.ToString() },
+                { "freq", planification.Frequance.ToString() }
+            };
+            HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_ADD_PLANIFICATION_COMPTE_DATA_URL, dataBody);
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
+        public static async Task<bool> DeletePlanificationInscritAsync(string idCompte, string nomOpe)
+        {
+            var dataBody = new Dictionary<string, string> { { "compte", idCompte }, { "nom", nomOpe } };
+
+            var reponse =
+                cli.SendAsync(
+                new HttpRequestMessage(HttpMethod.Delete, DELETE_PLANIFICATION_COMPTE_DATA_URL)
+                {
+                    Content = new FormUrlEncodedContent(dataBody)
+                })
+                .Result;
+
+            if (reponse.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                throw new HttpRequestException(reponse.StatusCode.ToString());
+            }
+
+        }
+
     }
 }

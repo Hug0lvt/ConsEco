@@ -180,3 +180,35 @@ foreach (Operation o in operations)
 {
     Console.WriteLine(o);
 }
+
+Console.WriteLine("\n\n\n----Planifications----\n");
+
+IList<Planification> planifications = ClientAPI.GetPlanificationAsync("1").GetAwaiter().GetResult();
+foreach (Planification p in planifications)
+{
+    Console.WriteLine(p);
+}
+
+Console.WriteLine("\n----Modifs----\n");
+
+rrrrrrr = ClientAPI.PostAddPlanificationInscritAsync(new Compte("1", "PEL"), new Planification("test", 100, DateTime.Now, 30, MethodePayement.Cb, true)).GetAwaiter().GetResult();
+Console.WriteLine("Add Pla On Compte : " + rrrrrrr + "\n");
+
+Console.WriteLine("\n----Verif----\n");
+planifications = ClientAPI.GetPlanificationAsync("1").GetAwaiter().GetResult();
+foreach (Planification p in planifications)
+{
+    Console.WriteLine(p);
+}
+
+Console.WriteLine("\n----Modifs----\n");
+
+rrrrrrr = ClientAPI.DeletePlanificationInscritAsync("1", "test").GetAwaiter().GetResult();
+Console.WriteLine("Del Pla On Compte : " + rrrrrrr + "\n");
+
+Console.WriteLine("\n----Verif----\n");
+planifications = ClientAPI.GetPlanificationAsync("1").GetAwaiter().GetResult();
+foreach (Planification p in planifications)
+{
+    Console.WriteLine(p);
+}
