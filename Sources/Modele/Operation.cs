@@ -33,14 +33,17 @@ namespace Model
 
         public bool IsDebit { get; private set; }
 
+        public TagOperation Tag { get; private set; }
+
         [JsonConstructor]
-        public Operation(string intituleOperation, double montant, DateTime dateOperation, MethodePayement modePayement, bool isDebit=true)
+        public Operation(string intituleOperation, double montant, DateTime dateOperation, MethodePayement modePayement, TagOperation tag, bool isDebit=true)
         {
             IntituleOperation = intituleOperation;
             Montant = montant;
             DateOperation = dateOperation;
             ModePayement = modePayement;
             IsDebit = isDebit;
+            Tag = tag;
         }
 
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

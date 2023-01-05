@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Maui.Controls;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,26 +18,25 @@ namespace Model
 
         public DateTime DateOperation { get; private set; }
 
-        public int Frequance { get; private set; }//en mois ?
-
         public MethodePayement ModePayement { get; private set; }
 
         public bool IsDebit { get; private set; }
+        public TagOperation Tag { get; private set; }
 
         [JsonConstructor]
-        public Planification(string intituleOperation, double montant, DateTime dateOperation, int frequance, MethodePayement modePayement, bool isDebit = true)
+        public Planification(string intituleOperation, double montant, DateTime dateOperation, MethodePayement modePayement, TagOperation tag, bool isDebit = true)
         {
             IntituleOperation = intituleOperation;
             Montant = montant;
             DateOperation = dateOperation;
-            Frequance = frequance;
             ModePayement = modePayement;
             IsDebit = isDebit;
+            Tag = tag;
         }
 
         public override string ToString()
         {
-            return IntituleOperation + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + " " + Frequance;
+            return IntituleOperation + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + " " + Tag;
         }
     }
 }
