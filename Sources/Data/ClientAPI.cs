@@ -287,15 +287,16 @@ namespace Data
 
         public static async Task<bool> PostAddOperationInscritAsync(Compte compte, Operation operation)
         {
-            var dataBody = new Dictionary<string, string> 
-            { 
-                { "compte", compte.Identifiant }, 
+            var dataBody = new Dictionary<string, string>
+            {
+                { "compte", compte.Identifiant },
                 { "nom", operation.IntituleOperation },
                 { "montant", operation.Montant.ToString() },
                 { "dateO", operation.DateOperation.ToString() },
                 { "methodePayement", operation.ModePayement.ToString() },
                 { "isDebit", operation.IsDebit.ToString() },
-                { "tag", operation.Tag.ToString() }
+                { "tag", operation.Tag.ToString() },
+                { "fromBanque", operation.FromBanque.ToString() }
             };
             HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_ADD_OPERATION_COMPTE_DATA_URL, dataBody);
 

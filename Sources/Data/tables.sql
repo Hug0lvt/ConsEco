@@ -83,6 +83,7 @@ CREATE TABLE Operation
     dateO date,
     methodePayement varchar(20),
     isDebit boolean,
+    fromBanque boolean,
     tag varchar(30),
     CONSTRAINT ck_methOpe CHECK (methodePayement IN ('Cb','Esp','Chq','Vir','Pre', 'None')),
     CONSTRAINT ck_tagOpe CHECK (tag IN ('Alimentaire','Carburant','Habitation','Energie','Telephonie','Loisir','Restauration','Divers','Transport','Transaction','Santé')),

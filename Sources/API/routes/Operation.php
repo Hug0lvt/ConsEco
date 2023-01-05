@@ -56,8 +56,9 @@ $app->post('/Operation/add/', function(Request $request, Response $response, arr
     $methodePayement = $request->getParsedBody()["methodePayement"];
     $isDebit = $request->getParsedBody()["isDebit"];
     $tag = $request->getParsedBody()["tag"];
+    $fromBanque = $request->getParsedBody()["fromBanque"];
 
-    $query = "INSERT INTO Operation (compte, nom, montant, dateO, methodePayement, isDebit, tag) SELECT :compte,:nom,:montant, STR_TO_DATE(:dateO, '%d/%m/%Y %H:%i:%s' ), :methodePayement, :isD, :tag;";
+    $query = "INSERT INTO Operation (compte, nom, montant, dateO, methodePayement, isDebit, fromBanque, tag) SELECT :compte,:nom,:montant, STR_TO_DATE(:dateO, '%d/%m/%Y %H:%i:%s' ), :methodePayement, :isD, :fromBanque, :tag;";
     try{
         $db = new Database();
         $conn = $db->connect();
@@ -70,6 +71,7 @@ $app->post('/Operation/add/', function(Request $request, Response $response, arr
         $stmt->bindValue(':methodePayement', $methodePayement, PDO::PARAM_STR);
         $stmt->bindValue(':isD', $isDebit, PDO::PARAM_BOOL);
         $stmt->bindValue(':tag', $tag, PDO::PARAM_STR);
+        $stmt->bindValue(':fromBanque', $fromBanque, PDO::PARAM_BOOL);
 
         $result = $stmt->execute();
         

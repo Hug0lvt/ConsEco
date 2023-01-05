@@ -35,8 +35,10 @@ namespace Model
 
         public TagOperation Tag { get; private set; }
 
+        public bool FromBanque { get; private set; }
+
         [JsonConstructor]
-        public Operation(string intituleOperation, double montant, DateTime dateOperation, MethodePayement modePayement, TagOperation tag, bool isDebit=true)
+        public Operation(string intituleOperation, double montant, DateTime dateOperation, MethodePayement modePayement, TagOperation tag, bool fromBanque, bool isDebit=true)
         {
             IntituleOperation = intituleOperation;
             Montant = montant;
@@ -44,13 +46,14 @@ namespace Model
             ModePayement = modePayement;
             IsDebit = isDebit;
             Tag = tag;
+            FromBanque = fromBanque;
         }
 
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         public override string ToString()
         {
-            return IntituleOperation + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + " " + Tag;
+            return IntituleOperation + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + " " + FromBanque + " " + Tag;
         }
     }
 }

@@ -161,7 +161,7 @@ foreach (Operation o in operations)
 
 Console.WriteLine("\n----Modifs----\n");
 
-rrrrrrr = ClientAPI.PostAddOperationInscritAsync(new Compte("1","PEL"), new Operation("test",100,DateTime.Now,MethodePayement.Cb, TagOperation.Alimentaire, true)).GetAwaiter().GetResult();
+rrrrrrr = ClientAPI.PostAddOperationInscritAsync(new Compte("1","PEL"), new Operation("test",100,DateTime.Now,MethodePayement.Cb, TagOperation.Alimentaire, true, true)).GetAwaiter().GetResult();
 Console.WriteLine("Add Ope On Compte : " + rrrrrrr + "\n");
 
 Console.WriteLine("\n----Verif----\n");
