@@ -63,10 +63,10 @@ namespace Data
         public void CreateInscrit(Inscrit inscrit){
             lesInscrits.Add(inscrit);
         }
-        public string LastInscrit()
+        /*public string LastInscrit()
         {
             return lesInscrits[lesInscrits.Count - 1].Id;
-        }
+        }*/
         public bool ExistEmail(string mail)
         {
             foreach(Inscrit i in lesInscrits)
