@@ -21,7 +21,7 @@ namespace IHM.Mobile
                 AffichError("Champ invalide", "Veuillez compléter tout les champs", "OK");
             }
             else {
-                if (Mgr.existEmail(EntryMail.Text))
+               /* if (Mgr.existEmail(EntryMail.Text))
                 {
                     if (Mgr.isEqualHash(Mgr.recupMdpBdd(EntryMail.Text), EntryPassworld.Text))
                     {
@@ -36,13 +36,13 @@ namespace IHM.Mobile
                 else
                 {
                     AffichError("Compte inexistant", "Email ou mot de passe invalide", "OK");
-                }
+                }*/
             }   
         }
 
         private async void ConnexionValide()
         {
-            Mgr.LoadBanques();
+            //Mgr.LoadBanques();
             await Navigation.PopModalAsync();
         }
 

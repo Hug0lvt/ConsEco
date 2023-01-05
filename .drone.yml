@@ -10,6 +10,7 @@ steps:
     - name: build
       image: mcr.microsoft.com/dotnet/sdk:6.0
       commands:
+        - dotnet add package Newtonsoft.Json
         - cd Sources
         - dotnet workload restore
         - dotnet restore CI_MAUI.sln
@@ -27,6 +28,7 @@ steps:
     - name: code-analysis
       image: hub.codefirst.iut.uca.fr/thomas.bellembois/codefirst-dronesonarplugin-dotnet6
       commands:
+        - dotnet add package Newtonsoft.Json
         - cd Sources/
         - dotnet workload restore
         - dotnet restore CI_MAUI.sln

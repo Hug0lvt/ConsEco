@@ -20,7 +20,7 @@ public partial class MainPage : ContentPage
         }
         else
         {
-            if (Mgr.existEmail(EntryMail.Text))
+            /*if (Mgr.existEmail(EntryMail.Text))
             {
                 if (Mgr.isEqualHash(Mgr.recupMdpBdd(EntryMail.Text), EntryPassworld.Text))
                 {
@@ -35,7 +35,7 @@ public partial class MainPage : ContentPage
             else
             {
                 AffichError("Compte inexistant", "Email ou mot de passe invalide", "OK");
-            }
+            }*/
         }
     }
 

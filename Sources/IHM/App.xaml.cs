@@ -6,7 +6,7 @@ namespace IHM
 {
     public partial class App : Application
     {
-        public Manager Manager { get; set; } = new Manager(new Stub());
+        public Manager Manager { get; set; } = new Manager(new PersAPI());
         public App()
         {
             InitializeComponent();

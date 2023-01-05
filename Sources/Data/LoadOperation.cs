@@ -99,7 +99,7 @@ namespace Data
                                     row = "";
                                 }
                             }
-                            compteEnCoursDeSaisie.ajouterOperation(new Operation(intituleOperation, montant, dateOperation, modePayement, isDebit));
+                            compteEnCoursDeSaisie.ajouterOperation(new Operation(intituleOperation, montant, dateOperation, modePayement, TagOperation.None, isDebit));
                         }
                         else
                         {

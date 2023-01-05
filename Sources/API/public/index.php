@@ -15,6 +15,11 @@ $app->get('/', function (Request $request, Response $response, $args) {
 });
 
 require __DIR__.'/../routes/Inscrit.php';
+require __DIR__.'/../routes/Banque.php';
+require __DIR__.'/../routes/Compte.php';
+require __DIR__.'/../routes/Operation.php';
+require __DIR__.'/../routes/Planification.php';
+require __DIR__.'/../routes/Echeance.php';
 
 $app->run();
 ?>

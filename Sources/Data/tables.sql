@@ -62,44 +62,45 @@ CREATE TABLE Compte
 CREATE TABLE Echeancier
 (
     id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
-    nom varchar(40),
-    credit numeric,
     compte MEDIUMINT,
-    debit numeric,
-    dateE date,
-    datecrea date,
+    nom varchar(40),
+    montant numeric,
+    dateO date,
     methodePayement varchar(20),
-    CONSTRAINT ck_echan CHECK (methodePayement IN ('CB','Cheque','Espece','PrÃ©levement')),
-    FOREIGN KEY(compte) REFERENCES Compte(id),
-    UNIQUE (datecrea,compte)
+    isDebit boolean,
+    tag varchar(30),
+    CONSTRAINT ck_methEch CHECK (methodePayement IN ('Cb','Esp','Chq','Vir','Pre', 'None')),
+    CONSTRAINT ck_tagEch CHECK (tag IN ('Alimentaire','Carburant','Habitation','Energie','Telephonie','Loisir','Restauration','Divers','Transport','Transaction','Santé')),
+    FOREIGN KEY(compte) REFERENCES Compte(id)
 );
 
 CREATE TABLE Operation
 (
     id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
-    nom varchar(40),
-    credit numeric,
     compte MEDIUMINT,
-    debit numeric,
+    nom varchar(40),
+    montant numeric,
     dateO date,
-    datecrea date,
     methodePayement varchar(20),
-    CONSTRAINT ck_methPaye CHECK (methodePayement IN ('CB','Cheque','Espece','PrÃ©levement')),
-    FOREIGN KEY(compte) REFERENCES Compte(id),
-    UNIQUE (datecrea,compte)
+    isDebit boolean,
+    fromBanque boolean,
+    tag varchar(30),
+    CONSTRAINT ck_methOpe CHECK (methodePayement IN ('Cb','Esp','Chq','Vir','Pre', 'None')),
+    CONSTRAINT ck_tagOpe CHECK (tag IN ('Alimentaire','Carburant','Habitation','Energie','Telephonie','Loisir','Restauration','Divers','Transport','Transaction','Santé')),
+    FOREIGN KEY(compte) REFERENCES Compte(id)
 );
 
 CREATE TABLE Planification
 (
     id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
-    nom varchar(40),
-    credit numeric,
     compte MEDIUMINT,
-    debit numeric,
-    dateP date,
-    datecrea date,
+    nom varchar(40),
+    montant numeric,
+    dateO date,
     methodePayement varchar(20),
-    CONSTRAINT ck_planif CHECK (methodePayement IN ('CB','Cheque','Espece','PrÃ©levement')),
-    FOREIGN KEY(compte) REFERENCES Compte(id),
-    UNIQUE (datecrea,compte)
+    isDebit boolean,
+    tag varchar(30),
+    CONSTRAINT ck_methPla CHECK (methodePayement IN ('Cb','Esp','Chq','Vir','Pre', 'None')),
+    CONSTRAINT ck_tagPla CHECK (tag IN ('Alimentaire','Carburant','Habitation','Energie','Telephonie','Loisir','Restauration','Divers','Transport','Transaction','Santé')),
+    FOREIGN KEY(compte) REFERENCES Compte(id)
 );

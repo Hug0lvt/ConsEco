@@ -17,7 +17,7 @@ using System.Reflection.PortableExecutable;
 
 namespace LinqToPgSQL
 {
-    public class PersLinqToPgSQL : IPersistanceManager
+    public class PersLinqToPgSQL /*: IPersistanceManager*/
     {
         private Hash hash = new Hash();
         private static string connexionBDD = String.Format("Server=2.3.8.130; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
@@ -296,11 +296,11 @@ namespace LinqToPgSQL
             return ListeCompte;
         }
 
-        public List<Banque> LoadBanqueId(string id)
+        public List<Banque> LoadBanqueId(int id)
         {
-            int idnombre = Int16.Parse(id);
+            ;
             List<Banque> ListeBanque = new List<Banque>();
-            Debug.WriteLine(idnombre);
+            Debug.WriteLine(id);
             var conn = new NpgsqlConnection(connexionBDD);
             Console.Out.WriteLine("Ouverture de la connection");
             try
@@ -314,7 +314,7 @@ namespace LinqToPgSQL
                 Environment.Exit(-1);
             }
             NpgsqlCommand cmd = new NpgsqlCommand("select b.nom,b.urlsite,b.urllogo from banque b, inscrbanque ib, Inscrit i where ib.idinscrit =(@p) AND ib.nombanque = b.nom AND ib.idinscrit = i.id;", conn);
-            cmd.Parameters.AddWithValue("p", idnombre);
+            cmd.Parameters.AddWithValue("p", id);
             NpgsqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {

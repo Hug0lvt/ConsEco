@@ -2,21 +2,21 @@
 
 namespace Data
 {
-    public class Stub : IPersistanceManager
+    public class PersStub /*: IPersistanceManager*/
     {
         private List<Inscrit> lesInscrits = new List<Inscrit>();
 
-        public Stub()
+        public PersStub()
         {
             lesInscrits.Add(new Inscrit(
-                "1",
+                1,
                 "LIVET",
                 "livet.hugo2003@gmail.com",
                 "Hugo",
                 "Bonjour63."
                 ));
         }
-        public string GetId(string mail)
+        public int GetId(string mail)
         {
             foreach(Inscrit i in lesInscrits)
             {
@@ -25,7 +25,7 @@ namespace Data
                     return i.Id;
                 }
             }
-            return null;
+            return -1;
         }
         public void SupprimerInscritBdd(Inscrit inscrit)
         {
@@ -63,10 +63,10 @@ namespace Data
         public void CreateInscrit(Inscrit inscrit){
             lesInscrits.Add(inscrit);
         }
-        public string LastInscrit()
+        /*public string LastInscrit()
         {
             return lesInscrits[lesInscrits.Count - 1].Id;
-        }
+        }*/
         public bool ExistEmail(string mail)
         {
             foreach(Inscrit i in lesInscrits)
@@ -154,7 +154,9 @@ namespace Data
             return LoadOperation.LoadOperationsFromOFX(ofx);
         }
 
-        public string LoadInscrit(string id, string mdp)
+
+
+        public List<Banque> LoadBanqueId(int id)
         {
             throw new NotImplementedException();
         }

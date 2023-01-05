@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using Model;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace Model
 {
@@ -15,8 +16,9 @@ namespace Model
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string Id { get; private set; }
-        public string Nom { get; private set; }
+        public int Id { get; set; }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
 
         public string Mail
         {
@@ -36,7 +38,7 @@ namespace Model
         }
         private string mail;
 
-        public string Prenom { get; set; }
+        
 
         public string Mdp
         {
@@ -77,8 +79,10 @@ namespace Model
             }
         }
 
-        private List<Banque> lesBanques =new();
-        public Inscrit(string id, string nom, string mail, string prenom, string mdp, double soldeTotal = 0)
+        private List<Banque> lesBanques;
+
+        [JsonConstructor]
+        public Inscrit(int id, string nom, string mail, string prenom, string mdp, double soldeTotal = 0)
         {
             Id = id;
             Nom = nom;
@@ -88,24 +92,16 @@ namespace Model
             SoldeTotal = soldeTotal;
             lesBanques = new();
         }
-        public Inscrit(string id, string nom, string mail, string prenom, string mdp, double soldeTotal, List<Banque> lesbanques)
+        public Inscrit(int id, string nom, string mail, string prenom, string mdp, double soldeTotal, List<Banque> lesbanques)
             : this(id, nom, mail, prenom, mdp, soldeTotal)
         {
             LesBanques = lesbanques;
-        }
-
-        public Inscrit(string mail, string id)
-        {
-            Prenom = "Lucas";
-            Mail = mail;
-            Id = id;
         }
 
         public Inscrit(List<Banque> lesbanques)
         {
             LesBanques = lesbanques;
         }
-     
 
         public void ajouterBanque(Banque banque)
         {
@@ -123,5 +119,9 @@ namespace Model
             Dev = devise;
         }
 
+        public override string ToString()
+        {
+            return Id + " " + Nom + " " + Prenom + " " + Mail + " " + Mdp; 
+        }
     }
 }
