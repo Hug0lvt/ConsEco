@@ -129,5 +129,10 @@ namespace Data
         {
             return ClientAPI.GetStateApi().GetAwaiter().GetResult();
         }
+
+        public IList<Compte> GetDataFromOFX(string path)
+        {
+            return LoadOperation.LoadOperationsFromOFX(path);
+        }
     }
 }

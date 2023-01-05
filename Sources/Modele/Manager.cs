@@ -43,7 +43,7 @@ namespace Model
             }
         }
         private Banque selectedBanque;
-        public List<Banque> BanquesDisponibleInApp
+        public IList<Banque> BanquesDisponibleInApp
         {
             get => banquesDisponibleInApp;
             set
@@ -55,7 +55,7 @@ namespace Model
                 }
             }
         }
-        private List<Banque> banquesDisponibleInApp;
+        private IList<Banque> banquesDisponibleInApp;
 
         public Manager(IPersistanceManager persistance)
         {
@@ -70,14 +70,15 @@ namespace Model
             return hash.IsEqualHash(mdpBdd, mdpSent);
         }
 
-        
-
         public void deconnexion()
         {
             User = null;
         }
 
-
+        public void LoadBanques()
+        {
+            BanquesDisponibleInApp = Pers.RecupererBanquesDisponible();
+        }
 
     }
 }

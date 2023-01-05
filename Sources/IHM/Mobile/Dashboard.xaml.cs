@@ -17,11 +17,11 @@ public partial class DashBoard : ContentPage
 
         }
 
-       /* if (!Mgr.testConnexionAsDatabase())
+        if (!Mgr.Pers.TestConnexion())
         {
             loadPage(new ErrorPage());
 
-        }*/
+        }
 
     }
 

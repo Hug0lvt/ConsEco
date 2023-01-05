@@ -22,10 +22,10 @@ public partial class ErrorPage : ContentPage
 
     public void conIsActive()
     {
-        /*while (!Mgr.testConnexionAsDatabase())
+        while (!Mgr.Pers.TestConnexion())
         {
             Thread.Sleep(TIME_TEST_DB);
-        }*/
+        }
 
         ConnexionValide();
         return;

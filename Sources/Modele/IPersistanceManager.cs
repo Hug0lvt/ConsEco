@@ -52,6 +52,7 @@ namespace Model
 
         //actions utilitaire
         bool TestConnexion();
+        IList<Compte> GetDataFromOFX(string path);
 
     }
 }
