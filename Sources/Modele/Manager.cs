@@ -13,21 +13,6 @@ namespace Model
 
         public Hash hash = new Hash();
 
-        public int Solde
-        {
-            get => solde;
-            set
-            {
-                if (solde != value)
-                {
-                    solde = value;
-                    OnPropertyChanged(nameof(Solde));
-                }
-            }
-        }
-
-        private int solde;
-
         private Inscrit user;
         public Inscrit User
         {
@@ -72,16 +57,15 @@ namespace Model
         }
         private List<Banque> banquesDisponibleInApp;
 
-        void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
         public Manager(IPersistanceManager persistance)
         {
             Pers = persistance;
         }
 
-        
+        void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        public bool isEqualHash(string mdpBdd, string mdpSent)
+
+        public bool CompareHash(string mdpBdd, string mdpSent)
         {
             return hash.IsEqualHash(mdpBdd, mdpSent);
         }
