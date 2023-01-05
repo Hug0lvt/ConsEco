@@ -90,12 +90,11 @@ namespace Data
         }
         public string RecupMdpBdd(string mail)
         {
-            Hash hash = new Hash();
             foreach(Inscrit i in lesInscrits)
             {
                 if(i.Mail == mail)
                 {
-                    return hash.CreateHashCode(i.Mdp);
+                    return Hash.CreateHashCode(i.Mdp);
                 }
             }
             return "inexistant";

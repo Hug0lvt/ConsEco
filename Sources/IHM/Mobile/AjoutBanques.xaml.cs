@@ -11,7 +11,7 @@ public partial class AjoutBanques : ContentPage
 	{
 		InitializeComponent();
         BindingContext = Mgr;
-        Mgr.importBanques();
+        //Mgr.importBanques();
         if (OperatingSystem.IsIOS())
         {
             boutonRetour.IsVisible = true;

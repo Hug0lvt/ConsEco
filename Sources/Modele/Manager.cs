@@ -11,8 +11,6 @@ namespace Model
 
         public int SelectedInscrit { get; set; }
 
-        public Hash hash = new Hash();
-
         private Inscrit user;
         public Inscrit User
         {
@@ -67,7 +65,7 @@ namespace Model
 
         public bool CompareHash(string mdpBdd, string mdpSent)
         {
-            return hash.IsEqualHash(mdpBdd, mdpSent);
+            return Hash.IsEqualHash(mdpBdd, mdpSent);
         }
 
         public void deconnexion()
@@ -80,6 +78,16 @@ namespace Model
             BanquesDisponibleInApp = Pers.RecupererBanquesDisponible();
         }
 
+        public string getPassword(string email)
+        {
+            Inscrit inscrit = Pers.RecupererInscrit(email);
+            return inscrit.Mdp;
+        }
+
+        public void createUser(string mail)
+        {
+            User = Pers.RecupererInscrit(mail);
+        }
     }
 }
 

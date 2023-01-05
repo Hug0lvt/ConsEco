@@ -12,8 +12,6 @@ namespace Model
 {
     public class Inscrit:INotifyPropertyChanged
     {
-        public Hash hash = new Hash();
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public int Id { get; set; }
