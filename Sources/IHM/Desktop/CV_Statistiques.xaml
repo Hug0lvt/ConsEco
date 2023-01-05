@@ -20,7 +20,7 @@
         <StackLayout Grid.Row="0" Grid.ColumnSpan="2">
             <Label 
             Style="{StaticResource TitreWindows}"
-            Text="STATIQTIQUES"
+            Text="STATISTIQUES"
             HorizontalOptions="Center"/>
         </StackLayout>
 

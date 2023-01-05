@@ -30,11 +30,11 @@ public partial class Echeancier : ContentView
 
 	private void SaveEcheance_Clicked(object sender, EventArgs e)
 	{
-
+        windowAjout.Content = new CV_EnregistrerEcheance();
 	}
 
 	private void DelEcheance_Clicked(object sender, EventArgs e)
 	{
-
+        windowAjout.Content = new CV_SupprimerEcheance();
 	}
 }

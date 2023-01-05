@@ -27,14 +27,14 @@
                 Clicked="Button_Clicked"
                 Grid.Column="0" Grid.Row="1" 
                 x:Name="AddCredit"
-                Text="Effectuer un crédit"
+                Text="Planifier une échéance"
                 Style="{StaticResource WindowsButton}"/>
 
         <Button
                 Clicked="Button_Clicked_1"
                 Grid.Column="1" Grid.Row="1" 
                 x:Name="RetireOperation"
-                Text="Retirer une opération"
+                Text="Supprimer une planification"
                 Style="{StaticResource WindowsButton}"/>
 
 

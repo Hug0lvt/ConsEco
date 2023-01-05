@@ -60,4 +60,21 @@ public partial class Dashboard
         ButSta.BackgroundColor = Color.FromArgb("DF775C");
         mainCV.Content = new CV_Statistiques();
     }
+
+    private void ButAcc_Clicked(object sender, EventArgs e)
+    {
+        RetourFormeBase();
+        ButAcc.TextColor = Colors.White;
+        ButAcc.BackgroundColor = Color.FromArgb("DF775C");
+        mainCV.Content = new CV_HomePage();
+    }
+
+    private void ButLog_Clicked(object sender, EventArgs e)
+    {
+        RetourFormeBase();
+        ButLog.TextColor = Colors.White;
+        ButLog.BackgroundColor = Color.FromArgb("DF775C");
+        mainCV.Content = new CV_Log();
+        
+    }
 }
