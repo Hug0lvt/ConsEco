@@ -38,16 +38,31 @@ namespace Model
         {
             Solde = solde;
         }
-        public Compte(string id, string nom, double solde, List<Operation> lesOpe) : base()
+        public Compte(string id, string nom, double solde, List<Operation> lesOpe)
         {
+            Identifiant = id;
+            Nom = nom;
+            Solde = solde;
+            DerniereModification = DateTime.Now;
             LesOpe = lesOpe;
         }
-        public Compte(string id, string nom, double solde, List<Operation> lesOpe, List<Planification> lesPla) : base()
+        public Compte(string id, string nom, double solde, List<Operation> lesOpe, List<Planification> lesPla)
         {
+            Identifiant = id;
+            Nom = nom;
+            Solde = solde;
+            DerniereModification = DateTime.Now;
             LesPla = lesPla;
+            LesOpe = lesOpe;
         }
-        public Compte(string id, string nom, double solde, List<Operation> lesOpe, List<Planification> lesPla, List<Echeance> lesEch) : base()
+        public Compte(string id, string nom, double solde, List<Operation> lesOpe, List<Planification> lesPla, List<Echeance> lesEch)
         {
+            Identifiant = id;
+            Nom = nom;
+            Solde = solde;
+            DerniereModification = DateTime.Now;
+            LesPla = lesPla;
+            LesOpe = lesOpe;
             LesEch = lesEch;
         }
 

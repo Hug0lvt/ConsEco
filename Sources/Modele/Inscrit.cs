@@ -90,6 +90,7 @@ namespace Model
             Prenom = prenom;
             Mdp = mdp;
             SoldeTotal = soldeTotal;
+            lesBanques = new();
         }
         public Inscrit(int id, string nom, string mail, string prenom, string mdp, double soldeTotal, List<Banque> lesbanques)
             : this(id, nom, mail, prenom, mdp, soldeTotal)
