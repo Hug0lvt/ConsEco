@@ -14,13 +14,14 @@ public partial class ForgetPassword : ContentPage
 	{
 		InitializeComponent();
 	}
-    public void SearchEmail(object sender, EventArgs e)
+    public async void SearchEmail(object sender, EventArgs e)
     {
 		if (EntryMail.Text == null)
 		{
 			AffichError("Email inconnue", "Aucun compte existant portant cette adresse mail", "OK");
 		}
-		if (Mgr.Pers.EmailDisponible(EntryMail.Text)){
+		if (await Mgr.Pers.EmailDisponible(EntryMail.Text))
+        {
             Random generator = new Random();
             code = generator.Next(0, 1000000).ToString("D6");
             Email.CreateMail(EntryMail.Text, code);

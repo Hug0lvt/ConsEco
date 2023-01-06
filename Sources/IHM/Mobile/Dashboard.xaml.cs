@@ -1,4 +1,5 @@
 using Model;
+using System.Diagnostics;
 
 namespace IHM.Mobile;
 
@@ -17,11 +18,11 @@ public partial class DashBoard : ContentPage
 
         }
 
-        if (!Mgr.Pers.TestConnexion())
+        /*if (!Mgr.Pers.TestConnexion())
         {
             loadPage(new ErrorPage());
-
-        }
+            Debug.WriteLine("cc");
+        }*/
 
     }
 

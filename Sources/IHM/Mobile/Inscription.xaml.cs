@@ -11,7 +11,7 @@ public partial class Inscription : ContentPage
 	{
 		InitializeComponent();
 	}
-    public void InscriptionOnClicked(object sender, EventArgs e)
+    public async void InscriptionOnClicked(object sender, EventArgs e)
 	{
         if (EntryNewName.Text == null || EntryNewMail.Text == null || EntryConfirmationPassword.Text == null || EntryNewPassword.Text == null ||
             EntryNewSurname.Text == null)
@@ -21,7 +21,7 @@ public partial class Inscription : ContentPage
         else
         {
             if(EntryNewPassword.Text.Equals(EntryConfirmationPassword.Text)) {
-                if (Mgr.Pers.EmailDisponible(EntryNewMail.Text))
+                if (await Mgr.Pers.EmailDisponible(EntryNewMail.Text))
                 {
                     AffichError("Mail existant", "un compte porte déjà cette adresse mail, veuillez en changer", "OK");
                 }

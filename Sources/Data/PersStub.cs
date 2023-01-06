@@ -171,7 +171,7 @@ namespace Data
             throw new NotImplementedException();
         }
 
-        public bool AjouterInscrit(Inscrit inscrit)
+        public Task<bool> AjouterInscrit(Inscrit inscrit)
         {
             throw new NotImplementedException();
         }
@@ -186,7 +186,7 @@ namespace Data
             throw new NotImplementedException();
         }
 
-        public bool EmailDisponible(string mail)
+        public Task<bool> EmailDisponible(string mail)
         {
             throw new NotImplementedException();
         }

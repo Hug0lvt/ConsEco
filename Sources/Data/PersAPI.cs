@@ -13,9 +13,10 @@ namespace Data
         //   /!\ et ne doit en aucun cas manipuler la mémoire !
 
         //actions sur les inscrits
-        public bool AjouterInscrit(Inscrit inscrit)
+        public async Task<bool> AjouterInscrit(Inscrit inscrit)
         {
-            return ClientAPI.PostAddInscritAsync(inscrit.Nom, inscrit.Prenom, inscrit.Mail, inscrit.Mdp).GetAwaiter().GetResult();
+            return await ClientAPI.PostAddInscritAsync(inscrit.Nom, inscrit.Prenom, inscrit.Mail, inscrit.Mdp);
+            
         }
         public bool SupprimerInscrit(Inscrit inscrit)
         {
@@ -34,14 +35,14 @@ namespace Data
             }
             return inscrits.FirstOrDefault();
         }
-        public bool EmailDisponible(string mail)
+        public async Task<bool> EmailDisponible(string mail)
         {
-            List<Inscrit> inscrits = ClientAPI.GetInscritAsync(mail).GetAwaiter().GetResult();
+            List<Inscrit> inscrits = await ClientAPI.GetInscritAsync(mail);
             if (inscrits.Count >= 1)
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
 
 

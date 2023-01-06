@@ -9,19 +9,19 @@ namespace IHM.Mobile
         public MainPage()
         {
             InitializeComponent();
-            //BindingContext = this;
+            BindingContext = this;
         }
 
         
 
-        public void ConnectionOnClicked(object sender, EventArgs e)
+        public async void ConnectionOnClicked(object sender, EventArgs e)
         {
             if (EntryMail.Text == null || EntryPassworld.Text ==  null)
             {
                 AffichError("Champ invalide", "Veuillez compléter tout les champs", "OK");
             }
             else {
-                if (Mgr.Pers.EmailDisponible(EntryMail.Text))
+                if (await Mgr.Pers.EmailDisponible(EntryMail.Text))
                 {
                     if (Mgr.CompareHash(Mgr.getPassword(EntryMail.Text), EntryPassworld.Text))
                     {

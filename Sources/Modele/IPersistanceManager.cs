@@ -12,11 +12,11 @@ namespace Model
         //   /!\ et ne doit en aucun cas manipuler la mémoire !
         
         //actions sur les inscrits
-        bool AjouterInscrit(Inscrit inscrit);
+        Task<bool> AjouterInscrit(Inscrit inscrit);
         bool SupprimerInscrit(Inscrit inscrit);
         bool ModifierMdpInscrit(string mail, string nouveauMdp);
         Inscrit RecupererInscrit(string mail);
-        bool EmailDisponible(string mail);
+        Task<bool> EmailDisponible(string mail);
 
 
         //actions sur les banques
