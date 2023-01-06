@@ -2,9 +2,9 @@
 
 namespace Data
 {
-    public class PersStub /*: IPersistanceManager*/
+    public class PersStub : IPersistanceManager
     {
-        private List<Inscrit> lesInscrits = new List<Inscrit>();
+        /*private List<Inscrit> lesInscrits = new List<Inscrit>();
 
         public PersStub()
         {
@@ -63,10 +63,7 @@ namespace Data
         public void CreateInscrit(Inscrit inscrit){
             lesInscrits.Add(inscrit);
         }
-        /*public string LastInscrit()
-        {
-            return lesInscrits[lesInscrits.Count - 1].Id;
-        }*/
+        
         public bool ExistEmail(string mail)
         {
             foreach(Inscrit i in lesInscrits)
@@ -156,6 +153,120 @@ namespace Data
 
 
         public List<Banque> LoadBanqueId(int id)
+        {
+            throw new NotImplementedException();
+        }*/
+        public bool AjouterBanque(Banque banque, Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AjouterCompte(Compte compte, Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AjouterEcheance(Compte compte, Echeance echeance)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AjouterInscrit(Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AjouterOperation(Compte compte, Operation operation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AjouterPlanification(Compte compte, Planification planification)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool EmailDisponible(string mail)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Compte> GetDataFromOFX(string path)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ModifierMdpInscrit(string mail, string nouveauMdp)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Banque> RecupererBanques(Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Banque> RecupererBanquesDisponible()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Compte> RecupererCompte(Banque banque, Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Echeance> RecupererEcheance(Compte compte)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Inscrit RecupererInscrit(string mail)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Operation> RecupererOperation(Compte compte)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Planification> RecupererPlanification(Compte compte)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SupprimerBanque(Banque banque, Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SupprimerCompte(Compte compte, Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SupprimerEcheance(Compte compte, Echeance echeance)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SupprimerInscrit(Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SupprimerOperation(Compte compte, Operation operation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SupprimerPlanification(Compte compte, Planification planification)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool TestConnexion()
         {
             throw new NotImplementedException();
         }

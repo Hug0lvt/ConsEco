@@ -9,7 +9,7 @@ namespace IHM.Mobile
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = this;
+            //BindingContext = this;
         }
 
         
@@ -57,5 +57,6 @@ namespace IHM.Mobile
         }
 
         public ICommand TapCommand => new Command<string>(async (page) => await Shell.Current.GoToAsync(page));
+    
     }
 }
