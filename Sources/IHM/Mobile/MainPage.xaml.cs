@@ -42,7 +42,7 @@ namespace IHM.Mobile
 
         private async void ConnexionValide()
         {
-            Mgr.LoadBanques();
+            //Mgr.LoadBanques();
             await Navigation.PopModalAsync();
         }
 

@@ -50,7 +50,8 @@ public partial class Inscription : ContentPage
     {
         if (EntryCodeRecept.Text == code)
         {
-            Inscrit inscrit = new Inscrit(1, EntryNewName.Text, EntryNewMail.Text, EntryNewSurname.Text, EntryNewPassword.Text);
+            string hashedPassword = Hash.CreateHashCode(EntryNewPassword.Text);
+            Inscrit inscrit = new Inscrit(1, EntryNewName.Text, EntryNewMail.Text, EntryNewSurname.Text, hashedPassword);
             Mgr.Pers.AjouterInscrit(inscrit);
             AffichError("compte créé", "Compte bien créé", "OK");
             NavigateTo("..");

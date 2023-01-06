@@ -34,7 +34,6 @@ namespace Data
                 return inscrits.First();
             }
             throw new ArgumentException("Cet email a un problème");
-
         }
         public async Task<bool> EmailDisponible(string mail)
         {
