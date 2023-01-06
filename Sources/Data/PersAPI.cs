@@ -26,14 +26,15 @@ namespace Data
         {
             return ClientAPI.PutPasswordInscritAsync(mail,nouveauMdp).GetAwaiter().GetResult();
         }
-        public Inscrit RecupererInscrit(string mail)
+        public async Task<Inscrit> RecupererInscrit(string mail)
         {
-            List<Inscrit> inscrits = ClientAPI.GetInscritAsync(mail).GetAwaiter().GetResult();
-            if(inscrits.Count >= 1)
+            List<Inscrit> inscrits = await ClientAPI.GetInscritAsync(mail);
+            if(inscrits.Count == 1)
             {
-                throw new ArgumentException("Cet email contient plusieurs utilisateurs pour la même adresse");
+                return inscrits.First();
             }
-            return inscrits.FirstOrDefault();
+            throw new ArgumentException("Cet email a un problème");
+
         }
         public async Task<bool> EmailDisponible(string mail)
         {

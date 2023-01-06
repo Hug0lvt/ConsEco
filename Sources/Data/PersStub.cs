@@ -221,7 +221,7 @@ namespace Data
             throw new NotImplementedException();
         }
 
-        public Inscrit RecupererInscrit(string mail)
+        public Task<Inscrit> RecupererInscrit(string mail)
         {
             throw new NotImplementedException();
         }

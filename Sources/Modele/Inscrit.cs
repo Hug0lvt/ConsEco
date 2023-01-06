@@ -43,7 +43,7 @@ namespace Model
             get => mdp;
             set
             {
-                if (value.Length <= 8)
+                /*if (value.Length <= 8)
                 {
                     throw new InvalidPasswordException(value, "La longeur d'un mot de passe doit être obligatoirement superieure a 8");
                 }
@@ -54,7 +54,7 @@ namespace Model
                 if (!Regex.IsMatch(value, "[0-9]+"))
                 {
                     throw new InvalidPasswordException(value, "Le mot de passe doit contenir au moins un chiffre");
-                }
+                }*/
                 mdp = value;
             }
         }

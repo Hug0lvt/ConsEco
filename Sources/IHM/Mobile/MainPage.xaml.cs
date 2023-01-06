@@ -23,7 +23,7 @@ namespace IHM.Mobile
             else {
                 if (await Mgr.Pers.EmailDisponible(EntryMail.Text))
                 {
-                    if (Mgr.CompareHash(Mgr.getPassword(EntryMail.Text), EntryPassworld.Text))
+                    if (Mgr.CompareHash(await Mgr.getPassword(EntryMail.Text), EntryPassworld.Text))
                     {
                         Mgr.createUser(EntryMail.Text);
                         ConnexionValide();

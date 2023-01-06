@@ -78,15 +78,15 @@ namespace Model
             BanquesDisponibleInApp = Pers.RecupererBanquesDisponible();
         }
 
-        public string getPassword(string email)
+        public async Task<string> getPassword(string email)
         {
-            Inscrit inscrit = Pers.RecupererInscrit(email);
+            Inscrit inscrit = await Pers.RecupererInscrit(email);
             return inscrit.Mdp;
         }
 
-        public void createUser(string mail)
+        public async void createUser(string mail)
         {
-            User = Pers.RecupererInscrit(mail);
+            User = await Pers.RecupererInscrit(mail);
         }
     }
 }

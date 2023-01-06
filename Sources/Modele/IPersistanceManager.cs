@@ -15,7 +15,7 @@ namespace Model
         Task<bool> AjouterInscrit(Inscrit inscrit);
         bool SupprimerInscrit(Inscrit inscrit);
         bool ModifierMdpInscrit(string mail, string nouveauMdp);
-        Inscrit RecupererInscrit(string mail);
+        Task<Inscrit> RecupererInscrit(string mail);
         Task<bool> EmailDisponible(string mail);
 
 
