@@ -29,7 +29,7 @@
 
             <Image Source="logo_sans_fond.png" HeightRequest="100" Margin="50,10,0,0" Grid.Column="0" Grid.Row="0"/>
             <Button Text="Mon compte" ImageSource="logo_sans_fond.png" x:Name="ButLog" BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Grid.Column="4" Grid.Row="0"  MaximumWidthRequest="200" MaximumHeightRequest="50" Clicked="ButLog_Clicked"></Button>
-            <StackLayout BackgroundColor="{StaticResource Secondary}" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6">
+            <StackLayout Grid.Row="1" Grid.Column="0" Grid.RowSpan="6">
                 <Button Text="ACCUEIL"  ImageSource="home_black.png"  MaximumWidthRequest="200" MaximumHeightRequest="60" x:Name="ButAcc" BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="1" Clicked="ButAcc_Clicked" ></Button>
                 <Button Text="COMPTE" x:Name="ButCom"  ImageSource="dollar_black.png"  MaximumWidthRequest="200" MaximumHeightRequest="60"  BackgroundColor="{StaticResource Yellow100Accent}"  TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="2" Clicked="Button_compte"></Button>
                 <Button Text="OPERATION" x:Name="ButOpe"   ImageSource="home_black.png"  MaximumWidthRequest="200" MaximumHeightRequest="60" BackgroundColor="{StaticResource Yellow100Accent}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21" Grid.Column="0" Grid.Row="3" Clicked="Button_operation"></Button>

@@ -57,10 +57,25 @@ namespace Model
         }
         private IList<Banque> banquesDisponibleInApp;
 
+
+
+        //Test
+
+/*
+        private List<Compte> listeDesComptes = new List<Compte>();
+        public ReadOnlyCollection<Compte> AllCompte { get; private set; }
+*/
+
         public Manager(IPersistanceManager persistance)
         {
+           // AllCompte = new ReadOnlyCollection<Compte>(listeDesComptes);
             Pers = persistance;
         }
+
+
+      
+
+
 
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 

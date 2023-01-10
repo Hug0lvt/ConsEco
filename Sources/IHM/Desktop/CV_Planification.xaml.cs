@@ -39,7 +39,9 @@ public partial class CV_Planification : ContentView
         planification.Add(new("Loyer", 500, DateTime.Now, MethodePayement.Virement, TagOperation.Habitation, true));
         */
 
-        BindingContext = planification;
+
+
+       /* BindingContext = Mgr.AllCompte;*/
 
     }
 
