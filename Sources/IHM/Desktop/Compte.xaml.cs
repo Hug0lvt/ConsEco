@@ -9,7 +9,7 @@ public partial class Compte : ContentView
 	{
 		InitializeComponent();
 
-		Model.Compte compte = new Model.Compte("compte courant", 2000);
+		Model.Compte compte = new Model.Compte("", "compte courant", 2000);
 
 		BindingContext = compte;
 		

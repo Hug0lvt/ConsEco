@@ -25,7 +25,7 @@ namespace TestsUnitaires
         public void TestConstructeurCompte2()
         {
             List<Operation> testlistope = new();
-            Operation testope = new("test", 20, DateTime.Now, MethodePayement.Cb, TagOperation.Alimentaire, true, true);
+            Operation testope = new("test", 20, DateTime.Now, MethodePayement.CB, TagOperation.Alimentaire, true, true);
             testlistope.Add(testope);
             Compte c1 = new("012345678901", "Livret A", 234,testlistope);
             Compte c2 = new("012345678902", "&e23R_te7", 1245.34, testlistope);
@@ -48,7 +48,7 @@ namespace TestsUnitaires
         public void testAjouterOperation()
         {
             Compte c1 = new("012345678901", "Livret A", 234);
-            c1.ajouterOperation(new("test", 20, DateTime.Now, MethodePayement.Cb, TagOperation.Alimentaire, true, true));
+            c1.ajouterOperation(new("test", 20, DateTime.Now, MethodePayement.CB, TagOperation.Alimentaire, true, true));
             Assert.True(c1.LesOpe.Count() == 1);
         }
 
@@ -56,7 +56,7 @@ namespace TestsUnitaires
         public void testSupprimerOperation()
         {
             Compte c1 = new("012345678901", "Livret A", 234);
-            Operation testope = new("test", 20, DateTime.Now, MethodePayement.Cb, TagOperation.Alimentaire, true, true);
+            Operation testope = new("test", 20, DateTime.Now, MethodePayement.CB, TagOperation.Alimentaire, true, true);
             c1.ajouterOperation(testope);
             Assert.True(c1.LesOpe.Count() == 1);
             c1.supprimerOperation(testope);

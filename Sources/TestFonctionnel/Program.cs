@@ -161,7 +161,7 @@ foreach (Operation o in operations)
 
 Console.WriteLine("\n----Modifs----\n");
 
-rrrrrrr = ClientAPI.PostAddOperationInscritAsync(new Compte("1","PEL"), new Operation("test",100,DateTime.Now,MethodePayement.Cb, TagOperation.Alimentaire, true, true)).GetAwaiter().GetResult();
+rrrrrrr = ClientAPI.PostAddOperationInscritAsync(new Compte("1","PEL"), new Operation("test",100,DateTime.Now,MethodePayement.CB, TagOperation.Alimentaire, true, true)).GetAwaiter().GetResult();
 Console.WriteLine("Add Ope On Compte : " + rrrrrrr + "\n");
 
 Console.WriteLine("\n----Verif----\n");
@@ -193,7 +193,7 @@ foreach (Planification p in planifications)
 
 Console.WriteLine("\n----Modifs----\n");
 
-rrrrrrr = ClientAPI.PostAddPlanificationInscritAsync(new Compte("1", "PEL"), new Planification("test", 100, DateTime.Now, MethodePayement.Cb, TagOperation.Alimentaire, true)).GetAwaiter().GetResult();
+rrrrrrr = ClientAPI.PostAddPlanificationInscritAsync(new Compte("1", "PEL"), new Planification("test", 100, DateTime.Now, MethodePayement.CB, TagOperation.Alimentaire, true)).GetAwaiter().GetResult();
 Console.WriteLine("Add Pla On Compte : " + rrrrrrr + "\n");
 
 Console.WriteLine("\n----Verif----\n");
@@ -225,7 +225,7 @@ foreach (Echeance e in echeances)
 
 Console.WriteLine("\n----Modifs----\n");
 
-rrrrrrr = ClientAPI.PostAddEcheanceInscritAsync(new Compte("1", "PEL"), new Echeance("test", 100, DateTime.Now, MethodePayement.Cb, TagOperation.Alimentaire, true)).GetAwaiter().GetResult();
+rrrrrrr = ClientAPI.PostAddEcheanceInscritAsync(new Compte("1", "PEL"), new Echeance("test", 100, DateTime.Now, MethodePayement.CB, TagOperation.Alimentaire, true)).GetAwaiter().GetResult();
 Console.WriteLine("Add Ech On Compte : " + rrrrrrr + "\n");
 
 Console.WriteLine("\n----Verif----\n");

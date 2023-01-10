@@ -86,7 +86,7 @@ namespace Data
                                 {
                                     if (row.Contains("PAIEMENT"))
                                     {
-                                        modePayement = MethodePayement.Cb;
+                                        modePayement = MethodePayement.CB;
                                     }
                                     else
                                     {

@@ -17,7 +17,7 @@ public partial class CV_Planification : ContentView
 
         planification = new List<Planification>();
 
-        planification.Add(new("Eau", 55, DateTime.Now, MethodePayement.CB, TagOperation.Divers, true));
+        /*planification.Add(new("Eau", 55, DateTime.Now, MethodePayement.CB, TagOperation.Divers, true));
         planification.Add(new("Amazon", 103.30, DateTime.Now, MethodePayement.CB, TagOperation.Divers, true));
         planification.Add(new("Mutuelle", 38.50, DateTime.Now, MethodePayement.Prevelement, TagOperation.Santé, true));
         planification.Add(new("Loyer", 500, DateTime.Now, MethodePayement.Virement, TagOperation.Habitation, true));
@@ -37,6 +37,7 @@ public partial class CV_Planification : ContentView
         planification.Add(new("Amazon", 103.30, DateTime.Now, MethodePayement.CB, TagOperation.Divers, true));
         planification.Add(new("Mutuelle", 38.50, DateTime.Now, MethodePayement.Prevelement, TagOperation.Santé, true));
         planification.Add(new("Loyer", 500, DateTime.Now, MethodePayement.Virement, TagOperation.Habitation, true));
+        */
 
         BindingContext = planification;
 
