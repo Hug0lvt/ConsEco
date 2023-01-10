@@ -10,7 +10,6 @@ namespace Model
     public static class Hash
     {
         public static string CreateHashCode(string mdp)
-
         {
             string hashString = "";
             byte[] hash;

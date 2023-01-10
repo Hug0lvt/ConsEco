@@ -41,7 +41,8 @@ public partial class MainPage : ContentPage
 
     private async void ConnexionValide()
     {
-        await Navigation.PopModalAsync();
+        Navigation.PushAsync(new Dashboard());
+        //await Navigation.PopModalAsync();
     }
 
     private async void AffichError(string s, string s1, string s2)

@@ -18,6 +18,9 @@ namespace Model
         public string Nom { get; set; }
         public string Prenom { get; set; }
 
+        /// <summary>
+        /// Représente l'adresse mail de l'inscrit.
+        /// </summary>
         public string Mail
         {
             get => mail;
@@ -36,8 +39,9 @@ namespace Model
         }
         private string mail;
 
-        
-
+        /// <summary>
+        /// Représente le mot de passe de l'inscrit pour se connecter à son compte.
+        /// </summary>
         public string Mdp
         {
             get => mdp;
@@ -63,6 +67,10 @@ namespace Model
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         public double SoldeTotal { get; private set; }
+
+        /// <summary>
+        /// Type de monnaie pour laquel est le solde total.
+        /// </summary>
         public Devises Dev { get; private set; }
         public IList<Banque> LesBanques 
         {
@@ -106,12 +114,20 @@ namespace Model
             LesBanques.Add(banque);
         }
 
+        /// <summary>
+        /// Permet de supprimer une banque de la liste LesBanques
+        /// </summary>
+        /// <param name="banque"> Objet de type banque correspondant à la banque qui doit être supprimé de la liste.</param>
         public void SupprimerBanque(Banque banque)
         {
             LesBanques.Remove(banque);
 
         }
 
+        /// <summary>
+        /// Permet de changer la devise utilisé pour le solde total
+        /// </summary>
+        /// <param name="devise">Correspond à la devise devant être utilisé.</param>
         public void ChoisirDevise(Devises devise)
         {
             Dev = devise;

@@ -4,9 +4,13 @@ using System.Diagnostics;
 
 namespace Model
 {
+    /// <summary>
+    /// Permet de faire le lien entre le modèle et la base de donnée..
+    /// </summary>
     public class Manager : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         public IPersistanceManager Pers { get; private set; }
 
         private Inscrit user;

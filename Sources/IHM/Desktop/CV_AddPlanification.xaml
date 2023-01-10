@@ -4,7 +4,7 @@
              x:Class="IHM.Desktop.CV_AddPlanification">
 
 
-        <Grid BackgroundColor="{StaticResource Primary}">
+        <Grid BackgroundColor="{StaticResource Secondary}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>

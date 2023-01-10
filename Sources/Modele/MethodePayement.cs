@@ -9,10 +9,10 @@ namespace Model
     public enum MethodePayement
     {
         None,
-        Cb,
-        Esp,
-        Chq,
-        Vir,
-        Pre
+        CB,
+        Espece,
+        Cheque,
+        Virement,
+        Prevelement
     }
 }

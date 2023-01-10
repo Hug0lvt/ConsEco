@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    /// <summary>
+    /// Représente toute les monnaies pouvant être utilisé pour l'application.
+    /// </summary>
     public enum Devises
     {
         Livre_sterling,

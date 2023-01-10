@@ -66,6 +66,15 @@ namespace Model
             LesEch = lesEch;
         }
 
+        /// <summary>
+        /// Permet de modifier le solde présent sur le compte.
+        /// </summary>
+        /// <param name="s">Nouvelle quantité d'argent présent sur le compte.</param>
+        public void modifierSolde(double s)
+        {
+            Solde = s;
+        }
+
         
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
@@ -80,36 +89,61 @@ namespace Model
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Permet de supprimer une operation de la liste LesOpe
+        /// </summary>
+        /// <param name="o">Objet de type operation devant être supprimé de la liste</param>
         public void supprimerOperation(Operation o)
         {
             LesOpe.Remove(o);
         }
 
+        /// <summary>
+        /// Sert à ajouter une echenance à la liste LesEch
+        /// </summary>
+        /// <param name="e">Objet de type échéance à ajouter à la liste</param>
+        /// <exception cref="NullReferenceException">Déclenchée quand l'opération placé en paramètre est nulle.</exception>
         public void ajoutEcheance(Echeance e)
         {
             if (e == null) throw new NullReferenceException();
             LesEch.Add(e);
         }
 
+        /// <summary>
+        /// Permet de supprimer une echeance de la liste LesEch
+        /// </summary>
+        /// <param name="e">Objet de type echeance devant être supprimé de la liste</param>
         public void supprimerEcheance(Echeance e)
         {
             LesEch.Remove(e);
         }
 
-        public void ajoutPlannification(Planification p)
+        /// <summary>
+        /// Sert à ajouter une planification à la liste LesPla
+        /// </summary>
+        /// <param name="p">Objet de type planification à ajouter à la liste</param>
+        /// <exception cref="NullReferenceException">Déclenchée quand l'opération placé en paramètre est nulle.</exception>
+        public void ajoutPlanification(Planification p)
         {
             if (p == null) throw new NullReferenceException();
             LesPla.Add(p);
         }
 
-        public void supprimerPlannification(Planification p)
+        /// <summary>
+        /// Permet de supprimer une planification de la liste LesPla
+        /// </summary>
+        /// <param name="p">Objet de type planification devant être supprimé de la liste</param>
+        public void supprimerPlanification(Planification p)
         {
             LesPla.Remove(p);
         }
 
+        /// <summary>
+        /// Permet de rédéfinir la méthode Equals en comparant le type des 2 objets.
+        /// </summary>
+        /// <param name="obj">L'objet dont on souhaite savoir s'il est de type compte</param>
         public override bool Equals(object obj)
         {
-
             if (obj == null || GetType() != obj.GetType())
             {
                 return false;

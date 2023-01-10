@@ -2,44 +2,152 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Desktop.Echeancier"
-             BackgroundColor="{StaticResource Yellow300Accent}">
-    
-    <VerticalStackLayout Margin="20">
+             >
 
-        <Label 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+            
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StackLayout Grid.Row="0" Grid.ColumnSpan="2">
+            <Label 
             Style="{StaticResource TitreWindows}"
             Text="ECHEANCIER"
-            VerticalOptions="StartAndExpand"/>
-        
-        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Fill">
-            
-            <Button
+            HorizontalOptions="Center"/>
+        </StackLayout>
+
+
+        <Button
+                Clicked="SaveEcheance_Clicked"
+                Grid.Column="0" Grid.Row="1" 
                 x:Name="SaveEcheance"
                 Text="Enregistrer une échéance"
                 Style="{StaticResource WindowsButton}"/>
 
-            <Button
+        <Button
+                Clicked="DelEcheance_Clicked"   
+                Grid.Column="1" Grid.Row="1" 
                 x:Name="DelEcheance"
                 Text="Supprimer une échéance"
                 Style="{StaticResource WindowsButton}"/>
-            
-        </HorizontalStackLayout>
-
-        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Fill">
-
-            <Border Background="{StaticResource Primary}"
-            Style="{StaticResource TotalButton}">
-            <Label Text=" -- BINDING -- " FontFamily="Comic sans MS"/>
-            </Border>
-
-            <Border Background="{StaticResource Tertiary}"
-            Style="{StaticResource TotalButton}">
-            <Label Text=" -- BINDING -- " FontFamily="Comic sans MS"/>
-            </Border>
-
-        </HorizontalStackLayout>
 
 
+        <ContentView BackgroundColor="{StaticResource Yellow300Accent}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2"   x:Name="windowAjout">
 
-    </VerticalStackLayout>
+            <CollectionView  ItemsSource="{Binding}"  Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2">
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+
+                            </Grid.ColumnDefinitions>
+
+
+
+                            <Label Grid.Column="0" Text="{Binding IntituleOperation}" 
+                                   TextColor="{StaticResource Secondary}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+
+                            <Label Grid.Column="1" Text="{Binding DateOperation}" 
+                                   TextColor="{StaticResource Secondary}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+
+                            <Label Grid.Column="2" Text="{Binding ModePayement}" 
+                                   TextColor="{StaticResource Secondary}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+
+                            <Label Grid.Column="3" Text="{Binding Tag}" 
+                                   TextColor="{StaticResource Secondary}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+
+
+                            <Label Grid.Column="4" Text="{Binding Montant}" 
+                                   TextColor="{StaticResource Secondary}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </ContentView>
+
+
+
+
+
+
+
+
+
+
+        <CollectionView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding LesOpe}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                               Source="{Binding ImageSrc}"
+                               CornerRadius="10"/>
+                        <Label Grid.Row="0" Grid.Column="1"
+                               Text="{Binding NomOpe}"
+                               FontAttributes="Bold" />
+                        <Label Grid.Row="1" Grid.Column="1"
+                               Text="{Binding DetailTypeOpe}"
+                               FontAttributes="Italic"/>
+                        <Label Grid.Row="0" Grid.Column="2"
+                               Text="{Binding DateOpe}"/>
+                        <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2"
+                               Text="{Binding MontantOpe}"
+                               FontAttributes="Bold"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        
+        
+        
+        
+    </Grid>
+
+
 </ContentView>
