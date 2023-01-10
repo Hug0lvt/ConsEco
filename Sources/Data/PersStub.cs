@@ -2,9 +2,9 @@
 
 namespace Data
 {
-    public class PersStub /*: IPersistanceManager*/
+    public class PersStub : IPersistanceManager
     {
-        private List<Inscrit> lesInscrits = new List<Inscrit>();
+        /*private List<Inscrit> lesInscrits = new List<Inscrit>();
 
         public PersStub()
         {
@@ -63,10 +63,7 @@ namespace Data
         public void CreateInscrit(Inscrit inscrit){
             lesInscrits.Add(inscrit);
         }
-        /*public string LastInscrit()
-        {
-            return lesInscrits[lesInscrits.Count - 1].Id;
-        }*/
+        
         public bool ExistEmail(string mail)
         {
             foreach(Inscrit i in lesInscrits)
@@ -90,12 +87,11 @@ namespace Data
         }
         public string RecupMdpBdd(string mail)
         {
-            Hash hash = new Hash();
             foreach(Inscrit i in lesInscrits)
             {
                 if(i.Mail == mail)
                 {
-                    return hash.CreateHashCode(i.Mdp);
+                    return Hash.CreateHashCode(i.Mdp);
                 }
             }
             return "inexistant";
@@ -159,9 +155,122 @@ namespace Data
         public List<Banque> LoadBanqueId(int id)
         {
             throw new NotImplementedException();
+        }*/
+        public Task<bool> AjouterBanque(Banque banque, Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> AjouterCompte(Compte compte, Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> AjouterEcheance(Compte compte, Echeance echeance)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> AjouterInscrit(Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> AjouterOperation(Compte compte, Operation operation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> AjouterPlanification(Compte compte, Planification planification)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> EmailDisponible(string mail)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Compte> GetDataFromOFX(string path)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> ModifierMdpInscrit(string mail, string nouveauMdp)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IList<Banque>> RecupererBanques(Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IList<Banque>> RecupererBanquesDisponible()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IList<Compte>> RecupererCompte(Banque banque, Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IList<Echeance>> RecupererEcheance(Compte compte)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Inscrit> RecupererInscrit(string mail)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IList<Operation>> RecupererOperation(Compte compte)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IList<Planification>> RecupererPlanification(Compte compte)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> SupprimerBanque(Banque banque, Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> SupprimerCompte(Compte compte, Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> SupprimerEcheance(Compte compte, Echeance echeance)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> SupprimerInscrit(Inscrit inscrit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> SupprimerOperation(Compte compte, Operation operation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> SupprimerPlanification(Compte compte, Planification planification)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> TestConnexion()
+        {
+            throw new NotImplementedException();
         }
     }
 }
-
 
 

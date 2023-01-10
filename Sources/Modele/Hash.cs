@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Model
 {
-    public class Hash
+    public static class Hash
     {
-        public string CreateHashCode(string mdp)
+        public static string CreateHashCode(string mdp)
 
         {
             string hashString = "";
@@ -25,21 +25,10 @@ namespace Model
             return hashString;
         }
 
-        public bool IsEqualHash(string mdpBdd, string mdpSent)
+        public static bool IsEqualHash(string mdpBdd, string mdpSent)
         {
-            string hashedMdpSent = CreateHashCode(mdpSent);
+            string hashedMdpSent = Hash.CreateHashCode(mdpSent);
             return hashedMdpSent.Equals(mdpBdd);
-        }
-
-        private string ByteArrayToString(byte[] arrInput)
-        {
-            int i;
-            StringBuilder sOutput = new StringBuilder(arrInput.Length);
-            for (i = 0; i < arrInput.Length; i++)
-            {
-                sOutput.Append(arrInput[i].ToString("X2"));
-            }
-            return sOutput.ToString();
         }
     }
 }

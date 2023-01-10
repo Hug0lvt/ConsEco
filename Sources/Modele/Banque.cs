@@ -36,11 +36,8 @@ namespace Model
             UrlLogo = urlLogo;
         }
 
-        public Banque(string nom, string urlSite, string urlLogo, List<Compte> lescomptes)
+        public Banque(string nom, string urlSite, string urlLogo, List<Compte> lescomptes) : this(nom,urlSite, urlLogo)
         {
-            Nom = nom;
-            UrlSite = urlSite;
-            UrlLogo = urlLogo;
             ListeDesComptes = lescomptes;
         }
 

@@ -11,7 +11,7 @@ public partial class Inscription : ContentPage
 	{
 		InitializeComponent();
 	}
-    public void InscriptionOnClicked(object sender, EventArgs e)
+    public async void InscriptionOnClicked(object sender, EventArgs e)
 	{
         if (EntryNewName.Text == null || EntryNewMail.Text == null || EntryConfirmationPassword.Text == null || EntryNewPassword.Text == null ||
             EntryNewSurname.Text == null)
@@ -20,8 +20,8 @@ public partial class Inscription : ContentPage
         }
         else
         {
-            /*if(EntryNewPassword.Text.Equals(EntryConfirmationPassword.Text)) {
-                if (Mgr.existEmail(EntryNewMail.Text))
+            if(EntryNewPassword.Text.Equals(EntryConfirmationPassword.Text)) {
+                if (await Mgr.Pers.EmailDisponible(EntryNewMail.Text))
                 {
                     AffichError("Mail existant", "un compte porte déjà cette adresse mail, veuillez en changer", "OK");
                 }
@@ -43,15 +43,16 @@ public partial class Inscription : ContentPage
             else
             {
                 AffichError("Mot de passe de confirmation invalide", "Veuillez mettre deux mots de passe identiques", "OK");
-            }*/
+            }
         }
     }
     private void ValideCode(object sender, EventArgs e)
     {
         if (EntryCodeRecept.Text == code)
         {
-            //Inscrit inscrit = new Inscrit(Mgr.lastInscrit() + 1, EntryNewName.Text, EntryNewMail.Text, EntryNewSurname.Text, EntryNewPassword.Text);
-            //Mgr.createInscrit(inscrit);
+            string hashedPassword = Hash.CreateHashCode(EntryNewPassword.Text);
+            Inscrit inscrit = new Inscrit(1, EntryNewName.Text, EntryNewMail.Text, EntryNewSurname.Text, hashedPassword);
+            Mgr.Pers.AjouterInscrit(inscrit);
             AffichError("compte créé", "Compte bien créé", "OK");
             NavigateTo("..");
         }

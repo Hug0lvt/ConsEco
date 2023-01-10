@@ -19,7 +19,6 @@ namespace LinqToPgSQL
 {
     public class PersLinqToPgSQL /*: IPersistanceManager*/
     {
-        private Hash hash = new Hash();
         private static string connexionBDD = String.Format("Server=2.3.8.130; Username=postgres; Database=conseco; Port=5432; Password=lulu; SSLMode=Prefer");
 
         private static NpgsqlConnection dbAccess = new NpgsqlConnection(connexionBDD);
@@ -100,8 +99,7 @@ namespace LinqToPgSQL
 
         public async void ChangePasswordBdd(string mail, string newMdp)
         {
-            Hash hash = new Hash();
-            string hashedMdp = hash.CreateHashCode(newMdp);
+            string hashedMdp = Hash.CreateHashCode(newMdp);
             var conn = new NpgsqlConnection(connexionBDD);
             Console.Out.WriteLine("Ouverture de la connection");
             try
@@ -151,7 +149,7 @@ namespace LinqToPgSQL
 
         public async void CreateInscrit(Inscrit inscrit)
         {
-            string mdpHash = hash.CreateHashCode(inscrit.Mdp);
+            string mdpHash = Hash.CreateHashCode(inscrit.Mdp);
             Console.WriteLine("AAAAAA"+mdpHash.Length);
             var conn = new NpgsqlConnection(connexionBDD);
             conn.Open();

@@ -12,7 +12,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Data
 {
-    public class LoadOperation
+    public static class LoadOperation
     {
         public static IList<Compte> LoadOperationsFromOFX(string ofx)
         {
@@ -112,7 +112,7 @@ namespace Data
             
         }
 
-        public static string[] CutRow(string row) 
+        private static string[] CutRow(string row) 
         {
             string[] cutRow;
             if (row == null) throw new ArgumentNullException();

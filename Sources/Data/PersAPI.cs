@@ -13,121 +13,127 @@ namespace Data
         //   /!\ et ne doit en aucun cas manipuler la mémoire !
 
         //actions sur les inscrits
-        public bool AjouterInscrit(Inscrit inscrit)
+        public async Task<bool> AjouterInscrit(Inscrit inscrit)
         {
-            return ClientAPI.PostAddInscritAsync(inscrit.Nom, inscrit.Prenom, inscrit.Mail, inscrit.Mdp).GetAwaiter().GetResult();
+            return await ClientAPI.PostAddInscritAsync(inscrit.Nom, inscrit.Prenom, inscrit.Mail, inscrit.Mdp);
+
         }
-        public bool SupprimerInscrit(Inscrit inscrit)
+        public async Task<bool> SupprimerInscrit(Inscrit inscrit)
         {
-            return ClientAPI.DeleteInscritAsync(inscrit.Mail).GetAwaiter().GetResult();
+            return await ClientAPI.DeleteInscritAsync(inscrit.Mail);
         }
-        public bool ModifierMdpInscrit(string mail, string nouveauMdp)
+        public async Task<bool> ModifierMdpInscrit(string mail, string nouveauMdp)
         {
-            return ClientAPI.PutPasswordInscritAsync(mail,nouveauMdp).GetAwaiter().GetResult();
+            return await ClientAPI.PutPasswordInscritAsync(mail, nouveauMdp);
         }
-        public Inscrit RecupererInscrit(string mail)
+        public async Task<Inscrit> RecupererInscrit(string mail)
         {
-            List<Inscrit> inscrits = ClientAPI.GetInscritAsync(mail).GetAwaiter().GetResult();
-            if(inscrits.Count >= 1)
+            List<Inscrit> inscrits = await ClientAPI.GetInscritAsync(mail);
+            if (inscrits.Count == 1)
             {
-                throw new ArgumentException("Cet email contient plusieurs utilisateurs pour la même adresse");
+                return inscrits.First();
             }
-            return inscrits.FirstOrDefault();
+            throw new ArgumentException("Cet email a un problème");
+
         }
-        public bool EmailDisponible(string mail)
+        public async Task<bool> EmailDisponible(string mail)
         {
-            List<Inscrit> inscrits = ClientAPI.GetInscritAsync(mail).GetAwaiter().GetResult();
+            List<Inscrit> inscrits = await ClientAPI.GetInscritAsync(mail);
             if (inscrits.Count >= 1)
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
 
 
         //actions sur les banques
-        public bool AjouterBanque(Banque banque, Inscrit inscrit)
+        public async Task<bool> AjouterBanque(Banque banque, Inscrit inscrit)
         {
-            return ClientAPI.PostAddBanqueInscritAsync(banque.Nom, inscrit.Id.ToString()).GetAwaiter().GetResult();
+            return await ClientAPI.PostAddBanqueInscritAsync(banque.Nom, inscrit.Id.ToString());
         }
-        public bool SupprimerBanque(Banque banque, Inscrit inscrit)
+        public async Task<bool> SupprimerBanque(Banque banque, Inscrit inscrit)
         {
-            return ClientAPI.DeleteBanqueInscritAsync(banque.Nom, inscrit.Id.ToString()).GetAwaiter().GetResult();
+            return await ClientAPI.DeleteBanqueInscritAsync(banque.Nom, inscrit.Id.ToString());
         }
-        public IList<Banque> RecupererBanques(Inscrit inscrit)
+        public async Task<IList<Banque>> RecupererBanques(Inscrit inscrit)
         {
-            return ClientAPI.GetBanqueAsync(inscrit.Id.ToString()).GetAwaiter().GetResult();
+            return await ClientAPI.GetBanqueAsync(inscrit.Id.ToString());
         }
-        public IList<Banque> RecupererBanquesDisponible()
+        public async Task<IList<Banque>> RecupererBanquesDisponible()
         {
-            return ClientAPI.GetBanquesAsync().GetAwaiter().GetResult();
+            return await ClientAPI.GetBanquesAsync();
         }
 
 
         //actions sur les comptes
-        public bool AjouterCompte(Compte compte, Inscrit inscrit)
+        public async Task<bool> AjouterCompte(Compte compte, Inscrit inscrit)
         {
-            return ClientAPI.PostAddCompteInscritAsync(compte.Nom, inscrit.Id.ToString()).GetAwaiter().GetResult();
+            return await ClientAPI.PostAddCompteInscritAsync(compte.Nom, inscrit.Id.ToString());
         }
-        public bool SupprimerCompte(Compte compte, Inscrit inscrit)
+        public async Task<bool> SupprimerCompte(Compte compte, Inscrit inscrit)
         {
-            return ClientAPI.DeleteCompteInscritAsync(compte.Nom, inscrit.Id.ToString()).GetAwaiter().GetResult();
+            return await ClientAPI.DeleteCompteInscritAsync(compte.Nom, inscrit.Id.ToString());
         }
-        public IList<Compte> RecupererCompte(Banque banque, Inscrit inscrit)
+        public async Task<IList<Compte>> RecupererCompte(Banque banque, Inscrit inscrit)
         {
-            return ClientAPI.GetCompteAsync(inscrit.Id.ToString()).GetAwaiter().GetResult();
+            return await ClientAPI.GetCompteAsync(inscrit.Id.ToString());
         }
 
 
         //actions sur les Opérations
-        public bool AjouterOperation(Compte compte, Operation operation)
+        public async Task<bool> AjouterOperation(Compte compte, Operation operation)
         {
-            return ClientAPI.PostAddOperationInscritAsync(compte,operation).GetAwaiter().GetResult();
+            return await ClientAPI.PostAddOperationInscritAsync(compte, operation);
         }
-        public bool SupprimerOperation(Compte compte, Operation operation)
+        public async Task<bool> SupprimerOperation(Compte compte, Operation operation)
         {
-            return ClientAPI.DeleteOperationInscritAsync(compte.Identifiant, operation.IntituleOperation).GetAwaiter().GetResult();
+            return await ClientAPI.DeleteOperationInscritAsync(compte.Identifiant, operation.IntituleOperation);
         }
-        public IList<Operation> RecupererOperation(Compte compte)
+        public async Task<IList<Operation>> RecupererOperation(Compte compte)
         {
-            return ClientAPI.GetOperationAsync(compte.Identifiant).GetAwaiter().GetResult();
+            return await ClientAPI.GetOperationAsync(compte.Identifiant);
         }
 
 
         //actions sur les Planifications
-        public bool AjouterPlanification(Compte compte, Planification planification)
+        public async Task<bool> AjouterPlanification(Compte compte, Planification planification)
         {
-            return ClientAPI.PostAddPlanificationInscritAsync(compte, planification).GetAwaiter().GetResult();
+            return await ClientAPI.PostAddPlanificationInscritAsync(compte, planification);
         }
-        public bool SupprimerPlanification(Compte compte, Planification planification)
+        public async Task<bool> SupprimerPlanification(Compte compte, Planification planification)
         {
-            return ClientAPI.DeletePlanificationInscritAsync(compte.Identifiant, planification.IntituleOperation).GetAwaiter().GetResult();
+            return await ClientAPI.DeletePlanificationInscritAsync(compte.Identifiant, planification.IntituleOperation);
         }
-        public IList<Planification> RecupererPlanification(Compte compte)
+        public async Task<IList<Planification>> RecupererPlanification(Compte compte)
         {
-            return ClientAPI.GetPlanificationAsync(compte.Identifiant).GetAwaiter().GetResult();
+            return await ClientAPI.GetPlanificationAsync(compte.Identifiant);
         }
-
 
         //actions sur les Echéances
-        public bool AjouterEcheance(Compte compte, Echeance echeance)
+        public async Task<bool> AjouterEcheance(Compte compte, Echeance echeance)
         {
-            return ClientAPI.PostAddEcheanceInscritAsync(compte, echeance).GetAwaiter().GetResult();
+            return await ClientAPI.PostAddEcheanceInscritAsync(compte, echeance);
         }
-        public bool SupprimerEcheance(Compte compte, Echeance echeance)
+        public async Task<bool> SupprimerEcheance(Compte compte, Echeance echeance)
         {
-            return ClientAPI.DeleteEcheanceInscritAsync(compte.Identifiant, echeance.IntituleOperation).GetAwaiter().GetResult();
+            return await ClientAPI.DeleteEcheanceInscritAsync(compte.Identifiant, echeance.IntituleOperation);
         }
-        public IList<Echeance> RecupererEcheance(Compte compte)
+        public async Task<IList<Echeance>> RecupererEcheance(Compte compte)
         {
-            return ClientAPI.GetEcheanceAsync(compte.Identifiant).GetAwaiter().GetResult();
+            return await ClientAPI.GetEcheanceAsync(compte.Identifiant);
         }
 
 
         //actions utilitaire
-        public bool TestConnexion()
+        public async Task<bool> TestConnexion()
         {
-            return ClientAPI.GetStateApi().GetAwaiter().GetResult();
+            return await ClientAPI.GetStateApi();
+        }
+
+        public IList<Compte> GetDataFromOFX(string path)
+        {
+            return LoadOperation.LoadOperationsFromOFX(path);
         }
     }
 }

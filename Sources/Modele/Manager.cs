@@ -9,25 +9,6 @@ namespace Model
         public event PropertyChangedEventHandler PropertyChanged;
         public IPersistanceManager Pers { get; private set; }
 
-        public int SelectedInscrit { get; set; }
-
-        public Hash hash = new Hash();
-
-        public int Solde
-        {
-            get => solde;
-            set
-            {
-                if (solde != value)
-                {
-                    solde = value;
-                    OnPropertyChanged(nameof(Solde));
-                }
-            }
-        }
-
-        private int solde;
-
         private Inscrit user;
         public Inscrit User
         {
@@ -58,7 +39,7 @@ namespace Model
             }
         }
         private Banque selectedBanque;
-        public List<Banque> BanquesDisponibleInApp
+        public IList<Banque> BanquesDisponibleInApp
         {
             get => banquesDisponibleInApp;
             set
@@ -70,31 +51,42 @@ namespace Model
                 }
             }
         }
-        private List<Banque> banquesDisponibleInApp;
-
-        void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        private IList<Banque> banquesDisponibleInApp;
 
         public Manager(IPersistanceManager persistance)
         {
             Pers = persistance;
         }
 
-        
+        void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        public bool isEqualHash(string mdpBdd, string mdpSent)
+
+        public bool CompareHash(string mdpBdd, string mdpSent)
         {
-            return hash.IsEqualHash(mdpBdd, mdpSent);
+            return Hash.IsEqualHash(mdpBdd, mdpSent);
         }
-
-        
 
         public void deconnexion()
         {
             User = null;
         }
 
+        public async void LoadBanques()
+        {
+            User.LesBanques = await Pers.RecupererBanques(User);
+            BanquesDisponibleInApp = await Pers.RecupererBanquesDisponible();
+        }
 
+        public async Task<string> getPassword(string email)
+        {
+            Inscrit inscrit = await Pers.RecupererInscrit(email);
+            return inscrit.Mdp;
+        }
 
+        public async void createUser(string mail)
+        {
+            User = await Pers.RecupererInscrit(mail);
+        }
     }
 }
 

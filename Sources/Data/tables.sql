@@ -21,7 +21,7 @@ CREATE TABLE Inscrit
     nom varchar(40),
     prenom varchar(40),
     mail varchar(40) UNIQUE,
-    mdp varchar(40)
+    mdp varchar(200)
 );
 
 CREATE TABLE DeviseInscrit
