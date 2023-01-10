@@ -73,9 +73,9 @@ namespace Model
             User = null;
         }
 
-        public void LoadBanques()
+        public async void LoadBanques()
         {
-            BanquesDisponibleInApp = Pers.RecupererBanquesDisponible();
+            BanquesDisponibleInApp = await Pers.RecupererBanquesDisponible();
         }
 
         public async Task<string> getPassword(string email)

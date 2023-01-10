@@ -20,9 +20,9 @@ public partial class ErrorPage : ContentPage
         return true;
     }
 
-    public void conIsActive()
+    public async void conIsActive()
     {
-        while (!Mgr.Pers.TestConnexion())
+        while (!await Mgr.Pers.TestConnexion())
         {
             Thread.Sleep(TIME_TEST_DB);
         }

@@ -156,17 +156,17 @@ namespace Data
         {
             throw new NotImplementedException();
         }*/
-        public bool AjouterBanque(Banque banque, Inscrit inscrit)
+        public Task<bool> AjouterBanque(Banque banque, Inscrit inscrit)
         {
             throw new NotImplementedException();
         }
 
-        public bool AjouterCompte(Compte compte, Inscrit inscrit)
+        public Task<bool> AjouterCompte(Compte compte, Inscrit inscrit)
         {
             throw new NotImplementedException();
         }
 
-        public bool AjouterEcheance(Compte compte, Echeance echeance)
+        public Task<bool> AjouterEcheance(Compte compte, Echeance echeance)
         {
             throw new NotImplementedException();
         }
@@ -176,12 +176,12 @@ namespace Data
             throw new NotImplementedException();
         }
 
-        public bool AjouterOperation(Compte compte, Operation operation)
+        public Task<bool> AjouterOperation(Compte compte, Operation operation)
         {
             throw new NotImplementedException();
         }
 
-        public bool AjouterPlanification(Compte compte, Planification planification)
+        public Task<bool> AjouterPlanification(Compte compte, Planification planification)
         {
             throw new NotImplementedException();
         }
@@ -196,27 +196,27 @@ namespace Data
             throw new NotImplementedException();
         }
 
-        public bool ModifierMdpInscrit(string mail, string nouveauMdp)
+        public Task<bool> ModifierMdpInscrit(string mail, string nouveauMdp)
         {
             throw new NotImplementedException();
         }
 
-        public IList<Banque> RecupererBanques(Inscrit inscrit)
+        public Task<IList<Banque>> RecupererBanques(Inscrit inscrit)
         {
             throw new NotImplementedException();
         }
 
-        public IList<Banque> RecupererBanquesDisponible()
+        public Task<IList<Banque>> RecupererBanquesDisponible()
         {
             throw new NotImplementedException();
         }
 
-        public IList<Compte> RecupererCompte(Banque banque, Inscrit inscrit)
+        public Task<IList<Compte>> RecupererCompte(Banque banque, Inscrit inscrit)
         {
             throw new NotImplementedException();
         }
 
-        public IList<Echeance> RecupererEcheance(Compte compte)
+        public Task<IList<Echeance>> RecupererEcheance(Compte compte)
         {
             throw new NotImplementedException();
         }
@@ -226,52 +226,51 @@ namespace Data
             throw new NotImplementedException();
         }
 
-        public IList<Operation> RecupererOperation(Compte compte)
+        public Task<IList<Operation>> RecupererOperation(Compte compte)
         {
             throw new NotImplementedException();
         }
 
-        public IList<Planification> RecupererPlanification(Compte compte)
+        public Task<IList<Planification>> RecupererPlanification(Compte compte)
         {
             throw new NotImplementedException();
         }
 
-        public bool SupprimerBanque(Banque banque, Inscrit inscrit)
+        public Task<bool> SupprimerBanque(Banque banque, Inscrit inscrit)
         {
             throw new NotImplementedException();
         }
 
-        public bool SupprimerCompte(Compte compte, Inscrit inscrit)
+        public Task<bool> SupprimerCompte(Compte compte, Inscrit inscrit)
         {
             throw new NotImplementedException();
         }
 
-        public bool SupprimerEcheance(Compte compte, Echeance echeance)
+        public Task<bool> SupprimerEcheance(Compte compte, Echeance echeance)
         {
             throw new NotImplementedException();
         }
 
-        public bool SupprimerInscrit(Inscrit inscrit)
+        public Task<bool> SupprimerInscrit(Inscrit inscrit)
         {
             throw new NotImplementedException();
         }
 
-        public bool SupprimerOperation(Compte compte, Operation operation)
+        public Task<bool> SupprimerOperation(Compte compte, Operation operation)
         {
             throw new NotImplementedException();
         }
 
-        public bool SupprimerPlanification(Compte compte, Planification planification)
+        public Task<bool> SupprimerPlanification(Compte compte, Planification planification)
         {
             throw new NotImplementedException();
         }
 
-        public bool TestConnexion()
+        public Task<bool> TestConnexion()
         {
             throw new NotImplementedException();
         }
     }
 }
-
 
 
