@@ -66,7 +66,8 @@
                         <ImageButton Grid.Column="2" Source="add_new_banks.png"
                              Padding="10" Margin="5"
                              CornerRadius="10" HeightRequest="65" 
-                             BackgroundColor="{StaticResource Primary}"/>
+                             BackgroundColor="{StaticResource Primary}"
+                             Clicked="AddBanque_Clicked"/>
 
                     </Grid>
 

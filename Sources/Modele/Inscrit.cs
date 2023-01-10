@@ -64,7 +64,7 @@ namespace Model
 
         public double SoldeTotal { get; private set; }
         public Devises Dev { get; private set; }
-        public List<Banque> LesBanques 
+        public IList<Banque> LesBanques 
         {
             get => lesBanques;
             set
@@ -77,7 +77,7 @@ namespace Model
             }
         }
 
-        private List<Banque> lesBanques;
+        private IList<Banque> lesBanques;
 
         [JsonConstructor]
         public Inscrit(int id, string nom, string mail, string prenom, string mdp, double soldeTotal = 0)
@@ -88,7 +88,7 @@ namespace Model
             Prenom = prenom;
             Mdp = mdp;
             SoldeTotal = soldeTotal;
-            lesBanques = new();
+            lesBanques = new List<Banque>();
         }
         public Inscrit(int id, string nom, string mail, string prenom, string mdp, double soldeTotal, List<Banque> lesbanques)
             : this(id, nom, mail, prenom, mdp, soldeTotal)

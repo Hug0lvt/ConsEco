@@ -9,8 +9,6 @@ namespace Model
         public event PropertyChangedEventHandler PropertyChanged;
         public IPersistanceManager Pers { get; private set; }
 
-        public int SelectedInscrit { get; set; }
-
         private Inscrit user;
         public Inscrit User
         {
@@ -75,6 +73,7 @@ namespace Model
 
         public async void LoadBanques()
         {
+            User.LesBanques = await Pers.RecupererBanques(User);
             BanquesDisponibleInApp = await Pers.RecupererBanquesDisponible();
         }
 

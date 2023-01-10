@@ -11,7 +11,7 @@ public partial class AjoutBanques : ContentPage
 	{
 		InitializeComponent();
         BindingContext = Mgr;
-        //Mgr.importBanques();
+        Mgr.LoadBanques();
         if (OperatingSystem.IsIOS())
         {
             boutonRetour.IsVisible = true;
@@ -33,7 +33,11 @@ public partial class AjoutBanques : ContentPage
                     Debug.WriteLine(lesComptes.Count);
                     foreach(Compte compte in lesComptes)
                     {
-                        Mgr.User.LesBanques.First().AjouterCompte(compte);
+                        if(Mgr.User.LesBanques.Count != 0)
+                        {
+                            Mgr.User.LesBanques.First().AjouterCompte(compte);
+                        }
+                        
                     }
 
                 }
@@ -52,6 +56,22 @@ public partial class AjoutBanques : ContentPage
     }
     private async void returnbutton(object sender, EventArgs e)
     {
+        await Navigation.PopModalAsync();
+    }
+
+    private async void AddBanque_Clicked(object sender, EventArgs e)
+    {
+        ImageButton imageButton = (ImageButton)sender;
+        Grid grid = (Grid)imageButton.Parent;
+        foreach(IView iw in grid.Children)
+        {
+            if (iw.GetType() == typeof(Label))
+            {
+                await Mgr.Pers.AjouterBanque((Banque)(iw as Label).BindingContext, Mgr.User);
+            }
+        }
+
+        Mgr.User.LesBanques = await Mgr.Pers.RecupererBanques(Mgr.User);
         await Navigation.PopModalAsync();
     }
 }

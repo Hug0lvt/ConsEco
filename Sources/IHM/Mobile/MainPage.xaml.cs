@@ -26,7 +26,7 @@ namespace IHM.Mobile
                     if (Mgr.CompareHash(await Mgr.getPassword(EntryMail.Text), EntryPassworld.Text))
                     {
                         Mgr.createUser(EntryMail.Text);
-                        ConnexionValide();
+                        await Navigation.PopModalAsync();
                     }
                     else
                     {
@@ -38,12 +38,6 @@ namespace IHM.Mobile
                     AffichError("Compte inexistant", "Email ou mot de passe invalide", "OK");
                 }
             }   
-        }
-
-        private async void ConnexionValide()
-        {
-            //Mgr.LoadBanques();
-            await Navigation.PopModalAsync();
         }
 
         private async void AffichError(string s, string s1, string s2)
