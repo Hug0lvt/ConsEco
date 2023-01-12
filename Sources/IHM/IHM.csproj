@@ -104,6 +104,9 @@
 
 	<ItemGroup>
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+	  <PackageReference Include="Syncfusion.Maui.Charts" Version="20.4.43" />
+	  <PackageReference Include="Syncfusion.Maui.Inputs" Version="20.4.43" />
+	  <PackageReference Include="Syncfusion.Maui.ListView" Version="20.4.43" />
 	</ItemGroup>
 
 	<ItemGroup>
