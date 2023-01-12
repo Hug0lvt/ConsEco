@@ -32,19 +32,13 @@
                 Text="Modifier le solde"
                 Style="{StaticResource WindowsButton}"/>
 
-        <ListView ItemsSource="{Binding }">
-
-        </ListView>
+     
 
 
 
         <ContentView BackgroundColor="{StaticResource Yellow300Accent}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2"   x:Name="windowAjout">
 
-            <CollectionView  ItemsSource="{Binding}"  Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2">
-
-                <CollectionView.ItemTemplate>
-
-                    <DataTemplate>
+            
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"/>
@@ -56,22 +50,26 @@
 
                             <Label Grid.Column="0" Text="{Binding Nom}" 
                                    TextColor="{StaticResource Secondary}" 
-                               FontAttributes="Bold" FontSize="Body" 
+                               FontAttributes="Bold" FontSize="Large" 
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
 
                             <Label Grid.Column="1" Text="{Binding Solde}" 
                                    TextColor="{StaticResource Secondary}" 
-                               FontAttributes="Bold" FontSize="Body" 
+                               FontAttributes="Bold" FontSize="Large" 
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
 
+                             <Label Grid.Column="1" Text="€"
+                                   TextColor="{StaticResource Secondary}" 
+                               FontAttributes="Bold" FontSize="Large" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                                    Margin="120,0,0,0"/>
 
 
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+            </Grid>
+                
 
         </ContentView>
 

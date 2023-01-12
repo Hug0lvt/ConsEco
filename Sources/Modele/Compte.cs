@@ -36,7 +36,9 @@ namespace Model
         }
         public Compte(string id,string nom, double solde) : base()
         {
+            Nom = nom;
             Solde = solde;
+
         }
         public Compte(string id, string nom, double solde, List<Operation> lesOpe)
         {
