@@ -413,7 +413,7 @@
         <Setter Property="BorderWidth" Value="1"/>
         <Setter Property="BorderColor" Value="Black"/>
         <Setter Property="FontFamily" Value="Comic sans MS"/>
-        <Setter Property="Background" Value="{StaticResource TestColor}"/>
+        <Setter Property="Background" Value="{StaticResource Primary}"/>
     </Style>
 
     <Style TargetType="Border" x:Key="TotalButton">

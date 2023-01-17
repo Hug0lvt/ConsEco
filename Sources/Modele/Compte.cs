@@ -10,7 +10,7 @@ namespace Model
         public string Nom { get; set; }
         public double Solde { get; set; }
         public DateTime DerniereModification { get; set; }
-        public List<Operation> LesOpe 
+        public IList<Operation> LesOpe 
         {
             get => lesOpe;
             set
@@ -22,9 +22,9 @@ namespace Model
                 }
             }
         } 
-        private List<Operation> lesOpe = new List<Operation>();
-        public List<Planification> LesPla { get; set; } = new List<Planification>();
-        public List<Echeance> LesEch { get; set; } = new List<Echeance>();
+        private IList<Operation> lesOpe = new List<Operation>();
+        public IList<Planification> LesPla { get; set; } = new List<Planification>();
+        public IList<Echeance> LesEch { get; set; } = new List<Echeance>();
 
         [JsonConstructor]
         public Compte(string id, string nom)

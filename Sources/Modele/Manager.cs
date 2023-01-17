@@ -26,6 +26,7 @@ namespace Model
                 {
                     user = value;
                     OnPropertyChanged(nameof(User));
+
                 }
             }
         }
@@ -59,23 +60,105 @@ namespace Model
 
 
 
-        //Test
+        public Compte SelectedCompte
+        {
+            get => selectedCompte;
+            set
+            {
+                if(selectedCompte != value)
+                {
+                    selectedCompte = value;
+                    OnPropertyChanged(nameof(SelectedCompte));
+                }
+            }
+        }
+        private Compte selectedCompte;
 
-/*
+
+        private IList<Banque> listeDesBanques = new List<Banque>();
+        public ReadOnlyCollection<Banque> AllBanque { get; private set; }
+
+
         private List<Compte> listeDesComptes = new List<Compte>();
+        
         public ReadOnlyCollection<Compte> AllCompte { get; private set; }
-*/
+
 
         public Manager(IPersistanceManager persistance)
         {
-           // AllCompte = new ReadOnlyCollection<Compte>(listeDesComptes);
+            AllBanque = new ReadOnlyCollection<Banque>(listeDesBanques);
+            AllCompte = new ReadOnlyCollection<Compte>(listeDesComptes);
             Pers = persistance;
         }
 
 
-      
 
+        
 
+        public async void LoadCompte()
+        {
+            listeDesComptes.Clear();
+
+            if(SelectedBanque == null || SelectedCompte == null)
+            {
+                  throw new ArgumentNullException("Vous n'avez pas de banque disponible");
+            }
+
+            try
+            {
+                IList<Compte> comptes = await Pers.RecupererCompte(SelectedBanque, User);  
+                listeDesComptes.AddRange(comptes);
+            }
+            catch(Exception exception)
+            {
+                Debug.WriteLine(exception.Message);
+            }
+       
+          
+            foreach (var compte in listeDesComptes)
+            {
+                try
+                {
+                    compte.LesPla = await Pers.RecupererPlanification(compte);
+                    compte.LesOpe = await Pers.RecupererOperation(compte);
+                    compte.LesEch = await Pers.RecupererEcheance(compte);
+                }
+                catch(Exception exception)
+                {
+                    Debug.WriteLine(exception.Message);
+                }
+             
+
+            }
+         
+        }
+
+        public async void LoadBanque()
+        {
+            try
+            {
+                listeDesBanques = await Pers.RecupererBanques(User);
+            }catch(Exception exception)
+            {
+                Debug.WriteLine(exception.Message);
+            }
+          
+            SelectedBanque = listeDesBanques.FirstOrDefault();
+        }
+
+        public async void LoadBanqueDispo()
+        {
+            try
+            {
+                BanquesDisponibleInApp = await Pers.RecupererBanquesDisponible();
+            }catch(Exception exception)
+            {
+                Debug.WriteLine(exception.Message);
+            }
+            
+        }
+
+       
 
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 

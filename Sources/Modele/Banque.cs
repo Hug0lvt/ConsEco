@@ -49,6 +49,10 @@ namespace Model
             ListeDesComptes = lescomptes;
         }
 
+       /* public Banque()
+        {
+        }
+*/
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         public void AjouterCompte(Compte compte)
         {

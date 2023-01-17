@@ -18,6 +18,7 @@ public partial class CV_Statistiques : ContentView
             operations.Add(new("Orange", 50, DateTime.Now, MethodePayement.CB, TagOperation.Divers, true));
             operations.Add(new("EDF", 55.80, DateTime.Now, MethodePayement.Virement, TagOperation.Energie, true));
             operations.Add(new("EDF", 55.80, DateTime.Now, MethodePayement.Virement, TagOperation.Energie, true));
+            operations.Add(new("EDF", 55.80, DateTime.Now, MethodePayement.Virement, TagOperation.Carburant, true));
 
         BindingContext = operations;
     }
