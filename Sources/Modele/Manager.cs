@@ -143,7 +143,7 @@ namespace Model
                 Debug.WriteLine(exception.Message);
             }
           
-            SelectedBanque = listeDesBanques.FirstOrDefault();
+            SelectedBanque = listeDesBanques.First();
         }
 
         public async void LoadBanqueDispo()
