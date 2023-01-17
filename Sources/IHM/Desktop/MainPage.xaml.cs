@@ -12,7 +12,7 @@ public partial class MainPage : ContentPage
         BindingContext = this;
     }
 
-    public void ConnectionOnClicked(object sender, EventArgs e)
+    public async void ConnectionOnClicked(object sender, EventArgs e)
     {
         if (EntryMail.Text == null || EntryPassworld.Text == null)
         {
@@ -20,12 +20,13 @@ public partial class MainPage : ContentPage
         }
         else
         {
-            /*if (Mgr.existEmail(EntryMail.Text))
+            if (await Mgr.Pers.EmailDisponible(EntryMail.Text))
             {
-                if (Mgr.isEqualHash(Mgr.recupMdpBdd(EntryMail.Text), EntryPassworld.Text))
+                if (Mgr.CompareHash(await Mgr.getPassword(EntryMail.Text), EntryPassworld.Text))
                 {
                     Mgr.createUser(EntryMail.Text);
-                    ConnexionValide();
+
+                    Navigation.PushAsync(new Dashboard());
                 }
                 else
                 {
@@ -35,15 +36,11 @@ public partial class MainPage : ContentPage
             else
             {
                 AffichError("Compte inexistant", "Email ou mot de passe invalide", "OK");
-            }*/
+            }
         }
     }
 
-    private async void ConnexionValide()
-    {
-        Navigation.PushAsync(new Dashboard());
-        //await Navigation.PopModalAsync();
-    }
+    
 
     private async void AffichError(string s, string s1, string s2)
     {
