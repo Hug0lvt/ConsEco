@@ -2,134 +2,47 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:IHM.Composant"
-             x:Class="IHM.Mobile.Planification"
-             BackgroundColor="#A00EE8">
-    <ScrollView VerticalOptions="FillAndExpand">
+             x:Class="IHM.Mobile.Planification">
+    <ScrollView>
         <VerticalStackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label
-            Text="Bienvenue"
-            VerticalOptions="Center" 
-            HorizontalOptions="Start" 
-            Margin="10,10,10,20"
-            FontSize="25"
-            />
-            <Label
-            FontAttributes="Bold"
-            Margin="0,10,0,0"
-            Text="{Binding User.Prenom}"
-            FontSize="25"
-                />
-        </StackLayout>
-        <Button
-            BackgroundColor="Red"
-            x:Name="Bouton"
-            WidthRequest="50"
-            HeightRequest="50"
-            HorizontalOptions="End"
-            Margin="0,0,40,0"
-            Clicked="OnClickedGestionBanque"
-            />
-        <Button
-            IsVisible="False"
-            IsEnabled="False"
-            WidthRequest="175"
-            HeightRequest="50"
-            Margin="0,-50,0,0"
-            x:Name="ImgBanqueActuelle"
-            BackgroundColor="AliceBlue"
-            Text="{Binding selectedBanque}"
-            />
-        <Button
-            IsVisible="false"
-            BackgroundColor="Black"
-            x:Name="BoutonRetour"
-            WidthRequest="50"
-            HeightRequest="50"
-            HorizontalOptions="End"
-            Margin="0,-50,40,0"
-            Clicked="OnClickedRetour"
-            />
-        <StackLayout IsVisible="false" x:Name="stackpannel">
-            <CollectionView x:Name="listeBanque" ItemsSource="{Binding User.LesBanques}" ItemsUpdatingScrollMode="KeepScrollOffset" Margin="22,0,22,0" ItemsLayout="HorizontalList">
+            <Label Text="Mes Echeances du mois :" FontAttributes="Bold" Margin="10,10,0,20" FontSize="20"/>
+            <CollectionView x:Name="Ech">
+                <!--User.LesBanques[0].ListeDesComptes[0].LesOpe}-->
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Margin="0,35,0,0">
-                            <Button Clicked="OnClickedBanque" Text="{Binding Nom}"/>
-                        </StackLayout>
+                        <Grid Margin="0,7,0,7">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <!--<ColumnDefinition/>-->
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--<ImageButton Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                               Source="{Binding ImageSrc}"
+                               CornerRadius="10"/>-->
+                            <Label Grid.Row="0" Grid.Column="0"
+                               Text="{Binding IntituleOperation}"
+                               FontAttributes="Bold"
+                               FontSize="Body"
+                               Margin="50,0,0,0"/>
+                            <Label Grid.Row="1" Grid.Column="0"
+                               Text="{Binding DetailTypeOpe}"
+                               FontAttributes="Italic"/>
+                            <Label Grid.Row="0" Grid.Column="2"
+                               Text="{Binding DateOperation}"/>
+                            <Label Grid.Row="1" Grid.Column="2" 
+                               Text="{Binding Montant}"
+                               FontAttributes="Bold"
+                                   TextColor="OrangeRed"/>
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </StackLayout>
-        <StackLayout Margin="0,20,0,0" Orientation="Horizontal">
-            <Label Margin="20,0,0,0" FontSize="25">Solde total :</Label>
-            <Label FontSize="25" Margin="8,0,0,0" x:Name="soldetotal">0</Label>
-        </StackLayout>
-        <Border Stroke="Black" StrokeThickness="5"  Margin="0,70,0,0">
-            <StackLayout BackgroundColor="Cyan" Padding="0,0,0,20">
-                <Label HorizontalTextAlignment="Center" FontSize="20">Listes des dernières opérations</Label>
-                <StackLayout Orientation="Vertical">
-                    <StackLayout Orientation="Horizontal">
-                        <Label>Nom de l'opération</Label>
-                        <Label>Date de l'opération</Label>
-                        <Label>Type d'opération</Label>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Label>Nom de l'opération</Label>
-                        <Label>Date de l'opération</Label>
-                        <Label>Type d'opération</Label>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Label>Nom de l'opération</Label>
-                        <Label>Date de l'opération</Label>
-                        <Label>Type d'opération</Label>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Label>Nom de l'opération</Label>
-                        <Label>Date de l'opération</Label>
-                        <Label>Type d'opération</Label>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Label>Nom de l'opération</Label>
-                        <Label>Date de l'opération</Label>
-                        <Label>Type d'opération</Label>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Label>Nom de l'opération</Label>
-                        <Label>Date de l'opération</Label>
-                        <Label>Type d'opération</Label>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Label>Nom de l'opération</Label>
-                        <Label>Date de l'opération</Label>
-                        <Label>Type d'opération</Label>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Label>Nom de l'opération</Label>
-                        <Label>Date de l'opération</Label>
-                        <Label>Type d'opération</Label>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Label>Nom de l'opération</Label>
-                        <Label>Date de l'opération</Label>
-                        <Label>Type d'opération</Label>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Label>Nom de l'opération</Label>
-                        <Label>Date de l'opération</Label>
-                        <Label>Type d'opération</Label>
-                    </StackLayout>
-                </StackLayout>
-            </StackLayout>
-        </Border>
-        <Border  Stroke="Black" StrokeThickness="5"  Margin="0,70,0,30">
-            <StackLayout Margin="0,10,0,0">
-                <Label HorizontalTextAlignment="Center" FontSize="20">Pour vous</Label>
-                <StackLayout BackgroundColor="RosyBrown" Margin="0,0,0,20" HeightRequest="200" WidthRequest="310">
-                        <Label HorizontalOptions="Center" FontSize="20">Aide à la gestion personnalisée</Label>
-                </StackLayout>
-            </StackLayout>
-        </Border>
-    </VerticalStackLayout>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

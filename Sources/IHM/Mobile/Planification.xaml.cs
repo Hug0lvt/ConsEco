@@ -5,47 +5,25 @@ namespace IHM.Mobile;
 public partial class Planification : ContentPage
 {
     public Manager Mgr => (App.Current as App).Manager;
+    List<Operation> operations;
     public Planification()
 	{
 		InitializeComponent();
-        BindingContext = Mgr;
+        //BindingContext = Mgr;
         //Routing.RegisterRoute(nameof(DashBoard), typeof(DashBoard));
+
+        operations = new List<Operation>();
+        operations.Add(new("Vulcan Mag", 3.44, DateTime.Now, MethodePayement.CB, TagOperation.Divers, false));
+        operations.Add(new("Apple Music", 45.20, DateTime.Now, MethodePayement.CB, TagOperation.Divers, true));
+        operations.Add(new("Orange", 50, DateTime.Now, MethodePayement.CB, TagOperation.Divers, true));
+        operations.Add(new("EDF", 55.80, DateTime.Now, MethodePayement.Virement, TagOperation.Energie, true));
         
+
+
+
+        Ech.ItemsSource = operations;
+
     }
 
-    void OnClickedBanque(object sender, EventArgs args)
-    {
-        Button btn = (Button)sender;
-        ImgBanqueActuelle.Text = btn.Text;
-    }
-
-
-    async void OnClickedGestionBanque(object sender, EventArgs args)
-    {
-        Bouton.BackgroundColor = Color.FromRgb(192, 192, 192);
-        await Bouton.TranslateTo(-130, 35, 50);
-        await Bouton.ScaleXTo(7.5, 50);
-        await Bouton.ScaleYTo(3, 50);
-        stackpannel.IsVisible = true;
-        BoutonRetour.IsVisible = true;
-        ImgBanqueActuelle.IsVisible = true;
-
-        //await Navigation.PushModalAsync(new GestionBanque());
-    }
-
-    async void OnClickedRetour(object sender, EventArgs args)
-    {
-        await Bouton.ScaleXTo(1, 50);
-        await Bouton.ScaleYTo(1, 50);
-        ImgBanqueActuelle.IsVisible = false;
-        stackpannel.IsVisible = false;
-        await Bouton.TranslateTo(0, 0, 50);
-        BoutonRetour.IsVisible = false;
-    }
-
-    public async void loadInscription()
-    {
-        await Navigation.PushModalAsync(new MainPage());
-        BindingContext = Mgr;
-    }
+    
 }
