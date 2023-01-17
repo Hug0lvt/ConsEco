@@ -19,5 +19,13 @@
                VerticalOptions="Center"
                HorizontalOptions="Center"
                />
+
+        <Label Text="Nom" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource TitreWindows}"/>
+
+        <Label  Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3" Style="{StaticResource TitreWindows}" Text="{Binding Nom}" Margin="20"/>
+
+
+    
+
     </Grid>
 </ContentView>

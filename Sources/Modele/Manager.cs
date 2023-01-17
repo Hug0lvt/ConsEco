@@ -44,6 +44,7 @@ namespace Model
             }
         }
         private Banque selectedBanque;
+
         public IList<Banque> BanquesDisponibleInApp
         {
             get => banquesDisponibleInApp;
@@ -99,7 +100,7 @@ namespace Model
         {
             listeDesComptes.Clear();
 
-            if(SelectedBanque == null || SelectedCompte == null)
+            if(SelectedBanque == null)
             {
                   throw new ArgumentNullException("Vous n'avez pas de banque disponible");
             }
@@ -115,7 +116,7 @@ namespace Model
             }
        
           
-            foreach (var compte in listeDesComptes)
+            foreach (Compte compte in listeDesComptes)
             {
                 try
                 {
@@ -130,6 +131,14 @@ namespace Model
              
 
             }
+
+
+            if (listeDesComptes.Count > 0)
+            {
+                selectedCompte = listeDesComptes.First();
+            }
+
+            
          
         }
 
@@ -143,7 +152,11 @@ namespace Model
                 Debug.WriteLine(exception.Message);
             }
           
-            SelectedBanque = listeDesBanques.First();
+            if(listeDesBanques.Count > 0)
+            {
+                SelectedBanque = listeDesBanques.First();
+            }
+            
         }
 
         public async void LoadBanqueDispo()
