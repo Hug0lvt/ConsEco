@@ -1,15 +1,20 @@
 using Microsoft.Maui.Graphics.Text;
+using Model;
 
 namespace IHM.Desktop;
 
 public partial class Dashboard 
 {
+    public Manager Mgr => (App.Current as App).Manager;
 
     public Dashboard()
 	{
 		InitializeComponent();
 
-	}
+        BindingContext = Mgr.User;
+        mainCV.Content = new CV_HomePage();
+
+    }
 
 	private void RetourFormeBase()
 	{
@@ -19,6 +24,7 @@ public partial class Dashboard
         ButCom.BackgroundColor = Color.FromArgb("E1E1E1"); ButCom.TextColor = Colors.Black;
         ButAcc.BackgroundColor = Color.FromArgb("E1E1E1"); ButAcc.TextColor = Colors.Black;
         ButSta.BackgroundColor = Color.FromArgb("E1E1E1"); ButSta.TextColor = Colors.Black;
+        
        
     }
 
@@ -76,7 +82,7 @@ public partial class Dashboard
         ButLog.TextColor = Colors.White;
         ButLog.BackgroundColor = Color.FromArgb("7FB196");
         mainCV.Content = new CV_Log();
-        
+
     }
 
 }

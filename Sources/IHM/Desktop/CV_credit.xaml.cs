@@ -7,13 +7,14 @@ public partial class CV_credit : ContentView
 		InitializeComponent();
 	}
 
-	private void Button_Clicked(object sender, EventArgs e)
+	private async void Button_Annuler(object sender, EventArgs e)
+	{
+		
+	}
+
+	private void Button_Valider(object sender, EventArgs e)
 	{
 
 	}
 
-	private void Button_Clicked_1(object sender, EventArgs e)
-	{
-
-	}
 }

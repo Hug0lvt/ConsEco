@@ -14,9 +14,9 @@ public partial class CV_Planification : ContentView
 	{
 		InitializeComponent();
 
-		Mgr.LoadBanque();
+/*		Mgr.LoadBanque();
 		Mgr.LoadCompte();
-
+*/
         BindingContext = Mgr;
 
     }

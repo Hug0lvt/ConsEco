@@ -13,7 +13,7 @@ namespace Model
 
         public IPersistanceManager Pers { get; private set; }
 
-        private Inscrit user;
+       
         public Inscrit User
         {
             get
@@ -30,6 +30,7 @@ namespace Model
                 }
             }
         }
+        private Inscrit user;
 
         public BanqueInscrit SelectedBanque
         {
@@ -116,7 +117,7 @@ namespace Model
             }
        
           
-            foreach (var compte in listeDesComptes)
+            foreach (Compte compte in listeDesComptes)
             {
                 try
                 {
@@ -130,6 +131,12 @@ namespace Model
                 }
              
 
+            }
+
+
+            if (listeDesComptes.Count > 0)
+            {
+                selectedCompte = listeDesComptes.First();
             }
 
             SelectedCompte = listeDesComptes.FirstOrDefault();
