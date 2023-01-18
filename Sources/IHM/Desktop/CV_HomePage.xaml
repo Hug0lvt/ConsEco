@@ -32,15 +32,15 @@
 
 
 
-        <ContentView Grid.Row="2" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="2">
-            <CollectionView Grid.Row="2" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="2" ItemsSource="{Binding User.LesBanques}" >
+        <ContentView Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" >
+                <CollectionView Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" ItemsSource="{Binding AllBanque}" >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1.75*"/>
                                 <ColumnDefinition Width="0.5*"/>
-                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="1.5*"/>
                                 <ColumnDefinition Width="0.5*"/>
                             </Grid.ColumnDefinitions>
 
@@ -49,6 +49,7 @@
                                FontAttributes="Bold" FontSize="Body" 
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
+                            
                             <ImageButton Grid.Column="2" Source="reload_banks.png" 
                              Padding="10" Margin="5"
                              CornerRadius="10" HeightRequest="45" 

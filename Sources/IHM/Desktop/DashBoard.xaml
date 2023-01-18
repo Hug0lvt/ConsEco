@@ -39,8 +39,9 @@
 
            
             <ContentView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="6"  x:Name="mainCV">
-                <Border Stroke="{StaticResource Corail}" StrokeThickness="4" Margin="10,0,0,0" StrokeShape="RoundRectangle 40,5,5,40">
-                </Border>
+                <Border Stroke="{StaticResource Yellow100Accent}" StrokeThickness="4" Margin="10,0,10,10" StrokeShape="RoundRectangle 45,5,5,45">
+                <Image Source="refresh.png"/>
+            </Border>
             </ContentView>
          
 

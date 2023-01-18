@@ -12,7 +12,7 @@ public partial class Dashboard
 		InitializeComponent();
 
         BindingContext = Mgr.User;
-        mainCV.Content = new CV_HomePage();
+        
 
     }
 

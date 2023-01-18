@@ -8,9 +8,13 @@ public partial class CV_HomePage : ContentView
     public CV_HomePage()
 	{
 		InitializeComponent();
-     
+        
+        Mgr.LoadBanque();
+        Mgr.LoadCompte();
 
         BindingContext = Mgr;
-        //Mgr.LoadBanques();
+
+       
+      
     }
 }
