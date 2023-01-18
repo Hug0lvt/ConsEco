@@ -49,7 +49,7 @@
 
 
 
-                    <Label Grid.Column="0" Text="{Binding SeletedCompte.Nom}" 
+                    <Label Grid.Column="0" Text="{Binding SelectedCompte.Nom}" 
                                    TextColor="{StaticResource Secondary}" 
                                FontAttributes="Bold" FontSize="Large" 
                                HorizontalOptions="Center"
