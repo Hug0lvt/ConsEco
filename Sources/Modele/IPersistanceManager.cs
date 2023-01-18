@@ -22,14 +22,14 @@ namespace Model
         //actions sur les banques
         Task<bool> AjouterBanque(Banque banque, Inscrit inscrit);
         Task<bool> SupprimerBanque(Banque banque, Inscrit inscrit);
-        Task<IList<Banque>> RecupererBanques(Inscrit inscrit);
+        Task<IList<BanqueInscrit>> RecupererBanques(Inscrit inscrit);
         Task<IList<Banque>> RecupererBanquesDisponible();
 
 
         //actions sur les comptes
         Task<bool> AjouterCompte(Compte compte, Inscrit inscrit);
         Task<bool> SupprimerCompte(Compte compte, Inscrit inscrit);
-        Task<IList<Compte>> RecupererCompte(Banque banque, Inscrit inscrit);
+        Task<IList<Compte>> RecupererCompte(BanqueInscrit banque);
 
 
         //actions sur les Opérations

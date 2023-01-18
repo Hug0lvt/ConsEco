@@ -2,6 +2,7 @@
 using Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Syncfusion.Maui.DataSource.Extensions;
 using System.Net.Http.Headers;
 using System.Security.Principal;
 using System.Xml.Linq;
@@ -87,8 +88,8 @@ foreach (Banque b in banques)
 
 Console.WriteLine("\n--------\n");
 
-IList<Banque> banquesId1 = ClientAPI.GetBanqueAsync("1").GetAwaiter().GetResult();
-foreach (Banque b in banquesId1)
+IList<BanqueInscrit> banquesId1 = ClientAPI.GetBanqueAsync("1").GetAwaiter().GetResult();
+foreach (BanqueInscrit b in banquesId1)
 {
     Console.WriteLine(b);
 }
@@ -101,7 +102,7 @@ Console.WriteLine("Add banque for user : " + rrrr + "\n");
 Console.WriteLine("\n----Verif----\n");
 
 banquesId1 = ClientAPI.GetBanqueAsync("1").GetAwaiter().GetResult();
-foreach (Banque b in banquesId1)
+foreach (BanqueInscrit b in banquesId1)
 {
     Console.WriteLine(b);
 }
@@ -114,7 +115,7 @@ Console.WriteLine("Del banque for user : " + rrrrrr + "\n");
 Console.WriteLine("\n----Verif----\n");
 
 banquesId1 = ClientAPI.GetBanqueAsync("1").GetAwaiter().GetResult();
-foreach (Banque b in banquesId1)
+foreach (BanqueInscrit b in banquesId1)
 {
     Console.WriteLine(b);
 }
@@ -246,3 +247,14 @@ foreach (Echeance e in echeances)
 {
     Console.WriteLine(e);
 }
+
+
+Console.WriteLine("errr");
+
+// test pers API
+IPersistanceManager Pers = new PersAPI();
+
+IList<Compte> bla = Pers.RecupererCompte(new BanqueInscrit(34,"BANQUE POSTALE")).GetAwaiter().GetResult();
+bla.ForEach(c=> Console.WriteLine(c));
+
+

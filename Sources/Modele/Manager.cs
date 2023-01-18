@@ -26,12 +26,12 @@ namespace Model
                 {
                     user = value;
                     OnPropertyChanged(nameof(User));
-
+                    LoadBanque();
                 }
             }
         }
 
-        public Banque SelectedBanque
+        public BanqueInscrit SelectedBanque
         {
             get => selectedBanque;
             set
@@ -43,7 +43,7 @@ namespace Model
                 }
             }
         }
-        private Banque selectedBanque;
+        private BanqueInscrit selectedBanque;
         public IList<Banque> BanquesDisponibleInApp
         {
             get => banquesDisponibleInApp;
@@ -75,8 +75,8 @@ namespace Model
         private Compte selectedCompte;
 
 
-        private IList<Banque> listeDesBanques = new List<Banque>();
-        public ReadOnlyCollection<Banque> AllBanque { get; private set; }
+        private IList<BanqueInscrit> listeDesBanques = new List<BanqueInscrit>();
+        public ReadOnlyCollection<BanqueInscrit> AllBanque { get; private set; }
 
 
         private List<Compte> listeDesComptes = new List<Compte>();
@@ -86,7 +86,7 @@ namespace Model
 
         public Manager(IPersistanceManager persistance)
         {
-            AllBanque = new ReadOnlyCollection<Banque>(listeDesBanques);
+            AllBanque = new ReadOnlyCollection<BanqueInscrit>(listeDesBanques);
             AllCompte = new ReadOnlyCollection<Compte>(listeDesComptes);
             Pers = persistance;
         }
@@ -97,16 +97,17 @@ namespace Model
 
         public async void LoadCompte()
         {
+            
             listeDesComptes.Clear();
 
-            if(SelectedBanque == null || SelectedCompte == null)
+            if(SelectedBanque == null)
             {
                   throw new ArgumentNullException("Vous n'avez pas de banque disponible");
             }
 
             try
             {
-                IList<Compte> comptes = await Pers.RecupererCompte(SelectedBanque, User);  
+                IList<Compte> comptes = await Pers.RecupererCompte(SelectedBanque);  
                 listeDesComptes.AddRange(comptes);
             }
             catch(Exception exception)
@@ -130,6 +131,8 @@ namespace Model
              
 
             }
+
+            SelectedCompte = listeDesComptes.FirstOrDefault();
          
         }
 
@@ -138,12 +141,14 @@ namespace Model
             try
             {
                 listeDesBanques = await Pers.RecupererBanques(User);
-            }catch(Exception exception)
+                SelectedBanque = listeDesBanques.FirstOrDefault();
+
+            }
+            catch (Exception exception)
             {
                 Debug.WriteLine(exception.Message);
             }
           
-            SelectedBanque = listeDesBanques.First();
         }
 
         public async void LoadBanqueDispo()
@@ -173,11 +178,11 @@ namespace Model
             User = null;
         }
 
-        public async void LoadBanques()
+        /*public async void LoadBanques()
         {
             User.LesBanques = await Pers.RecupererBanques(User);
             BanquesDisponibleInApp = await Pers.RecupererBanquesDisponible();
-        }
+        }*/
 
         public async Task<string> getPassword(string email)
         {

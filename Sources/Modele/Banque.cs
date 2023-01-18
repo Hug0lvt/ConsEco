@@ -11,6 +11,7 @@ namespace Model
     public class Banque : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         public string Nom { get; private set; }
 
         /// <summary>
@@ -49,10 +50,10 @@ namespace Model
             ListeDesComptes = lescomptes;
         }
 
-       /* public Banque()
-        {
-        }
-*/
+        /* public Banque()
+         {
+         }
+ */
         void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         public void AjouterCompte(Compte compte)
         {

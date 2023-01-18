@@ -56,7 +56,7 @@ namespace Data
         {
             return await ClientAPI.DeleteBanqueInscritAsync(banque.Nom, inscrit.Id.ToString());
         }
-        public async Task<IList<Banque>> RecupererBanques(Inscrit inscrit)
+        public async Task<IList<BanqueInscrit>> RecupererBanques(Inscrit inscrit)
         {
             return await ClientAPI.GetBanqueAsync(inscrit.Id.ToString());
         }
@@ -75,9 +75,9 @@ namespace Data
         {
             return await ClientAPI.DeleteCompteInscritAsync(compte.Nom, inscrit.Id.ToString());
         }
-        public async Task<IList<Compte>> RecupererCompte(Banque banque, Inscrit inscrit)
+        public async Task<IList<Compte>> RecupererCompte(BanqueInscrit banque)
         {
-            return await ClientAPI.GetCompteAsync(inscrit.Id.ToString());
+            return await ClientAPI.GetCompteAsync(banque.Id.ToString());
         }
 
 
