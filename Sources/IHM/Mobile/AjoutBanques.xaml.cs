@@ -11,7 +11,7 @@ public partial class AjoutBanques : ContentPage
 	{
 		InitializeComponent();
         BindingContext = Mgr;
-        Mgr.LoadBanques();
+        //Mgr.LoadBanques();
         if (OperatingSystem.IsIOS())
         {
             boutonRetour.IsVisible = true;
@@ -71,7 +71,7 @@ public partial class AjoutBanques : ContentPage
             }
         }
 
-        Mgr.User.LesBanques = await Mgr.Pers.RecupererBanques(Mgr.User);
+        //Mgr.User.LesBanques = await Mgr.Pers.RecupererBanques(Mgr.User);
         await Navigation.PopModalAsync();
     }
 }

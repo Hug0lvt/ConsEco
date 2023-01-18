@@ -28,7 +28,7 @@ namespace IHM.Mobile
                         Mgr.createUser(EntryMail.Text);
                         
                         await Navigation.PopModalAsync();
-                        Mgr.LoadBanques();
+                        //Mgr.LoadBanques();
                     }
                     else
                     {
