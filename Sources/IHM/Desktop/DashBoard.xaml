@@ -29,7 +29,7 @@
             <Button Text="Mon Compte" ImageSource="logo_sans_fond.png" x:Name="ButLog" TextColor="{StaticResource Secondary}" Grid.Column="4" Grid.Row="0"  MaximumWidthRequest="200" MaximumHeightRequest="50" Clicked="ButLog_Clicked" Style="{StaticResource WindowsButton}"/>
             
        
-            <Button Text="ACCUEIL"  ImageSource="banque_black.png"  MaximumWidthRequest="200" MaximumHeightRequest="62" x:Name="ButAcc" BackgroundColor="{StaticResource Gray100}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21,30,21,0" Grid.Column="0" Grid.Row="1" Clicked="ButAcc_Clicked" ></Button>
+            <Button Text="BANQUE"  ImageSource="banque_black.png"  MaximumWidthRequest="200" MaximumHeightRequest="62" x:Name="ButAcc" BackgroundColor="{StaticResource Gray100}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21,30,21,0" Grid.Column="0" Grid.Row="1" Clicked="ButAcc_Clicked" ></Button>
             <Button Text="COMPTE" x:Name="ButCom"  ImageSource="cb_black.png"  MaximumWidthRequest="200" MaximumHeightRequest="62"  BackgroundColor="{StaticResource Gray100}"  TextColor="{StaticResource Secondary}" Padding="20"  Margin="21,30,21,0"  Grid.Column="0" Grid.Row="2" Clicked="Button_compte"></Button>
         <Button Text="OPERATION" x:Name="ButOpe"   ImageSource="dollar_black.png"  MaximumWidthRequest="200" MaximumHeightRequest="62" BackgroundColor="{StaticResource Gray100}" TextColor="{StaticResource Secondary}" Padding="20"  Margin="21,30,21,0" Grid.Column="0" Grid.Row="3" Clicked="Button_operation"></Button>
         <Button Text="ECHEANCIER" x:Name="ButEch"  ImageSource="date_black.png"  MaximumWidthRequest="200" MaximumHeightRequest="62"  BackgroundColor="{StaticResource Gray100}" TextColor="{StaticResource Secondary}" Padding="20" Margin="21,30,21,0" Grid.Column="0" Grid.Row="4" Clicked="Button_echeancier"></Button>
@@ -39,10 +39,10 @@
 
            
             <ContentView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="6"  x:Name="mainCV">
-                <Border Stroke="{StaticResource Yellow100Accent}" StrokeThickness="4" Margin="10,0,10,10" StrokeShape="RoundRectangle 45,5,5,45">
-                <Image Source="refresh.png"/>
+            <Border Stroke="{StaticResource Yellow100Accent}" StrokeThickness="4" Margin="10,0,10,10" StrokeShape="RoundRectangle 5,5,5,5">
+                <Image Source="background3.png" Aspect="Fill"/>
             </Border>
-            </ContentView>
+        </ContentView>
          
 
         </Grid>

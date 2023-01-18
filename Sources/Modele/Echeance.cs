@@ -35,7 +35,7 @@ namespace Model
 
         public override string ToString()
         {
-            return Nom + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + " " + Tag;
+            return Nom + " - " + DateOperation.ToShortDateString() + " - " + Montant + " €";
         }
 
     }
