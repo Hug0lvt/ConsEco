@@ -4,10 +4,8 @@
              xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              x:Class="IHM.Desktop.CV_supprimerOp">
 
-    <Border Stroke="{StaticResource Corail}" StrokeThickness="4" Margin="10" StrokeShape="RoundRectangle 45,5,5,45">
-
-
-        <Grid BackgroundColor="{StaticResource Secondary}">
+  
+        <Grid BackgroundColor="{StaticResource Tertiary}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -36,5 +34,5 @@
             <Button Text="VALIDER" Clicked="Button_Clicked_1"  Grid.Column="3" Grid.Row="6" Style="{StaticResource WindowsButton}"/>
 
         </Grid>
-    </Border>
+ 
 </ContentView>

@@ -82,7 +82,7 @@
                 </Grid>
             </Border>
 
-            <ContentView  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2"   x:Name="windowAjout" Margin="10,0,10,0">
+            <ContentView  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2"   Margin="10,0,10,0">
 
                 <CollectionView  ItemsSource="{Binding}"  Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2">
 
@@ -138,6 +138,10 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
 
+            </ContentView>
+
+            <ContentView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="5" x:Name="windowAjout">
+                
             </ContentView>
 
 

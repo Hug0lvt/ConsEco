@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Desktop.CV_modificationSolde">
 
-    <Border Stroke="{StaticResource Yellow100Accent}" StrokeThickness="4" Margin="10" StrokeShape="RoundRectangle 45,5,5,45">
-        <Grid BackgroundColor="{StaticResource Secondary}">
+   
+        <Grid BackgroundColor="{StaticResource Tertiary}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -37,5 +37,5 @@
             <Button Text="VALIDER" Clicked="Button_Clicked_1"  Grid.Column="3" Grid.Row="6" Style="{StaticResource WindowsButton}"/>
 
         </Grid>
-    </Border>
+
 </ContentView>

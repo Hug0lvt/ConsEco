@@ -37,7 +37,7 @@
 
 
 
-            <ContentView Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2"   x:Name="windowAjout">
+            <ContentView Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2"   >
 
 
                 <Grid>
@@ -76,6 +76,9 @@
 
 
 
+            <ContentView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4" x:Name="windowAjout">
+
+            </ContentView>
 
 
 
