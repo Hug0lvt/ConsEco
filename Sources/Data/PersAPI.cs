@@ -117,7 +117,7 @@ namespace Data
         }
         public async Task<bool> SupprimerEcheance(Compte compte, Echeance echeance)
         {
-            return await ClientAPI.DeleteEcheanceInscritAsync(compte.Identifiant, echeance.IntituleOperation);
+            return await ClientAPI.DeleteEcheanceInscritAsync(compte.Identifiant, echeance.Nom);
         }
         public async Task<IList<Echeance>> RecupererEcheance(Compte compte)
         {

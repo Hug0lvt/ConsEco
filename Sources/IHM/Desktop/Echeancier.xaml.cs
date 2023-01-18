@@ -9,8 +9,8 @@ public partial class Echeancier : ContentView
 	{
 		InitializeComponent();
 
-      /*  Mgr.LoadBanque();
-        Mgr.LoadCompte();*/
+        Mgr.LoadBanque();
+        Mgr.LoadCompte();
 
         BindingContext = Mgr;
 

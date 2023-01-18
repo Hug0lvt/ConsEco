@@ -49,13 +49,13 @@
 
 
 
-                    <Label Grid.Column="0" Text="{Binding Nom}" 
+                    <Label Grid.Column="0" Text="{Binding SeletedCompte.Nom}" 
                                    TextColor="{StaticResource Secondary}" 
                                FontAttributes="Bold" FontSize="Large" 
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
 
-                    <Label Grid.Column="1" Text="{Binding Solde}" 
+                    <Label Grid.Column="1" Text="{Binding SelectedCompte.Solde}" 
                                    TextColor="{StaticResource Secondary}" 
                                FontAttributes="Bold" FontSize="Large" 
                                HorizontalOptions="Center"
