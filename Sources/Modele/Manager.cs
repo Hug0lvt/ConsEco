@@ -110,37 +110,27 @@ namespace Model
             {
                 IList<Compte> comptes = await Pers.RecupererCompte(SelectedBanque);  
                 listeDesComptes.AddRange(comptes);
+                foreach (Compte compte in listeDesComptes)
+                {
+                    
+                    compte.LesPla = await Pers.RecupererPlanification(compte);
+                    compte.LesOpe = await Pers.RecupererOperation(compte);
+                    compte.LesEch = await Pers.RecupererEcheance(compte);
+
+                }
+
+                if (listeDesComptes.Count > 0)
+                {
+                    selectedCompte = listeDesComptes.First();
+                }
+
+                SelectedCompte = listeDesComptes.FirstOrDefault();
             }
             catch(Exception exception)
             {
                 Debug.WriteLine(exception.Message);
             }
-       
-          
-            foreach (Compte compte in listeDesComptes)
-            {
-                try
-                {
-                    compte.LesPla = await Pers.RecupererPlanification(compte);
-                    compte.LesOpe = await Pers.RecupererOperation(compte);
-                    compte.LesEch = await Pers.RecupererEcheance(compte);
-                }
-                catch(Exception exception)
-                {
-                    Debug.WriteLine(exception.Message);
-                }
-             
-
-            }
-
-
-            if (listeDesComptes.Count > 0)
-            {
-                selectedCompte = listeDesComptes.First();
-            }
-
-            SelectedCompte = listeDesComptes.FirstOrDefault();
-         
+            
         }
 
         public async void LoadBanque()
