@@ -9,6 +9,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="0.75*"/>
+                <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="1*"/>
 
@@ -41,10 +42,32 @@
                 Style="{StaticResource WindowsButton}"/>
 
 
+            <Border Stroke="{StaticResource Secondary}" Margin="10,0,10,0" Padding="3"  StrokeThickness="4" StrokeShape="RoundRectangle 45,5,5,45"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4">
 
-            <ContentView  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2"   x:Name="windowAjout">
+                <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
 
-                <CollectionView  ItemsSource="{Binding SelectedCompte.LesPla }"  Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2">
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Nom" Grid.Column="0" TextColor="{StaticResource Secondary}" HorizontalOptions="Center" FontSize="Micro" FontAttributes="Bold"></Label>
+                    <Label Text="Date" Grid.Column="1" TextColor="{StaticResource Secondary}" HorizontalOptions="Center" FontSize="Micro" FontAttributes="Bold"></Label>
+                    <Label Text="Moyen de Paiement" Grid.Column="2" TextColor="{StaticResource Secondary}" HorizontalOptions="Center" FontSize="Micro" FontAttributes="Bold"></Label>
+                    <Label Text="Tag" Grid.Column="3" TextColor="{StaticResource Secondary}" HorizontalOptions="Center" FontSize="Micro" FontAttributes="Bold"></Label>
+                    <Label Text="Montant" Grid.Column="4" TextColor="{StaticResource Secondary}" HorizontalOptions="Center" FontSize="Micro" FontAttributes="Bold"></Label>
+
+                </Grid>
+            </Border>
+
+
+
+
+            <ContentView  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2"   x:Name="windowAjout" Margin="10,0,10,0">
+
+                <CollectionView  ItemsSource="{Binding SelectedCompte.LesPla }"  Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2">
 
                     <CollectionView.ItemTemplate>
 
