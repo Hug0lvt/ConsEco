@@ -4,10 +4,10 @@
              xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              x:Class="IHM.Desktop.CV_SupprimerEcheance">
 
-    <Border Stroke="{StaticResource Corail}" StrokeThickness="4" Margin="10" StrokeShape="RoundRectangle 45,5,5,45">
+    
 
 
-        <Grid BackgroundColor="{StaticResource Secondary}">
+        <Grid BackgroundColor="{StaticResource Tertiary}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -27,7 +27,7 @@
 
             <Label Text="Supprimer une échéance" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource TitreWindows}"/>
 
-            <Label Text="Selectionner l'échéance" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3" Style="{StaticResource TitreWindows}" Margin="20"/>
+            <Label Text="Selectionner l'échéance" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="3" Style="{StaticResource TitreWindows}" Margin="20"/>
 
 
 
@@ -38,6 +38,6 @@
             <Button Text="VALIDER" Clicked="Button_Clicked_1"  Grid.Column="3" Grid.Row="6" Style="{StaticResource WindowsButton}"/>
 
         </Grid>
-    </Border>
+   
 
 </ContentView>

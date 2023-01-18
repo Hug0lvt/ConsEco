@@ -52,7 +52,7 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Switch IsToggled="true" Grid.Column="1" OnColor="{StaticResource Primary}" ThumbColor="{StaticResource Secondary}" Scale="1.5" />
+                   <!-- <Switch IsToggled="true" Grid.Column="1" OnColor="{StaticResource Primary}" ThumbColor="{StaticResource Secondary}" Scale="1.5" /> -->
 
 
 
