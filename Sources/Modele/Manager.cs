@@ -13,7 +13,7 @@ namespace Model
 
         public IPersistanceManager Pers { get; private set; }
 
-        private Inscrit user;
+       
         public Inscrit User
         {
             get
@@ -30,6 +30,7 @@ namespace Model
                 }
             }
         }
+        private Inscrit user;
 
         public Banque SelectedBanque
         {

@@ -9,8 +9,6 @@ public partial class CV_Log : ContentView
 	{
 		InitializeComponent();
 
-        
-
         BindingContext = Mgr.User;
     }
 }

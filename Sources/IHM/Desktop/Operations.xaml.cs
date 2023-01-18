@@ -10,10 +10,10 @@ public partial class Operations : ContentView
     public Operations()
 	{
 		InitializeComponent();
-
+/*
 
         Mgr.LoadBanque();
-        Mgr.LoadCompte();
+        Mgr.LoadCompte();*/
 
         BindingContext = Mgr;
 	}
