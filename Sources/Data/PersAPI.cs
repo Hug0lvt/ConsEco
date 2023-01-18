@@ -88,7 +88,7 @@ namespace Data
         }
         public async Task<bool> SupprimerOperation(Compte compte, Operation operation)
         {
-            return await ClientAPI.DeleteOperationInscritAsync(compte.Identifiant, operation.IntituleOperation);
+            return await ClientAPI.DeleteOperationInscritAsync(compte.Identifiant, operation.Nom);
         }
         public async Task<IList<Operation>> RecupererOperation(Compte compte)
         {

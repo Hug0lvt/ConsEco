@@ -84,7 +84,7 @@
 
             <ContentView  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2"   Margin="10,0,10,0">
 
-                <CollectionView  ItemsSource="{Binding}"  Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2">
+                <CollectionView  ItemsSource="{Binding SelectedCompte.LesOpe}"  Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2">
 
                     <CollectionView.ItemTemplate>
 
@@ -101,7 +101,7 @@
 
 
 
-                                <Label Grid.Column="0" Text="{Binding IntituleOperation}" 
+                                <Label Grid.Column="0" Text="{Binding Nom}" 
                                    TextColor="{StaticResource Secondary}" 
                                FontAttributes="Bold" FontSize="Body" 
                                HorizontalOptions="Center"
