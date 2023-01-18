@@ -103,7 +103,7 @@ namespace Data
         }
         public async Task<bool> SupprimerPlanification(Compte compte, Planification planification)
         {
-            return await ClientAPI.DeletePlanificationInscritAsync(compte.Identifiant, planification.IntituleOperation);
+            return await ClientAPI.DeletePlanificationInscritAsync(compte.Identifiant, planification.Nom);
         }
         public async Task<IList<Planification>> RecupererPlanification(Compte compte)
         {

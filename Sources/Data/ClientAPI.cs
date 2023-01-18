@@ -357,7 +357,7 @@ namespace Data
             var dataBody = new Dictionary<string, string>
             {
                 { "compte", compte.Identifiant },
-                { "nom", planification.IntituleOperation },
+                { "nom", planification.Nom },
                 { "montant", planification.Montant.ToString() },
                 { "dateO", planification.DateOperation.ToString() },
                 { "methodePayement", planification.ModePayement.ToString() },
