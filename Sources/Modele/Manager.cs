@@ -94,19 +94,7 @@ namespace Model
         private IList<BanqueInscrit> listeDesBanques = new List<BanqueInscrit>();
 
         //private IList<BanqueInscrit> listeDesBanques = new List<BanqueInscrit>();
-        /*public ReadOnlyCollection<BanqueInscrit> AllBanque
-        {
-            get => allBanque;
-            set
-            {
-                if (allBanque != value)
-                {
-                    allBanque = value;
-                    OnPropertyChanged(nameof(AllBanque));
-                }
-            }
-        }
-        private ReadOnlyCollection<BanqueInscrit> allBanque;*/
+        public ReadOnlyCollection<BanqueInscrit> AllBanque { get; private set; }
 
         public List<Compte> ListeDesComptes
         {
@@ -122,13 +110,13 @@ namespace Model
         }
         private List<Compte> listeDesComptes = new List<Compte>();
         
-        //public ReadOnlyCollection<Compte> AllCompte { get; private set; }
+        public ReadOnlyCollection<Compte> AllCompte { get; private set; }
 
 
         public Manager(IPersistanceManager persistance)
         {
-            //AllBanque = new ReadOnlyCollection<BanqueInscrit>(listeDesBanques);
-            //AllCompte = new ReadOnlyCollection<Compte>(listeDesComptes);
+            AllBanque = new ReadOnlyCollection<BanqueInscrit>(ListeDesBanques);
+            AllCompte = new ReadOnlyCollection<Compte>(ListeDesComptes);
             Pers = persistance;
         }
 

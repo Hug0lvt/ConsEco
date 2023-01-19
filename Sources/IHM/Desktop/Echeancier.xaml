@@ -94,7 +94,7 @@
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
 
-                                <Label Grid.Column="1" Text="{Binding DateOperation}" 
+                                <Label Grid.Column="1" Text="{Binding DateOperation, StringFormat='{0:d}'}" 
                                    TextColor="{StaticResource Secondary}" 
                                FontAttributes="Bold" FontSize="Body" 
                                HorizontalOptions="Center"
