@@ -54,27 +54,25 @@
                                        
 
                                         </Grid.ColumnDefinitions>
-                       
 
-                                        <Label Grid.Column="0"  Text="{Binding Nom}" 
-                                               
-                                               
-                                   TextColor="{StaticResource Secondary}" 
-                               FontAttributes="Bold" FontSize="Large" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"/>
+
+                                <Label Grid.Column="0"  Text="{Binding Nom}"              
+                                    TextColor="{StaticResource Secondary}" 
+                                   FontAttributes="Bold" FontSize="Large" 
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
 
                                 <Label Grid.Column="1" Text="{Binding Solde}"  
                                    TextColor="{StaticResource Secondary}" 
-                               FontAttributes="Bold" FontSize="Large" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"/>
+                                   FontAttributes="Bold" FontSize="Large" 
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
 
-                                        <Label Grid.Column="1" Text="€"
+                                <Label Grid.Column="1" Text="€"
                                    TextColor="{StaticResource Secondary}" 
-                               FontAttributes="Bold" FontSize="Large" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
+                                   FontAttributes="Bold" FontSize="Large" 
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
                                     Margin="120,0,0,0"/>
 
 

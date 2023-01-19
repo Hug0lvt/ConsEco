@@ -11,8 +11,8 @@ public partial class Compte : ContentView
 
 
 
-        Mgr.LoadBanque();
         Mgr.LoadCompte();
+  
 
         BindingContext = Mgr;
 
