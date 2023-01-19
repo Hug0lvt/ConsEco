@@ -22,7 +22,7 @@ public partial class CV_debit : ContentView
 	private void Button_Valider(object sender, EventArgs e)
 	{
         string nom = name.Text;
-        double Montant = Double.Parse(montant.Text);
+        double Montant = double.Parse(montant.Text);
         string Type = type.Text;
         string Tag = tag.Text;
         DateTime Date = date.Date;
