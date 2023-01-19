@@ -38,12 +38,12 @@ namespace Model
         public bool FromBanque { get; private set; }
 
         [JsonConstructor]
-        public Operation(string nom, double montant, DateTime dateOperation, MethodePayement modePayement, TagOperation tag, bool fromBanque, bool isDebit=true)
+        public Operation(string nom, double montant, DateTime dateOperation, MethodePayement methodePayement, TagOperation tag, bool fromBanque, bool isDebit=true)
         {
             Nom = nom;
             Montant = montant;
             DateOperation = dateOperation;
-            ModePayement = modePayement;
+            ModePayement = methodePayement;
             IsDebit = isDebit;
             Tag = tag;
             FromBanque = fromBanque;
