@@ -2,22 +2,152 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Desktop.CV_HomePage">
-
+    <Border Stroke="{StaticResource Yellow100Accent}" StrokeThickness="4" Margin="10" StrokeShape="RoundRectangle 45,5,5,45">
+ 
     <Grid BackgroundColor="{StaticResource Tertiary}">
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.1*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-         
-        </Grid.RowDefinitions>
 
-        <Label Grid.Row="1"
+
+
+            </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
             
-            Text="Bienvenue sur CONS'ECO"
-               FontSize="Large"
-               FontAttributes="Bold"
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+            
+            Text="BANQUE"
                VerticalOptions="Center"
-               HorizontalOptions="Center"
+               HorizontalOptions="Center"             
+               Style="{StaticResource TitreWindows}"
                />
-    </Grid>
+
+            <HorizontalStackLayout Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center" >
+                <Picker Title="Choisir une Banque"
+                        TitleColor="Black"
+                        TextColor="Black"
+                        ItemsSource="{Binding ListeDesBanques}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding SelectedBanque}"
+                        Margin="0,0,30,0"/>
+                <Picker Title="Choisir un Compte" 
+                        ItemsSource="{Binding ListeDesComptes}"
+                        ItemDisplayBinding="{Binding Nom}"
+                        SelectedItem="{Binding SelectedCompte}"
+                        Margin="30,0,0,0"/>
+            </HorizontalStackLayout>
+
+            <Label  Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" 
+                    HorizontalOptions="Center" 
+                    Text="Réactualiser mes banques :"
+                    FontSize="20"
+                    TextColor="Black"/>
+            <ContentView Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" >
+                <CollectionView Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" ItemsSource="{Binding ListeDesBanques}" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.75*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                            </Grid.ColumnDefinitions>
+
+
+                            <Label Grid.Column="0" Text="{Binding Name}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               TextColor="Black"/>
+                            
+                            <ImageButton Grid.Column="2" Source="reload_banks.png" 
+                             Padding="10" Margin="5"
+                             CornerRadius="10" HeightRequest="45" 
+                             BackgroundColor="{StaticResource Primary}"/>
+
+                        </Grid>
+
+
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ContentView>
+
+        <Label  Grid.Row="4" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" 
+                    HorizontalOptions="Center" 
+                    Text="Ajouter une banque :"
+                    FontSize="20"
+                    TextColor="Black"/>
+
+            <ScrollView Grid.Row="5" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Scale="0.8">
+                <VerticalStackLayout>
+
+                    <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" 
+                BackgroundColor="{StaticResource Tertiary}" 
+                StrokeShape="RoundRectangle 20" Margin="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.75*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0" Text="Importer depuis un fichier" TextColor="Black"
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                            <ImageButton Grid.Column="2" Source="import_from_file.png"
+                             Padding="10" Margin="5"
+                             CornerRadius="10" HeightRequest="65" 
+                             BackgroundColor="{StaticResource Primary}"
+                             Clicked="ImportOFX_Clicked"/>
+
+                        </Grid>
+                    </Border>
+
+                    <CollectionView ItemsSource="{Binding BanquesDisponibleInApp}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.75*"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Text="{Binding Nom}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                                           TextColor="Black"/>
+                                    <ImageButton Grid.Column="2" Source="add_new_banks.png"
+                             Padding="10" Margin="5"
+                             CornerRadius="10" HeightRequest="65" 
+                             BackgroundColor="{StaticResource Primary}"
+                             Clicked="AddBanque_Clicked"/>
+
+                                </Grid>
+
+
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </VerticalStackLayout>
+            </ScrollView>
+        
+
+        </Grid>
+    </Border>
 </ContentView>

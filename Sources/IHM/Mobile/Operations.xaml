@@ -2,11 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Mobile.Operations">
+    <ScrollView>
     <VerticalStackLayout>
-            <ListView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding User.LesBanques[0].ListeDesComptes[0].LesOpe}">
-                <ListView.ItemTemplate>
+            <Label Text="Mes Opérations :" FontAttributes="Bold" Margin="10,10,0,20" FontSize="20"/>
+            <CollectionView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding SelectedCompte.LesOpe}">
+            <!--User.LesBanques[0].ListeDesComptes[0].LesOpe}-->
+            <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10" >
+                        <Grid Margin="0,7,0,7">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -21,20 +24,25 @@
                             <!--<ImageButton Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                                Source="{Binding ImageSrc}"
                                CornerRadius="10"/>-->
-                            <Label Grid.Row="0" Grid.Column="1"
-                               Text="{Binding IntituleOperation}"
-                               FontAttributes="Bold" TextColor="Brown" />
-                            <Label Grid.Row="1" Grid.Column="1"
-                               Text="{Binding DetailTypeOpe}"
-                               FontAttributes="Italic"/>
+                            <Label Grid.Row="0" Grid.Column="0"
+                               Text="{Binding Nom}"
+                               FontAttributes="Bold"
+                               FontSize="Body"
+                               Margin="50,0,0,0"/>
+                            <Label Grid.Row="1" Grid.Column="0"
+                               Text="{Binding Tag}"
+                               FontAttributes="Italic"
+                               Margin="50,0,0,0"/>
                             <Label Grid.Row="0" Grid.Column="2"
-                               Text="{Binding DateOperation}"/>
-                            <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2"
+                               Text="{Binding DateOperation, StringFormat='{0:d}'}"/>
+                            <Label Grid.Row="1" Grid.Column="2" 
                                Text="{Binding Montant}"
-                               FontAttributes="Bold"/>
+                               FontAttributes="Bold"
+                                   TextColor="OrangeRed"/>
                         </Grid>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>        
+                </CollectionView.ItemTemplate>
+            </CollectionView>        
     </VerticalStackLayout>
+        </ScrollView>
 </ContentPage>

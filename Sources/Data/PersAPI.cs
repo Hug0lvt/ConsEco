@@ -56,7 +56,7 @@ namespace Data
         {
             return await ClientAPI.DeleteBanqueInscritAsync(banque.Nom, inscrit.Id.ToString());
         }
-        public async Task<IList<Banque>> RecupererBanques(Inscrit inscrit)
+        public async Task<IList<BanqueInscrit>> RecupererBanques(Inscrit inscrit)
         {
             return await ClientAPI.GetBanqueAsync(inscrit.Id.ToString());
         }
@@ -75,9 +75,9 @@ namespace Data
         {
             return await ClientAPI.DeleteCompteInscritAsync(compte.Nom, inscrit.Id.ToString());
         }
-        public async Task<IList<Compte>> RecupererCompte(Banque banque, Inscrit inscrit)
+        public async Task<IList<Compte>> RecupererCompte(BanqueInscrit banque)
         {
-            return await ClientAPI.GetCompteAsync(inscrit.Id.ToString());
+            return await ClientAPI.GetCompteAsync(banque.Id.ToString());
         }
 
 
@@ -88,7 +88,7 @@ namespace Data
         }
         public async Task<bool> SupprimerOperation(Compte compte, Operation operation)
         {
-            return await ClientAPI.DeleteOperationInscritAsync(compte.Identifiant, operation.IntituleOperation);
+            return await ClientAPI.DeleteOperationInscritAsync(compte.Identifiant, operation.Nom);
         }
         public async Task<IList<Operation>> RecupererOperation(Compte compte)
         {
@@ -103,7 +103,7 @@ namespace Data
         }
         public async Task<bool> SupprimerPlanification(Compte compte, Planification planification)
         {
-            return await ClientAPI.DeletePlanificationInscritAsync(compte.Identifiant, planification.IntituleOperation);
+            return await ClientAPI.DeletePlanificationInscritAsync(compte.Identifiant, planification.Nom);
         }
         public async Task<IList<Planification>> RecupererPlanification(Compte compte)
         {
@@ -117,7 +117,7 @@ namespace Data
         }
         public async Task<bool> SupprimerEcheance(Compte compte, Echeance echeance)
         {
-            return await ClientAPI.DeleteEcheanceInscritAsync(compte.Identifiant, echeance.IntituleOperation);
+            return await ClientAPI.DeleteEcheanceInscritAsync(compte.Identifiant, echeance.Nom);
         }
         public async Task<IList<Echeance>> RecupererEcheance(Compte compte)
         {

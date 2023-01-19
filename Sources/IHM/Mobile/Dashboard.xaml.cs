@@ -6,10 +6,13 @@ namespace IHM.Mobile;
 public partial class DashBoard : ContentPage
 {
     public Manager Mgr => (App.Current as App).Manager;
+
+    
     public DashBoard()
     {
         InitializeComponent();
-        //Routing.RegisterRoute(nameof(DashBoard), typeof(DashBoard));
+        Mgr.LoadBanque();
+        
         BindingContext = Mgr;
 
         if (Mgr.User == null)
@@ -18,12 +21,15 @@ public partial class DashBoard : ContentPage
 
         }
 
+        
+
         /*if (!Mgr.Pers.TestConnexion())
         {
             loadPage(new ErrorPage());
             Debug.WriteLine("cc");
         }*/
-
+        
+        
     }
 
     public async void loadPage(Page p)

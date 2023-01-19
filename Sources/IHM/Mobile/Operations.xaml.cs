@@ -6,9 +6,12 @@ namespace IHM.Mobile;
 public partial class Operations : ContentPage
 {
     public Manager Mgr => (App.Current as App).Manager;
-	public Operations()
+
+    public Operations()
 	{
 		InitializeComponent();
-		BindingContext = Mgr;
+        BindingContext = Mgr;
+        Mgr.LoadCompte();
+        
     }
 }

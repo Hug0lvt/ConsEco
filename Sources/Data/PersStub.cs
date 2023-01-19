@@ -201,7 +201,7 @@ namespace Data
             throw new NotImplementedException();
         }
 
-        public Task<IList<Banque>> RecupererBanques(Inscrit inscrit)
+        public Task<IList<BanqueInscrit>> RecupererBanques(Inscrit inscrit)
         {
             throw new NotImplementedException();
         }
@@ -211,7 +211,7 @@ namespace Data
             throw new NotImplementedException();
         }
 
-        public Task<IList<Compte>> RecupererCompte(Banque banque, Inscrit inscrit)
+        public Task<IList<Compte>> RecupererCompte(BanqueInscrit banque)
         {
             throw new NotImplementedException();
         }

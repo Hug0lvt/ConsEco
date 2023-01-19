@@ -4,17 +4,20 @@ namespace IHM.Desktop;
 
 public partial class Compte : ContentView
 {
-	
+    public Manager Mgr => (App.Current as App).Manager;
     public Compte()
 	{
 		InitializeComponent();
 
-		Model.Compte compte = new Model.Compte("", "compte courant", 2000);
 
-		BindingContext = compte;
-		
-		
-	}
+
+        Mgr.LoadBanque();
+        Mgr.LoadCompte();
+
+        BindingContext = Mgr;
+
+
+    }
 
 	private void AddCredit_Clicked(object sender, EventArgs e)
 	{

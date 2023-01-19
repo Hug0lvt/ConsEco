@@ -48,10 +48,22 @@
 		<MauiImage Include="Resources\Images\GestionBanques\reload_banks.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiImage>
+		<MauiImage Include="Resources\Images\NavBar\banque_black.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiImage>
+		<MauiImage Include="Resources\Images\NavBar\cb_black.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiImage>
+		<MauiImage Include="Resources\Images\NavBar\date_black.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiImage>
 		<MauiImage Include="Resources\Images\NavBar\dollar_black.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiImage>
 		<MauiImage Include="Resources\Images\NavBar\settings_black.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiImage>
+		<MauiImage Include="Resources\Images\NavBar\stats_black.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiImage>
 		<Resource Include="Resources\Images\NavBar\home_black.png" />
@@ -61,6 +73,15 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\background1.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiImage>
+		<MauiImage Update="Resources\Images\background2.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiImage>
+		<MauiImage Update="Resources\Images\background3.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiImage>
 		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
 		<MauiImage Update="Resources\Images\logo_sans_fond.png">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -87,6 +108,10 @@
 	  <None Remove="Resources\Images\DashBoard\account_banks.png" />
 	  <None Remove="Resources\Images\GestionBanques\add_banks.png" />
 	  <None Remove="Resources\Images\GestionBanques\reload_banks.png" />
+	  <None Remove="Resources\Images\NavBar\banque_black.png" />
+	  <None Remove="Resources\Images\NavBar\cb_black.png" />
+	  <None Remove="Resources\Images\NavBar\date_black.png" />
+	  <None Remove="Resources\Images\NavBar\stats_black.png" />
 	  <None Remove="Resources\Images\refresh.png" />
 	</ItemGroup>
 
@@ -104,6 +129,9 @@
 
 	<ItemGroup>
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+	  <PackageReference Include="Syncfusion.Maui.Charts" Version="20.4.43" />
+	  <PackageReference Include="Syncfusion.Maui.Inputs" Version="20.4.43" />
+	  <PackageReference Include="Syncfusion.Maui.ListView" Version="20.4.43" />
 	</ItemGroup>
 
 	<ItemGroup>

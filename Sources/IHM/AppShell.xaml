@@ -14,7 +14,7 @@
         <ShellContent Title="Opérations"
                      Icon="dollar_black.png"
                      ContentTemplate="{DataTemplate local:Operations}" />
-        <ShellContent Title="Planification"
+        <ShellContent Title="Echeance"
                      Icon="planification_black.png"
                      ContentTemplate="{DataTemplate local:Planification}" />
         <ShellContent Title="Paramètres"

@@ -11,19 +11,19 @@ namespace Model
     public class Operation : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public string IntituleOperation 
+        public string Nom 
         {
-            get => intituleOperation;
+            get => nom;
             set
             {
-                if (intituleOperation != value)
+                if (nom != value)
                 {
-                    intituleOperation = value;
-                    OnPropertyChanged(nameof(IntituleOperation));
+                    nom = value;
+                    OnPropertyChanged(nameof(Nom));
                 }
             }
         }
-        private string intituleOperation;
+        private string nom;
 
         public double Montant { get; private set; }
 
@@ -38,12 +38,12 @@ namespace Model
         public bool FromBanque { get; private set; }
 
         [JsonConstructor]
-        public Operation(string intituleOperation, double montant, DateTime dateOperation, MethodePayement modePayement, TagOperation tag, bool fromBanque, bool isDebit=true)
+        public Operation(string nom, double montant, DateTime dateO, MethodePayement methodePayement, TagOperation tag, bool fromBanque, bool isDebit=true)
         {
-            IntituleOperation = intituleOperation;
+            Nom = nom;
             Montant = montant;
-            DateOperation = dateOperation;
-            ModePayement = modePayement;
+            DateOperation = dateO;
+            ModePayement = methodePayement;
             IsDebit = isDebit;
             Tag = tag;
             FromBanque = fromBanque;
@@ -53,7 +53,11 @@ namespace Model
 
         public override string ToString()
         {
-            return IntituleOperation + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + " " + FromBanque + " " + Tag;
+            return Nom + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + " " + FromBanque + " " + Tag;
         }
+
+
+
+
     }
 }

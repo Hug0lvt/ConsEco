@@ -12,7 +12,7 @@ namespace Model
     public class Planification 
     {
         
-        public string IntituleOperation { get; private set; }
+        public string Nom { get; private set; }
 
         public double Montant { get; private set; }
 
@@ -24,19 +24,19 @@ namespace Model
         public TagOperation Tag { get; private set; }
 
         [JsonConstructor]
-        public Planification(string intituleOperation, double montant, DateTime dateOperation, MethodePayement modePayement, TagOperation tag, bool isDebit = true)
+        public Planification(string nom, double montant, DateTime dateO, MethodePayement methodePayement, TagOperation tag, bool isDebit = true)
         {
-            IntituleOperation = intituleOperation;
+            Nom = nom;
             Montant = montant;
-            DateOperation = dateOperation;
-            ModePayement = modePayement;
+            DateOperation = dateO;
+            ModePayement = methodePayement;
             IsDebit = isDebit;
             Tag = tag;
         }
 
         public override string ToString()
         {
-            return IntituleOperation + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + " " + Tag;
+            return Nom + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + " " + Tag;
         }
     }
 }

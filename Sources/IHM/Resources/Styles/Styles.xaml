@@ -403,7 +403,7 @@
         <Setter Property="FontFamily" Value="Comic sans MS"/>
         <Setter Property="FontSize" Value="30"/>
         <Setter Property="HorizontalOptions" Value="Center"/>
-        <Setter Property="TextColor" Value="{StaticResource Yellow300Accent}"/>
+        <Setter Property="TextColor" Value="{StaticResource Secondary}"/>
     </Style>
 
     <Style TargetType="Button" x:Key="WindowsButton">
@@ -413,7 +413,17 @@
         <Setter Property="BorderWidth" Value="1"/>
         <Setter Property="BorderColor" Value="Black"/>
         <Setter Property="FontFamily" Value="Comic sans MS"/>
-        <Setter Property="Background" Value="{StaticResource TestColor}"/>
+        <Setter Property="Background" Value="{StaticResource Primary}"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="WindowsButton2">
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="BorderWidth" Value="1"/>
+        <Setter Property="BorderColor" Value="Black"/>
+        <Setter Property="FontFamily" Value="Comic sans MS"/>
+        <Setter Property="Background" Value="{StaticResource Corail}"/>
     </Style>
 
     <Style TargetType="Border" x:Key="TotalButton">

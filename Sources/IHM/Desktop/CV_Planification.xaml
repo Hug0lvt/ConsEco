@@ -3,34 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IHM.Desktop.CV_Planification">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="0.7*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="1*"/>
+    <Border Stroke="{StaticResource Yellow100Accent}" StrokeThickness="4" Margin="10" StrokeShape="RoundRectangle 45,5,5,45">
 
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
+        <Grid BackgroundColor="{StaticResource Tertiary}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.75*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="0.7*"/>
 
-        <StackLayout Grid.Row="0" Grid.ColumnSpan="2">
-            <Label 
-            Style="{StaticResource TitreWindows}"
-            Text="PLANIFICATION"
-            HorizontalOptions="Center"/>
-        </StackLayout>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
 
-        <Button
+        
+                <Label 
+                     Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" 
+                Style="{StaticResource TitreWindows}"
+                Text="PLANIFICATION"
+                HorizontalOptions="Center"
+                      VerticalOptions="Center"/>
+         
+
+            <Button
                 Clicked="Button_Clicked"
                 Grid.Column="0" Grid.Row="1" 
                 x:Name="AddCredit"
                 Text="Planifier une échéance"
                 Style="{StaticResource WindowsButton}"/>
 
-        <Button
+            <Button
                 Clicked="Button_Clicked_1"
                 Grid.Column="1" Grid.Row="1" 
                 x:Name="RetireOperation"
@@ -38,73 +43,111 @@
                 Style="{StaticResource WindowsButton}"/>
 
 
+            <Border Stroke="{StaticResource Secondary}" Margin="10,0,10,0" Padding="3"  StrokeThickness="4" StrokeShape="RoundRectangle 45,5,5,45"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4">
 
-        <ContentView BackgroundColor="{StaticResource Yellow300Accent}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2"   x:Name="windowAjout">
+                <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
 
-            <CollectionView  ItemsSource="{Binding}"  Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2">
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Nom" Grid.Column="0" TextColor="{StaticResource Secondary}" HorizontalOptions="Center" FontSize="Micro" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                    <Label Text="Date" Grid.Column="1" TextColor="{StaticResource Secondary}" HorizontalOptions="Center" FontSize="Micro" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                    <Label Text="Moyen de Paiement" Grid.Column="2" TextColor="{StaticResource Secondary}" HorizontalOptions="Center" FontSize="Micro" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                    <Label Text="Tag" Grid.Column="3" TextColor="{StaticResource Secondary}" HorizontalOptions="Center" FontSize="Micro" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                    <Label Text="Montant" Grid.Column="4" TextColor="{StaticResource Secondary}" HorizontalOptions="Center" FontSize="Micro" FontAttributes="Bold" VerticalOptions="Center"></Label>
 
-                <CollectionView.ItemTemplate>
-
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-
-                            </Grid.ColumnDefinitions>
+                </Grid>
+            </Border>
 
 
 
-                            <Label Grid.Column="0" Text="{Binding IntituleOperation}" 
+
+            <ContentView  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2"   Margin="10,0,10,0">
+
+                <CollectionView  ItemsSource="{Binding SelectedCompte.LesPla }"  Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2">
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+
+                                </Grid.ColumnDefinitions>
+
+
+
+                                <Label Grid.Column="0" Text="{Binding Nom}" 
                                    TextColor="{StaticResource Secondary}" 
                                FontAttributes="Bold" FontSize="Body" 
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
 
-                            <Label Grid.Column="1" Text="{Binding DateOperation}" 
+                                <Label Grid.Column="1" Text="{Binding DateOperation, StringFormat='{0:d}'}" 
                                    TextColor="{StaticResource Secondary}" 
                                FontAttributes="Bold" FontSize="Body" 
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
 
-                            <Label Grid.Column="2" Text="{Binding ModePayement}" 
+                                <Label Grid.Column="2" Text="{Binding ModePayement}" 
                                    TextColor="{StaticResource Secondary}" 
                                FontAttributes="Bold" FontSize="Body" 
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
 
-                            <Label Grid.Column="3" Text="{Binding Tag}" 
-                                   TextColor="{StaticResource Secondary}" 
-                               FontAttributes="Bold" FontSize="Body" 
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"/>
-
-
-                            <Label Grid.Column="4" Text="{Binding Montant}" 
+                                <Label Grid.Column="3" Text="{Binding Tag}" 
                                    TextColor="{StaticResource Secondary}" 
                                FontAttributes="Bold" FontSize="Body" 
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
 
 
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-
-        </ContentView>
-
+                                <Label Grid.Column="4" Text="{Binding Montant}" 
+                                   TextColor="{StaticResource Secondary}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
 
 
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </ContentView>
+
+
+
+            <ContentView Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="5"   x:Name="windowAjout" Margin="10,0,10,0">
+
+            </ContentView>
+
+            <Border Stroke="{StaticResource Secondary}" BackgroundColor="{StaticResource Yellow100Accent}" Margin="10,10,10,10" Padding="3" StrokeThickness="4" StrokeShape="RoundRectangle 45,5,5,45"  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="TOTAL" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" TextColor="{StaticResource Secondary}"  FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                    <Label Text="{Binding SelectedCompte.Solde}" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Center" TextColor="{StaticResource Secondary}"  FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                    <Label Text="€" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="End" Margin="0,0,50,0" TextColor="{StaticResource Secondary}"  FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"></Label>
+
+                </Grid>
+
+            </Border>
 
 
 
 
-
-    </Grid>
-
+        </Grid>
+    </Border>
 
 </ContentView>

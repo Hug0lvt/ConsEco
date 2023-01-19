@@ -155,14 +155,14 @@ namespace Data
             }
         }
 
-        public static async Task<List<Banque>> GetBanqueAsync(string id)
+        public static async Task<List<BanqueInscrit>> GetBanqueAsync(string id)
         {
             var dataBody = new Dictionary<string, string> { { "id", id } };
             HttpResponseMessage reponse = await cli.PostAsJsonAsync(POST_BANQUES_INSCRIT_DATA_URL, dataBody);
 
             if (reponse.IsSuccessStatusCode)
             {
-                return JsonConvert.DeserializeObject<List<Banque>>(await reponse.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<List<BanqueInscrit>>(await reponse.Content.ReadAsStringAsync());
             }
             else
             {
@@ -290,7 +290,7 @@ namespace Data
             var dataBody = new Dictionary<string, string>
             {
                 { "compte", compte.Identifiant },
-                { "nom", operation.IntituleOperation },
+                { "nom", operation.Nom },
                 { "montant", operation.Montant.ToString() },
                 { "dateO", operation.DateOperation.ToString() },
                 { "methodePayement", operation.ModePayement.ToString() },
@@ -357,7 +357,7 @@ namespace Data
             var dataBody = new Dictionary<string, string>
             {
                 { "compte", compte.Identifiant },
-                { "nom", planification.IntituleOperation },
+                { "nom", planification.Nom },
                 { "montant", planification.Montant.ToString() },
                 { "dateO", planification.DateOperation.ToString() },
                 { "methodePayement", planification.ModePayement.ToString() },
@@ -423,7 +423,7 @@ namespace Data
             var dataBody = new Dictionary<string, string>
             {
                 { "compte", compte.Identifiant },
-                { "nom", echeance.IntituleOperation },
+                { "nom", echeance.Nom },
                 { "montant", echeance.Montant.ToString() },
                 { "dateO", echeance.DateOperation.ToString() },
                 { "methodePayement", echeance.ModePayement.ToString() },

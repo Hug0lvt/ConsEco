@@ -11,7 +11,7 @@ public partial class GestionBanques : ContentPage
 	{
 		InitializeComponent();
 		BindingContext= Mgr;
-        Mgr.LoadBanques();
+        Mgr.LoadBanque();
         if (OperatingSystem.IsIOS())
         {
             boutonRetour.IsVisible = true;

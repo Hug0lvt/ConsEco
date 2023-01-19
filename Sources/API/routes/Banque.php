@@ -45,7 +45,7 @@ $app->get('/Banque/', function(Request $request, Response $response){
 
 $app->post('/Banque/FromId/', function(Request $request, Response $response,array $args){
     $id = $request->getParsedBody()["id"];
-    $query = 'SELECT * FROM Banque WHERE nom IN (SELECT nomBanque FROM InscrBanque WHERE idInscrit=:id)';
+    $query = 'SELECT id, nomBanque FROM InscrBanque WHERE idInscrit=:id';
 
     try{
         $db = new Database();

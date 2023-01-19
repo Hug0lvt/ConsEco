@@ -26,7 +26,10 @@ namespace IHM.Mobile
                     if (Mgr.CompareHash(await Mgr.getPassword(EntryMail.Text), EntryPassworld.Text))
                     {
                         Mgr.createUser(EntryMail.Text);
+                        
                         await Navigation.PopModalAsync();
+                        Mgr.LoadAll();
+                        
                     }
                     else
                     {

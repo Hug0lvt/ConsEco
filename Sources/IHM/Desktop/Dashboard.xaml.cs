@@ -1,31 +1,38 @@
 using Microsoft.Maui.Graphics.Text;
+using Model;
 
 namespace IHM.Desktop;
 
 public partial class Dashboard 
 {
+    public Manager Mgr => (App.Current as App).Manager;
 
     public Dashboard()
 	{
 		InitializeComponent();
 
-	}
+        BindingContext = Mgr.User;
+        
+
+    }
 
 	private void RetourFormeBase()
 	{
-		ButPla.BackgroundColor = Color.FromArgb("F7B548"); ButPla.TextColor = Colors.Black;
-        ButEch.BackgroundColor = Color.FromArgb("F7B548"); ButEch.TextColor = Colors.Black;
-        ButOpe.BackgroundColor = Color.FromArgb("F7B548"); ButOpe.TextColor = Colors.Black;
-        ButCom.BackgroundColor = Color.FromArgb("F7B548"); ButCom.TextColor = Colors.Black;
-        ButAcc.BackgroundColor = Color.FromArgb("F7B548"); ButAcc.TextColor = Colors.Black;
-        ButSta.BackgroundColor = Color.FromArgb("F7B548"); ButSta.TextColor = Colors.Black;
+		ButPla.BackgroundColor = Color.FromArgb("E1E1E1"); ButPla.TextColor = Colors.Black;
+        ButEch.BackgroundColor = Color.FromArgb("E1E1E1"); ButEch.TextColor = Colors.Black;
+        ButOpe.BackgroundColor = Color.FromArgb("E1E1E1"); ButOpe.TextColor = Colors.Black;
+        ButCom.BackgroundColor = Color.FromArgb("E1E1E1"); ButCom.TextColor = Colors.Black;
+        ButAcc.BackgroundColor = Color.FromArgb("E1E1E1"); ButAcc.TextColor = Colors.Black;
+        ButSta.BackgroundColor = Color.FromArgb("E1E1E1"); ButSta.TextColor = Colors.Black;
+        
+       
     }
 
     private void Button_planification(object sender, EventArgs e)
 	{
         RetourFormeBase();
 		ButPla.TextColor = Colors.White;
-        ButPla.BackgroundColor = Color.FromArgb("DF775C");
+        ButPla.BackgroundColor = Color.FromArgb("7FB196");
         mainCV.Content= new CV_Planification();
     }
 
@@ -33,7 +40,7 @@ public partial class Dashboard
 	{
         RetourFormeBase();
         ButEch.TextColor = Colors.White;
-        ButEch.BackgroundColor = Color.FromArgb("DF775C");
+        ButEch.BackgroundColor = Color.FromArgb("7FB196");
         mainCV.Content = new Echeancier();
     }
 
@@ -41,7 +48,7 @@ public partial class Dashboard
 	{
         RetourFormeBase();
         ButOpe.TextColor = Colors.White;
-        ButOpe.BackgroundColor = Color.FromArgb("DF775C");
+        ButOpe.BackgroundColor = Color.FromArgb("7FB196");
         mainCV.Content = new Operations();
     }
 
@@ -49,7 +56,7 @@ public partial class Dashboard
 	{
         RetourFormeBase();
         ButCom.TextColor = Colors.White;
-        ButCom.BackgroundColor = Color.FromArgb("DF775C");
+        ButCom.BackgroundColor = Color.FromArgb("7FB196");
         mainCV.Content = new Compte();
     }
 
@@ -57,7 +64,7 @@ public partial class Dashboard
 	{
         RetourFormeBase();
         ButSta.TextColor = Colors.White;
-        ButSta.BackgroundColor = Color.FromArgb("DF775C");
+        ButSta.BackgroundColor = Color.FromArgb("7FB196");
         mainCV.Content = new CV_Statistiques();
     }
 
@@ -65,7 +72,7 @@ public partial class Dashboard
     {
         RetourFormeBase();
         ButAcc.TextColor = Colors.White;
-        ButAcc.BackgroundColor = Color.FromArgb("DF775C");
+        ButAcc.BackgroundColor = Color.FromArgb("7FB196");
         mainCV.Content = new CV_HomePage();
     }
 
@@ -73,8 +80,9 @@ public partial class Dashboard
     {
         RetourFormeBase();
         ButLog.TextColor = Colors.White;
-        ButLog.BackgroundColor = Color.FromArgb("DF775C");
+        ButLog.BackgroundColor = Color.FromArgb("7FB196");
         mainCV.Content = new CV_Log();
-        
+
     }
+
 }
