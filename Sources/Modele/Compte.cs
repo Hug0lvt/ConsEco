@@ -24,7 +24,21 @@ namespace Model
         } 
         private IList<Operation> lesOpe = new List<Operation>();
         public IList<Planification> LesPla { get; set; } = new List<Planification>();
-        public IList<Echeance> LesEch { get; set; } = new List<Echeance>();
+
+        public IList<Echeance> LesEch
+        {
+            get => lesEch;
+            set
+            {
+                if (lesEch != value)
+                {
+                    lesEch = value;
+                    OnPropertyChanged(nameof(LesEch));
+                }
+            }
+        }
+        private IList<Echeance> lesEch = new List<Echeance>();
+        //public IList<Echeance> LesEch { get; set; } = new List<Echeance>();
 
         [JsonConstructor]
         public Compte(string id, string nom)

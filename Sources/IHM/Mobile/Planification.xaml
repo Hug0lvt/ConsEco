@@ -6,7 +6,7 @@
     <ScrollView>
         <VerticalStackLayout>
             <Label Text="Mes Echeances du mois :" FontAttributes="Bold" Margin="10,10,0,20" FontSize="20"/>
-            <CollectionView x:Name="Ech">
+            <CollectionView ItemsSource="{Binding SelectedCompte.LesEch}">
                 <!--User.LesBanques[0].ListeDesComptes[0].LesOpe}-->
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -26,13 +26,14 @@
                                Source="{Binding ImageSrc}"
                                CornerRadius="10"/>-->
                             <Label Grid.Row="0" Grid.Column="0"
-                               Text="{Binding IntituleOperation}"
+                               Text="{Binding Nom}"
                                FontAttributes="Bold"
                                FontSize="Body"
                                Margin="50,0,0,0"/>
                             <Label Grid.Row="1" Grid.Column="0"
-                               Text="{Binding DetailTypeOpe}"
-                               FontAttributes="Italic"/>
+                               Text="{Binding Tag}"
+                               FontAttributes="Italic"
+                               Margin="50,0,0,0"/>
                             <Label Grid.Row="0" Grid.Column="2"
                                Text="{Binding DateOperation}"/>
                             <Label Grid.Row="1" Grid.Column="2" 

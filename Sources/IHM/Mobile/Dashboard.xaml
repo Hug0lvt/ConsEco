@@ -6,8 +6,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*"/>
-            <RowDefinition Height="0.15*"/>
-            <RowDefinition Height="1.40*"/>
+                <RowDefinition Height="0.15*"/>
+                <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="1.30*"/>
             <RowDefinition Height="0.15*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -38,19 +39,23 @@
                      Clicked="Banques_Clicked"/>
 
 
+            <HorizontalStackLayout Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center" >
+                <Picker Title="Choisir une Banque" 
+                        ItemsSource="{Binding ListeDesBanques}"
+                        ItemDisplayBinding="{Binding Name}"
+                        Margin="0,0,30,0"/>
+                <Picker Title="Choisir un Compte" 
+                        ItemsSource="{Binding ListeDesComptes}"
+                        ItemDisplayBinding="{Binding Nom}"
+                        Margin="30,0,0,0"/>
+            </HorizontalStackLayout>
 
+            <Label Grid.Row="2" Grid.ColumnSpan="2" Text="Liste des Dernières Opérations : " FontAttributes="Bold" FontSize="Body" Padding="20,5,0,0"/>
 
-        <Label Grid.Row="1" Grid.ColumnSpan="2" Text="Liste des Dernières Opérations : " FontAttributes="Bold" FontSize="Body" Padding="20,5,0,0"/>
-
-
-
-
-
-                <CollectionView x:Name="DerniereOpe" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-                    <!--User.LesBanques[0].ListeDesComptes[0].LesOpe}-->
-                    <CollectionView.ItemTemplate>
+            <CollectionView ItemsSource="{Binding SelectedCompte.LesOpe}"  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+                <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Margin="0,7,0,7">
+                            <Grid Margin="0,7,0,7" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -66,19 +71,20 @@
                                Source="{Binding ImageSrc}"
                                CornerRadius="10"/>-->
                                 <Label Grid.Row="0" Grid.Column="0"
-                               Text="{Binding IntituleOperation}"
-                               FontAttributes="Bold"
-                               FontSize="Body"
-                               Margin="50,0,0,0"/>
+                                       Text="{Binding Nom}"
+                                       FontAttributes="Bold"
+                                       FontSize="Body"
+                                       Margin="50,0,0,0"/>
                                 <Label Grid.Row="1" Grid.Column="0"
-                               Text="{Binding DetailTypeOpe}"
-                               FontAttributes="Italic"/>
+                                       Text="{Binding Tag}"
+                                       Margin="50,0,0,0"
+                                       FontAttributes="Italic"/>
                                 <Label Grid.Row="0" Grid.Column="2"
-                               Text="{Binding DateOperation}"/>
+                                       Text="{Binding DateOperation}"/>
                                 <Label Grid.Row="1" Grid.Column="2" 
-                               Text="{Binding Montant}"
-                               FontAttributes="Bold"
-                                   TextColor="OrangeRed"/>
+                                       Text="{Binding Montant}"
+                                       FontAttributes="Bold"
+                                       TextColor="OrangeRed"/>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
@@ -90,10 +96,10 @@
             
 
 
-            <Label Grid.Row="3" Grid.ColumnSpan="2" Text="Liste des Comptes favoris :" FontAttributes="Bold" FontSize="Body" Padding="20,0,0,0"/>
+            <Label Grid.Row="4" Grid.ColumnSpan="2" Text="Liste des Banques favoris :" FontAttributes="Bold" FontSize="Body" Padding="20,0,0,0"/>
 
-            
-                <CollectionView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding User.LesBanques}">
+
+            <CollectionView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding ListeDesBanques}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -102,7 +108,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Label Grid.Column="0" Text="{Binding Nom}" 
+                            <Label Grid.Column="0" Text="{Binding Name}" 
                                FontAttributes="Bold" FontSize="Body" 
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
