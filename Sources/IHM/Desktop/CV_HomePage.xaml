@@ -7,7 +7,7 @@
     <Grid BackgroundColor="{StaticResource Tertiary}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*"/>
-            <RowDefinition Height="0.25"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
          
@@ -22,9 +22,7 @@
 
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
             
-            Text="Selection de banque"
-               FontSize="Large"
-               FontAttributes="Bold"
+            Text="BANQUE"
                VerticalOptions="Center"
                HorizontalOptions="Center"             
                Style="{StaticResource TitreWindows}"

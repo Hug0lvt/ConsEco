@@ -25,16 +25,16 @@
             </Grid.ColumnDefinitions>
 
 
-            <Label Text="Retirer une opération" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource TitreWindows}"/>
+        <Label Text="Retirer une opération" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource TitreWindows}"   VerticalOptions="Center"/>
 
 
 
-            <Label Text="Selectionner l'opération" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3" Style="{StaticResource TitreWindows}" Margin="20"/>
-            <inputs:SfComboBox HeightRequest="50" ItemsSource="{Binding }" DisplayMemberPath="Name" Grid.Column="3" Grid.Row="3"/>
+            <Label Text="Selectionner l'opération" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3" Style="{StaticResource TitreWindows}" VerticalOptions="Center"/>
+           
+        <inputs:SfComboBox HeightRequest="50" ItemsSource="{Binding SelectedCompte.LesOpe}" Grid.Column="3" Grid.Row="3" x:Name="recup"/>
 
-
-            <Button Text="ANNULER" Clicked="Button_Clicked"  Grid.Column="1" Grid.Row="6" Style="{StaticResource WindowsButton}"/>
-            <Button Text="VALIDER" Clicked="Button_Clicked_1"  Grid.Column="3" Grid.Row="6" Style="{StaticResource WindowsButton}"/>
+        <Button Text="ANNULER" Clicked="Button_Annuler"  Grid.Column="1" Grid.Row="5" Style="{StaticResource WindowsButton2}"/>
+            <Button Text="VALIDER" Clicked="Button_Valider"  Grid.Column="3" Grid.Row="5" Style="{StaticResource WindowsButton}"/>
 
         </Grid>
 

@@ -250,6 +250,46 @@ namespace Model
         {
             User = await Pers.RecupererInscrit(mail);
         }
+
+
+
+        // Intégralité des méthodes (Débit, Crédit, planification echeance)
+
+
+        //Operation
+        public void effectuerOperation(Compte compte, Operation operation)
+        {
+            Pers.AjouterOperation(compte, operation);
+        }
+
+        public void supprimerOperation(Compte compte, Operation operation)
+        {
+            Pers.SupprimerOperation(compte, operation);
+        }
+
+        //Echeance
+        public void supprimerEcheance(Compte compte, Echeance echeance)
+        {
+            Pers.SupprimerEcheance(compte, echeance);
+        }
+
+        public void ajouterEcheance(Compte compte, Echeance echeance)
+        {
+            Pers.AjouterEcheance(compte, echeance);
+        }
+
+
+        // Planification
+        public void ajouterPlanification(Compte compte, Planification planification)
+        {
+            Pers.AjouterPlanification(compte, planification);
+        }
+
+        public void supprimerPlanification(Compte compte, Planification planification)
+        {
+            Pers.SupprimerPlanification(compte, planification);
+        }
+    
     }
 }
 

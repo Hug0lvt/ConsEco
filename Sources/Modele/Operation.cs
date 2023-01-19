@@ -55,5 +55,9 @@ namespace Model
         {
             return Nom + " " + DateOperation + " " + Montant + " " + ModePayement + " " + IsDebit + " " + FromBanque + " " + Tag;
         }
+
+
+
+
     }
 }
