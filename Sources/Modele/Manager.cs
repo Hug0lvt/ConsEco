@@ -196,6 +196,8 @@ namespace Model
 
         // Intégralité des méthodes (Débit, Crédit, planification echeance)
 
+
+        //Operation
         public void effectuerOperation(Compte compte, Operation operation)
         {
             Pers.AjouterOperation(compte, operation);
@@ -204,6 +206,17 @@ namespace Model
         public void supprimerOperation(Compte compte, Operation operation)
         {
             Pers.SupprimerOperation(compte, operation);
+        }
+
+        //Echeance
+        public void supprimerEcheance(Compte compte, Echeance echeance)
+        {
+            Pers.SupprimerEcheance(compte, echeance);
+        }
+
+        public void ajouterEcheance(Compte compte, Echeance echeance)
+        {
+            Pers.AjouterEcheance(compte, echeance);
         }
     
     }
