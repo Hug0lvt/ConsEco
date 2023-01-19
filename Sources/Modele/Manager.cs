@@ -26,7 +26,8 @@ namespace Model
                 {
                     user = value;
                     OnPropertyChanged(nameof(User));
-                    LoadBanque();
+                    //LoadBanque();
+                    LoadAll();
                 }
             }
         }
@@ -41,6 +42,7 @@ namespace Model
                 {
                     selectedBanque = value;
                     OnPropertyChanged(nameof(SelectedBanque));
+                    //LoadCompte();
                 }
             }
         }
@@ -76,30 +78,68 @@ namespace Model
         private Compte selectedCompte;
 
 
+        public IList<BanqueInscrit> ListeDesBanques
+        {
+            get => listeDesBanques;
+            set
+            {
+                if (listeDesBanques != value)
+                {
+                    listeDesBanques = value;
+                    OnPropertyChanged(nameof(ListeDesBanques));
+                }
+            }
+        }
+            
         private IList<BanqueInscrit> listeDesBanques = new List<BanqueInscrit>();
-        public ReadOnlyCollection<BanqueInscrit> AllBanque { get; private set; }
 
+        //private IList<BanqueInscrit> listeDesBanques = new List<BanqueInscrit>();
+        /*public ReadOnlyCollection<BanqueInscrit> AllBanque
+        {
+            get => allBanque;
+            set
+            {
+                if (allBanque != value)
+                {
+                    allBanque = value;
+                    OnPropertyChanged(nameof(AllBanque));
+                }
+            }
+        }
+        private ReadOnlyCollection<BanqueInscrit> allBanque;*/
 
+        public List<Compte> ListeDesComptes
+        {
+            get => listeDesComptes;
+            set
+            {
+                if (listeDesComptes != value)
+                {
+                    listeDesComptes = value;
+                    OnPropertyChanged(nameof(ListeDesComptes));
+                }
+            }
+        }
         private List<Compte> listeDesComptes = new List<Compte>();
         
-        public ReadOnlyCollection<Compte> AllCompte { get; private set; }
+        //public ReadOnlyCollection<Compte> AllCompte { get; private set; }
 
 
         public Manager(IPersistanceManager persistance)
         {
-            AllBanque = new ReadOnlyCollection<BanqueInscrit>(listeDesBanques);
-            AllCompte = new ReadOnlyCollection<Compte>(listeDesComptes);
+            //AllBanque = new ReadOnlyCollection<BanqueInscrit>(listeDesBanques);
+            //AllCompte = new ReadOnlyCollection<Compte>(listeDesComptes);
             Pers = persistance;
         }
 
-
+        
 
         
 
         public async void LoadCompte()
         {
             
-            listeDesComptes.Clear();
+            ListeDesComptes.Clear();
 
             if(SelectedBanque == null)
             {
@@ -109,8 +149,8 @@ namespace Model
             try
             {
                 IList<Compte> comptes = await Pers.RecupererCompte(SelectedBanque);  
-                listeDesComptes.AddRange(comptes);
-                foreach (Compte compte in listeDesComptes)
+                ListeDesComptes.AddRange(comptes);
+                foreach (Compte compte in ListeDesComptes)
                 {
                     
                     compte.LesPla = await Pers.RecupererPlanification(compte);
@@ -119,12 +159,9 @@ namespace Model
 
                 }
 
-                if (listeDesComptes.Count > 0)
-                {
-                    selectedCompte = listeDesComptes.First();
-                }
+                
 
-                SelectedCompte = listeDesComptes.FirstOrDefault();
+                SelectedCompte = ListeDesComptes.FirstOrDefault();
             }
             catch(Exception exception)
             {
@@ -137,15 +174,38 @@ namespace Model
         {
             try
             {
-                listeDesBanques = await Pers.RecupererBanques(User);
-                SelectedBanque = listeDesBanques.FirstOrDefault();
-
+                ListeDesBanques = await Pers.RecupererBanques(User);
+                SelectedBanque = ListeDesBanques.FirstOrDefault();
+                
             }
             catch (Exception exception)
             {
                 Debug.WriteLine(exception.Message);
             }
           
+        }
+
+        public async void LoadAll()
+        {
+            try
+            {
+                ListeDesBanques = await Pers.RecupererBanques(User);
+                ListeDesComptes.AddRange(await Pers.RecupererCompte(ListeDesBanques.FirstOrDefault()));
+                foreach (Compte compte in ListeDesComptes)
+                {
+
+                    compte.LesPla = await Pers.RecupererPlanification(compte);
+                    compte.LesOpe = await Pers.RecupererOperation(compte);
+                    compte.LesEch = await Pers.RecupererEcheance(compte);
+
+                }
+                SelectedBanque = ListeDesBanques.FirstOrDefault();
+                SelectedCompte = ListeDesComptes.FirstOrDefault();
+            }
+            catch (Exception exception)
+            {
+                Debug.WriteLine(exception.Message);
+            }
         }
 
         public async void LoadBanqueDispo()

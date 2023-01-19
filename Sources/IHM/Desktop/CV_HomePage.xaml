@@ -7,11 +7,15 @@
     <Grid BackgroundColor="{StaticResource Tertiary}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.1*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-         
-        </Grid.RowDefinitions>
+
+
+
+            </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             
@@ -28,10 +32,28 @@
                Style="{StaticResource TitreWindows}"
                />
 
+            <HorizontalStackLayout Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center" >
+                <Picker Title="Choisir une Banque"
+                        TitleColor="Black"
+                        TextColor="Black"
+                        ItemsSource="{Binding ListeDesBanques}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding SelectedBanque}"
+                        Margin="0,0,30,0"/>
+                <Picker Title="Choisir un Compte" 
+                        ItemsSource="{Binding ListeDesComptes}"
+                        ItemDisplayBinding="{Binding Nom}"
+                        SelectedItem="{Binding SelectedCompte}"
+                        Margin="30,0,0,0"/>
+            </HorizontalStackLayout>
 
-
-        <ContentView Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" >
-                <CollectionView Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" ItemsSource="{Binding AllBanque}" >
+            <Label  Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" 
+                    HorizontalOptions="Center" 
+                    Text="Réactualiser mes banques :"
+                    FontSize="20"
+                    TextColor="Black"/>
+            <ContentView Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" >
+                <CollectionView Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" ItemsSource="{Binding ListeDesBanques}" >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -43,10 +65,11 @@
                             </Grid.ColumnDefinitions>
 
 
-                            <Label Grid.Column="0" Text="{Binding Nom}" 
+                            <Label Grid.Column="0" Text="{Binding Name}" 
                                FontAttributes="Bold" FontSize="Body" 
                                HorizontalOptions="Center"
-                               VerticalOptions="Center"/>
+                               VerticalOptions="Center"
+                               TextColor="Black"/>
                             
                             <ImageButton Grid.Column="2" Source="reload_banks.png" 
                              Padding="10" Margin="5"
@@ -62,6 +85,69 @@
             </CollectionView>
         </ContentView>
 
-    </Grid>
+        <Label  Grid.Row="4" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" 
+                    HorizontalOptions="Center" 
+                    Text="Ajouter une banque :"
+                    FontSize="20"
+                    TextColor="Black"/>
+
+            <ScrollView Grid.Row="5" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Scale="0.8">
+                <VerticalStackLayout>
+
+                    <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" 
+                BackgroundColor="{StaticResource Tertiary}" 
+                StrokeShape="RoundRectangle 20" Margin="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.75*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0" Text="Importer depuis un fichier" TextColor="Black"
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                            <ImageButton Grid.Column="2" Source="import_from_file.png"
+                             Padding="10" Margin="5"
+                             CornerRadius="10" HeightRequest="65" 
+                             BackgroundColor="{StaticResource Primary}"
+                             Clicked="ImportOFX_Clicked"/>
+
+                        </Grid>
+                    </Border>
+
+                    <CollectionView ItemsSource="{Binding BanquesDisponibleInApp}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.75*"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Text="{Binding Nom}" 
+                               FontAttributes="Bold" FontSize="Body" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                                           TextColor="Black"/>
+                                    <ImageButton Grid.Column="2" Source="add_new_banks.png"
+                             Padding="10" Margin="5"
+                             CornerRadius="10" HeightRequest="65" 
+                             BackgroundColor="{StaticResource Primary}"
+                             Clicked="AddBanque_Clicked"/>
+
+                                </Grid>
+
+
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </VerticalStackLayout>
+            </ScrollView>
+        
+
+        </Grid>
     </Border>
 </ContentView>

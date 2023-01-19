@@ -32,8 +32,7 @@
 
         <Label Grid.Row="1" Grid.ColumnSpan="3" Text="Liste de vos banques : " FontAttributes="Bold" FontSize="Body" Padding="20,10,0,0"/>
 
-        <ScrollView>
-        <CollectionView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding User.LesBanques}">
+        <CollectionView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding ListeDesBanques}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -42,7 +41,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <Label Grid.Column="0" Text="{Binding Nom}" 
+                        <Label Grid.Column="0" Text="{Binding Name}" 
                                FontAttributes="Bold" FontSize="Body" 
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
@@ -52,13 +51,12 @@
                              BackgroundColor="{StaticResource Primary}"/>
 
                     </Grid>
-                    
-                    
-                    
+
+
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-            </ScrollView>
 
 
     </Grid>
