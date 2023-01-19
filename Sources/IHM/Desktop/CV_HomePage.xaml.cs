@@ -11,10 +11,20 @@ public partial class CV_HomePage : ContentView
         
         Mgr.LoadBanque();
         Mgr.LoadCompte();
-
+        Mgr.LoadBanqueDispo();
         BindingContext = Mgr;
 
        
       
+    }
+
+    private void ImportOFX_Clicked(object sender, EventArgs e)
+    {
+
+    }
+
+    private void AddBanque_Clicked(object sender, EventArgs e)
+    {
+
     }
 }

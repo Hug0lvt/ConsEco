@@ -27,6 +27,7 @@ public partial class MainPage : ContentPage
                     Mgr.createUser(EntryMail.Text);
 
                     await Navigation.PushAsync(new Dashboard());
+                    //Mgr.LoadAll();
                 }
                 else
                 {

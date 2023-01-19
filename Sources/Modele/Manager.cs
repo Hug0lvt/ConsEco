@@ -27,6 +27,7 @@ namespace Model
                     user = value;
                     OnPropertyChanged(nameof(User));
                     //LoadBanque();
+                    LoadAll();
                 }
             }
         }
@@ -41,7 +42,7 @@ namespace Model
                 {
                     selectedBanque = value;
                     OnPropertyChanged(nameof(SelectedBanque));
-                    LoadCompte();
+                    //LoadCompte();
                 }
             }
         }
