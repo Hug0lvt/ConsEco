@@ -69,7 +69,7 @@ CREATE TABLE Echeancier
     methodePayement varchar(20),
     isDebit boolean,
     tag varchar(30),
-    CONSTRAINT ck_methEch CHECK (methodePayement IN ('Cb','Esp','Chq','Vir','Pre', 'None')),
+    CONSTRAINT ck_methEch CHECK (methodePayement IN ('None','CB','Espece','Cheque','Virement', 'Prevelement')),
     CONSTRAINT ck_tagEch CHECK (tag IN ('Alimentaire','Carburant','Habitation','Energie','Telephonie','Loisir','Restauration','Divers','Transport','Transaction','Santé')),
     FOREIGN KEY(compte) REFERENCES Compte(id)
 );
@@ -85,7 +85,7 @@ CREATE TABLE Operation
     isDebit boolean,
     fromBanque boolean,
     tag varchar(30),
-    CONSTRAINT ck_methOpe CHECK (methodePayement IN ('Cb','Esp','Chq','Vir','Pre', 'None')),
+    CONSTRAINT ck_methOpe CHECK (methodePayement IN ('None','CB','Espece','Cheque','Virement', 'Prevelement')),
     CONSTRAINT ck_tagOpe CHECK (tag IN ('Alimentaire','Carburant','Habitation','Energie','Telephonie','Loisir','Restauration','Divers','Transport','Transaction','Santé')),
     FOREIGN KEY(compte) REFERENCES Compte(id)
 );
@@ -100,7 +100,7 @@ CREATE TABLE Planification
     methodePayement varchar(20),
     isDebit boolean,
     tag varchar(30),
-    CONSTRAINT ck_methPla CHECK (methodePayement IN ('Cb','Esp','Chq','Vir','Pre', 'None')),
+    CONSTRAINT ck_methPla CHECK (methodePayement IN ('None','CB','Espece','Cheque','Virement', 'Prevelement')),
     CONSTRAINT ck_tagPla CHECK (tag IN ('Alimentaire','Carburant','Habitation','Energie','Telephonie','Loisir','Restauration','Divers','Transport','Transaction','Santé')),
     FOREIGN KEY(compte) REFERENCES Compte(id)
 );

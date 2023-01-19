@@ -24,12 +24,12 @@ namespace Model
         public TagOperation Tag { get; private set; }
 
         [JsonConstructor]
-        public Planification(string nom, double montant, DateTime dateOperation, MethodePayement modePayement, TagOperation tag, bool isDebit = true)
+        public Planification(string nom, double montant, DateTime dateOperation, MethodePayement methodePayement, TagOperation tag, bool isDebit = true)
         {
             Nom = nom;
             Montant = montant;
             DateOperation = dateOperation;
-            ModePayement = modePayement;
+            ModePayement = methodePayement;
             IsDebit = isDebit;
             Tag = tag;
         }
