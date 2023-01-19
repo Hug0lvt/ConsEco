@@ -191,6 +191,21 @@ namespace Model
         {
             User = await Pers.RecupererInscrit(mail);
         }
+
+
+
+        // Intégralité des méthodes (Débit, Crédit, planification echeance)
+
+        public void effectuerOperation(Compte compte, Operation operation)
+        {
+            Pers.AjouterOperation(compte, operation);
+        }
+
+        public void supprimerOperation(Compte compte, Operation operation)
+        {
+            Pers.SupprimerOperation(compte, operation);
+        }
+    
     }
 }
 

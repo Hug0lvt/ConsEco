@@ -13,6 +13,7 @@
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -27,16 +28,18 @@
             <Label Text="Nom" Grid.Column="1" Grid.Row="2" Style="{StaticResource TitreWindows}" Margin="20"/>
             <Label Text="Montant" Grid.Column="1" Grid.Row="3" Style="{StaticResource TitreWindows}" Margin="20"/>
             <Label Text="Type" Grid.Column="1" Grid.Row="4" Style="{StaticResource TitreWindows}" Margin="20"/>
-            <Label Text="Date" Grid.Column="1" Grid.Row="5" Style="{StaticResource TitreWindows}" Margin="20"/>
+            <Label Text="Tag" Grid.Column="1" Grid.Row="5" Style="{StaticResource TitreWindows}" Margin="20"/>
+            <Label Text="Date" Grid.Column="1" Grid.Row="6" Style="{StaticResource TitreWindows}" Margin="20"/>
 
 
-            <Entry Placeholder="Entrez un nom" Grid.Column="3" Grid.Row="2" Style="{StaticResource zoneDeTexte}" Margin="20"/>
-            <Entry Placeholder="Entrez un montant" Grid.Column="3" Grid.Row="3" Style="{StaticResource zoneDeTexte}" Margin="20"/>
-            <Entry Placeholder="Entrez un type de transaction" Grid.Column="3" Grid.Row="4" Style="{StaticResource zoneDeTexte}" Margin="20"/>
-            <DatePicker  Grid.Column="3" Grid.Row="5" BackgroundColor="{StaticResource Secondary}" Margin="20"/>
+            <Entry Placeholder="Entrez un nom" Grid.Column="3" Grid.Row="2" Style="{StaticResource zoneDeTexte}" Margin="20" x:Name="name" IsTextPredictionEnabled="True"/>
+            <Entry Placeholder="Entrez un montant" Grid.Column="3" Grid.Row="3" Style="{StaticResource zoneDeTexte}" Margin="20"  x:Name="montant"/>
+            <Entry Placeholder="Entrez un moyen de paiement" Grid.Column="3" Grid.Row="4" Style="{StaticResource zoneDeTexte}" Margin="20"  x:Name="type"/>
+            <Entry Placeholder="Entrez une catégorie" Grid.Column="3" Grid.Row="5" Style="{StaticResource zoneDeTexte}" Margin="20"  x:Name="tag"/>
+            <DatePicker  Grid.Column="3" Grid.Row="6" BackgroundColor="{StaticResource Secondary}" Margin="20"  x:Name="date"/>
 
-            <Button Text="ANNULER" Clicked="Button_Annuler"  Grid.Column="1" Grid.Row="6" Style="{StaticResource WindowsButton}"/>
-            <Button Text="VALIDER" Clicked="Button_Valider"  Grid.Column="3" Grid.Row="6" Style="{StaticResource WindowsButton}"/>
+        <Button Text="ANNULER" Clicked="Button_Annuler"  Grid.Column="1" Grid.Row="7" Style="{StaticResource WindowsButton}"/>
+            <Button Text="VALIDER" Clicked="Button_Valider"  Grid.Column="3" Grid.Row="7" Style="{StaticResource WindowsButton}"/>
 
         </Grid>
    
