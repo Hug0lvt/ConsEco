@@ -12,10 +12,7 @@ public partial class DashBoard : ContentPage
     {
         InitializeComponent();
         Mgr.LoadBanque();
-        if (Mgr.SelectedBanque != null)
-        {
-            Mgr.LoadCompte();
-        }
+        
         BindingContext = Mgr;
 
         if (Mgr.User == null)

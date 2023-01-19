@@ -43,10 +43,12 @@
                 <Picker Title="Choisir une Banque" 
                         ItemsSource="{Binding ListeDesBanques}"
                         ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding SelectedBanque}"
                         Margin="0,0,30,0"/>
                 <Picker Title="Choisir un Compte" 
                         ItemsSource="{Binding ListeDesComptes}"
                         ItemDisplayBinding="{Binding Nom}"
+                        SelectedItem="{Binding SelectedCompte}"
                         Margin="30,0,0,0"/>
             </HorizontalStackLayout>
 

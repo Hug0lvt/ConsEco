@@ -26,7 +26,7 @@ namespace Model
                 {
                     user = value;
                     OnPropertyChanged(nameof(User));
-                    LoadBanque();
+                    //LoadBanque();
                 }
             }
         }
@@ -182,6 +182,29 @@ namespace Model
                 Debug.WriteLine(exception.Message);
             }
           
+        }
+
+        public async void LoadAll()
+        {
+            try
+            {
+                ListeDesBanques = await Pers.RecupererBanques(User);
+                ListeDesComptes.AddRange(await Pers.RecupererCompte(ListeDesBanques.FirstOrDefault()));
+                foreach (Compte compte in ListeDesComptes)
+                {
+
+                    compte.LesPla = await Pers.RecupererPlanification(compte);
+                    compte.LesOpe = await Pers.RecupererOperation(compte);
+                    compte.LesEch = await Pers.RecupererEcheance(compte);
+
+                }
+                SelectedBanque = ListeDesBanques.FirstOrDefault();
+                SelectedCompte = ListeDesComptes.FirstOrDefault();
+            }
+            catch (Exception exception)
+            {
+                Debug.WriteLine(exception.Message);
+            }
         }
 
         public async void LoadBanqueDispo()
