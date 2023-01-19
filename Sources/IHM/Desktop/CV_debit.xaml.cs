@@ -16,8 +16,8 @@ public partial class CV_debit : ContentView
 
 	private void Button_Annuler(object sender, EventArgs e)
 	{
-
-	}
+        Navigation.PushAsync(new Dashboard());
+    }
 
 	private void Button_Valider(object sender, EventArgs e)
 	{
@@ -51,5 +51,6 @@ public partial class CV_debit : ContentView
 
         Operation operation = new Operation(nom, Montant, Date, mp2, to2, false, true);
         Mgr.effectuerOperation(Mgr.SelectedCompte, operation);
+        Navigation.PushAsync(new Dashboard());
     }
 }

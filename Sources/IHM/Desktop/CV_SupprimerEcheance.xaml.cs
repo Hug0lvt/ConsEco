@@ -20,14 +20,15 @@ public partial class CV_SupprimerEcheance : ContentView
 
 	private void Button_Annuler(object sender, EventArgs e)
 	{
-
-	}
+        Navigation.PushAsync(new Dashboard());
+    }
 
 	private void Button_Valider(object sender, EventArgs e)
 	{
 		var s = recup.SelectedItem;
 		Echeance echeance = (Echeance)s;
 		Mgr.supprimerEcheance(Mgr.SelectedCompte, echeance);
-		
-	}
+        Navigation.PushAsync(new Dashboard());
+
+    }
 }

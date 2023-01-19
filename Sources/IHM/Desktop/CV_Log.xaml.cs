@@ -1,4 +1,6 @@
+
 using Model;
+
 
 namespace IHM.Desktop;
 
@@ -10,5 +12,10 @@ public partial class CV_Log : ContentView
 		InitializeComponent();
 
         BindingContext = Mgr.User;
+    }
+
+    private void Button_Quitter(object sender, EventArgs e)
+    {
+        Microsoft.Maui.Controls.Application.Current?.CloseWindow(Microsoft.Maui.Controls.Application.Current.MainPage.Window);
     }
 }

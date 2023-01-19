@@ -16,13 +16,14 @@ public partial class CV_supprimerOp : ContentView
 
 	private void Button_Annuler(object sender, EventArgs e)
 	{
-
-	}
+        Navigation.PushAsync(new Dashboard());
+    }
 
 	private void Button_Valider(object sender, EventArgs e)
 	{
         var s = recup.SelectedItem;
         Operation operation = (Operation)s;
         Mgr.supprimerOperation(Mgr.SelectedCompte,operation);
+        Navigation.PushAsync(new Dashboard());
     }
 }

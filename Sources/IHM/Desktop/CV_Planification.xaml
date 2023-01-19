@@ -11,7 +11,7 @@
                 <RowDefinition Height="0.75*"/>
                 <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="5*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.7*"/>
 
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -24,7 +24,8 @@
                      Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" 
                 Style="{StaticResource TitreWindows}"
                 Text="PLANIFICATION"
-                HorizontalOptions="Center"/>
+                HorizontalOptions="Center"
+                      VerticalOptions="Center"/>
          
 
             <Button
@@ -129,6 +130,19 @@
 
             </ContentView>
 
+            <Border Stroke="{StaticResource Secondary}" BackgroundColor="{StaticResource Yellow100Accent}" Margin="10,10,10,10" Padding="3" StrokeThickness="4" StrokeShape="RoundRectangle 45,5,5,45"  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="TOTAL" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" TextColor="{StaticResource Secondary}"  FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                    <Label Text="{Binding SelectedCompte.Solde}" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="Center" TextColor="{StaticResource Secondary}"  FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                    <Label Text="€" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="End" Margin="0,0,50,0" TextColor="{StaticResource Secondary}"  FontSize="Medium" FontAttributes="Bold" VerticalOptions="Center"></Label>
+
+                </Grid>
+
+            </Border>
 
 
 

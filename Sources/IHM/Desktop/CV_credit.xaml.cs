@@ -1,3 +1,4 @@
+
 using Model;
 
 namespace IHM.Desktop;
@@ -14,10 +15,11 @@ public partial class CV_credit : ContentView
         BindingContext = Mgr;
     }
 
-	private async void Button_Annuler(object sender, EventArgs e)
+	private void Button_Annuler(object sender, EventArgs e)
 	{
-		
-	}
+        Navigation.PushAsync(new Dashboard());
+
+    }
 
 	private void Button_Valider(object sender, EventArgs e)
 	{
@@ -51,6 +53,10 @@ public partial class CV_credit : ContentView
 
 		Operation operation = new Operation(nom, Montant, Date, mp2, to2, false, false) ;
 		Mgr.effectuerOperation(Mgr.SelectedCompte, operation);
+
+        Navigation.PushAsync(new Dashboard());
+	
+		
 
 
     }

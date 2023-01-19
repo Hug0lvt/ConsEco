@@ -218,6 +218,18 @@ namespace Model
         {
             Pers.AjouterEcheance(compte, echeance);
         }
+
+
+        // Planification
+        public void ajouterPlanification(Compte compte, Planification planification)
+        {
+            Pers.AjouterPlanification(compte, planification);
+        }
+
+        public void supprimerPlanification(Compte compte, Planification planification)
+        {
+            Pers.SupprimerPlanification(compte, planification);
+        }
     
     }
 }

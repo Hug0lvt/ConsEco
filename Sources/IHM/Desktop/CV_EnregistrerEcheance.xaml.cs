@@ -19,8 +19,8 @@ public partial class CV_EnregistrerEcheance : ContentView
 
 	private void Button_Annuler(object sender, EventArgs e)
 	{
-
-	}
+        Navigation.PushAsync(new Dashboard());
+    }
 
 	private void Button_Valider(object sender, EventArgs e)
 	{
@@ -30,6 +30,6 @@ public partial class CV_EnregistrerEcheance : ContentView
 
         Mgr.effectuerOperation(Mgr.SelectedCompte, operation);
         Mgr.supprimerEcheance(Mgr.SelectedCompte, ech);
-        Thread.Sleep(1000);
+        Navigation.PushAsync(new Dashboard());
     }
 }
