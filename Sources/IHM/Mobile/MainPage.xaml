@@ -24,7 +24,7 @@
                        TextColor="{StaticResource Black}" 
                        VerticalTextAlignment="Center" 
                        FontSize="15" 
-                       Placeholder="Addresse mail"
+                       Placeholder="Adresse mail"
                        x:Name="EntryMail"/>
             </Border>
 

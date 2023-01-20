@@ -25,7 +25,7 @@
 
             <Border Style="{StaticResource bordureBlanche}" Padding="7">
                 <Entry Style="{StaticResource zoneDeTexte}"
-                       Placeholder="Addresse mail"
+                       Placeholder="Adresse mail"
                        x:Name="EntryMail"/>
                 </Border>
 
