@@ -42,7 +42,7 @@
 
                     <ContentView  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2"   Margin="10">
 
-                        <CollectionView  ItemsSource="{Binding ListeDesComptes }"  Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2" >
+                        <CollectionView  ItemsSource="{Binding AllCompte }"  Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2" >
 
                             <CollectionView.ItemTemplate>
 

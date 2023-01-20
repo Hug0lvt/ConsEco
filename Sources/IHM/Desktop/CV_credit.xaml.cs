@@ -1,5 +1,6 @@
 
 using Model;
+using System.Globalization;
 
 namespace IHM.Desktop;
 
@@ -23,8 +24,13 @@ public partial class CV_credit : ContentView
 
 	private void Button_Valider(object sender, EventArgs e)
 	{
-		string nom = name.Text;
-		double Montant = Double.Parse(montant.Text);
+
+        NumberFormatInfo provider = new NumberFormatInfo();
+		provider.NumberDecimalSeparator = ".";
+
+
+        string nom = name.Text;
+		double Montant = Convert.ToDouble(montant.Text, provider); //Double.Parse(montant.Text);
 		string Type = type.Text;
 		string Tag = tag.Text;
 		DateTime Date = date.Date;
@@ -52,7 +58,7 @@ public partial class CV_credit : ContentView
 
 
 		Operation operation = new Operation(nom, Montant, Date, mp2, to2, false, false) ;
-		Mgr.effectuerOperation(Mgr.SelectedCompte, operation);
+		Mgr.Pers.AjouterOperation(Mgr.SelectedCompte, operation);
 
         Navigation.PushAsync(new Dashboard());
 	

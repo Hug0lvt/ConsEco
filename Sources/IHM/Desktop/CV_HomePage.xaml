@@ -41,7 +41,7 @@
                         SelectedItem="{Binding SelectedBanque}"
                         Margin="0,0,30,0"/>
                 <Picker Title="Choisir un Compte" 
-                        ItemsSource="{Binding ListeDesComptes}"
+                        ItemsSource="{Binding AllCompte}"
                         ItemDisplayBinding="{Binding Nom}"
                         SelectedItem="{Binding SelectedCompte}"
                         Margin="30,0,0,0"/>
